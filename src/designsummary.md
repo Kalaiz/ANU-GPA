@@ -5,7 +5,7 @@
 
 #### Implementation
 - Using ~~backtracking permutation algorithm OR heap's algorithm~~ to obtain the possible permutation.
-- Not gonna use those algos as the minimum complexity is O(N!)
+- Not gonna use those algos as the worst case complexity is O(N!)
 - going to use **"Integer partitioning"**.
 - Building the GPA calc is going to be straightforward:the calc will follow the ANU GPA system.
   [ANU GPA system](http://www.anu.edu.au/students/program-administration/assessments-exams/grade-point-average-gpa)

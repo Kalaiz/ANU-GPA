@@ -2,8 +2,8 @@
 # App - _Insert app name_
 
 ## Team structure and roles 
-+ Name1 u5953599
-+ Name2 u6555407  
++ Jared u5953599
++ Kalai u6555407  
 
 ## App Overview 
 
@@ -35,7 +35,7 @@ assignment is entirely my own work, with exceptions given below.
 _add references from where you obtained the idea form the app and ideas about aspects of the app_
 
 ### Code
-
+[PseudoCodes for Integer Partitioning](https://arxiv.org/pdf/0909.2331v2.pdf)
 _reference all the code or ideas for code from other sources_
 
 ### Assets 

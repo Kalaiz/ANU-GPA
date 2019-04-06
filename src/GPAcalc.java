@@ -1,3 +1,3 @@
 public interface GPAcalc {
-    public int GPAcalc(float[] data);
+    public int[] GPAcalc(float[] data);
 }

@@ -35,7 +35,7 @@ assignment is entirely my own work, with exceptions given below.
 _add references from where you obtained the idea form the app and ideas about aspects of the app_
 
 ### Code
-[PseudoCodes for Integer Partitioning](https://arxiv.org/pdf/0909.2331v2.pdf)
+[PseudoCodes for Integer Partitioning](Generating Partitions Research Paper.pdf)
 _reference all the code or ideas for code from other sources_
 
 ### Assets 

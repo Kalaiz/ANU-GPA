@@ -81,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-21" />
     <option name="y" value="183" />
     <option name="width" value="981" />
@@ -110,7 +110,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554558445747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554558768868" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../COMP1110/Homework" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>

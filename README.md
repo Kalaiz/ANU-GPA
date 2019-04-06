@@ -10,7 +10,7 @@
 _Add a paragraph the gives a summary of the app you implemented. Include a small screen shot here._
 
 ## Design Documentation 
-+ [Design Summary](designsummary)
++ [Design Summary](../src/designsummary.md)
 + [Testing Summary](testingsummary)
 
 ## Minuted Meetings

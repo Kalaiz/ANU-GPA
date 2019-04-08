@@ -7,11 +7,11 @@ public class Permutation extends  GPA {
     * 2)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
     * */
 
-   private int totalPointsReqd;
-   private int numOfcourses;
+    int totalPointsReqd;
+    int numOfCourses;
 
     List Permutation(){
-      numOfcourses= super.numOfTBTCourses;
+      numOfCourses= super.numOfTBTCourses;
       totalPointsReqd=super.totalPointsReqd;
       return getPermutation();
    }

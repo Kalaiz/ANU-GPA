@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Permutation extends  GPA {
     /*TODO:
     * 1)Set up Test Cases for the permutations
@@ -7,14 +10,15 @@ public class Permutation extends  GPA {
    private int totalPointsReqd;
    private int numOfcourses;
 
-    int[][] Permutation  (){
+    List Permutation(){
       numOfcourses= super.numOfTBTCourses;
       totalPointsReqd=super.totalPointsReqd;
       return getPermutation();
    }
 
-   public int[][] getPermutation(){
-       return new int[][]{{0},{0}};
+
+   public List getPermutation(){
+       return new ArrayList();
    }
 
 }

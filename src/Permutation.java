@@ -3,8 +3,7 @@ import java.util.List;
 
 public class Permutation extends  GPA {
     /*TODO:
-    * 1)Set up Test Cases for the permutations
-    * 2)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
+    *1)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
     * */
 
     int totalPointsReqd;
@@ -20,5 +19,10 @@ public class Permutation extends  GPA {
    public List getPermutation(){
        return new ArrayList();
    }
+
+
+
+
+
 
 }

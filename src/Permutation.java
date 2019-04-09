@@ -16,17 +16,22 @@ public class Permutation extends  GPA {
       return getPermutation();
    }
 
-
+    /**
+     * Obtains all valid permutation and returns it as an Arraylist
+     * with the help of Stacks
+     * @Return: An array list of all required permutation such that each permuatation is ordered as [HDs,Ds,CRs,Ps,F]
+     * */
    public List getPermutation(){
-       int sumOfStack=0;
+
        int points=0;
+       int sumOfStack=0;
        int[] trackers={0,0,0,0};
        Stack<Integer> stack=new Stack();
        ArrayList permutations=new ArrayList();
-       stack.addElement(trackers[0]);
+       stack.push(trackers[0]);
        while(!stack.empty()){
            if(stack.size()==4){
-               stack.addElement(numOfCourses-sumOfStack); //calculating remaining left over
+               stack.push(numOfCourses-sumOfStack); //calculating remaining left over
                if(totalPointsReqd==points){
                    permutations.add(stack.toArray()); //Converting  stack to array for the sake of the test , can be optimised later
                }
@@ -37,22 +42,18 @@ public class Permutation extends  GPA {
                if(val!=numOfCourses-sumOfStack+1){//+1 so to consider permutation which has zeros in it
                    points+=val*GRADEVALUES[stack.size()];//updating points in accordance
                    sumOfStack+=val;  //updating sumOfStack
-                   stack.addElement(val);
+                   stack.push(val);
                    trackers[stack.size()]++;
                }
                else{
                    trackers[stack.size()]=0;
-                   stack.pop();// or just remove if there's a function available
+                   points-=stack.pop()*GRADEVALUES[stack.size()-1];//updating points
                }
 
            }
        }
         return permutations;
    }
-
-
-
-
-
+   
 
 }

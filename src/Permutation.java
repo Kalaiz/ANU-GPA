@@ -19,7 +19,7 @@ public class Permutation extends  GPA {
     /**
      * Obtains all valid permutation and returns it as an Arraylist
      * with the help of Stacks
-     * @Return: An array list of all required permutation such that each permuatation is ordered as [HDs,Ds,CRs,Ps,F]
+     * @Return: An array list of all required permutation such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
      * */
    public List getPermutation(){
 
@@ -38,22 +38,27 @@ public class Permutation extends  GPA {
                sumOfStack-=stack.pop()-stack.pop();// 5th  & 4th element being removed from stack & subtracted at the same time
            }
            else{
-               int val=trackers[stack.size()];
-               if(val!=numOfCourses-sumOfStack+1){//+1 so to consider permutation which has zeros in it
-                   points+=val*GRADEVALUES[stack.size()];//updating points in accordance
+               int val=trackers[stack.size()-1];
+               if(val!=numOfCourses-sumOfStack){
+                   points+=val*GRADEVALUES[stack.size()-1];//updating points in accordance
                    sumOfStack+=val;  //updating sumOfStack
                    stack.push(val);
-                   trackers[stack.size()]++;
+                   trackers[stack.size()-1]++;
                }
                else{
-                   trackers[stack.size()]=0;
-                   points-=stack.pop()*GRADEVALUES[stack.size()-1];//updating points
+                   trackers[stack.size()-1]=0;
+                   if(stack.size()==1){
+                       stack.clear();
+                   }
+                   else {
+                       points -= stack.pop() * GRADEVALUES[stack.size() - 1];//updating points
+                   }
                }
 
            }
        }
         return permutations;
    }
-   
+
 
 }

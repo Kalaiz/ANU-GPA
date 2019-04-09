@@ -10,7 +10,7 @@ public class GPA {
      */
 
     int totalPointsReqd;
-    int gradeValues[] = {7,6,5,4,0};
+    final int  GRADEVALUES[] = {7,6,5,4,0};
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     //All instance variable below are required for totalPointsReqd
     int numOfTCourses;//num of courses Taken already
@@ -38,7 +38,7 @@ public class GPA {
     	float total = 0;
     	int tCourses = 0;
     	for (int x = 0; x < 5; x++) {
-    		total = total + (data[x]*gradeValues[x]);
+    		total = total + (data[x]*GRADEVALUES[x]);
     		//the below line may not be neccessary, was added to make sure 
     		//gpacalc worked without the balue numOfTCources. can be changed
     		tCourses = tCourses+ data[x];

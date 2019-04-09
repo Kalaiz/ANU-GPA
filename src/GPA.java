@@ -10,6 +10,7 @@ public class GPA {
      */
 
     int totalPointsReqd;
+    int gradeValues[] = {7,6,5,4,0};
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     //All instance variable below are required for totalPointsReqd
     int numOfTCourses;//num of courses Taken already
@@ -20,16 +21,29 @@ public class GPA {
 
     public void calculateTotalPoints(){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
-        totalPointsReqd=0;
+        int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
+        totalPointsReqd = (int)(estdGPA*(numOfTCourses+numOfTBTCourses)+0.5)-currentPoints;
+        
     }
 
 
     public GPA() {
         //default constructor
     }
+    
+    public static void main(String[] args) {
+	}
 
     public float gpaCalc(int[] data) {
-        return 0;
+    	float total = 0;
+    	int tCourses = 0;
+    	for (int x = 0; x < 5; x++) {
+    		total = total + (data[x]*gradeValues[x]);
+    		//the below line may not be neccessary, was added to make sure 
+    		//gpacalc worked without the balue numOfTCources. can be changed
+    		tCourses = tCourses+ data[x];
+    	}
+        return (total/tCourses);
     }
 
 

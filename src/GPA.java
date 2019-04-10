@@ -9,7 +9,7 @@ public class GPA {
      * 2)Implement gpaCalc
      */
 
-    final int gradeValues[] = {7,6,5,4,0};
+    final int GRADEVALUES[] = {7,6,5,4,0};
     //All instance variable below are required for totalPointsReqd
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     int numOfTCourses;//num of courses Taken already
@@ -27,11 +27,10 @@ public class GPA {
     	numOfTBTCourses = totalCourses - numOfTCourses;
     }
     public GPA(float gpa) {
-        //secondary constructor constructor
+        //secondary constructor
     	cgpa = gpa;
     }
-    
-    
+
     public void calculateTotalPoints(float wantedGPA){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
         int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
@@ -44,7 +43,7 @@ public class GPA {
     	float total = 0;
     	int tCourses = 0;
     	for (int x = 0; x < 5; x++) {
-    		total = total + (data[x]*gradeValues[x]);
+    		total = total + (data[x]*GRADEVALUES[x]);
     		tCourses = tCourses+ data[x];
     	}
         cgpa = total/tCourses;

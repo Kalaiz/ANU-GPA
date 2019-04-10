@@ -7,13 +7,14 @@ public class Permutation extends  GPA {
     *1)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
     * */
 
-    int totalPointsReqd;
+    int pointsNeeded;
     int numOfCourses;
 
-    List Permutation(){
+    Permutation(){
+        super((float)5.3);
       numOfCourses= super.numOfTBTCourses;
-      totalPointsReqd=super.totalPointsReqd;
-      return getPermutation();
+      pointsNeeded=super.pointsNeeded;
+
    }
 
     /**
@@ -22,7 +23,6 @@ public class Permutation extends  GPA {
      * @Return: An array list of all required permutation such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
      * */
    public List getPermutation(){
-
        int points=0;
        int sumOfStack=0;
        int[] trackers={0,0,0,0};
@@ -32,14 +32,14 @@ public class Permutation extends  GPA {
        while(!stack.empty()){
            if(stack.size()==4){
                stack.push(numOfCourses-sumOfStack); //calculating remaining left over
-               if(totalPointsReqd==points){
+               if(pointsNeeded==points){
                    permutations.add(stack.toArray()); //Converting  stack to array for the sake of the test , can be optimised later
                }
                sumOfStack-=stack.pop()-stack.pop();// 5th  & 4th element being removed from stack & subtracted at the same time
            }
            else{
                int val=trackers[stack.size()-1];
-               if(val!=numOfCourses-sumOfStack){
+               if(val!=numOfCourses-sumOfStack&& points<pointsNeeded){
                    points+=val*GRADEVALUES[stack.size()-1];//updating points in accordance
                    sumOfStack+=val;  //updating sumOfStack
                    stack.push(val);

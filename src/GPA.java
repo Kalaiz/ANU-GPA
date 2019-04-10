@@ -9,7 +9,7 @@ public class GPA {
      * 2)Implement gpaCalc
      */
 
-    int gradeValues[] = {7,6,5,4,0};
+    final int gradeValues[] = {7,6,5,4,0};
     //All instance variable below are required for totalPointsReqd
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     int numOfTCourses;//num of courses Taken already

@@ -9,13 +9,14 @@ public class PermutationTest {
 
     Permutation p=new Permutation();
 
+
+    /**
+     * A Brute force way of finding possible permutation given the totalpoints required- derived from factors like Estd GPA.
+     * @param: totalPointsReqd - the total number of points required to achieve the estd GPA
+     * @param: numOfCourses - the number of courses yet to be taken
+     * @Return: An arraylist which contains all the "Required" permutation;permutation in accordance to estd GPA.
+     */
     public List testPermutation(int totalPointsReqd, int numOfCourses){
-        /**
-         * A Brute force way of finding possible permutation given the totalpoints required- derived from factors like Estd GPA.
-         * @param: totalPointsReqd - the total number of points required to achieve the estd GPA
-         * @param: numOfCourses - the number of courses yet to be taken
-         * @Return: An arraylist which contains all the "Required" permutation;permutation in accordance to estd GPA.
-         * */
         ArrayList permutations=new ArrayList();
         for(int hd=0;hd<numOfCourses;hd++){
             for(int d=0;d<numOfCourses-hd;d++){
@@ -54,7 +55,7 @@ public class PermutationTest {
         p.numOfCourses=20;
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.totalPointsReqd,p.numOfCourses).toArray();
-        assertTrue("Unsatisfied condition for totalpointReqd: "+p.totalPointsReqd+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
+        assertTrue("Wrong result for totalpointReqd: "+p.totalPointsReqd+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
     }
 
 

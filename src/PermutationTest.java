@@ -33,29 +33,33 @@ public class PermutationTest {
 
     @Test
     public void baseCase() {
-        p.totalPointsReqd=0;
+        p.pointsNeeded=0;
         p.numOfCourses=0;
+        p.calculatePermutation();
         Object[] original=p.getPermutation().toArray();
+
         Object[] test=testPermutation(0,0).toArray();
-        assertTrue("Wrong result for totalpointReqd: "+p.totalPointsReqd+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
+        assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
     }
 
     @Test
     public void test2() {
-        p.totalPointsReqd=102;
+        p.pointsNeeded=102;
         p.numOfCourses=16;
+        p.calculatePermutation();
         Object[] original=p.getPermutation().toArray();
-        Object[] test=testPermutation(p.totalPointsReqd,p.numOfCourses).toArray();
-        assertTrue("Wrong result for totalpointReqd: "+p.totalPointsReqd+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
+        Object[] test=testPermutation(p.pointsNeeded,p.numOfCourses).toArray();
+        assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
     }
 
     @Test
     public void test3() {
-        p.totalPointsReqd=129;
+        p.pointsNeeded=129;
         p.numOfCourses=20;
+        p.calculatePermutation();
         Object[] original=p.getPermutation().toArray();
-        Object[] test=testPermutation(p.totalPointsReqd,p.numOfCourses).toArray();
-        assertTrue("Wrong result for totalpointReqd: "+p.totalPointsReqd+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
+        Object[] test=testPermutation(p.pointsNeeded,p.numOfCourses).toArray();
+        assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
     }
 
 

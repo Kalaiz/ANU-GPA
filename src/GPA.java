@@ -19,16 +19,24 @@ public class GPA {
     float gpaWanted;
     int pointsNeeded;
 
-    public GPA(int[] grades, int totalCourses) {
-        //default constructor
-    	gpaCalc(grades);
-    	//total courses is chosen for ease of use- more likely to know how 
-    	//many in total rather than whats left
-    	numOfTBTCourses = totalCourses - numOfTCourses;
+    public GPA(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted) {
+        //if cgpa is known
+    	this.numOfTCourses=numOfTCourses;
+    	this.numOfTBTCourses=numOfTBTCourses;
+    	this.cgpa=cgpa;
+    	calculateTotalPoints(gpaWanted);
     }
-    public GPA(float gpa) {
-        //secondary constructor
-    	cgpa = gpa;
+
+    public GPA(int[] grades,int numOfTBTCourses,float gpaWanted) {
+        //if cgpa is not known.
+        gpaCalc(grades);
+        this.numOfTBTCourses=numOfTBTCourses;
+        this.gpaWanted=gpaWanted;
+
+    }
+
+    GPA(){
+        //FOR TESTING PURPOSES
     }
 
     public void calculateTotalPoints(float wantedGPA){

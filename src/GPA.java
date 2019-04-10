@@ -26,9 +26,11 @@ public class GPA {
     	//many in total rather than whats left
     	numOfTBTCourses = totalCourses - numOfTCourses;
     }
-    public GPA(float gpa) {
+    public GPA(float gpa, int coursesDone, int totalCourses) {
         //secondary constructor constructor
     	cgpa = gpa;
+    	numOfTCourses = coursesDone;
+    	numOfTBTCourse = totalCourses;
     }
     
     

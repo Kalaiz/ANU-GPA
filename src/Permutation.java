@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Permutation extends  GPA {
+public class Permutation  {
     /*TODO:
     *1)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
     * */
-
+    final int[] GRADEVALUES={7,6,5,4,0};
     int totalPointsReqd;
     int numOfCourses;
 
-    List Permutation(){
-      numOfCourses= super.numOfTBTCourses;
-      totalPointsReqd=super.totalPointsReqd;
+    List Permutation(int numOfCourses,int totalPointsReqd){
+      this.numOfCourses= numOfCourses;
+      this.totalPointsReqd=totalPointsReqd;
       return getPermutation();
    }
 

@@ -18,11 +18,13 @@ public class PermutationTest {
      */
     public static List testPermutation(int totalPointsReqd, int numOfCourses){
         ArrayList permutations=new ArrayList();
+        int n=0;
         for(int hd=0;hd<numOfCourses;hd++){
             for(int d=0;d<numOfCourses-(hd-1);d++){
                 for(int cr=0;cr<numOfCourses-(d-1);cr++){
                     for(int p=0;p<totalPointsReqd-(cr-1);p++){
                         for(int f=0;f<totalPointsReqd-(p-1);f++) {
+                            n++;
                             if (totalPointsReqd - (hd * 7 + d * 6 + cr * 5 + p * 4) == 0 && numOfCourses == hd + d + cr + p + f){
                                 permutations.add(new Object[]{hd, d, cr, p, f});
                             }
@@ -31,6 +33,7 @@ public class PermutationTest {
                 }
             }
         }
+        System.out.println("Approx Number of checks of test method :" + n);
         return permutations;}
 
 

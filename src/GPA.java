@@ -24,7 +24,8 @@ public class GPA {
     	this.numOfTCourses=numOfTCourses;
     	this.numOfTBTCourses=numOfTBTCourses;
     	this.cgpa=cgpa;
-    	calculateTotalPoints(gpaWanted);
+    	this.gpaWanted=gpaWanted;
+    	calculateTotalPoints();
     }
 
     public GPA(int[] grades,int numOfTBTCourses,float gpaWanted) {
@@ -32,14 +33,15 @@ public class GPA {
         gpaCalc(grades);
         this.numOfTBTCourses=numOfTBTCourses;
         this.gpaWanted=gpaWanted;
+        calculateTotalPoints();
 
     }
 
-    public void calculateTotalPoints(float wantedGPA){
+    public void calculateTotalPoints(){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
+        float wantedGPA=gpaWanted;
         int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
         pointsNeeded = (int)(wantedGPA*(numOfTCourses+numOfTBTCourses)+0.5)-currentPoints;
-        gpaWanted = wantedGPA;
     }
 
     public void gpaCalc(int[] data) {

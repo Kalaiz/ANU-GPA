@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class PermutationTest {
 
-    Permutation p=new Permutation();
+    Permutation p=new Permutation(0,0);
 
 
     /**

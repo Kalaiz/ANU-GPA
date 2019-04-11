@@ -35,10 +35,6 @@ public class GPA {
 
     }
 
-    GPA(){
-        //FOR TESTING PURPOSES
-    }
-
     public void calculateTotalPoints(float wantedGPA){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
         int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
@@ -57,6 +53,7 @@ public class GPA {
         cgpa = total/tCourses;
         numOfTCourses = tCourses;
     }
+    GPA(){}
     
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later

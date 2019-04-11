@@ -14,20 +14,21 @@ public class Permutation extends GPA{
 
     Permutation(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted){
       super(cgpa,numOfTCourses,numOfTBTCourses,gpaWanted);
-      this.numOfCourses= super.numOfTBTCourses;
-      this.pointsNeeded=super.pointsNeeded;
-
+        numOfCourses= super.numOfTBTCourses;
+        pointsNeeded=super.pointsNeeded;
    }
 
-   Permutation(){
-    //FOR TESTING PURPOSES
-   }
 
-    Permutation(int[] grades,int numOfTBTCourses,float gpaWanted){
-        super(grades,numOfTBTCourses,gpaWanted);
-        this.numOfCourses= super.numOfTBTCourses;
-        this.pointsNeeded=super.pointsNeeded;
+
+    Permutation(int pointsNeeded,int numOfCourses){
+        super();//using default constructor
+        this.numOfCourses= numOfCourses;
+        this.pointsNeeded=pointsNeeded;
+        calculatePermutation();
+
     }
+
+
     /**
      * Obtains all valid permutation and returns it as an Arraylist
      * with the help of Stacks
@@ -85,9 +86,7 @@ public class Permutation extends GPA{
    }
 
     public static void main(String[] args) {
-        Permutation p=new Permutation();
-        p.pointsNeeded=102;
-        p.numOfCourses=16;
+        Permutation p=new Permutation(102,16);
         p.calculatePermutation();
         System.out.println(p.permutations.size());
         /*for(Object t : p.permutations){

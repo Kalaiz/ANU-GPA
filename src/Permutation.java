@@ -58,8 +58,8 @@ public class Permutation extends GPA{
                 n++;
                 if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
                     sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
-                    points+=val*GRADEVALUES[stack.size()];
-                    ++trackers[stack.size()];
+                    points+=val*GRADEVALUES[size];
+                    ++trackers[size];
                     stack.push(val);
                 }
                 else {

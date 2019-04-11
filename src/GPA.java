@@ -10,7 +10,7 @@ public class GPA {
      */
 
     final int GRADEVALUES[] = {7,6,5,4,0};
-    //All instance variable below are required for totalPointsReqd
+    //All instance variable below are required for pointsNeeded
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     int numOfTCourses;//num of courses Taken already
     float cgpa;//Current GPA
@@ -21,11 +21,11 @@ public class GPA {
 
     public GPA(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted) {
         //if cgpa is known
-    	this.numOfTCourses=numOfTCourses;
-    	this.numOfTBTCourses=numOfTBTCourses;
-    	this.cgpa=cgpa;
-    	this.gpaWanted=gpaWanted;
-    	calculateTotalPoints();
+        this.numOfTCourses=numOfTCourses;
+        this.numOfTBTCourses=numOfTBTCourses;
+        this.cgpa=cgpa;
+        this.gpaWanted=gpaWanted;
+        calculateTotalPoints();
     }
 
     public GPA(int[] grades,int numOfTBTCourses,float gpaWanted) {
@@ -45,51 +45,51 @@ public class GPA {
     }
 
     public void gpaCalc(int[] data) {
-    	//calculates the gpa and number of courses taken from your grades
-    	float total = 0;
-    	int tCourses = 0;
-    	for (int x = 0; x < 5; x++) {
-    		total = total + (data[x]*GRADEVALUES[x]);
-    		tCourses = tCourses+ data[x];
-    	}
+        //calculates the gpa and number of courses taken from your grades
+        float total = 0;
+        int tCourses = 0;
+        for (int x = 0; x < 5; x++) {
+            total = total + (data[x]*GRADEVALUES[x]);
+            tCourses = tCourses+ data[x];
+        }
         cgpa = total/tCourses;
         numOfTCourses = tCourses;
     }
     GPA(){}
-    
+
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later
     public float getCGPA() {
-    	return cgpa;
+        return cgpa;
     }
-    
+
     public float getgpaWanted() {
-    	return gpaWanted;
+        return gpaWanted;
     }
-    
+
     public int getTBTCourses() {
-    	return numOfTBTCourses;
+        return numOfTBTCourses;
     }
-    
+
     public int getTCourses() {
-    	return numOfTCourses;
+        return numOfTCourses;
     }
-    
+
     public int getPointsReq() {
-    	return pointsNeeded;
+        return pointsNeeded;
     }
-    
+
     //three functions to set the values of a gpa object. the other two arent
     //needed as there should be no reason to set those manually
     public void setCGPA(float gpa) {
-    	cgpa = gpa;
+        cgpa = gpa;
     }
-    
+
     public void setTBTCourses(int courseNum) {
-    	numOfTBTCourses = courseNum;
+        numOfTBTCourses = courseNum;
     }
-    
+
     public void setTCourses(int courseNum) {
-    	numOfTCourses = courseNum;
+        numOfTCourses = courseNum;
     }
 }

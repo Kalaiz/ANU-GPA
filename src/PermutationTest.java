@@ -31,7 +31,6 @@ public class PermutationTest {
                 }
             }
         }
-        System.out.println(permutations.size());
         return permutations;}
 
 

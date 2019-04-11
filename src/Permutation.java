@@ -48,25 +48,25 @@ public class Permutation extends GPA{
                if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
                    permutations.add(stack.toArray()); //for these sake of the test
                }
-               points-=stack.get(3)*GRADEVALUES[3];//updating the points such that  4th element is removed
+               points-=stack.get(3)*4;//updating the points such that  4th element is removed
                sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack
 
            }
            else {
-               int val=trackers[stack.size()];
+               int size=stack.size();
+               int val=trackers[size];
                if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
                          sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
                          points+=val*GRADEVALUES[stack.size()];
                          ++trackers[stack.size()];
                          stack.push(val);
 
-
                }
                else {
                    //if tracker's value has reached it's max
-                   trackers[stack.size()]=0;
+                   trackers[size]=0;
                    int temp=stack.pop();
-                   points-=temp*GRADEVALUES[stack.size()];
+                   points-=temp*GRADEVALUES[size-1];//due to popping of values from stack
                    sumOfStack-=temp;
 
                }
@@ -76,11 +76,6 @@ public class Permutation extends GPA{
 
 
 
-    public static void main(String[] args) {
-        Permutation p=new Permutation(129,20);
-        System.out.println(p.permutations.size());
-
-    }
 
 
 

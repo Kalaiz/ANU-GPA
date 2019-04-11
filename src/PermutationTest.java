@@ -22,12 +22,14 @@ public class PermutationTest {
             for(int d=0;d<numOfCourses-hd;d++){
                 for(int cr=0;cr<numOfCourses-d;cr++){
                     for(int p=0;p<totalPointsReqd-cr;p++){
-                        if(totalPointsReqd-(hd*7+d*6+cr*5+p*4)==0 && numOfCourses==hd+d+cr+p)
-                            permutations.add(new int[]{hd,d,cr,p});
+                        for(int f=0;f<totalPointsReqd-p;f++)
+                        if(totalPointsReqd-(hd*7+d*6+cr*5+p*4)==0 && numOfCourses==hd+d+cr+p+f)
+                            permutations.add(new int[]{hd,d,cr,p,f});
                     }
                 }
             }
         }
+        System.out.println(permutations.size());
         return permutations;}
 
 

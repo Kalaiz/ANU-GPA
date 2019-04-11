@@ -40,61 +40,45 @@ public class Permutation extends GPA{
        int[] trackers={0,0,0,0};
        Stack<Integer> stack=new Stack();
        ArrayList permutations=new ArrayList();
-       //stack.push(trackers[0]);
-      do{
+       do{
            if(stack.size()==4){
-               stack.push(numOfCourses-sumOfStack); //calculating remaining left over
-               sumOfStack+=stack.peek();
-               System.out.println(points);
-               if(pointsNeeded==points){
-                   System.out.println("Adding");
-                   permutations.add(stack.toArray()); //Converting  stack to array for the sake of the test , can be optimised later
+               int val=numOfCourses-sumOfStack;
+               stack.push(val);
+               sumOfStack+=val;
+               if(points==pointsNeeded){//sumOfstack is guarenteed to be equivalent to  numOfCourse
+                   permutations.add(stack);
                }
-               System.out.println(stack);
-               points-=stack.get(3)*GRADEVALUES[3];
-               sumOfStack-=(stack.pop()+stack.pop());// 5th  & 4th element being removed from stack & subtracted at the same time
+               points-=stack.get(3)*GRADEVALUES[3];//updating the points such that  4th element is removed
+               sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack
+
            }
-           else{
-               int size=stack.size();
-               size=(size==0)?1:size+1;
-               int val=trackers[size-1];
-               if(val!=numOfCourses-sumOfStack+1 && points<=pointsNeeded){
-                   sumOfStack+=val;  //updating sumOfStack
-                   ++trackers[size-1];
-                   points+=val*GRADEVALUES[size-1];
-                   stack.push(val);
-                  //updating points in accordance
+           else {
+               int val=trackers[stack.size()];
+               if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
+                         sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
+                         points+=val*GRADEVALUES[stack.size()];
+                         stack.push(val);
+                    ++trackers[stack.size()-1];
+
                }
-               else{
-                   System.out.println("TRACKERS "+ trackers[0]+ " "+ trackers[1] + " "+trackers[2]+ " "+trackers[3]);
-                   trackers[size-1]=0;
-                   if(size-1==1){
-                       stack.clear();
-                   }
-                   else {
-                       System.out.println("Points "+ points);
-                       System.out.println("STACK   "+stack);
-                       int stackval=stack.pop();
-                       sumOfStack-=stackval;
-                       points -= stackval * GRADEVALUES[size - 1];//updating points
-                   }
+               else {
+                   //if tracker's value has reached it's max
+                   trackers[stack.size()]=0;
+                   int temp=stack.pop();
+                   points-=temp*GRADEVALUES[stack.size()];
+                   sumOfStack-=temp;
+
                }
-           }
-       } while(!stack.empty());
-       System.out.println(permutations.size());
-        this.permutations=permutations;
-   }
+               }
+           }while(trackers[0]!=numOfCourses+1);
+      this.permutations=permutations;}
+
+
 
     public static void main(String[] args) {
         Permutation p=new Permutation(102,16);
         p.calculatePermutation();
         System.out.println(p.permutations.size());
-        /*for(Object t : p.permutations){
-            for(int x : (int[])t){
-                System.out.println(x);
-            }
-
-        }*/
     }
 
    public List getPermutation(){

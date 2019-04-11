@@ -4,20 +4,15 @@
  **/
 public class GPA {
 
-    /*TODO:
-     * 1)Set up Test Cases for the calc
-     * 2)Implement gpaCalc
-     */
-
     final int GRADEVALUES[] = {7,6,5,4,0};
     //All instance variable below are required for pointsNeeded
     int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
     int numOfTCourses;//num of courses Taken already
     float cgpa;//Current GPA
-    private boolean calc;//states whether there needs to be any calculation done
     //the below variables are related to the calculate total points function
     float gpaWanted;
     int pointsNeeded;
+
 
     public GPA(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted) {
         //if cgpa is known
@@ -28,6 +23,7 @@ public class GPA {
         calculateTotalPoints();
     }
 
+
     public GPA(int[] grades,int numOfTBTCourses,float gpaWanted) {
         //if cgpa is not known.
         gpaCalc(grades);
@@ -37,12 +33,14 @@ public class GPA {
 
     }
 
+
     public void calculateTotalPoints(){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
         float wantedGPA=gpaWanted;
         int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
         pointsNeeded = (int)(wantedGPA*(numOfTCourses+numOfTBTCourses)+0.5)-currentPoints;
     }
+
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
@@ -55,7 +53,10 @@ public class GPA {
         cgpa = total/tCourses;
         numOfTCourses = tCourses;
     }
+
+
     GPA(){}
+
 
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later

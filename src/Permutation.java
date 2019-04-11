@@ -12,15 +12,16 @@ public class Permutation extends GPA{
     List permutations;
 
 
-    Permutation(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted){
-      super(cgpa,numOfTCourses,numOfTBTCourses,gpaWanted);
+    Permutation(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted){//when cgpa is known there's no need to create a GPA object ,
+      super(cgpa,numOfTCourses,numOfTBTCourses,gpaWanted);                        //one can use this to get permutations directly
         numOfCourses= super.numOfTBTCourses;
         pointsNeeded=super.pointsNeeded;
+        calculatePermutation();
    }
 
 
-    Permutation(int pointsNeeded,int numOfCourses){
-        super();//using default constructor
+    Permutation(int pointsNeeded,int numOfCourses){ //when the cgpa is unknown ,pointsNeeded and numOfCourses  are extracted manually from GPA object
+        super();//using default constructor         //and then a new  permutation object is created.
         this.numOfCourses= numOfCourses;
         this.pointsNeeded=pointsNeeded;
         calculatePermutation();
@@ -28,9 +29,9 @@ public class Permutation extends GPA{
 
 
     /**
-     * Obtains all valid permutation and returns it as an Arraylist
+     * Obtains all valid permutation and then updates the arraylist permutations
      * with the help of Stacks
-     * @Return: An array list of all required permutation such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
+     * permutations:An array list of all required permutations such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
      * */
     public void calculatePermutation(){
         int points=0;
@@ -46,7 +47,7 @@ public class Permutation extends GPA{
                 sumOfStack+=val;
                 n++;
                 if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
-                    permutations.add(stack.toArray()); //for these sake of the test
+                    permutations.add(stack.toArray()); //converting it to an array for these sake of the test
                 }
                 points-=stack.get(3)*4;//updating the points such that  4th element is removed
                 sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack

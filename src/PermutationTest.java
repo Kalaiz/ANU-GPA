@@ -7,9 +7,6 @@ import static org.junit.Assert.*;
 
 public class PermutationTest {
 
-    Permutation p=new Permutation(0,0);
-
-
     /**
      * A Brute force way of finding possible permutation given the totalpoints required- derived from factors like Estd GPA.
      * @param: totalPointsReqd - the total number of points required to achieve the estd GPA
@@ -39,20 +36,15 @@ public class PermutationTest {
 
     @Test
     public void baseCase() {
-        p.pointsNeeded=0;
-        p.numOfCourses=0;
-        p.calculatePermutation();
+        Permutation p=new Permutation(0,0);
         Object[] original=p.getPermutation().toArray();
-
         Object[] test=testPermutation(0,0).toArray();
         assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
     }
 
     @Test
     public void test2() {
-        p.pointsNeeded=102;
-        p.numOfCourses=16;
-        p.calculatePermutation();
+        Permutation p=new Permutation(102,16);
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.pointsNeeded,p.numOfCourses).toArray();
         assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));
@@ -60,9 +52,7 @@ public class PermutationTest {
 
     @Test
     public void test3() {
-        p.pointsNeeded=129;
-        p.numOfCourses=20;
-        p.calculatePermutation();
+        Permutation p=new Permutation(129,20);
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.pointsNeeded,p.numOfCourses).toArray();
         assertTrue("Wrong result for totalpointReqd: "+p.pointsNeeded+" & numOfCourses: " + p.numOfCourses,Arrays.deepEquals(original,test));

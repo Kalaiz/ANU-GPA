@@ -40,13 +40,13 @@ public class Permutation extends GPA{
        int[] trackers={0,0,0,0};
        Stack<Integer> stack=new Stack();
        ArrayList permutations=new ArrayList();
-       do{
+       while(trackers[0]!=numOfCourses+1){
            if(stack.size()==4){
                int val=numOfCourses-sumOfStack;
                stack.push(val);
                sumOfStack+=val;
-               if(points==pointsNeeded){//sumOfstack is guarenteed to be equivalent to  numOfCourse
-                   permutations.add(stack);
+               if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
+                   permutations.add(stack.toArray()); //for thse sake of the test
                }
                points-=stack.get(3)*GRADEVALUES[3];//updating the points such that  4th element is removed
                sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack
@@ -57,8 +57,9 @@ public class Permutation extends GPA{
                if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
                          sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
                          points+=val*GRADEVALUES[stack.size()];
+                         ++trackers[stack.size()];
                          stack.push(val);
-                    ++trackers[stack.size()-1];
+
 
                }
                else {
@@ -70,16 +71,19 @@ public class Permutation extends GPA{
 
                }
                }
-           }while(trackers[0]!=numOfCourses+1);
+           }
       this.permutations=permutations;}
 
 
 
     public static void main(String[] args) {
-        Permutation p=new Permutation(102,16);
-        p.calculatePermutation();
+        Permutation p=new Permutation(129,20);
         System.out.println(p.permutations.size());
+
     }
+
+
+
 
    public List getPermutation(){
        return permutations;

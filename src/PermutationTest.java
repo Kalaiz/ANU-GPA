@@ -16,15 +16,17 @@ public class PermutationTest {
      * @param: numOfCourses - the number of courses yet to be taken
      * @Return: An arraylist which contains all the "Required" permutation;permutation in accordance to estd GPA.
      */
-    public List testPermutation(int totalPointsReqd, int numOfCourses){
+    public static List testPermutation(int totalPointsReqd, int numOfCourses){
         ArrayList permutations=new ArrayList();
         for(int hd=0;hd<numOfCourses;hd++){
-            for(int d=0;d<numOfCourses-hd;d++){
-                for(int cr=0;cr<numOfCourses-d;cr++){
-                    for(int p=0;p<totalPointsReqd-cr;p++){
-                        for(int f=0;f<totalPointsReqd-p;f++)
-                        if(totalPointsReqd-(hd*7+d*6+cr*5+p*4)==0 && numOfCourses==hd+d+cr+p+f)
-                            permutations.add(new int[]{hd,d,cr,p,f});
+            for(int d=0;d<numOfCourses-(hd-1);d++){
+                for(int cr=0;cr<numOfCourses-(d-1);cr++){
+                    for(int p=0;p<totalPointsReqd-(cr-1);p++){
+                        for(int f=0;f<totalPointsReqd-(p-1);f++) {
+                            if (totalPointsReqd - (hd * 7 + d * 6 + cr * 5 + p * 4) == 0 && numOfCourses == hd + d + cr + p + f){
+                                permutations.add(new Object[]{hd, d, cr, p, f});
+                            }
+                        }
                     }
                 }
             }

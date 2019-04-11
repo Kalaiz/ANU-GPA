@@ -39,16 +39,13 @@ public class Permutation extends GPA{
         int[] trackers={0,0,0,0};
         Stack<Integer> stack=new Stack();
         ArrayList permutations=new ArrayList();
-        int n=0;
         while(trackers[0]!=numOfCourses+1){//while number of hds does'nt exceed the total number of courses
             if(stack.size()==4){
                 int val=numOfCourses-sumOfStack;
                 stack.push(val);
                 sumOfStack+=val;
-                n+=5;
                 if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
                     permutations.add(stack.toArray()); //converting it to an array for these sake of the test
-                    n+=2;
                 }
                 points-=stack.get(3)*4;//updating the points such that  4th element is removed
                 sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack
@@ -56,7 +53,6 @@ public class Permutation extends GPA{
             else {
                 int size=stack.size();
                 int val=trackers[size];
-                n+=3;
                 if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
                     sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
                     points+=val*GRADEVALUES[size];
@@ -72,13 +68,8 @@ public class Permutation extends GPA{
                 }
             }
         }
-        System.out.println("Approx method checks : "+n);
-        this.permutations=permutations;}
-
-
-
-
-
+        this.permutations=permutations;
+    }
 
 
    public List getPermutation(){

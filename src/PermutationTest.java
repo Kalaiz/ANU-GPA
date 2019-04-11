@@ -13,7 +13,7 @@ public class PermutationTest {
      * @param: numOfCourses - the number of courses yet to be taken
      * @Return: An arraylist which contains all the "Required" permutation;permutation in accordance to estd GPA.
      */
-    public static List testPermutation(int totalPointsReqd, int numOfCourses){
+    public List testPermutation(int totalPointsReqd, int numOfCourses){
         ArrayList permutations=new ArrayList();
         for(int hd=0;hd<numOfCourses;hd++){
             for(int d=0;d<numOfCourses-(hd-1);d++){

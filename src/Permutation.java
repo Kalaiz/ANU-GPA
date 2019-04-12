@@ -50,7 +50,7 @@ public class Permutation extends GPA{
                 stack.pop();//removing the  5th element(fails)
                 int numOfPasses=stack.pop();
                 points-=numOfPasses*4;//updating the points such that  4th element is removed
-                sumOfStack-=(numOfPasses);//removing the 4th(passes) element from stack & updating the sumOfStack
+                sumOfStack-=(numOfPasses);// updating the sumOfStack
             }
             else {
                 int size=stack.size();

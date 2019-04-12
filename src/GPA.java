@@ -10,12 +10,11 @@ public class GPA {
      */
 
     final int GRADEVALUES[] = {7,6,5,4,0};
-    //All instance variable below are required for totalPointsReqd
+    //All instance variable below are required for pointsNeeded
     int numOfCourses;//total num of courses
     int numOfTCourses;//num of courses Taken already
     float cgpa;//Current GPA
     int currentPoints;//current number of grade points
-    private boolean calc;//states whether there needs to be any calculation done
     //the below variables are related to the calculate total points function
     float gpaWanted;
     int pointsNeeded;
@@ -59,7 +58,7 @@ public class GPA {
         int extraClasses = 0;
         int extraPoints = 0;
         for(int x = 0; x <5; x++) {
-            extraClasses = extraClasses +newGrades[x];
+            extraClasses = extraClasses + newGrades[x];
             extraPoints = extraPoints + (newGrades[x]*GRADEVALUES[x]);
 
         }

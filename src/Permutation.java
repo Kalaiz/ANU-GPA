@@ -45,7 +45,6 @@ public class Permutation extends GPA{
             if(stack.size()==4){
                 int val=numOfCourses-sumOfStack;
                 stack.push(val);
-                //sumOfStack+=val;
                 if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
                     permutations.add(stack.toArray()); //converting it to an array for these sake of the test
                 }

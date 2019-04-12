@@ -2,6 +2,7 @@
 # App - _Insert app name_
 
 ## Team structure and roles 
++ Prateek u6742441
 + Jared u5953599
 + Kalai u6555407  
 
@@ -10,12 +11,12 @@
 _Add a paragraph the gives a summary of the app you implemented. Include a small screen shot here._
 
 ## Design Documentation 
-+ [Design Summary](../src/designsummary.md)
-+ [Testing Summary](testingsummary)
++ [Design Summary](../Resources/DesignSummary.md)
++ [Testing Summary](../Resources/TestingSummary.md)
 
 ## Minuted Meetings
-+ [Meeting 1 - date - decide team structure and app](meeting1)
-+ [Meeting 2 - date - divide up tasks](meeting2)
++ [Meeting 1 - 8/4/19 - Deciding on the topic of app & Dividing tasks](../Resources/Meeting1.md)
++ [Meeting 2 - 12/4/19 - Planning & Dividing tasks](../Resources/Meeting2.md)
 + [Meeting 3 - date - consider and plan extension aspects](meeting3)
 + [Meeting 4 - date - review and practice demo](meeting4)
 
@@ -35,7 +36,7 @@ assignment is entirely my own work, with exceptions given below.
 _add references from where you obtained the idea form the app and ideas about aspects of the app_
 
 ### Code
-[PseudoCodes for Integer Partitioning](Generating Partitions Research Paper.pdf)
+[PseudoCodes for Integer Partitioning](../Resources/Generating Partitions Research Paper.pdf)
 _reference all the code or ideas for code from other sources_
 
 ### Assets 

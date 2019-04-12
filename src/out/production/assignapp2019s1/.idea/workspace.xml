@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2b3bbef-7446-4399-be11-c5f02357fbc7" name="Default Changelist" comment="">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-      <change beforePath="$PROJECT_DIR$/GPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/GPA.java" afterDir="false" />
->>>>>>> Kalai
-      <change beforePath="$PROJECT_DIR$/Permutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Permutation.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> Stashed changes
-    </list>
+    <list default="true" id="c2b3bbef-7446-4399-be11-c5f02357fbc7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,98 +13,38 @@
     <session id="-1303626747">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-          <entry key="class" value="1" />
-          <entry key="java" value="12" />
-          <entry key="md" value="2" />
-          <entry key="spec" value="1" />
-=======
-          <entry key="java" value="5" />
-          <entry key="md" value="1" />
-          <entry key="xml" value="1" />
->>>>>>> Stashed changes
-=======
-          <entry key="java" value="7" />
-          <entry key="md" value="2" />
-          <entry key="xml" value="1" />
->>>>>>> Kalai
+          <entry key="java" value="4" />
+          <entry key="md" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-          <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="12" />
-          <entry key="Markdown" value="2" />
-          <entry key="Specification" value="1" />
-=======
-          <entry key="JAVA" value="5" />
-          <entry key="Markdown" value="1" />
-          <entry key="XML" value="1" />
->>>>>>> Stashed changes
-=======
-          <entry key="JAVA" value="7" />
-          <entry key="Markdown" value="2" />
-          <entry key="XML" value="1" />
->>>>>>> Kalai
+          <entry key="JAVA" value="4" />
+          <entry key="Markdown" value="4" />
+          <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-          <entry key="java" value="5949" />
-          <entry key="md" value="410" />
-          <entry key="spec" value="155" />
-=======
-          <entry key="java" value="276" />
->>>>>>> Stashed changes
-=======
-          <entry key="java" value="313" />
->>>>>>> Kalai
+          <entry key="java" value="17" />
+          <entry key="md" value="2363" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-          <entry key="JAVA" value="5949" />
-          <entry key="Markdown" value="410" />
-          <entry key="Specification" value="155" />
-=======
-          <entry key="JAVA" value="276" />
-=======
-          <entry key="JAVA" value="313" />
->>>>>>> Kalai
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-<<<<<<< HEAD
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.opened" value="2" />
->>>>>>> Stashed changes
-=======
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.opened" value="1" />
->>>>>>> Kalai
+          <entry key="JAVA" value="17" />
+          <entry key="Markdown" value="2363" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Permutation.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            <state relative-caret-position="301">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+            <state relative-caret-position="535">
+              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,16 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PermutationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-=======
-            <state relative-caret-position="91">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
->>>>>>> Stashed changes
-=======
-            <state relative-caret-position="-286">
-              <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
->>>>>>> Kalai
+            <state relative-caret-position="262">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,50 +65,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/designsummary.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="156">
-                <caret line="12" selection-start-line="12" selection-end-line="12" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GPA.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            <state relative-caret-position="130">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-=======
-            <state relative-caret-position="260">
-              <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
->>>>>>> Stashed changes
-=======
-            <state relative-caret-position="-208">
-              <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-              <folding>
-                <element signature="e#2636#2637#0" expanded="true" />
-                <element signature="e#2663#2664#0" expanded="true" />
-                <element signature="e#2698#2699#0" expanded="true" />
-                <element signature="e#2730#2731#0" expanded="true" />
-                <element signature="e#2761#2762#0" expanded="true" />
-                <element signature="e#2796#2797#0" expanded="true" />
-                <element signature="e#2828#2829#0" expanded="true" />
-                <element signature="e#2864#2865#0" expanded="true" />
-                <element signature="e#2897#2898#0" expanded="true" />
-                <element signature="e#2932#2933#0" expanded="true" />
-                <element signature="e#3111#3112#0" expanded="true" />
-                <element signature="e#3137#3138#0" expanded="true" />
-                <element signature="e#3182#3183#0" expanded="true" />
-                <element signature="e#3222#3223#0" expanded="true" />
-                <element signature="e#3268#3269#0" expanded="true" />
-                <element signature="e#3309#3310#0" expanded="true" />
-              </folding>
->>>>>>> Kalai
+            <state relative-caret-position="663">
+              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -216,7 +98,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="master" />
+        <entry key="$PROJECT_DIR$/.." value="Kalai" />
       </map>
     </option>
   </component>
@@ -233,22 +115,15 @@
         <option value="$PROJECT_DIR$/PermutationTest.java" />
         <option value="$PROJECT_DIR$/Permutation.java" />
         <option value="$PROJECT_DIR$/GPA.java" />
+        <option value="$PROJECT_DIR$/Meeting1.md" />
+        <option value="$PROJECT_DIR$/Meeting2.md" />
+        <option value="$PROJECT_DIR$/TestingSummary.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    <option name="x" value="-21" />
-    <option name="y" value="183" />
-=======
     <option name="x" value="999" />
     <option name="y" value="-21" />
->>>>>>> Stashed changes
-=======
-    <option name="x" value="1000" />
-    <option name="y" value="-20" />
->>>>>>> Kalai
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
@@ -258,14 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
       <pane id="AndroidView" />
->>>>>>> Stashed changes
-=======
-      <pane id="AndroidView" />
->>>>>>> Kalai
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,40 +141,17 @@
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-=======
       <pane id="PackagesPane" />
       <pane id="Scope" />
->>>>>>> Stashed changes
-=======
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
->>>>>>> Kalai
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554973860161" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555067412799" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -373,9 +218,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PermutationTest" />
         <item itemvalue="Application.Permutation" />
         <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.PermutationTest" />
         <item itemvalue="Android JUnit.PermutationTest.getPermutation" />
         <item itemvalue="JUnit.PermutationTest.getPermutation" />
       </list>
@@ -395,31 +240,7 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 16m 15s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 29m 40s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 53m 59s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 54m 11s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 54m 30s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.11 at 18h 54m 35s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 11h 52m 11s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 11h 52m 51s.xml">
-      <configuration name="PermutationTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 12h 11m 25s.xml">
+    <history-entry file="PermutationTest - 2019.04.12 at 18h 58m 59s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -427,15 +248,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1271255" />
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.151417" />
->>>>>>> Stashed changes
-=======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.151417" />
->>>>>>> Kalai
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -449,18 +262,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <window_info anchor="bottom" id="Terminal" order="7" />
-=======
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" visible="true" weight="0.3285968" />
->>>>>>> Stashed changes
-=======
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49959514" visible="true" weight="0.3285968" />
->>>>>>> Kalai
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -475,26 +280,58 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PermutationTest.java">
+    <entry file="file://$PROJECT_DIR$/GPA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="663">
+          <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PermutationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DesignSummary.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="130">
+            <caret line="10" column="23" selection-start-line="1" selection-start-column="14" selection-end-line="10" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Meeting2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="104">
+            <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestingSummary.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="26">
+            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Meeting1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret selection-end-line="8" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -505,78 +342,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/designsummary.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="156">
-            <caret line="12" selection-start-line="12" selection-end-line="12" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/PermutationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-=======
-    <entry file="file://$PROJECT_DIR$/Permutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
->>>>>>> Stashed changes
-=======
-    <entry file="file://$PROJECT_DIR$/GPA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
->>>>>>> Kalai
-          <folding>
-            <element signature="e#2636#2637#0" expanded="true" />
-            <element signature="e#2663#2664#0" expanded="true" />
-            <element signature="e#2698#2699#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2761#2762#0" expanded="true" />
-            <element signature="e#2796#2797#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-            <element signature="e#2864#2865#0" expanded="true" />
-            <element signature="e#2897#2898#0" expanded="true" />
-            <element signature="e#2932#2933#0" expanded="true" />
-            <element signature="e#3111#3112#0" expanded="true" />
-            <element signature="e#3137#3138#0" expanded="true" />
-            <element signature="e#3182#3183#0" expanded="true" />
-            <element signature="e#3222#3223#0" expanded="true" />
-            <element signature="e#3268#3269#0" expanded="true" />
-            <element signature="e#3309#3310#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/GPA.java">
-<<<<<<< Updated upstream
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> Kalai
-    <entry file="file://$PROJECT_DIR$/Permutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="262">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Permutation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
->>>>>>> Stashed changes
+        <state relative-caret-position="535">
+          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

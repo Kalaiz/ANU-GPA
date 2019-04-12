@@ -1,12 +1,11 @@
 /**
  * A class in which upon retrieval of data it does  any calculation of GPA or recalculation if necessary.
- * This class will store data crucial for the permutation.- totalPointsReqd and numOfCourses.
  **/
 public class GPA {
 
     /*TODO:
      * 1)Set up Test Cases for the calc
-     * 2)Implement gpaCalc
+     *
      */
 
     final int GRADEVALUES[] = {7,6,5,4,0};
@@ -20,7 +19,7 @@ public class GPA {
     int pointsNeeded;
 
     public GPA(int[] grades, int totalCourses) {
-        //default constructor
+        //primary constructor
         gpaCalc(grades);
         //total courses is chosen for ease of use- more likely to know how
         //many in total rather than whats left
@@ -34,8 +33,8 @@ public class GPA {
         currentPoints = (int)(cgpa*numOfTCourses+0.5);
     }
 
-    public void calculateTotalPoints(float wantedGPA){
-        /*Calculates Total Points required based on numOfTCourses & cgpa */
+    public void calculatePointsNeeded(float wantedGPA){
+        /*Calculates PointsNeeded based on numOfTCourses & cgpa */
         pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
         gpaWanted = wantedGPA;
     }
@@ -66,7 +65,7 @@ public class GPA {
         numOfTCourses = numOfTCourses + extraClasses;
         currentPoints = currentPoints + extraPoints;
         if(gpaWanted != 0.0f) {
-            calculateTotalPoints(gpaWanted);
+            calculatePointsNeeded(gpaWanted);
         }
     }
 
@@ -75,7 +74,7 @@ public class GPA {
         numOfTCourses = numOfTCourses +extraCourses;
         currentPoints = currentPoints + (int)(cgpa*numOfTCourses + 0.5);
         if(gpaWanted != 0.0f) {
-            calculateTotalPoints(gpaWanted);
+            calculatePointsNeeded(gpaWanted);
         }
     }
 

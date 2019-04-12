@@ -22,6 +22,7 @@ public class GPA {
 
     public GPA(int[] grades, int totalCourses) {
         //default constructor
+<<<<<<< HEAD
         gpaCalc(grades);
         //total courses is chosen for ease of use- more likely to know how
         //many in total rather than whats left
@@ -34,6 +35,21 @@ public class GPA {
         numOfCourses = totalCourses;
     }
 
+=======
+    	gpaCalc(grades);
+    	//total courses is chosen for ease of use- more likely to know how 
+    	//many in total rather than whats left
+    	numOfCourses = totalCourses - numOfTCourses;
+    }
+    public GPA(float gpa, int coursesDone, int totalCourses) {
+        //secondary constructor
+    	cgpa = gpa;
+    	numOfTCourses = coursesDone;
+    	numOfCourses = totalCourses;
+    	currentPoints = (int)(cgpa*numOfTCourses+0.5);
+    }
+    
+>>>>>>> 9683a8e9fa0d73be362d158d824fc7044f118352
     public void calculateTotalPoints(float wantedGPA){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
         pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
@@ -52,6 +68,7 @@ public class GPA {
         currentPoints = (int)(total+0.5);
         numOfTCourses = tCourses;
     }
+<<<<<<< HEAD
 
     //the below functions are update functions, used to changes a saved gpa object
     public void addGrades(int[] newGrades) {
@@ -67,6 +84,34 @@ public class GPA {
 
 
 
+=======
+    
+    //the below functions are update functions, used to changes a saved gpa object
+    public void addGrades(int[] newGrades) {
+    	int extraClasses = 0;
+    	int extraPoints = 0;
+    	for(int x = 0; x <5; x++) {
+    		extraClasses = extraClasses +newGrades[x];
+    		extraPoints = extraPoints + (newGrades[x]*gradeValues[x]);
+    	}
+    	cgpa = (cgpa*numOfTCourses+extraPoints)/(numOfTCourses + extraClasses);
+    	numOfTCourses = numOfTCourses + extraClasses;
+    	currentPoints = currentPoints + extraPoints;
+    	if(gpaWanted != 0.0f) {
+    		calculateTotalPoints(gpaWanted);
+    	}
+    }
+    
+    public void updateCGPA(float newCGPA, int extraCourses) {
+    	cgpa = newCGPA;
+    	numOfTCourses = numOfTCourses +extraCourses;
+    	currentPoints = currentPoints + (int)(cgpa*numOfTCourses + 0.5);
+    	if(gpaWanted != 0.0f) {
+    		calculateTotalPoints(gpaWanted);
+    	}
+    }
+    
+>>>>>>> 9683a8e9fa0d73be362d158d824fc7044f118352
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later
     public float getCGPA() {
@@ -76,9 +121,15 @@ public class GPA {
     public float getgpaWanted() {
         return gpaWanted;
     }
+<<<<<<< HEAD
 
     public int getCourses() {
         return numOfCourses;
+=======
+    
+    public int getCourses() {
+    	return numOfCourses;
+>>>>>>> 9683a8e9fa0d73be362d158d824fc7044f118352
     }
 
     public int getTCourses() {
@@ -94,9 +145,15 @@ public class GPA {
     public void setCGPA(float gpa) {
         cgpa = gpa;
     }
+<<<<<<< HEAD
 
     public void setCourses(int courseNum) {
         numOfCourses = courseNum;
+=======
+    
+    public void setCourses(int courseNum) {
+    	numOfCourses = courseNum;
+>>>>>>> 9683a8e9fa0d73be362d158d824fc7044f118352
     }
 
     public void setTCourses(int courseNum) {

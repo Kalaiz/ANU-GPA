@@ -43,12 +43,14 @@ public class Permutation extends GPA{
             if(stack.size()==4){
                 int val=numOfCourses-sumOfStack;
                 stack.push(val);
-                sumOfStack+=val;
+                //sumOfStack+=val;
                 if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
                     permutations.add(stack.toArray()); //converting it to an array for these sake of the test
                 }
-                points-=stack.get(3)*4;//updating the points such that  4th element is removed
-                sumOfStack-=(stack.pop()+stack.pop());//removing the 4th(passes) & 5th(fails) from stack & updating the sumOfStack
+                stack.pop();//removing the  5th element(fails)
+                int numOfPasses=stack.pop();
+                points-=numOfPasses*4;//updating the points such that  4th element is removed
+                sumOfStack-=(numOfPasses);//removing the 4th(passes) element from stack & updating the sumOfStack
             }
             else {
                 int size=stack.size();

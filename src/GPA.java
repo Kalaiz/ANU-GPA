@@ -50,7 +50,7 @@ public class GPA {
             total = total + (data[x]*GRADEVALUES[x]);
             tCourses = tCourses+ data[x];
         }
-        cgpa = total/tCourses;
+        cgpa = total/tCourses;//just for the sake of displaying cgpa since total can be used as currentPoints
         numOfTCourses = tCourses;
     }
 

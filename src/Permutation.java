@@ -12,9 +12,9 @@ public class Permutation extends GPA{
     List permutations;
 
 
-    Permutation(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted){//when cgpa is known there's no need to create a GPA object ,
-      super(cgpa,numOfTCourses,numOfTBTCourses,gpaWanted);                        //one can use this to get permutations directly
-        numOfCourses= super.numOfTBTCourses;
+    Permutation(float gpa, int coursesDone, int totalCourses){//when cgpa is known there's no need to create a GPA object ,
+      super(gpa, coursesDone,totalCourses);                        //one can use this to get permutations directly
+        numOfCourses= totalCourses-coursesDone;
         pointsNeeded=super.pointsNeeded;
         calculatePermutation();
    }

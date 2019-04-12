@@ -3,17 +3,6 @@ import java.util.List;
 import java.util.Stack;
 /**
  * A class which helps one to find the possible permutations provided the basic information:
- * 1)pointsNeeded - points needed in order to achieve the user's gpaWanted.
- * 2)numOfTBTCourses - The number of courses to be taken.
- *
- * There are two constructors for this class:
- * -> Permutation(float gpa, int coursesDone, int totalCourses)
- * will be used when the cgpa(current gpa) is known.
- * -> Permutation(int pointsNeeded,int numOfCourses)
- * will be used when the cgpa is unknown.
- *
- * The possible permutation is stored as an ArrayList;Use getPermutation(along with the Permutation object) to obtain it.
- *
  * Explanation of how permutation class uses attributes:
  * Example:
  * Based on a user inputs:
@@ -32,17 +21,17 @@ import java.util.Stack;
  *        pointsNeeded=54
  *        numOfTBTCourses = 8
  *        calculatePermutations() finds for the possible permutation such that:
- *       for [nHDs,nDs,nCRs,nPs,nFs] where n represents "number of"
- *       nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54
+ *        for [nHDs,nDs,nCRs,nPs,nFs] where n represents "number of"
+ *        nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54
  * */
 public class Permutation extends GPA{
     /*TODO:
      *1)Score system for possible permutation.
      */
 
-    int pointsNeeded;//
-    int numOfTBTCourses;
-    private List permutations;
+    int pointsNeeded;//points needed in order to achieve the user's gpaWanted.
+    int numOfTBTCourses;//The number of courses to be taken.
+    private List permutations;//List of possible permutation based on the above 2 attributes
 
     /**
      * Creates a Permutation object which calculate the possible permutation based
@@ -67,7 +56,7 @@ public class Permutation extends GPA{
      * Creates a Permutation object which calculate the possible permutation by
      * calculating GPA before invoking this constructor.Based on results
      * from GPA class pointsNeeded and numOfTBTCourses can be obtained and eventually be used here.
-     * (onw would use this when the cgpa is unknown)
+     * (one would use this when the cgpa is unknown)
      * @param pointsNeeded - points needed in order to attain the gpaWanted
      * @param numOfTBTCourses- the number of courses to be taken
      * */

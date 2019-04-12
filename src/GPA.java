@@ -25,13 +25,14 @@ public class GPA {
         gpaCalc(grades);
         //total courses is chosen for ease of use- more likely to know how
         //many in total rather than whats left
-        numOfCourses = totalCourses - numOfTCourses;
+        numOfCourses = totalCourses;
     }
     public GPA(float gpa, int coursesDone, int totalCourses) {
         //secondary constructor
         cgpa = gpa;
         numOfTCourses = coursesDone;
         numOfCourses = totalCourses;
+        currentPoints = (int)(cgpa*numOfTCourses+0.5);
     }
 
     public void calculateTotalPoints(float wantedGPA){
@@ -63,9 +64,20 @@ public class GPA {
         }
         cgpa = (cgpa*numOfTCourses+extraPoints)/(numOfTCourses + extraClasses);
         numOfTCourses = numOfTCourses + extraClasses;
+        currentPoints = currentPoints + extraPoints;
+        if(gpaWanted != 0.0f) {
+            calculateTotalPoints(gpaWanted);
+        }
     }
 
-
+    public void updateCGPA(float newCGPA, int extraCourses) {
+        cgpa = newCGPA;
+        numOfTCourses = numOfTCourses +extraCourses;
+        currentPoints = currentPoints + (int)(cgpa*numOfTCourses + 0.5);
+        if(gpaWanted != 0.0f) {
+            calculateTotalPoints(gpaWanted);
+        }
+    }
 
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later

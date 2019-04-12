@@ -9,7 +9,7 @@ public class GPA {
      * 2)Implement gpaCalc
      */
 
-    final int gradeValues[] = {7,6,5,4,0};
+    final int GRADEVALUES[] = {7,6,5,4,0};
     //All instance variable below are required for totalPointsReqd
     int numOfCourses;//total num of courses
     int numOfTCourses;//num of courses Taken already
@@ -46,7 +46,7 @@ public class GPA {
         float total = 0;
         int tCourses = 0;
         for (int x = 0; x < 5; x++) {
-            total = total + (data[x]*gradeValues[x]);
+            total = total + (data[x]*GRADEVALUES[x]);
             tCourses = tCourses+ data[x];
         }
         cgpa = total/tCourses;
@@ -60,7 +60,8 @@ public class GPA {
         int extraPoints = 0;
         for(int x = 0; x <5; x++) {
             extraClasses = extraClasses +newGrades[x];
-            extraPoints = extraPoints + (newGrades[x]*gradeValues[x]);
+            extraPoints = extraPoints + (newGrades[x]*GRADEVALUES[x]);
+
         }
         cgpa = (cgpa*numOfTCourses+extraPoints)/(numOfTCourses + extraClasses);
         numOfTCourses = numOfTCourses + extraClasses;
@@ -78,6 +79,10 @@ public class GPA {
             calculateTotalPoints(gpaWanted);
         }
     }
+
+
+
+    GPA(){}
 
     //below are the 5 functions to obtain a useful value from the gpa object
     //just in case we decided to make the values private. can delete later

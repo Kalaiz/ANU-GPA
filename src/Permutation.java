@@ -2,63 +2,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Permutation  {
-    /*TODO:
-     *1)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
-     * */
-    final int[] GRADEVALUES={7,6,5,4,0};
-    int totalPointsReqd;
-    int numOfCourses;
 
-    List Permutation(int numOfCourses,int totalPointsReqd){
+public class Permutation extends GPA{
+    /*TODO:
+    *1)Apply a specific permutation algorithm with constraint in accordance to the requirements (Expected overall GPA)
+    * */
+
+    int pointsNeeded;
+    int numOfCourses;
+    List permutations;
+
+
+    Permutation(float gpa, int coursesDone, int totalCourses){//when cgpa is known there's no need to create a GPA object ,
+      super(gpa, coursesDone,totalCourses);                        //one can use this to get permutations directly
+        numOfCourses= totalCourses-coursesDone;
+        pointsNeeded=super.pointsNeeded;
+        calculatePermutation();
+   }
+
+
+    Permutation(int pointsNeeded,int numOfCourses){ //when the cgpa is unknown ,pointsNeeded and numOfCourses  are extracted manually from GPA object
+        super();//using default constructor         //and then a new  permutation object is created.
         this.numOfCourses= numOfCourses;
-        this.totalPointsReqd=totalPointsReqd;
-        return getPermutation();
+        this.pointsNeeded=pointsNeeded;
+        calculatePermutation();
     }
 
-    /**
-     * Obtains all valid permutation and returns it as an Arraylist
-     * with the help of Stacks
-     * @Return: An array list of all required permutation such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
-     * */
-    public List getPermutation(){
 
+    /**
+     * Obtains all valid permutation and then updates the arraylist permutations
+     * with the help of Stacks
+     * permutations:An array list of all required permutations such that each permutation is ordered as [HDs,Ds,CRs,Ps,Fs]
+     * */
+
+    public void calculatePermutation(){
         int points=0;
         int sumOfStack=0;
         int[] trackers={0,0,0,0};
         Stack<Integer> stack=new Stack();
         ArrayList permutations=new ArrayList();
-        stack.push(trackers[0]);
-        while(!stack.empty()){
+        while(trackers[0]!=numOfCourses+1){//while number of hds does'nt exceed the total number of courses
             if(stack.size()==4){
-                stack.push(numOfCourses-sumOfStack); //calculating remaining left over
-                if(totalPointsReqd==points){
-                    permutations.add(stack.toArray()); //Converting  stack to array for the sake of the test , can be optimised later
+                int val=numOfCourses-sumOfStack;
+                stack.push(val);
+                //sumOfStack+=val;
+                if(points==pointsNeeded){//sumOfstack is guaranteed to be equivalent to  numOfCourse
+                    permutations.add(stack.toArray()); //converting it to an array for these sake of the test
                 }
-                sumOfStack-=stack.pop()-stack.pop();// 5th  & 4th element being removed from stack & subtracted at the same time
+                stack.pop();//removing the  5th element(fails)
+                int numOfPasses=stack.pop();
+                points-=numOfPasses*4;//updating the points such that  4th element is removed
+                sumOfStack-=(numOfPasses);// updating the sumOfStack
             }
-            else{
-                int val=trackers[stack.size()-1];
-                if(val!=numOfCourses-sumOfStack){
-                    points+=val*GRADEVALUES[stack.size()-1];//updating points in accordance
-                    sumOfStack+=val;  //updating sumOfStack
+            else {
+                int size=stack.size();
+                int val=trackers[size];
+                if(val<=numOfCourses-sumOfStack  && points<=pointsNeeded) {//when it reaches this line val when added to sumOfstack;
+                    sumOfStack+=val;                                                 // the new sumOfstack must'nt be higher than the numOfCourses
+                    points+=val*GRADEVALUES[size];
+                    ++trackers[size];
                     stack.push(val);
-                    trackers[stack.size()-1]++;
                 }
-                else{
-                    trackers[stack.size()-1]=0;
-                    if(stack.size()==1){
-                        stack.clear();
-                    }
-                    else {
-                        points -= stack.pop() * GRADEVALUES[stack.size() - 1];//updating points
-                    }
+                else {
+                    //if tracker's value has reached it's max
+                    trackers[size]=0;
+                    int temp=stack.pop();
+                    points-=temp*GRADEVALUES[size-1];//size -1 due to popping of values from stack
+                    sumOfStack-=temp;
                 }
-
             }
         }
-        return permutations;
+        this.permutations=permutations;
     }
 
+
+   public List getPermutation(){
+       return permutations;
+
+
+   }
 
 }

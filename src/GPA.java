@@ -4,58 +4,67 @@
  **/
 public class GPA {
 
-    final int GRADEVALUES[] = {7,6,5,4,0};
-    //All instance variable below are required for pointsNeeded
-    int numOfTBTCourses;//num of courses yet To Be Taken (TBT)
+    /*TODO:
+     * 1)Set up Test Cases for the calc
+     * 2)Implement gpaCalc
+     */
+
+    final int gradeValues[] = {7,6,5,4,0};
+    //All instance variable below are required for totalPointsReqd
+    int numOfCourses;//total num of courses
     int numOfTCourses;//num of courses Taken already
     float cgpa;//Current GPA
+    int currentPoints;//current number of grade points
+    private boolean calc;//states whether there needs to be any calculation done
     //the below variables are related to the calculate total points function
     float gpaWanted;
     int pointsNeeded;
 
-
-    public GPA(float cgpa,int numOfTCourses,int numOfTBTCourses,float gpaWanted) {
-        //if cgpa is known
-        this.numOfTCourses=numOfTCourses;
-        this.numOfTBTCourses=numOfTBTCourses;
-        this.cgpa=cgpa;
-        this.gpaWanted=gpaWanted;
-        calculateTotalPoints();
-    }
-
-
-    public GPA(int[] grades,int numOfTBTCourses,float gpaWanted) {
-        //if cgpa is not known.
+    public GPA(int[] grades, int totalCourses) {
+        //default constructor
         gpaCalc(grades);
-        this.numOfTBTCourses=numOfTBTCourses;
-        this.gpaWanted=gpaWanted;
-        calculateTotalPoints();
-
+        //total courses is chosen for ease of use- more likely to know how
+        //many in total rather than whats left
+        numOfCourses = totalCourses - numOfTCourses;
+    }
+    public GPA(float gpa, int coursesDone, int totalCourses) {
+        //secondary constructor
+        cgpa = gpa;
+        numOfTCourses = coursesDone;
+        numOfCourses = totalCourses;
     }
 
-
-    public void calculateTotalPoints(){
+    public void calculateTotalPoints(float wantedGPA){
         /*Calculates Total Points required based on numOfTCourses & cgpa */
-        float wantedGPA=gpaWanted;
-        int currentPoints = (int) ((cgpa*numOfTCourses)+0.5);
-        pointsNeeded = (int)(wantedGPA*(numOfTCourses+numOfTBTCourses)+0.5)-currentPoints;
+        pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
+        gpaWanted = wantedGPA;
     }
-
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
         float total = 0;
         int tCourses = 0;
         for (int x = 0; x < 5; x++) {
-            total = total + (data[x]*GRADEVALUES[x]);
+            total = total + (data[x]*gradeValues[x]);
             tCourses = tCourses+ data[x];
         }
-        cgpa = total/tCourses;//just for the sake of displaying cgpa since total can be used as currentPoints
+        cgpa = total/tCourses;
+        currentPoints = (int)(total+0.5);
         numOfTCourses = tCourses;
     }
 
+    //the below functions are update functions, used to changes a saved gpa object
+    public void addGrades(int[] newGrades) {
+        int extraClasses = 0;
+        int extraPoints = 0;
+        for(int x = 0; x <5; x++) {
+            extraClasses = extraClasses +newGrades[x];
+            extraPoints = extraPoints + (newGrades[x]*gradeValues[x]);
+        }
+        cgpa = (cgpa*numOfTCourses+extraPoints)/(numOfTCourses + extraClasses);
+        numOfTCourses = numOfTCourses + extraClasses;
+    }
 
-    GPA(){}
 
 
     //below are the 5 functions to obtain a useful value from the gpa object
@@ -68,8 +77,8 @@ public class GPA {
         return gpaWanted;
     }
 
-    public int getTBTCourses() {
-        return numOfTBTCourses;
+    public int getCourses() {
+        return numOfCourses;
     }
 
     public int getTCourses() {
@@ -86,8 +95,8 @@ public class GPA {
         cgpa = gpa;
     }
 
-    public void setTBTCourses(int courseNum) {
-        numOfTBTCourses = courseNum;
+    public void setCourses(int courseNum) {
+        numOfCourses = courseNum;
     }
 
     public void setTCourses(int courseNum) {

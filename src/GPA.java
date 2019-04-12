@@ -39,7 +39,7 @@ public class GPA {
     	gpaCalc(grades);
     	//total courses is chosen for ease of use- more likely to know how 
     	//many in total rather than whats left
-    	numOfCourses = totalCourses - numOfTCourses;
+    	numOfCourses = totalCourses;
     }
     public GPA(float gpa, int coursesDone, int totalCourses) {
         //secondary constructor

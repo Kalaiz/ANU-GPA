@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GPA">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do You Know Your GPA ?"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:id="@+id/tex"
+            android:textColor="#000"/>
+
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="80dp"
+            android:text="Know"
+            android:id="@+id/know"
+            android:layout_below="@+id/tex"
+            android:layout_marginTop="40dp"
+            />
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:text="Don't Know"
+            android:id="@+id/dknow"
+            android:layout_below="@+id/tex"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/know"
+            android:layout_marginTop="20dp"
+            android:text="Enter the number of courses done"
+            android:paddingLeft="10dp"
+            android:id="@+id/text3"
+            android:textColor="#000"
+            android:visibility="invisible"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/text3"
+            android:inputType="number"
+            android:id="@+id/edit_text1"
+            android:imeOptions="actionNext"
+            android:hint="Number of Courses Done"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text1"
+            android:layout_marginTop="20dp"
+            android:text="Enter the number of courses you have to do"
+            android:paddingLeft="10dp"
+            android:id="@+id/text4"
+            android:textColor="#000"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/text4"
+            android:id="@+id/edit_text2"
+            android:hint="Number of Courses you have to do"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text2"
+            android:layout_marginTop="20dp"
+            android:text="Enter the CGPA you want to achieve"
+            android:paddingLeft="10dp"
+            android:id="@+id/text5"
+            android:textColor="#000"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/text5"
+            android:hint="CGPA you want to achieve"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:id="@+id/edit_text3"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/edit_text3"
+            android:layout_centerHorizontal="true"
+            android:text="Submit"
+            android:layout_marginTop="30dp"
+            android:id="@+id/submit"/>
+
+    </RelativeLayout>
+
+</ScrollView>

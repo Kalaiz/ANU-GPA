@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c2b3bbef-7446-4399-be11-c5f02357fbc7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/GPA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Permutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Permutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PermutationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/PermutationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/assignapp2019s1/Permutation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/assignapp2019s1/Permutation.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,39 +32,46 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2682" />
+          <entry key="java" value="3441" />
           <entry key="md" value="2363" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2682" />
+          <entry key="JAVA" value="3441" />
           <entry key="Markdown" value="2363" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Permutation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="33" column="92" selection-start-line="33" selection-start-column="92" selection-end-line="33" selection-end-column="92" />
+            <state relative-caret-position="184">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3634#3635#0" expanded="true" />
-                <element signature="e#3667#3668#0" expanded="true" />
+                <element signature="e#5307#5308#0" expanded="true" />
+                <element signature="e#5342#5343#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PermutationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+            <state relative-caret-position="288">
+              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GPA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            <state relative-caret-position="-884">
+              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -121,9 +130,9 @@
         <option value="$PROJECT_DIR$/Meeting1.md" />
         <option value="$PROJECT_DIR$/Meeting2.md" />
         <option value="$PROJECT_DIR$/TestingSummary.md" />
-        <option value="$PROJECT_DIR$/PermutationTest.java" />
         <option value="$PROJECT_DIR$/GPA.java" />
         <option value="$PROJECT_DIR$/Permutation.java" />
+        <option value="$PROJECT_DIR$/PermutationTest.java" />
       </list>
     </option>
   </component>
@@ -139,7 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,11 +160,12 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555073626509" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555134658900" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
   </component>
   <component name="RunDashboard">
@@ -246,34 +255,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PermutationTest - 2019.04.12 at 21h 47m 18s.xml">
+    <history-entry file="PermutationTest - 2019.04.12 at 23h 08m 20s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 10m 10s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 01m 32s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 10m 14s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 24m 13s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 10m 17s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 25m 21s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 26m 44s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 30m 02s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 26m 49s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 31m 52s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 26m 55s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 32m 37s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 28m 23s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 34m 59s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 28m 29s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 42m 41s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PermutationTest - 2019.04.12 at 22h 49m 20s.xml">
+    <history-entry file="PermutationTest - 2019.04.13 at 15h 44m 04s.xml">
       <configuration name="PermutationTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -281,7 +290,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.151417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15384616" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -321,46 +330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DesignSummary.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="130">
-            <caret line="10" column="23" selection-start-line="1" selection-start-column="14" selection-end-line="10" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Meeting2.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="104">
-            <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestingSummary.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="26">
-            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Meeting1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret selection-end-line="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/DesignSummary.md" />
+    <entry file="file://$PROJECT_DIR$/Meeting2.md" />
+    <entry file="file://$PROJECT_DIR$/TestingSummary.md" />
+    <entry file="file://$PROJECT_DIR$/Meeting1.md" />
     <entry file="file://$PROJECT_DIR$/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -368,31 +341,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PermutationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GPA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        <state relative-caret-position="-884">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Permutation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="33" column="92" selection-start-line="33" selection-start-column="92" selection-end-line="33" selection-end-column="92" />
+        <state relative-caret-position="184">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3634#3635#0" expanded="true" />
-            <element signature="e#3667#3668#0" expanded="true" />
+            <element signature="e#5307#5308#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PermutationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

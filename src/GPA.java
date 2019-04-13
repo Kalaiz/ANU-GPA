@@ -1,5 +1,5 @@
 /**
- * A class in which upon retrieval of data it does  any calculation of GPA or recalculation if necessary.
+ * A class in which upon retrieval of data it does any calculation of GPA or recalculation if necessary.
  **/
 public class GPA {
 

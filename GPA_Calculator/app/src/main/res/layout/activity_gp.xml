@@ -1,112 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbarStyle="outsideInset"
     tools:context=".GPA">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:minHeight="900dp"
+        android:visibility="visible">
 
         <TextView
+            android:id="@+id/CGPATextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Do You Know Your GPA ?"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="120dp"
+            android:layout_height="18dp"
+            android:layout_below="@+id/numOfCourseDoneEditText"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingLeft="10dp"
+            android:text="Enter your CGPA"
+            android:textColor="#000"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gpaWantedEditText" />
+
+        <TextView
             android:id="@+id/tex"
-            android:textColor="#000"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="132dp"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="121dp"
+            android:layout_marginRight="121dp"
+            android:text="Do You Know Your GPA ?"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:layout_width="175dp"
-            android:layout_height="80dp"
-            android:text="Know"
             android:id="@+id/know"
-            android:layout_below="@+id/tex"
-            android:layout_marginTop="40dp"
-            />
-        <Button
             android:layout_width="175dp"
             android:layout_height="80dp"
-            android:layout_alignParentRight="true"
-            android:text="Don't Know"
-            android:id="@+id/dknow"
-            android:layout_below="@+id/tex"
             android:layout_marginTop="40dp"
-            />
+            android:text="Know"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tex" />
+
+        <Button
+            android:id="@+id/dknow"
+            android:layout_width="175dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="40dp"
+            android:text="Don't Know"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tex" />
 
         <TextView
+            android:id="@+id/numOfCourseDoneTextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/know"
-            android:layout_marginTop="20dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingLeft="10dp"
             android:text="Enter the number of courses done"
-            android:paddingLeft="10dp"
-            android:id="@+id/text3"
             android:textColor="#000"
             android:visibility="invisible"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CGPAEditText" />
+
         <EditText
+            android:id="@+id/numOfCourseDoneEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/text3"
-            android:inputType="number"
-            android:id="@+id/edit_text1"
-            android:imeOptions="actionNext"
+            android:layout_marginTop="8dp"
             android:hint="Number of Courses Done"
+            android:imeOptions="actionNext"
+            android:inputType="number"
             android:visibility="invisible"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/numOfCourseDoneTextView"
+            tools:layout_editor_absoluteX="72dp" />
+
         <TextView
+            android:id="@+id/text4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_text1"
-            android:layout_marginTop="20dp"
-            android:text="Enter the number of courses you have to do"
+            android:layout_below="@+id/numOfCourseDoneEditText"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:paddingLeft="10dp"
-            android:id="@+id/text4"
+            android:text="Enter the number of courses you have to do"
             android:textColor="#000"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/know" />
+
         <EditText
+            android:id="@+id/numOfTBTCourseEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/text4"
-            android:id="@+id/edit_text2"
             android:hint="Number of Courses you have to do"
             android:imeOptions="actionNext"
             android:inputType="number"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text4" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_text2"
-            android:layout_marginTop="20dp"
-            android:text="Enter the CGPA you want to achieve"
-            android:paddingLeft="10dp"
             android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_below="@+id/numOfTBTCourseEditText"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingLeft="10dp"
+            android:text="Enter the GPA you want to achieve"
             android:textColor="#000"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numOfTBTCourseEditText" />
+
         <EditText
+            android:id="@+id/gpaWantedEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/text5"
             android:hint="CGPA you want to achieve"
-            android:inputType="number"
             android:imeOptions="actionDone"
-            android:id="@+id/edit_text3"
-            />
+            android:inputType="number|numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text5" />
+
+        <EditText
+            android:id="@+id/CGPAEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:hint="CGPA you want to achieve"
+            android:imeOptions="actionDone"
+            android:inputType="number|numberDecimal"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/CGPATextView"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
+            android:id="@+id/submit"
             android:layout_width="150dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/edit_text3"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="136dp"
+            android:layout_marginLeft="136dp"
+            android:layout_marginTop="8dp"
             android:text="Submit"
-            android:layout_marginTop="30dp"
-            android:id="@+id/submit"/>
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numOfCourseDoneEditText"
+            app:layout_constraintVertical_bias="0.021" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

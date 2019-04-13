@@ -1,3 +1,7 @@
+package com.example.gpa_calculator;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -25,7 +29,7 @@ import java.util.Stack;
  *        calculatePermutations() finds for the possible permutation such that:
  *        nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54 && sum[nHDs,nDs,nCRs,nPs,nFs] == numOfTBTCourses
  * */
-public class Permutation extends GPA{
+public class Permutation extends GPA implements Parcelable {
 
     /*TODO:
      *1)Score system for possible permutation.
@@ -37,6 +41,14 @@ public class Permutation extends GPA{
       each permutation is ordered as ordered as [HDs,Ds,CRs,Ps,Fs]*/
     private List permutations;
 
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Permutation createFromParcel(Parcel inputStream) {
+            return new Permutation(inputStream);
+        }
+        public Permutation[] newArray(int size) {
+            return new Permutation[size];
+        }
+    };
 
     /**
      * Creates a Permutation object which calculate the possible permutation based
@@ -127,5 +139,27 @@ public class Permutation extends GPA{
     public List getPermutation(){
         return permutations;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+    dest.writeFloat(this.cgpa);
+    dest.writeInt(this.numOfTCourses);
+    dest.writeInt(this.numOfCourses);
+    dest.writeFloat(this.gpaWanted);
+    }
+
+    public Permutation(Parcel inputStream){//float cgpa, int coursesDone, int totalCourses,float gpaWanted
+        super(inputStream.readFloat(), inputStream.readInt(),inputStream.readInt());
+        numOfTBTCourses= numOfCourses-numOfTCourses;
+        calculatePointsNeeded(inputStream.readFloat());//gpaWanted
+        pointsNeeded=super.pointsNeeded;
+        calculatePermutation();
+    }
+
 
 }

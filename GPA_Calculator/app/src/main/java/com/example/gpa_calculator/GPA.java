@@ -1,74 +1,121 @@
 package com.example.gpa_calculator;
+/**
+ * A class in which upon retrieval of data it does any calculation of GPA or recalculation if necessary.
+ **/
+public class GPA {
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+    /*TODO:
+     * 1)Set up Test Cases for the calc
+     *
+     */
 
-public class GPA extends AppCompatActivity {
+    final int GRADEVALUES[] = {7,6,5,4,0};
+    //All instance variable below are required for pointsNeeded
+    int numOfCourses;//total num of courses
+    int numOfTCourses;//num of courses Taken already
+    float cgpa;//Current GPA
+    int currentPoints;//current number of grade points
+    //the below variables are related to the calculate total points function
+    float gpaWanted;
+    int pointsNeeded;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gp);
-        final TextView no_of_courses  = (TextView) findViewById(R.id.text3);
-        final EditText num_of_courses_edit = (EditText) findViewById(R.id.edit_text1);
-        final TextView no_of_courses_have_to_do  = (TextView) findViewById(R.id.text4);
-        final EditText num_of_courses_have_to_do_edit = (EditText) findViewById(R.id.edit_text2);
-        final TextView GPA_want_to_achieve  = (TextView) findViewById(R.id.text4);
-        final EditText GPA_want_to_achieve_edit = (EditText) findViewById(R.id.edit_text2);
-        Button know = (Button) findViewById(R.id.know);
-        Button dontknow = (Button) findViewById(R.id.dknow);
-        Button submit = (Button) findViewById(R.id.submit);
+    public GPA(int[] grades) {
+        //primary constructor
+        gpaCalc(grades);
+        //total courses is chosen for ease of use- more likely to know how
+        //many in total rather than whats left
 
-        final SharedPreferences sharedPreferences = getSharedPreferences("grades", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    }
+    public GPA(float gpa, int coursesDone, int totalCourses) {
+        //secondary constructor
+        cgpa = gpa;
+        numOfTCourses = coursesDone;
+        numOfCourses = totalCourses;
+        currentPoints = (int)(cgpa*numOfTCourses+0.5);
+    }
 
-        know.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                no_of_courses.setVisibility(View.VISIBLE);
-                num_of_courses_edit.setVisibility(View.VISIBLE);
-            }
-        });
+    public void calculatePointsNeeded(float wantedGPA){
+        /*Calculates PointsNeeded based on numOfTCourses & cgpa */
+        pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
+        gpaWanted = wantedGPA;
+    }
 
-        know.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                no_of_courses.setVisibility(View.INVISIBLE);
-                num_of_courses_edit.setVisibility(View.INVISIBLE);
-                return true;
-            }
-        });
+    public void gpaCalc(int[] data) {
+        //calculates the gpa and number of courses taken from your grades
+        float total = 0;
+        int tCourses = 0;
+        for (int x = 0; x < 5; x++) {
+            total = total + (data[x]*GRADEVALUES[x]);
+            tCourses = tCourses+ data[x];
+        }
+        cgpa = total/tCourses;
+        currentPoints = (int)(total+0.5);
+        numOfTCourses = tCourses;
+    }
+
+    //the below functions are update functions, used to changes a saved gpa object
+    public void addGrades(int[] newGrades) {
+        int extraClasses = 0;
+        int extraPoints = 0;
+        for(int x = 0; x <5; x++) {
+            extraClasses = extraClasses + newGrades[x];
+            extraPoints = extraPoints + (newGrades[x]*GRADEVALUES[x]);
+
+        }
+        cgpa = (cgpa*numOfTCourses+extraPoints)/(numOfTCourses + extraClasses);
+        numOfTCourses = numOfTCourses + extraClasses;
+        currentPoints = currentPoints + extraPoints;
+        if(gpaWanted != 0.0f) {
+            calculatePointsNeeded(gpaWanted);
+        }
+    }
+
+    public void updateCGPA(float newCGPA, int extraCourses) {
+        cgpa = newCGPA;
+        numOfTCourses = numOfTCourses +extraCourses;
+        currentPoints = currentPoints + (int)(cgpa*numOfTCourses + 0.5);
+        if(gpaWanted != 0.0f) {
+            calculatePointsNeeded(gpaWanted);
+        }
+    }
 
 
-        dontknow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GPA.this,DontKnow.class);
-                startActivity(intent);
-            }
-        });
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String hd = sharedPreferences.getString("hd","");
-                String d = sharedPreferences.getString("d","");
-                String c = sharedPreferences.getString("c","");
-                String pass = sharedPreferences.getString("pass","");
-                String fail = sharedPreferences.getString("fail","");
-                // Here, put the code for the permuatation list of ways to achieve a particular grade entered by the user
-                Toast.makeText(GPA.this,"Got the marks",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(GPA.this,Permutationlist.class);
-                startActivity(intent);
-            }
-        });
+    GPA(){}
+
+    //below are the 5 functions to obtain a useful value from the gpa object
+    //just in case we decided to make the values private. can delete later
+    public float getCGPA() {
+        return cgpa;
+    }
+
+    public float getgpaWanted() {
+        return gpaWanted;
+    }
+
+    public int getCourses() {
+        return numOfCourses;
+    }
+
+    public int getTCourses() {
+        return numOfTCourses;
+    }
+
+    public int getPointsReq() {
+        return pointsNeeded;
+    }
+
+    //three functions to set the values of a gpa object. the other two arent
+    //needed as there should be no reason to set those manually
+    public void setCGPA(float gpa) {
+        cgpa = gpa;
+    }
+
+    public void setCourses(int courseNum) {
+        numOfCourses = courseNum;
+    }
+
+    public void setTCourses(int courseNum) {
+        numOfTCourses = courseNum;
     }
 }

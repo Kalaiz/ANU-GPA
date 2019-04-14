@@ -66,13 +66,12 @@ public class Home extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sharedPreferences.getInt("numOfTCourses",0)==0) {
+                if(sharedPreferences.getFloat("CGPA",0)==0) {//if CGPA is not updated it means that user is about to type in his/her CGPA.
                     editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText)).getText().toString()));
                     editor.putFloat("CGPA",Float.parseFloat(((EditText)findViewById(R.id.CGPAEditText)).getText().toString()));
                 }
                 editor.putInt("numOfTBTCourses",Integer.parseInt(((((EditText)findViewById(R.id.numOfTBTCourseEditText)).getText().toString()))));
                 editor.putFloat("gpaWanted",Float.parseFloat(((EditText)findViewById(R.id.gpaWantedEditText)).getText().toString()));
-
                 editor.apply();
                 Toast.makeText(Home.this,"Got the marks",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Home.this,Permutationlist.class);

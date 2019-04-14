@@ -31,11 +31,15 @@ public class GPAcalc extends AppCompatActivity {
                 String[] gradeVal={"nhd","nd","ncr","np","nf"};
                 EditText[] numbersOfGrades= new EditText[]{hd,d,c,pass,fail};
                 int[] ngrades =new int[5];
-                for (int i=0;i<5;i++){
-                    ngrades[i]=Integer.parseInt(numbersOfGrades[i].getText().toString());
-                    editor.putInt(gradeVal[i],ngrades[i]);
+                try {
+                    for (int i = 0; i < 5; i++) {
+                        ngrades[i] = Integer.parseInt(numbersOfGrades[i].getText().toString());
+                        editor.putInt(gradeVal[i], ngrades[i]);
+                    }
                 }
-
+                catch (NumberFormatException n){
+                    Toast.makeText(GPAcalc.this,"Wrong input,Try Again",Toast.LENGTH_LONG).show();
+                }
                 Toast.makeText(GPAcalc.this,"Extract marks",Toast.LENGTH_LONG).show();
                 GPA gpa =new GPA(ngrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
@@ -43,7 +47,7 @@ public class GPAcalc extends AppCompatActivity {
                 editor.putFloat("CGPA",gpa.cgpa);
                 editor.putInt("numOfTCourses",gpa.numOfTCourses);
                 editor.apply();
-                v.animate().alpha(-10);//making it invisible
+               // v.animate().alpha(-10);//making it invisible
                 result.setVisibility(View.VISIBLE);
 
             }

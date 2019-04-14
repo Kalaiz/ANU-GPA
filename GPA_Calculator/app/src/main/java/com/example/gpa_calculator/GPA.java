@@ -1,4 +1,7 @@
 package com.example.gpa_calculator;
+
+import java.util.ArrayList;
+
 /**
  * A class in which upon retrieval of data it does any calculation of GPA or recalculation if necessary.
  **/
@@ -9,7 +12,7 @@ public class GPA {
      *
      */
 
-    final int GRADEVALUES[] = {7,6,5,4,0};
+
     //All instance variable below are required for pointsNeeded
     int numOfCourses;//total num of courses
     int numOfTCourses;//num of courses Taken already
@@ -18,6 +21,7 @@ public class GPA {
     //the below variables are related to the calculate total points function
     float gpaWanted;
     int pointsNeeded;
+    final int GRADEVALUES[] = {7,6,5,4,0};
 
     public GPA(int[] grades) {
         //primary constructor

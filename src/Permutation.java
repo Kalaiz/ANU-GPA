@@ -31,12 +31,11 @@ public class Permutation extends GPA{
      *1)Score system for possible permutation.
      */
 
-    int pointsNeeded; //Points needed in order to achieve the user's gpaWanted.
+
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
       each permutation is ordered as ordered as [HDs,Ds,CRs,Ps,Fs]*/
-    private List permutations;
-
+    private List permutations =new ArrayList();
 
     /**
      * Creates a Permutation object which calculate the possible permutation based
@@ -52,7 +51,6 @@ public class Permutation extends GPA{
         super(cgpa, coursesDone,totalCourses);
         numOfTBTCourses= totalCourses-coursesDone;
         calculatePointsNeeded(gpaWanted);
-        pointsNeeded=super.pointsNeeded;
         calculatePermutation();
     }
 
@@ -84,7 +82,6 @@ public class Permutation extends GPA{
         int[] trackers={0,0,0,0};
         int val,numOfPasses,size; //For temporary storage of stack values,numOfPasses,size of stack.
         Stack<Integer> stack=new Stack();
-        ArrayList permutations=new ArrayList();
         while(trackers[0]!=numOfTBTCourses+1){ //While number of hds does'nt exceed the total number of courses.
             if(stack.size()==4){
                 val=numOfTBTCourses-sumOfStack;
@@ -117,7 +114,6 @@ public class Permutation extends GPA{
                 }
             }
         }
-        this.permutations=permutations;
     }
 
 

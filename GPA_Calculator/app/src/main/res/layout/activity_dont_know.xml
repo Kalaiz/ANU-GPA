@@ -12,111 +12,108 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/hd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter the count of courses in which you got HD"
-            android:id="@+id/hd"
-            android:textColor="#000"
             android:layout_marginTop="120dp"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:text="Enter the count of courses in which you got HD"
+            android:textColor="#000" />
 
         <EditText
+            android:id="@+id/hd_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/hd"
-            android:textSize="15dp"
             android:hint="Number Of HD's"
-            android:id="@+id/hd_edit"
             android:imeOptions="actionNext"
             android:inputType="number"
-            />
+            android:textSize="15dp" />
+
         <TextView
+            android:id="@+id/d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter the count of courses in which you got D"
-            android:id="@+id/d"
-            android:textColor="#000"
             android:layout_below="@+id/hd_edit"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:text="Enter the count of courses in which you got D"
+            android:textColor="#000" />
 
         <EditText
+            android:id="@+id/d_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/d"
             android:hint="Number Of D's"
-            android:textSize="15dp"
-            android:id="@+id/d_edit"
             android:imeOptions="actionNext"
             android:inputType="number"
-            />
+            android:textSize="15dp" />
+
         <TextView
+            android:id="@+id/c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter the count of courses in which you got C"
-            android:id="@+id/c"
             android:layout_below="@+id/d_edit"
-            android:textColor="#000"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:text="Enter the count of courses in which you got C"
+            android:textColor="#000" />
 
         <EditText
+            android:id="@+id/c_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/c"
-            android:id="@+id/c_edit"
             android:hint="Number Of C's"
-            android:textSize="15dp"
             android:imeOptions="actionNext"
             android:inputType="number"
-            />
+            android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter the count of courses in which you got Pass"
-            android:id="@+id/pass"
             android:layout_below="@+id/c_edit"
-            android:textColor="#000"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:text="Enter the count of courses in which you got Pass"
+            android:textColor="#000" />
 
         <EditText
+            android:id="@+id/pass_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textSize="15dp"
             android:layout_below="@+id/pass"
             android:hint="Number Of Pass"
-            android:id="@+id/pass_edit"
             android:imeOptions="actionNext"
             android:inputType="number"
-            />
+            android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/fail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter the count of courses in which you got Fail"
-            android:id="@+id/fail"
             android:layout_below="@+id/pass_edit"
-            android:textColor="#000"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:text="Enter the count of courses in which you got Fail"
+            android:textColor="#000" />
 
         <EditText
+            android:id="@+id/fail_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/fail"
-            android:textSize="15dp"
             android:hint="Number of Fail's"
-            android:id="@+id/fail_edit"
             android:imeOptions="actionDone"
             android:inputType="number"
-            />
+            android:textSize="15dp" />
 
         <Button
+            android:id="@+id/done"
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_below="@+id/fail_edit"
             android:layout_centerHorizontal="true"
-            android:text="Done"
-            android:id="@+id/done"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:text="Done" />
 
         <TextView
             android:id="@+id/resultTextView"
@@ -135,6 +132,25 @@
             android:layout_marginRight="178dp"
             android:layout_marginBottom="434dp"
             android:text="RESULT"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/yourGPAisTextView"
+            android:layout_width="149dp"
+            android:layout_height="27dp"
+            android:layout_alignBottom="@+id/hd_edit"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="164dp"
+            android:layout_marginLeft="164dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="97dp"
+            android:layout_marginRight="97dp"
+            android:layout_marginBottom="139dp"
+            android:text="Your GPA is :"
             android:visibility="invisible" />
 
 

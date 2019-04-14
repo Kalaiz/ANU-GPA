@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2b3bbef-7446-4399-be11-c5f02357fbc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/java/com/example/gpa_calculator/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/java/com/example/gpa_calculator/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/java/com/example/gpa_calculator/Permutationlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/java/com/example/gpa_calculator/Permutationlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/res/layout/activity_permutationlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GPA_Calculator/app/src/main/res/layout/activity_permutationlist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Permutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Permutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PermutationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/PermutationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignapp2019s1/Permutation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/assignapp2019s1/Permutation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignapp2019s1/PermutationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/assignapp2019s1/PermutationTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="c2b3bbef-7446-4399-be11-c5f02357fbc7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +131,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="84" />
     <option name="y" value="-26" />
     <option name="width" value="1401" />
@@ -169,7 +160,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555207136013" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555209864996" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>

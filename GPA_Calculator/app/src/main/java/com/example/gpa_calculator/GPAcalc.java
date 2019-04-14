@@ -38,11 +38,12 @@ public class GPAcalc extends AppCompatActivity {
 
                 Toast.makeText(GPAcalc.this,"Extract marks",Toast.LENGTH_LONG).show();
                 GPA gpa =new GPA(ngrades);
-                result.setText(gpa.cgpa+"");
+                findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
+                result.setText(gpa.cgpa+" ");
                 editor.putFloat("CGPA",gpa.cgpa);
                 editor.putInt("numOfTCourses",gpa.numOfTCourses);
                 editor.apply();
-                v.animate().alpha(10);
+                v.animate().alpha(-10);//making it invisible
                 result.setVisibility(View.VISIBLE);
 
             }

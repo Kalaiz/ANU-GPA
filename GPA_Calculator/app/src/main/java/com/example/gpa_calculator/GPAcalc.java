@@ -40,6 +40,9 @@ public class GPAcalc extends AppCompatActivity {
                 GPA gpa =new GPA(ngrades);
                 result.setText(gpa.cgpa+"");
                 editor.putFloat("CGPA",gpa.cgpa);
+                editor.putInt("numOfTCourses",gpa.numOfTCourses);
+                editor.apply();
+                v.animate().alpha(10);
                 result.setVisibility(View.VISIBLE);
 
             }

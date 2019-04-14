@@ -2,6 +2,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
+
 import static org.junit.Assert.*;
 
 public class PermutationTest {
@@ -12,7 +14,7 @@ public class PermutationTest {
      * @param: numOfTBTCourses - the number of courses yet to be taken
      * @Return: An ArrayList which contains all the "Required" permutation;permutation in accordance to estd GPA.
      */
-    public List testPermutation(int pointsNeeded, int numOfTBTCourses){
+    public ArrayList testPermutation(int pointsNeeded, int numOfTBTCourses){
         ArrayList permutations=new ArrayList();
         for(int nhd=0;nhd<numOfTBTCourses;nhd++){
             for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
@@ -20,7 +22,7 @@ public class PermutationTest {
                     for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
                         for(int nf=0;nf<numOfTBTCourses-(np-1);nf++) {
                             if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np + nf){
-                                permutations.add(new Object[]{nhd, nd, ncr, np, nf});
+                               permutations.add(new Object[]{nhd,nd,ncr,np,nf});
                             }
                         }
 
@@ -56,6 +58,15 @@ public class PermutationTest {
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.pointsNeeded,p.numOfTBTCourses).toArray();
         assertTrue("Wrong result for pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,Arrays.deepEquals(original,test));
+    }
+
+
+    public  ArrayList<Object[]>innerStacksToArray(ArrayList<Stack<Integer>> Input){
+        ArrayList<Object[]> output =new ArrayList<>();
+        for(Stack<Integer> s :Input){
+           output.add(s.toArray());
+        }
+        return output;
     }
 
 }

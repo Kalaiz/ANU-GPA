@@ -66,10 +66,14 @@ public class Home extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putInt("nCoursesDone",Integer.parseInt(((EditText)findViewById(R.id.numOfCourseDoneEditText)).getText().toString()));
-                editor.putInt("nTBTCourses",Integer.parseInt(((((EditText)findViewById(R.id.numOfTBTCourseEditText)).getText().toString()))));
+                if(sharedPreferences.getInt("numOfTCourses",0)==0) {
+                    editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText)).getText().toString()));
+                    editor.putFloat("CGPA",Float.parseFloat(((EditText)findViewById(R.id.CGPAEditText)).getText().toString()));
+                }
+                editor.putInt("numOfTBTCourses",Integer.parseInt(((((EditText)findViewById(R.id.numOfTBTCourseEditText)).getText().toString()))));
                 editor.putFloat("gpaWanted",Float.parseFloat(((EditText)findViewById(R.id.gpaWantedEditText)).getText().toString()));
-                editor.putFloat("CGPA",Float.parseFloat(((EditText)findViewById(R.id.CGPAEditText)).getText().toString()));
+
+                editor.apply();
                 Toast.makeText(Home.this,"Got the marks",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Home.this,Permutationlist.class);
                 startActivity(intent);

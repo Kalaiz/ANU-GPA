@@ -50,7 +50,7 @@ public class GPA {
         int tCourses = 0;
         for (int x = 0; x < 5; x++) {
             total = total + (data[x]*GRADEVALUES[x]);
-            tCourses = tCourses+ data[x];
+            tCourses = tCourses + data[x];
         }
         cgpa = total/tCourses;
         currentPoints = (int)(total+0.5);

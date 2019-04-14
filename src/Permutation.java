@@ -35,7 +35,7 @@ public class Permutation extends GPA{
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
       each permutation is ordered as ordered as [HDs,Ds,CRs,Ps,Fs]*/
-    private List permutations =new ArrayList();
+    private ArrayList permutations =new ArrayList();
 
     /**
      * Creates a Permutation object which calculate the possible permutation based
@@ -87,7 +87,7 @@ public class Permutation extends GPA{
                 val=numOfTBTCourses-sumOfStack;
                 stack.push(val);
                 if(points==pointsNeeded){
-                    permutations.add(stack.toArray()); //Converting it to an array for these sake of the test.
+                    permutations.add(stack.toArray());
                 }
                 stack.pop(); //Removing the 5th element(num of fails)
                 numOfPasses=stack.pop();
@@ -120,7 +120,7 @@ public class Permutation extends GPA{
     /**
      * Returns the possible permutations
      * @return permutations - An ArrayList which contains the possible permutations.*/
-    public List getPermutation(){
+    public ArrayList<Stack<Integer>> getPermutation(){
         return permutations;
     }
 

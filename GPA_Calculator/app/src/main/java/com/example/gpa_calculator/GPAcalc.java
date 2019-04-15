@@ -16,39 +16,40 @@ public class GPAcalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dont_know);
-        final TextView result =(TextView) findViewById(R.id.resultTextView);
+        final TextView result = (TextView) findViewById(R.id.resultTextView);
         Button done = (Button) findViewById(R.id.done);
         final EditText hd = (EditText) findViewById(R.id.hd_edit);
-        final EditText d = (EditText) findViewById(R.id.d_edit) ;
+        final EditText d = (EditText) findViewById(R.id.d_edit);
         final EditText c = (EditText) findViewById(R.id.c_edit);
-        final EditText pass = (EditText) findViewById(R.id.pass_edit) ;
+        final EditText pass = (EditText) findViewById(R.id.pass_edit);
         final EditText fail = (EditText) findViewById(R.id.fail_edit);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                String[] gradeVal={"nhd","nd","ncr","np","nf"};
-                EditText[] numbersOfGrades= new EditText[]{hd,d,c,pass,fail};
-                int[] ngrades =new int[5];
-                try {
-                    for (int i = 0; i < 5; i++) {
-                        ngrades[i] = Integer.parseInt(numbersOfGrades[i].getText().toString());
-                        editor.putInt(gradeVal[i], ngrades[i]);
+                String[] gradeVal = {"nhd", "nd", "ncr", "np", "nf"};
+                EditText[] numbersOfGrades = new EditText[]{hd, d, c, pass, fail};
+                int[] nGrades = new int[5];
+                for (int i = 0; i < 5; i++) {
+                    try {
+                        nGrades[i] = Integer.parseInt(numbersOfGrades[i].getText().toString());
+                        editor.putInt(gradeVal[i], nGrades[i]);
+                    } catch (NumberFormatException n) {
+                        Toast.makeText(GPAcalc.this, "Note:Your are neglecting some attributes;" +
+                                "It's values will be considered as 0.", Toast.LENGTH_LONG).show();
+                        break;
                     }
                 }
-                catch (NumberFormatException n){
-                    Toast.makeText(GPAcalc.this,"Wrong input,Try Again",Toast.LENGTH_LONG).show();
-                }
-                Toast.makeText(GPAcalc.this,"Extract marks",Toast.LENGTH_LONG).show();
-                GPA gpa =new GPA(ngrades);
+                GPA gpa = new GPA(nGrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
-                result.setText(gpa.cgpa+" ");
-                editor.putFloat("CGPA",gpa.cgpa);
-                editor.putInt("numOfTCourses",gpa.numOfTCourses);
+                result.setText(gpa.cgpa + " ");
+                editor.putFloat("CGPA", gpa.cgpa);
+                editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.apply();
-               // v.animate().alpha(-10);//making it invisible
+                // v.animate().alpha(-10);//making it invisible
                 result.setVisibility(View.VISIBLE);
+                Toast.makeText(GPAcalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
 
             }
         });

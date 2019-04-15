@@ -91,7 +91,7 @@ public class Permutation extends GPA {
                 val=numOfTBTCourses-sumOfStack;
                 stack.push(val);
                 if(points==pointsNeeded){
-                    permutations.add(stack.toArray(new Integer[5])); //Converting it to an array for these sake of the test.
+                    permutations.add(stack.toArray(new Integer[5])); //Converting it to an array avoid referencing issues
                 }
                 stack.pop(); //Removing the 5th element(num of fails)
                 numOfPasses=stack.pop();

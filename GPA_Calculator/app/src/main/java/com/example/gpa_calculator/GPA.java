@@ -9,7 +9,6 @@ public class GPA {
 
     /*TODO:
      * 1)Set up Test Cases for the calc
-     *
      */
 
 

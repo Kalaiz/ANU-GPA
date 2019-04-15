@@ -32,7 +32,7 @@ public class Permutationlist extends AppCompatActivity {
         ListView possibleOutputs=findViewById(R.id.PossiblePermutationListView);
         ArrayAdapter itemsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);
         for(Integer[] s :p.getPermutation()){
-                itemsAdapter.add(Arrays.toString(s));
+                 itemsAdapter.add(Arrays.toString(s));
         }        possibleOutputs.setAdapter(itemsAdapter);
 
         }

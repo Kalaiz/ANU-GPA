@@ -1,9 +1,6 @@
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
-
 import static org.junit.Assert.*;
 
 public class PermutationTest {
@@ -22,7 +19,7 @@ public class PermutationTest {
                     for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
                         for(int nf=0;nf<numOfTBTCourses-(np-1);nf++) {
                             if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np + nf){
-                               permutations.add(new Object[]{nhd,nd,ncr,np,nf});
+                               permutations.add(new Integer[]{nhd,nd,ncr,np,nf});
                             }
                         }
 
@@ -59,14 +56,4 @@ public class PermutationTest {
         Object[] test=testPermutation(p.pointsNeeded,p.numOfTBTCourses).toArray();
         assertTrue("Wrong result for pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,Arrays.deepEquals(original,test));
     }
-
-
-    public  ArrayList<Object[]>innerStacksToArray(ArrayList<Stack<Integer>> Input){
-        ArrayList<Object[]> output =new ArrayList<>();
-        for(Stack<Integer> s :Input){
-           output.add(s.toArray());
-        }
-        return output;
-    }
-
 }

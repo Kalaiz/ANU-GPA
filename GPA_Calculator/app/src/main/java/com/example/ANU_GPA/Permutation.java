@@ -31,9 +31,6 @@ import java.util.Stack;
  * */
 public class Permutation extends GPA {
 
-    /*TODO:
-     *1)Score system for possible permutation.
-     */
 
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
@@ -91,7 +88,8 @@ public class Permutation extends GPA {
                 val=numOfTBTCourses-sumOfStack;
                 stack.push(val);
                 if(points==pointsNeeded){
-                    permutations.add(stack.toArray(new Integer[5])); //Converting it to an array avoid referencing issues
+                    //Converting it to a new array in order to avoid referencing issues
+                    permutations.add(stack.toArray(new Integer[5]));
                 }
                 stack.pop(); //Removing the 5th element(num of fails)
                 numOfPasses=stack.pop();

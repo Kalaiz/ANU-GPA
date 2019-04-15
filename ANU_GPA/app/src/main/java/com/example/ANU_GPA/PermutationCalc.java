@@ -1,4 +1,4 @@
-package com.example.gpa_calculator;
+package com.example.ANU_GPA;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Home extends AppCompatActivity {
+public class PermutationCalc extends AppCompatActivity {
     boolean viewToggle =true;
     int visibility =View.VISIBLE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gp);
+        setContentView(R.layout.activity_permutationcalc);
         final TextView cgpaTextView =(TextView) findViewById(R.id.CGPATextView);
         final EditText cgpaEditText=(EditText) findViewById(R.id.CGPAEditText);
         final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
@@ -43,7 +43,7 @@ public class Home extends AppCompatActivity {
         dontknow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, GPAcalc.class);
+                Intent intent = new Intent(PermutationCalc.this, GPACalc.class);
                 startActivity(intent);
             }
         });
@@ -65,13 +65,13 @@ public class Home extends AppCompatActivity {
                         editor.putFloat("gpaWanted",Float.parseFloat(((EditText)findViewById(R.id.gpaWantedEditText))
                                 .getText().toString()));}
                     catch(NumberFormatException n){
-                        Toast.makeText(Home.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
                         noError=false;
                     }
                 if(noError){
                 editor.apply();
-                Toast.makeText(Home.this,"Got the marks",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Home.this,Permutationlist.class);
+                Toast.makeText(PermutationCalc.this,"Got the marks",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                 startActivity(intent);}
             }
         });

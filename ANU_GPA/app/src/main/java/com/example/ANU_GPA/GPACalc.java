@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class GPACalc extends AppCompatActivity {
         final EditText c = (EditText) findViewById(R.id.cEditText);
         final EditText p = (EditText) findViewById(R.id.pEditText);
         final EditText f = (EditText) findViewById(R.id.fEditText);
+        final ScrollView scrollView =(ScrollView) findViewById(R.id.scrollView);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,8 @@ public class GPACalc extends AppCompatActivity {
                 // v.animate().alpha(-10);//making it invisible
                 result.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
+                scrollView.fullScroll(View.FOCUS_UP);
+
 
             }
         });

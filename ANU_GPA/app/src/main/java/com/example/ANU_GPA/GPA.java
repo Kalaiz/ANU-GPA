@@ -43,13 +43,14 @@ public class GPA {
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
+
         float total = 0;
         int tCourses = 0;
         for (int x = 0; x < 5; x++) {
             total = total + (data[x]*GRADEVALUES[x]);
             tCourses = tCourses + data[x];
         }
-        cgpa = total/tCourses;
+        cgpa = (tCourses!=0)?total/tCourses:0;//for not producing a NaN
         currentPoints = (int)(total+0.5);
         numOfTCourses = tCourses;
     }

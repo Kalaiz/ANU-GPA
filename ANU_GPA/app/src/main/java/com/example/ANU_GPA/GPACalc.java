@@ -33,28 +33,26 @@ public class GPACalc extends AppCompatActivity {
                 String[] gradeVal = {"nhd", "nd", "ncr", "np", "nf"};
                 EditText[] numbersOfGrades = new EditText[]{hd, d, c, p, f};
                 int[] nGrades = new int[5];
+                boolean error=false;
                 for (int i = 0; i < 5; i++) {
                     try {
                         nGrades[i] = Integer.parseInt(numbersOfGrades[i].getText().toString());
                         editor.putInt(gradeVal[i], nGrades[i]);
                     } catch (NumberFormatException n) {
-                        Toast.makeText(GPACalc.this, "Note:Your are neglecting some attributes;" +
-                                "It's values will be considered as 0.", Toast.LENGTH_LONG).show();
-                        break;
+                        error=true;
                     }
-
                 }
+                if(error){Toast.makeText(GPACalc.this, "Note:Your are neglecting some attributes;" +
+                        "It's values will be considered as 0.", Toast.LENGTH_LONG).show();}
                 GPA gpa = new GPA(nGrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
                 result.setText(gpa.cgpa + " ");
                 editor.putFloat("CGPA", gpa.cgpa);
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.apply();
-                // v.animate().alpha(-10);//making it invisible
                 result.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
                 scrollView.fullScroll(View.FOCUS_UP);
-
 
             }
         });

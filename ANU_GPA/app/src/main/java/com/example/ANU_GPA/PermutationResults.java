@@ -19,9 +19,9 @@ public class PermutationResults extends AppCompatActivity {
         //Retrieving values from sharedPreference
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
-        int numTBTCourses=sharedPreferences.getInt("numOfTBTCourses",0);
-        float gpaWanted=sharedPreferences.getFloat("gpaWanted",0);
         float cgpa=sharedPreferences.getFloat("cgpa",0);
+        int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
+        float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
         Permutation p = new Permutation(cgpa,nCoursesDone,nCoursesDone+numTBTCourses,gpaWanted);
         ListView possibleOutputs=findViewById(R.id.PossiblePermutationListView);
         ArrayAdapter itemsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);

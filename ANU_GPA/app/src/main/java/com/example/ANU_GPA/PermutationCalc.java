@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
-    boolean viewToggle = true;
+    boolean knowButtonNotClicked = true;
     int visibility = View.VISIBLE;
 
 
@@ -36,16 +36,16 @@ public class PermutationCalc extends AppCompatActivity {
     public <T> T sPreferenceRetriever(String key,SharedPreferences sp) {
         Map<String, ?> data = sp.getAll();
         if(data.containsKey(key)){
-        T genericKey=(T)data.get(key);
-        if (genericKey.getClass() == Integer.class) {
-            return (T)Integer.valueOf(sp.getInt(key, 0))  ;
-        }
-        if (genericKey.getClass() == Float.class) {
-            return (T)Float.valueOf(sp.getFloat(key, 0)) ;
-        }
-        if (genericKey.getClass() == String.class) {
-            return (T)sp.getString(key, "");
-        }}
+            T genericKey=(T)data.get(key);
+            if (genericKey.getClass() == Integer.class) {
+                return (T)Integer.valueOf(sp.getInt(key, 0))  ;
+            }
+            if (genericKey.getClass() == Float.class) {
+                return (T)Float.valueOf(sp.getFloat(key, 0)) ;
+            }
+            if (genericKey.getClass() == String.class) {
+                return (T)sp.getString(key, "");
+            }}
         return (T)"";
     }
 
@@ -90,17 +90,17 @@ public class PermutationCalc extends AppCompatActivity {
                 //For knowButton Movement
                 float alteredWidth = (displayMetrics.widthPixels/3);
                 //Moving submit button when KnowButton is pressed
-                submitButton.animate().translationYBy(viewToggle ? 400 : -400);
-                knowButton.animate().translationXBy(viewToggle ? alteredWidth:-alteredWidth);
-                visibility =viewToggle?View.VISIBLE:View.INVISIBLE; //For toggling effect.
-                viewToggle=!viewToggle;
+                submitButton.animate().translationYBy(knowButtonNotClicked ? 400 : -400);
+                knowButton.animate().translationXBy(knowButtonNotClicked ? alteredWidth:-alteredWidth);
+                visibility =knowButtonNotClicked?View.VISIBLE:View.INVISIBLE; //For toggling effect.
+                knowButtonNotClicked=!knowButtonNotClicked;
                 //reCalculateButton will disappear when the user knows his/her cgpa.
                 reCalculateButton.setVisibility(visibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
-                if (!viewToggle)
+                if (!knowButtonNotClicked)
                     Toast.makeText(PermutationCalc.this,"Click Know Again to Undo",Toast.LENGTH_LONG).show();
             }
         });
@@ -116,27 +116,28 @@ public class PermutationCalc extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    //if cgpa is not updated it means that user is about to type in his/her cgpa.--preventing overwriting
-                    if(sharedPreferences.getFloat("cgpa",-1)==-1) {//cgpa might be 0.
-                        editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
-                                .getText().toString()));
-                        editor.putFloat("cgpa",Float.parseFloat(((EditText)findViewById(R.id.cgpaEditText))
-                                .getText().toString()));
+
+                int numOfTBTCourses=-1;
+                float gpaWanted=-1;
+                    try{
+                        if(!knowButtonNotClicked) {//If Know button has been clicked.
+                            editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
+                                    .getText().toString()));
+                            editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
+                                    .getText().toString()));
+                            editor.apply();
+                        }
+                        numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
+                        gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
+                    }catch(NumberFormatException n){
+                        Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
                     }
-                    editor.putInt("numOfTBTCourses",Integer.parseInt(((((EditText)findViewById(R.id.numOfTBTCourseEditText))
-                            .getText().toString()))));
-                    editor.putFloat("gpaWanted",Float.parseFloat(((EditText)findViewById(R.id.gpaWantedEditText))
-                            .getText().toString()));
-                    editor.apply();}
-                catch(NumberFormatException n){
-                    Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
-                }
-                boolean error=sharedPreferences.getInt("numOfTBTCourses",0)==0
-                        &&sharedPreferences.getFloat("gpaWanted",0)==0;
-                if(!error){
+                boolean errorFree=numOfTBTCourses!=-1&&gpaWanted!=-1;
+                if(errorFree){
                     Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
+                    intent.putExtra("numOfTBTCourses",numOfTBTCourses);
+                    intent.putExtra("gpaWanted",gpaWanted);
                     startActivity(intent);}
             }
         });

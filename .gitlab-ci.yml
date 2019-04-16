@@ -28,6 +28,7 @@ stages:
 lintDebug:
   stage: build
   script:
+    - cd ANU_GPA
     - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
 
 assembleDebug:

@@ -21,7 +21,7 @@ public class PermutationResults extends AppCompatActivity {
         int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
         int numTBTCourses=sharedPreferences.getInt("numOfTBTCourses",0);
         float gpaWanted=sharedPreferences.getFloat("gpaWanted",0);
-        float cgpa=sharedPreferences.getFloat("CGPA",0);
+        float cgpa=sharedPreferences.getFloat("cgpa",0);
         Permutation p = new Permutation(cgpa,nCoursesDone,nCoursesDone+numTBTCourses,gpaWanted);
         ListView possibleOutputs=findViewById(R.id.PossiblePermutationListView);
         ArrayAdapter itemsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);

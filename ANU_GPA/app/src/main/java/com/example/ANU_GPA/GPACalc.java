@@ -47,7 +47,7 @@ public class GPACalc extends AppCompatActivity {
                 GPA gpa = new GPA(nGrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
                 result.setText(gpa.cgpa + " ");
-                editor.putFloat("CGPA", gpa.cgpa);
+                editor.putFloat("cgpa", gpa.cgpa);
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.apply();
                 result.setVisibility(View.VISIBLE);

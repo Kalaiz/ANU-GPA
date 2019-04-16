@@ -9,10 +9,17 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="700dp">
+            android:layout_height="900dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:layout_below="@+id/doYouKnowYourGPATextView"
+                android:layout_marginTop="30dp" />
 
             <TextView
-                android:id="@+id/CGPATextView"
+                android:id="@+id/cgpaTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/gpaWantedEditText"
@@ -26,7 +33,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/gpaWantedEditText" />
 
             <TextView
-                android:id="@+id/tex"
+                android:id="@+id/doYouKnowYourGPATextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Do You Know Your GPA ?"
@@ -41,31 +48,31 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/know"
+                android:id="@+id/knowButton"
                 android:layout_width="175dp"
                 android:layout_height="80dp"
-                android:layout_below="@+id/tex"
-                android:layout_marginTop="30dp"
+                android:layout_below="@+id/recyclerView"
+                android:layout_marginTop="25dp"
                 android:text="Know"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tex" />
+                app:layout_constraintTop_toBottomOf="@+id/doYouKnowYourGPATextView" />
 
             <Button
-                android:id="@+id/dknow"
+                android:id="@+id/dKnowButton"
                 android:layout_width="175dp"
                 android:layout_height="80dp"
-                android:layout_below="@+id/tex"
+                android:layout_below="@+id/recyclerView"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Don't Know"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tex" />
+                app:layout_constraintTop_toBottomOf="@+id/doYouKnowYourGPATextView" />
 
             <TextView
                 android:id="@+id/numOfCourseDoneTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/CGPAEditText"
+                android:layout_below="@+id/cgpaEditText"
                 android:layout_marginTop="5dp"
                 android:text="Enter the number of courses done"
                 android:textColor="#000"
@@ -73,7 +80,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CGPAEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/cgpaEditText" />
 
             <EditText
                 android:id="@+id/numOfCourseDoneEditText"
@@ -88,32 +95,32 @@
                 tools:layout_editor_absoluteX="72dp" />
 
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/numOfTBTCourseTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/know"
+                android:layout_below="@+id/knowButton"
                 android:layout_marginTop="25dp"
                 android:text="Enter the number of courses yet to be taken"
                 android:textColor="#000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/know" />
+                app:layout_constraintTop_toBottomOf="@+id/knowButton" />
 
             <EditText
                 android:id="@+id/numOfTBTCourseEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/text4"
+                android:layout_below="@+id/numOfTBTCourseTextView"
                 android:layout_marginTop="5dp"
                 android:hint="Inclusive of currently taking ones"
                 android:imeOptions="actionNext"
                 android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text4" />
+                app:layout_constraintTop_toBottomOf="@+id/numOfTBTCourseTextView" />
 
             <TextView
-                android:id="@+id/text5"
+                android:id="@+id/gpaWantedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/numOfTBTCourseEditText"
@@ -129,29 +136,29 @@
                 android:id="@+id/gpaWantedEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text5"
+                android:layout_below="@+id/gpaWantedTextView"
                 android:layout_marginTop="5dp"
                 android:hint="GPA you want to achieve"
                 android:imeOptions="actionNext"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text5" />
+                app:layout_constraintTop_toBottomOf="@+id/gpaWantedTextView" />
 
             <EditText
-                android:id="@+id/CGPAEditText"
+                android:id="@+id/cgpaEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/CGPATextView"
+                android:layout_below="@+id/cgpaTextView"
                 android:layout_marginTop="5dp"
                 android:hint="Your CGPA"
                 android:imeOptions="actionNext"
                 android:inputType="number|numberDecimal"
                 android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@+id/CGPATextView"
+                app:layout_constraintTop_toBottomOf="@+id/cgpaTextView"
                 tools:layout_editor_absoluteX="0dp" />
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/gpaWantedEditText"

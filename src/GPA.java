@@ -20,11 +20,11 @@ public class GPA {
 
     public GPA(int[] grades, int totalCourses) {
         //primary constructor
-        gpaCalc(grades);
-        //total courses is chosen for ease of use- more likely to know how
+    	//total courses is chosen for ease of use- more likely to know how
         //many in total rather than whats left
-        numOfCourses = totalCourses;
-    }
+    	numOfCourses = totalCourses;
+        gpaCalc(grades);
+        }
     public GPA(float gpa, int coursesDone, int totalCourses) {
         //secondary constructor
         cgpa = gpa;
@@ -45,9 +45,19 @@ public class GPA {
         int tCourses = 0;
         for (int x = 0; x < 5; x++) {
             total = total + (data[x]*GRADEVALUES[x]);
-            tCourses = tCourses+ data[x];
+            if (x != 4) {
+                tCourses = tCourses+ data[x];
+            }else {
+            	numOfCourses = numOfCourses + data[x];
+                tCourses = tCourses+ data[x];
+
+            }
         }
-        cgpa = total/tCourses;
+        if(tCourses == 0) {
+        	cgpa = 0;	
+        }else{
+        	cgpa = total/tCourses;
+        }
         currentPoints = (int)(total+0.5);
         numOfTCourses = tCourses;
     }

@@ -3,12 +3,17 @@ package com.example.ANU_GPA;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +22,48 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PermutationCalc extends AppCompatActivity {
-    // Below two variables for knowButton
-    boolean viewToggle =true;
-    int visibility =View.VISIBLE;
+    // Below two variables are for knowButton.
+    boolean viewToggle = true;
+    int visibility = View.VISIBLE;
+
+
+    /**
+     * Based on given key of SharedPreference with the respective sharedPreference.
+     * the value stored can be retrieved.
+     * @param key (sharedPreference based) String Key on which data is to be retrieved as it'srespective type.
+     * @return The respective value of the key as an String.
+     * */
+    public <T> T sPreferenceRetriever(String key,SharedPreferences sp) {
+        Map<String, ?> data = sp.getAll();
+        if(data.containsKey(key)){
+        T genericKey=(T)data.get(key);
+        if (genericKey.getClass() == Integer.class) {
+            return (T)Integer.valueOf(sp.getInt(key, 0))  ;
+        }
+        if (genericKey.getClass() == Float.class) {
+            return (T)Float.valueOf(sp.getFloat(key, 0)) ;
+        }
+        if (genericKey.getClass() == String.class) {
+            return (T)sp.getString(key, "");
+        }}
+        return (T)"";
+    }
+
+
+    /**
+     * Provides a string representation of the given sharedPreference based on the given attributes.
+     * @param sp The respective SharedPreference Object.
+     * @param attributes An Array of attributes/Keys of sp
+     * @return  A String representation of the sharedPreference object.*/
+    public String localDataStatus(String[] attributes,SharedPreferences sp){
+        String input="Data stored Locally \n";
+        for(String attribute:attributes)
+        {
+            input+= attribute+": " +sPreferenceRetriever(attribute,sp) + " \n";
+        }
+        return input;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,40 +73,39 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
         final EditText numOfCourseDoneEditText=(EditText) findViewById(R.id.numOfCourseDoneEditText);
         final Button knowButton = (Button) findViewById(R.id.knowButton);
-        final Button dKnowButton = (Button) findViewById(R.id.dKnowButton);
+        final Button reCalculateButton = (Button) findViewById(R.id.reCalculateButton);
         final Button submitButton = (Button) findViewById(R.id.submitButton);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
-        final RecyclerView recyclerView=findViewById(R.id.recyclerView);
-        ArrayList<View> views=new ArrayList<>();
-        views.add(new TextView(this));
+        final TextView localDataTextView =findViewById(R.id.localDataTextView);
+        localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
-        //TODO
-        //fill in the recyclerView with local storage values such as cgpa, numOfTBTCourses ,numOfTCourses &  gpaWanted.
-        // & Display them.
 
-       /* String[] //might wanna use the future method in Settings class
-        for(int i=0;i<5;i++)
-        {
-            TextView text = new TextView(this);
-            text.setText(""+i);
-            views.add(text);
-        }*/
 
         knowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitButton.animate().translationYBy(viewToggle ? 400 : -400);//Moving submit button accordingly.
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                //For knowButton Movement
+                float alteredWidth = (displayMetrics.widthPixels/3);
+                //Moving submit button when KnowButton is pressed
+                submitButton.animate().translationYBy(viewToggle ? 400 : -400);
+                knowButton.animate().translationXBy(viewToggle ? alteredWidth:-alteredWidth);
                 visibility =viewToggle?View.VISIBLE:View.INVISIBLE; //For toggling effect.
                 viewToggle=!viewToggle;
+                //reCalculateButton will disappear when the user knows his/her cgpa.
+                reCalculateButton.setVisibility(visibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
+                if (!viewToggle)
+                    Toast.makeText(PermutationCalc.this,"Click Know Again to Undo",Toast.LENGTH_LONG).show();
             }
         });
 
-        dKnowButton.setOnClickListener(new View.OnClickListener() {
+        reCalculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PermutationCalc.this, GPACalc.class);
@@ -98,4 +141,13 @@ public class PermutationCalc extends AppCompatActivity {
             }
         });
     }
+
+    /*Once An Inner activity is closed & given that this is the parent activity of the inner activity
+    Update the display for the LocalData*/
+    protected void onResume() {
+        super.onResume();
+        final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        final TextView localDataTextView =findViewById(R.id.localDataTextView);
+        localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
+    };
 }

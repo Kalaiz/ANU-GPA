@@ -1,6 +1,8 @@
 package com.example.ANU_GPA;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putFloat("cgpa",0);
+        editor.putInt("numOfTCourses",0);
+        editor.apply();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class Home extends AppCompatActivity {
         Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
         Button permutation=(Button) findViewById(R.id.permutationButton);
         Button settings=(Button) findViewById(R.id.settingsButton);
+
 
         gpaCalc.setOnClickListener(new View.OnClickListener() {
             @Override

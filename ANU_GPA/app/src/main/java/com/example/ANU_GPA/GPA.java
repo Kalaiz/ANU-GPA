@@ -5,11 +5,6 @@ package com.example.ANU_GPA;
  **/
 public class GPA {
 
-    /*TODO:
-     * 1)Set up Test Cases for the calc
-     */
-
-
     //All instance variable below are required for pointsNeeded
     int numOfCourses;//total num of courses
     int numOfTCourses;//num of courses Taken already
@@ -43,16 +38,11 @@ public class GPA {
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
-
-        float total = 0;
-        int tCourses = 0;
         for (int x = 0; x < 5; x++) {
-            total = total + (data[x]*GRADEVALUES[x]);
-            tCourses = tCourses + data[x];
+            currentPoints += (data[x]*GRADEVALUES[x]);
+            numOfTCourses+= data[x];
         }
-        cgpa = (tCourses!=0)?total/tCourses:0;//for not producing a NaN
-        currentPoints = (int)(total+0.5);
-        numOfTCourses = tCourses;
+        cgpa = (numOfTCourses!=0)?currentPoints/numOfTCourses:0;//for not producing a NaN
     }
 
     //the below functions are update functions, used to changes a saved gpa object

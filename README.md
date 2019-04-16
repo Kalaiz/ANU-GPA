@@ -36,8 +36,11 @@ assignment is entirely my own work, with exceptions given below.
 _add references from where you obtained the idea form the app and ideas about aspects of the app_
 
 ### Code
+_reference all the code or ideas for code from other sources_ 
+
 [PseudoCodes for Integer Partitioning](../Resources/Generating Partitions Research Paper.pdf)
-_reference all the code or ideas for code from other sources_
+[PermutationCalc_Knowing_Screen_Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
+
 
 ### Assets 
 

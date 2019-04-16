@@ -56,7 +56,7 @@ public class PermutationCalc extends AppCompatActivity {
      * @param attributes An Array of attributes/Keys of sp
      * @return  A String representation of the sharedPreference object.*/
     public String localDataStatus(String[] attributes,SharedPreferences sp){
-        String input="Data stored Locally \n";
+        String input="Locally Stored Data :  \n";
         for(String attribute:attributes)
         {
             input+= attribute+": " +sPreferenceRetriever(attribute,sp) + " \n";

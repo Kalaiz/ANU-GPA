@@ -9,7 +9,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="700dp">
 
             <TextView
                 android:id="@+id/CGPATextView"
@@ -154,10 +154,10 @@
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_below="@+id/numOfCourseDoneEditText"
+                android:layout_below="@+id/gpaWantedEditText"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:text="Submit"

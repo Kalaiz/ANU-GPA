@@ -22,15 +22,16 @@ public class PermutationCalc extends AppCompatActivity {
         final EditText cgpaEditText=(EditText) findViewById(R.id.CGPAEditText);
         final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
         final EditText numOfCourseDoneEditText=(EditText) findViewById(R.id.numOfCourseDoneEditText);
-        Button know = (Button) findViewById(R.id.know);
-        Button dontknow = (Button) findViewById(R.id.dknow);
-        Button submit = (Button) findViewById(R.id.submit);
+        final Button know = (Button) findViewById(R.id.know);
+        final Button dontknow = (Button) findViewById(R.id.dknow);
+        final Button submit = (Button) findViewById(R.id.submit);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         know.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                submit.animate().translationYBy(viewToggle ? 400 : -400);
                 visibility =viewToggle?View.VISIBLE:View.INVISIBLE; //For toggling effect
                 viewToggle=!viewToggle;
                 numOfCourseDoneTextView.setVisibility(visibility);

@@ -192,7 +192,7 @@
                 android:layout_toStartOf="@+id/reCalculateButton"
                 android:layout_toLeftOf="@+id/reCalculateButton"
                 android:gravity="center"
-                android:text="GPA's Known & you want to enter it directly,Press Know." />
+                android:text="GPA's Known and you want to enter it directly,Press Know." />
 
         </RelativeLayout>
 

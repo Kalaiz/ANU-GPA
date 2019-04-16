@@ -20,7 +20,7 @@ before_script:
   - set +o pipefail
   - yes | android-sdk-linux/tools/bin/sdkmanager --licenses
   - set -o pipefail
-
+ 
 stages:
   - build
   - test
@@ -28,13 +28,12 @@ stages:
 lintDebug:
   stage: build
   script:
-    - cd ANU_GPA
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+    - ./ANU_GPA/gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
 
 assembleDebug:
   stage: build
   script:
-    - ./gradlew assembleDebug
+    - ./ANU_GPA/gradlew assembleDebug
   artifacts:
     paths:
     - app/build/outputs/

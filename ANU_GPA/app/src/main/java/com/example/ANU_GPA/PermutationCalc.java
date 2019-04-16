@@ -51,10 +51,10 @@ public class PermutationCalc extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean noError=true;
+
                     try{
                         //if CGPA is not updated it means that user is about to type in his/her CGPA.--preventing overwrite
-                        if(sharedPreferences.getFloat("CGPA",0)==0) {
+                        if(sharedPreferences.getFloat("CGPA",-1)==-1) {//CGPA might be 0.
                             editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
                                     .getText().toString()));
                             editor.putFloat("CGPA",Float.parseFloat(((EditText)findViewById(R.id.CGPAEditText))
@@ -63,13 +63,14 @@ public class PermutationCalc extends AppCompatActivity {
                         editor.putInt("numOfTBTCourses",Integer.parseInt(((((EditText)findViewById(R.id.numOfTBTCourseEditText))
                                 .getText().toString()))));
                         editor.putFloat("gpaWanted",Float.parseFloat(((EditText)findViewById(R.id.gpaWantedEditText))
-                                .getText().toString()));}
+                                .getText().toString()));
+                        editor.apply();}
                     catch(NumberFormatException n){
                         Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
-                        noError=false;
                     }
-                if(noError){
-                editor.apply();
+                    boolean error=sharedPreferences.getInt("numOfTBTCourses",0)==0
+                                   &&sharedPreferences.getFloat("gpaWanted",0)==0;
+                if(!error){
                 Toast.makeText(PermutationCalc.this,"Got the marks",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                 startActivity(intent);}

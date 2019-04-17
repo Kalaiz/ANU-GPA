@@ -38,11 +38,14 @@ public class GPA {
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
+        currentPoints = 0;
+        numOfTCourses = 0;
         for (int x = 0; x < 5; x++) {
             currentPoints += (data[x]*GRADEVALUES[x]);
-            numOfTCourses+= data[x];
+            numOfTCourses += data[x];
         }
-        cgpa = (numOfTCourses!=0)?currentPoints/numOfTCourses:0;//for not producing a NaN
+        cgpa = (numOfTCourses!=0)?(float)currentPoints/numOfTCourses:0;//for not producing a NaN
+
     }
 
     //the below functions are update functions, used to changes a saved gpa object

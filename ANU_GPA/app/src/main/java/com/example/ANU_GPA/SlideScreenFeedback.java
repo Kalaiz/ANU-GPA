@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class SlideScreen_Feedback extends AppCompatActivity {
+public class
+SlideScreenFeedback extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,7 @@ public class SlideScreen_Feedback extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SlideScreen_Feedback.this,Give_Feedback.class);
+                Intent intent = new Intent(SlideScreenFeedback.this,Give_Feedback.class);
                 startActivity(intent);
             }
         });

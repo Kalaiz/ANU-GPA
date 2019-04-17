@@ -37,9 +37,9 @@ public class GPACalc extends AppCompatActivity {
                 for (int i = 0; i < 5; i++) {
                     try {
                         nGrades[i] = Integer.parseInt(numbersOfGrades[i].getText().toString());
-                        editor.putInt(gradeVal[i], nGrades[i]);
                     } catch (NumberFormatException n) {
                         error=true;
+                        nGrades[i]=0;
                     }
                 }
                 if(error)
@@ -47,7 +47,7 @@ public class GPACalc extends AppCompatActivity {
                         "It's values will be considered as 0.", Toast.LENGTH_LONG).show();}
                 GPA gpa = new GPA(nGrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
-                result.setText(gpa.cgpa + " ");
+                result.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.apply();

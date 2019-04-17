@@ -40,7 +40,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Possible Permutation based on a target GPA."
+                android:text="Possible permutation based on a target GPA."
                 android:textColor="#000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

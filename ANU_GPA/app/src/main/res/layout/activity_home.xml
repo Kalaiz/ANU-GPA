@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-=======
-<ScrollView
->>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    >
 
     <LinearLayout
-<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -57,36 +53,3 @@
     </LinearLayout>
 
 </RelativeLayout>
-=======
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/gpaCalcButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="GPA Calculator" />
-
-        <Button
-            android:id="@+id/permutationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Permutation" />
-
-        <Button
-            android:id="@+id/settingsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="100dp"
-            android:baselineAligned="false"
-            android:text="Settings" />
-
-    </LinearLayout>
-</ScrollView>
-
-
->>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9

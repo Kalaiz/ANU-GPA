@@ -112,7 +112,6 @@ public class PermutationCalc extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 int numOfTBTCourses=-1;
                 float gpaWanted=-1;
                     try{

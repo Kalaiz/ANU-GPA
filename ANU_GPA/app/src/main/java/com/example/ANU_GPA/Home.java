@@ -13,7 +13,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
+        final Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
         Button permutation=(Button) findViewById(R.id.permutationButton);
         final Button settings=(Button) findViewById(R.id.settingsButton);
 
@@ -23,6 +23,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, GPACalc.class);
                 startActivity(intent);
+                //gpaCalc.animate().
             }
         });
 
@@ -42,5 +43,6 @@ public class Home extends AppCompatActivity {
                 Intent intent = new Intent(Home.this,Settings.class);
                 startActivity(intent);
             }
+    });
     }
 }

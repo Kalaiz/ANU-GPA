@@ -51,12 +51,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/knowButton"
+                android:id="@+id/knownButton"
                 android:layout_width="175dp"
                 android:layout_height="80dp"
                 android:layout_below="@+id/titleTextView"
                 android:layout_marginTop="110dp"
-                android:text="Know"
+                android:text="Known"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
@@ -102,14 +102,14 @@
                 android:id="@+id/numOfTBTCourseTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/knowButton"
+                android:layout_below="@+id/knownButton"
                 android:layout_marginTop="25dp"
                 android:text="Enter the number of courses yet to be taken"
                 android:textColor="#000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/knowButton" />
+                app:layout_constraintTop_toBottomOf="@+id/knownButton" />
 
             <EditText
                 android:id="@+id/numOfTBTCourseEditText"
@@ -192,7 +192,7 @@
                 android:layout_toStartOf="@+id/reCalculateButton"
                 android:layout_toLeftOf="@+id/reCalculateButton"
                 android:gravity="center"
-                android:text="GPA's Known but not locally stored,Press Know." />
+                android:text=" If GPA's known but not locally stored,Press Known." />
 
         </RelativeLayout>
 

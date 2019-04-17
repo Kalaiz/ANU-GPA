@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+=======
 <ScrollView
+>>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+<<<<<<< HEAD
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/gpaCalcButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="GPA Calculator"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/permutationButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Permutation" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Settings" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+=======
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical">
@@ -36,3 +89,4 @@
 </ScrollView>
 
 
+>>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9

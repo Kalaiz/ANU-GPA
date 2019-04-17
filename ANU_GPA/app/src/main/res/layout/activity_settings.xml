@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+=======
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+    tools:context=".Settings"> <!--Background is a copywright free image download from
+    https://www.pexels.com/photo/brown-painted-wall-1985173/-->
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager">
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
+=======
     tools:context=".Settings">
 
 </android.support.constraint.ConstraintLayout>
+>>>>>>> a39cadb6c4781c8a38601e6bb9fc7c7ae78aa7a9

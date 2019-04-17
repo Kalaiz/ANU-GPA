@@ -1,28 +1,58 @@
 package com.example.ANU_GPA;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.Map;
+import android.widget.Button;
 
 public class Settings extends AppCompatActivity {
+
+     private ViewPager viewPager;
+     private SlideAdapter slideAdapter;
+     private Button feedback_button;
+     private int mcuurentpage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        feedback_button = (Button) findViewById(R.id.feedback_button);
+        viewPager = (ViewPager)findViewById(R.id.viewpager);
 
-        //for retrieving all values from sharedPreference
-        Map<String,?> data=sharedPreferences.getAll();
-        ArrayList<View> views=new ArrayList<>();
-        for(String key:data.keySet()){
-            //TODO
-       ///Going to use instanceof or getClass to know the type of the wildcard ?.
-        }
+        slideAdapter = new SlideAdapter(this);
+
+        viewPager.setAdapter(slideAdapter);
+
+        ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+                mcuurentpage = i;
+
+                if(i == 0){
+                    feedback_button.setVisibility(View.VISIBLE);
+                    feedback_button.setText("Feedback");
+
+                }
+
+                else if(i == 1){
+                    feedback_button.setVisibility(View.INVISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        };
     }
+
+
 }

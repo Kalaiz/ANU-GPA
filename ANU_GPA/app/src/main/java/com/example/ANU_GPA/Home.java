@@ -15,7 +15,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
         Button permutation=(Button) findViewById(R.id.permutationButton);
-        Button settings=(Button) findViewById(R.id.settingsButton);
+        final Button settings=(Button) findViewById(R.id.settingsButton);
 
 
         gpaCalc.setOnClickListener(new View.OnClickListener() {
@@ -35,11 +35,12 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        settings.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View v) {
-        }
 
-        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this,Settings.class);
+                startActivity(intent);
+            }
     }
 }

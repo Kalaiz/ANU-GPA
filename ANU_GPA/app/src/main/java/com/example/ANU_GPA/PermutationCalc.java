@@ -3,15 +3,29 @@ package com.example.ANU_GPA;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Map;
+
+import static java.lang.System.out;
 
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
@@ -56,10 +70,14 @@ public class PermutationCalc extends AppCompatActivity {
         return input;
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutationcalc);
+        clientSender();
+
+        /*View Objects*/
         final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
         final EditText cgpaEditText=(EditText) findViewById(R.id.cgpaEditText);
         final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
@@ -72,17 +90,21 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
-
+        /*Getting information about screen*/
+        WindowManager mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        mWindowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        final int screenOrientation = mWindowManager.getDefaultDisplay().getRotation();
+        final int screenWidth=displayMetrics.widthPixels;
 
         knownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 knownButtonClicked=!knownButtonClicked;
                 //Default:KnownButton not clicked
-                float submitButtonTranslation = -(displayMetrics.widthPixels/3);
-                float knownButtonTranslation=-400;
+                float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
+                                               -(screenWidth/(float)4): -(screenWidth/(float)2.75);
+                float submitButtonTranslation=-400;
                 visibility=View.INVISIBLE;//For toggling effect.
                 if(knownButtonClicked){
                     knownButtonTranslation=-knownButtonTranslation;
@@ -90,8 +112,8 @@ public class PermutationCalc extends AppCompatActivity {
                     visibility=View.VISIBLE;
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
-                submitButton.animate().translationYBy(knownButtonTranslation);
-                knownButton.animate().translationXBy(submitButtonTranslation);;
+                submitButton.animate().translationYBy(submitButtonTranslation);
+                knownButton.animate().translationXBy(knownButtonTranslation);;
                 //reCalculateButton will disappear when the user knows his/her cgpa.
                 reCalculateButton.setVisibility(visibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE);
                 numOfCourseDoneTextView.setVisibility(visibility);
@@ -101,6 +123,7 @@ public class PermutationCalc extends AppCompatActivity {
             }
         });
 
+
         reCalculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +131,7 @@ public class PermutationCalc extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,5 +169,44 @@ public class PermutationCalc extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
-    };
+    }
+
+
+public void clientSender() {
+    try {
+        String ip = "10.0.2.2"; //server ip address or hostname
+        //A socket is one endpoint of a two-way communication
+        // link between two programs(application) running on the network
+        Socket socket = new Socket(ip, 9999);
+        String msg = "I am sending data to server";
+        //Converting data & Mentioning where to send the data;use output part of socket,
+        OutputStreamWriter os = new OutputStreamWriter(socket.getOutputStream());
+        //Prints formatted representations of objects to a text-output stream depending on the OutputStreamWriter object
+        PrintWriter output = new PrintWriter(os);
+        output.println(msg);
+        os.close();
+        socket.close();
+    }
+    catch (IOException i){
+
+    }
 }
+
+}
+       /* try{
+    String ip="10.0.2.2"; //server ip address or hostname
+    //A socket is one endpoint of a two-way communication
+    // link between two programs(application) running on the network
+    Socket socket=new Socket(ip,9999);
+    String msg="I am sending data to server";
+    //Converting data & Mentioning where to send the data;use output part of socket,
+    OutputStreamWriter os =new OutputStreamWriter(socket.getOutputStream());
+    //Prints formatted representations of objects to a text-output stream depending on the OutputStreamWriter object
+    PrintWriter output =new PrintWriter(os);
+    os.write(msg);
+    os.close();
+    socket.close();}
+    catch (IOException e){
+
+    }*/
+

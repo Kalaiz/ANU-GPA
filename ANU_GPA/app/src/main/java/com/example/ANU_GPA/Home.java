@@ -20,7 +20,9 @@ public class Home extends AppCompatActivity {
         final Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
         Button permutation=(Button) findViewById(R.id.permutationButton);
         final Button settings=(Button) findViewById(R.id.settingsButton);
-
+        gpaCalc.animate().scaleXBy(0.15f).scaleYBy(0.15f).setDuration(2000);
+        gpaCalc.animate().scaleXBy(-0.15f).scaleYBy(-0.15f).setDuration(2000);
+       // gpaCalc.animate().scaleXBy()
         gpaCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

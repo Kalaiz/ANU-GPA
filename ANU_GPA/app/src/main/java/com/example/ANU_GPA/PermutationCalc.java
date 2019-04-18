@@ -98,21 +98,28 @@ public class PermutationCalc extends AppCompatActivity {
                 float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
                                                -(screenWidth/(float)4): -(screenWidth/(float)2.75);
                 float submitButtonTranslation=-400;
+                float scaleFactor=0.15f;
                 visibility=View.INVISIBLE;//For toggling effect.
+                int alpha=1;
                 if(knownButtonClicked){
                     knownButtonTranslation=-knownButtonTranslation;
                     submitButtonTranslation=-submitButtonTranslation;
                     visibility=View.VISIBLE;
+                    scaleFactor=-scaleFactor;
+                    alpha=-alpha;
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
-                submitButton.animate().translationYBy(submitButtonTranslation);
-                knownButton.animate().translationXBy(knownButtonTranslation);;
+                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
+                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(750);
+                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(750);
                 //reCalculateButton will disappear when the user knows his/her cgpa.
-                reCalculateButton.setVisibility(visibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE);
+                reCalculateButton.animate().alpha(alpha).setDuration(1000);
+                reCalculateButton.setEnabled(!knownButtonClicked);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
+
             }
         });
 
@@ -168,11 +175,9 @@ public class PermutationCalc extends AppCompatActivity {
 public void clientSender() {
     try {
         String ip = "10.0.2.2"; //server ip address or hostname
-        //A socket is one endpoint of a two-way communication
-        // link between two programs(application) running on the network
         Socket socket = new Socket(ip, 9999);
         String msg = "I am sending data to server";
-        //Converting data & Mentioning where to send the data;use output part of socket,
+        //Converting data & Mentioning where to send the data;use connected part of socket,
         OutputStreamWriter os = new OutputStreamWriter(socket.getOutputStream());
         //Prints formatted representations of objects to a text-output stream depending on the OutputStreamWriter object
         PrintWriter output = new PrintWriter(os);
@@ -186,20 +191,5 @@ public void clientSender() {
 }
 
 }
-       /* try{
-    String ip="10.0.2.2"; //server ip address or hostname
-    //A socket is one endpoint of a two-way communication
-    // link between two programs(application) running on the network
-    Socket socket=new Socket(ip,9999);
-    String msg="I am sending data to server";
-    //Converting data & Mentioning where to send the data;use output part of socket,
-    OutputStreamWriter os =new OutputStreamWriter(socket.getOutputStream());
-    //Prints formatted representations of objects to a text-output stream depending on the OutputStreamWriter object
-    PrintWriter output =new PrintWriter(os);
-    os.write(msg);
-    os.close();
-    socket.close();}
-    catch (IOException e){
 
-    }*/
 

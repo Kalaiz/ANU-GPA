@@ -105,12 +105,12 @@ public class PermutationCalc extends AppCompatActivity {
                     alpha=-alpha;
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
-                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
-                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
-                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(750);
-                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(750);
+                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);
+                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(600);
                 //reCalculateButton will disappear when the user knows his/her cgpa.
-                reCalculateButton.animate().alpha(alpha).setDuration(1000);
+                reCalculateButton.animate().alpha(alpha).setDuration(750);
                 reCalculateButton.setEnabled(!knownButtonClicked);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);

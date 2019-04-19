@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 
 import java.io.IOException;
@@ -23,14 +24,25 @@ public class GiveFeedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_give_feedback);
 
+        final EditText feedbackEditText=(EditText) findViewById(R.id.feedbackEditText);
+        final RatingBar ratingBar=(RatingBar) findViewById(R.id.ratingBar);
+        Button submitButton = (Button) findViewById(R.id.submitButton);
 
-        RatingBar ratingBar=(RatingBar) findViewById(R.id.ratingBar);
-        Button feedBackButton = (Button) findViewById(R.id.submit_feedback);
 
-
-        feedBackButton .setOnClickListener(new View.OnClickListener() {
+        submitButton .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String ratings =(ratingBar.getRating()) +"\n";
+                String feedback=feedbackEditText.getText().toString();
+                ratings.concat(feedback);
+                final String overallFeedback=ratings;
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        clientSender(overallFeedback.getBytes());
+                    }
+                };
+                thread.start();
                 Intent intent = new Intent(GiveFeedback.this, FeedbackThanks.class);
                 startActivity(intent);
             }
@@ -41,30 +53,17 @@ public class GiveFeedback extends AppCompatActivity {
 
 
 
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                clientSender();
-            }
-        };
-        thread.start();
-
-
-
-
 
     }
 
 
-    public void clientSender() {
-
+    public void clientSender(byte[] feedbackData) {
         String ip = "10.0.2.2"; //server ip address or hostname
 
         try {
             Socket socket = new Socket(ip, 5005);
-            String msg = "I am sending data to server";
             OutputStream connectedSocket = socket.getOutputStream();
-            connectedSocket.write(msg.getBytes());
+            connectedSocket.write(feedbackData);
             connectedSocket.close();
             socket.close();
         }

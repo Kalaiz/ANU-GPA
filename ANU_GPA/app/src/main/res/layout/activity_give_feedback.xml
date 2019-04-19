@@ -33,7 +33,7 @@
 
 
     <EditText
-        android:id="@+id/feedbackEdit"
+        android:id="@+id/feedbackEditText"
         android:layout_width="match_parent"
         android:layout_height="117dp"
         android:layout_below="@+id/feedbackTextView"
@@ -48,10 +48,10 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_below="@id/feedbackEdit"
+        android:layout_below="@id/feedbackEditText"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/submit_feedback"
+        android:id="@+id/submitButton"
         android:background="@drawable/buttons"
         android:textColor="#0A0A0A"
         android:text="Submit"/>

@@ -1,15 +1,16 @@
 package com.example.ANU_GPA;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Settings extends AppCompatActivity {
 
      private ViewPager viewPager;
-     private SlideAdapter slideAdapter;
      private Button feedback_button;
      private int mcuurentpage;
 
@@ -17,41 +18,53 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        feedback_button = (Button) findViewById(R.id.feedback_button);
-        viewPager = (ViewPager)findViewById(R.id.viewpager);
 
-        slideAdapter = new SlideAdapter(this);
+        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.linearlayout1);
+        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
+        LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.linearlayout3);
+        LinearLayout linearLayout4 = (LinearLayout) findViewById(R.id.linearlayout4);
 
-        viewPager.setAdapter(slideAdapter);
-
-        ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+        linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Settings.this,Password.class);
+                startActivity(intent);
 
             }
+        });
 
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageSelected(int i) {
+            public void onClick(View v) {
 
-                mcuurentpage = i;
-
-                if(i == 0){
-                    feedback_button.setVisibility(View.VISIBLE);
-                    feedback_button.setText("Feedback");
-
-                }
-
-                else if(i == 1){
-                    feedback_button.setVisibility(View.INVISIBLE);
-                }
+                Intent intent = new Intent(Settings.this,Give_Feedback.class);
+                startActivity(intent);
 
             }
+        });
 
+        linearLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrollStateChanged(int i) {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Settings.this,Font_size.class);
+                startActivity(intent);
 
             }
-        };
+        });
+
+        linearLayout4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this,About.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
 
 

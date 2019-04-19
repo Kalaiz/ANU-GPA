@@ -11,7 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Font_size"></activity>
+        <activity android:name=".Password" />
+        <activity android:name=".About" />
+        <activity android:name=".Feedback_thanks" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Give_Feedback" />
         <activity android:name=".Home" />
         <activity android:name=".PermutationResults" />
         <activity android:name=".GPACalc" />

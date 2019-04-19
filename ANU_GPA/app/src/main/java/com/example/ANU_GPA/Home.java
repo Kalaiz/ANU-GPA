@@ -9,6 +9,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
@@ -17,9 +18,9 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
-        Button permutation=(Button) findViewById(R.id.permutationButton);
-        final Button settings=(Button) findViewById(R.id.settingsButton);
+        final LinearLayout gpaCalc = (LinearLayout) findViewById(R.id.linearlayout1);
+        final LinearLayout permutation=(LinearLayout) findViewById(R.id.linearlayout2);
+        final LinearLayout settings=(LinearLayout) findViewById(R.id.linearlayout3);
 
         gpaCalc.setOnClickListener(new View.OnClickListener() {
             @Override

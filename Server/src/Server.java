@@ -36,7 +36,7 @@ public class Server {
 
             }
 
-            //When feedback is nothing  add a newline to differentiate different users.
+            //When done reading feedback add a newline to differentiate different users.
             listeningSocketData += "\n";
             System.out.println("Server has received : " + listeningSocketData);
             Writer fileWriter = new FileWriter("Feedbacks.txt", true);

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Give_Feedback">
+    tools:context=".GiveFeedback">
 
     <!--Authorship Prateek Arora , u6742441-->
 
@@ -112,7 +112,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/submit_feedback"
         android:background="@drawable/buttons"
-        android:textColor="#EE82FF"
+        android:textColor="#0A0A0A"
         android:text="Submit"/>
 
 </RelativeLayout>

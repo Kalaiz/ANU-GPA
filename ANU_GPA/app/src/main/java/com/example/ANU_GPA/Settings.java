@@ -40,7 +40,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this,Give_Feedback.class);
+                Intent intent = new Intent(Settings.this, GiveFeedback.class);
                 startActivity(intent);
 
             }
@@ -50,7 +50,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this,Font_size.class);
+                Intent intent = new Intent(Settings.this, FontSize.class);
                 startActivity(intent);
 
             }

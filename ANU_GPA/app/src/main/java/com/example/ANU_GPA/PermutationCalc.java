@@ -6,16 +6,19 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Map;
-
-
-// Authorship Prateek Arora , u6742441 and Kalai , u6555407
-// Base was done by Prateek Arora and rest was done by Kalai
 
 
 public class PermutationCalc extends AppCompatActivity {
@@ -61,10 +64,20 @@ public class PermutationCalc extends AppCompatActivity {
         return input;
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutationcalc);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                clientSender();
+            }
+        };
+        thread.start();
+
+        /*View Objects*/
         final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
         final EditText cgpaEditText=(EditText) findViewById(R.id.cgpaEditText);
         final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
@@ -77,34 +90,46 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
-
+        /*Getting information about screen*/
+        WindowManager mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        mWindowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        final int screenOrientation = mWindowManager.getDefaultDisplay().getRotation();
+        final int screenWidth=displayMetrics.widthPixels;
 
         knownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 knownButtonClicked=!knownButtonClicked;
                 //Default:KnownButton not clicked
-                float submitButtonTranslation = -(displayMetrics.widthPixels/3);
-                float knownButtonTranslation=-400;
+                float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
+                        -(screenWidth/(float)4): -(screenWidth/(float)2.75);
+                float submitButtonTranslation=-400;
+                float scaleFactor=0.15f;
                 visibility=View.INVISIBLE;//For toggling effect.
+                int alpha=1;
                 if(knownButtonClicked){
                     knownButtonTranslation=-knownButtonTranslation;
                     submitButtonTranslation=-submitButtonTranslation;
                     visibility=View.VISIBLE;
+                    scaleFactor=-scaleFactor;
+                    alpha=-alpha;
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
-                submitButton.animate().translationYBy(knownButtonTranslation);
-                knownButton.animate().translationXBy(submitButtonTranslation);;
+                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
+                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(750);
+                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(750);
                 //reCalculateButton will disappear when the user knows his/her cgpa.
-                reCalculateButton.setVisibility(visibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE);
+                reCalculateButton.animate().alpha(alpha).setDuration(1000);
+                reCalculateButton.setEnabled(!knownButtonClicked);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
+
             }
         });
+
 
         reCalculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,24 +139,25 @@ public class PermutationCalc extends AppCompatActivity {
             }
         });
 
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int numOfTBTCourses=-1;
                 float gpaWanted=-1;
-                    try{
-                        if(knownButtonClicked) {//If Known button has been clicked.
-                            editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
-                                    .getText().toString()));
-                            editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
-                                    .getText().toString()));
-                            editor.apply();
-                        }
-                        numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
-                        gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
-                    }catch(NumberFormatException n){
-                        Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                try{
+                    if(knownButtonClicked) {//If Known button has been clicked.
+                        editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
+                                .getText().toString()));
+                        editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
+                                .getText().toString()));
+                        editor.apply();
                     }
+                    numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
+                    gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
+                }catch(NumberFormatException n){
+                    Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                }
                 boolean errorFree=numOfTBTCourses!=-1 && gpaWanted!=-1;
                 if(errorFree){
                     Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
@@ -150,5 +176,26 @@ public class PermutationCalc extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
-    };
+    }
+
+
+    public void clientSender() {
+
+        String ip = "10.0.2.2"; //server ip address or hostname
+
+        try {
+            Socket socket = new Socket(ip, 5005);
+            String msg = "I am sending data to server";
+            OutputStream connectedSocket = socket.getOutputStream();
+            connectedSocket.write(msg.getBytes());
+            connectedSocket.close();
+            socket.close();
+        }
+        catch (IOException i){
+
+        }
+    }
+
 }
+
+

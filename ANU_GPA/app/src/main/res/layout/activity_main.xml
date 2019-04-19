@@ -29,15 +29,16 @@
         android:textColor="#000000"
         android:textSize="40dp" />
 
-     <com.airbnb.lottie.LottieAnimationView
-         android:id="@+id/animation_view1"
-         android:layout_width="match_parent"
-         android:layout_height="350dp"
-         android:layout_marginTop="20dp"
-         android:layout_below="@+id/gpa"
-         app:lottie_fileName="cycle_animation.json"
-         app:lottie_loop="true"
-         app:lottie_autoPlay="true" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view1"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/gpa"
+        android:layout_marginTop="70dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="cycle_animation.json"
+        app:lottie_loop="true" />
+
 
     <!--Animation from https://lottiefiles.com/793-cycle-animation-->
     <!--Code for animation (lottie) https://airbnb.io/lottie/#/android-->

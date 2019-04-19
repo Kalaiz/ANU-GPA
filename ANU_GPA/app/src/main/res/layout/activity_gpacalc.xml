@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/hdTextView"
@@ -84,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/pTextView"
-            android:hint="Number Of Passes"
+            android:hint="Number Of Passes."
             android:imeOptions="actionNext"
             android:inputType="number"
             android:textSize="15dp" />
@@ -114,48 +115,43 @@
             android:layout_height="70dp"
             android:layout_below="@+id/fEditText"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/buttons"
-            android:textColor="#EE82FF"
+            android:textColor="#0A0A0A"
             android:text="Done" />
 
         <TextView
             android:id="@+id/resultTextView"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/fEditText"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="174dp"
-            android:layout_marginLeft="174dp"
-            android:layout_marginTop="65dp"
-            android:layout_marginEnd="94dp"
-            android:layout_marginRight="94dp"
-            android:layout_marginBottom="411dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="406dp"
             android:text="RESULT"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/yourGPAisTextView"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/hdEditText"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="164dp"
-            android:layout_marginLeft="164dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="97dp"
-            android:layout_marginRight="97dp"
-            android:layout_marginBottom="139dp"
+            android:layout_marginTop="47dp"
             android:text="Your GPA is :"
             android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/gpaCalculatorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="GPA Calculator"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:typeface="normal" />
 
 
     </RelativeLayout>

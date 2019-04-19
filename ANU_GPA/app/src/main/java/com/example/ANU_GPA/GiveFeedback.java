@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 // Authorship Prateek Arora , u6742441
 
-public class Give_Feedback extends AppCompatActivity {
+public class GiveFeedback extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class Give_Feedback extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Give_Feedback.this,Feedback_thanks.class);
+                Intent intent = new Intent(GiveFeedback.this, FeedbackThanks.class);
                 startActivity(intent);
             }
         });

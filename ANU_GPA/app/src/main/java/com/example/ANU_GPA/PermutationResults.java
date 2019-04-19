@@ -17,7 +17,7 @@ public class PermutationResults extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_permutationresults);
+        setContentView(R.layout.activity_permutation_results);
         //Retrieving values from sharedPreference
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);

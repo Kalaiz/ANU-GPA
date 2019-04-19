@@ -17,6 +17,12 @@ public class Settings extends AppCompatActivity {
      private int mcuurentpage;
 
     @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this,Home.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);

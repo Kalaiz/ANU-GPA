@@ -13,11 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.Socket;
+
 import java.util.Map;
 
 
@@ -68,14 +64,7 @@ public class PermutationCalc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_permutationcalc);
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                clientSender();
-            }
-        };
-        thread.start();
+        setContentView(R.layout.activity_permutation_calc);
 
         /*View Objects*/
         final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
@@ -117,6 +106,7 @@ public class PermutationCalc extends AppCompatActivity {
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
                 knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
+                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
                 submitButton.animate().translationYBy(submitButtonTranslation).setDuration(750);
                 knownButton.animate().translationXBy(knownButtonTranslation).setDuration(750);
                 //reCalculateButton will disappear when the user knows his/her cgpa.
@@ -178,23 +168,6 @@ public class PermutationCalc extends AppCompatActivity {
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
 
-
-    public void clientSender() {
-
-        String ip = "10.0.2.2"; //server ip address or hostname
-
-        try {
-            Socket socket = new Socket(ip, 5005);
-            String msg = "I am sending data to server";
-            OutputStream connectedSocket = socket.getOutputStream();
-            connectedSocket.write(msg.getBytes());
-            connectedSocket.close();
-            socket.close();
-        }
-        catch (IOException i){
-
-        }
-    }
 
 }
 

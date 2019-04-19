@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.RatingBar;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
 
 // Authorship Prateek Arora , u6742441
 
@@ -14,16 +18,14 @@ public class GiveFeedback extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_give__feedback);
+        setContentView(R.layout.activity_give_feedback);
 
 
-        RadioButton radioButton1 = (RadioButton)findViewById(R.id.radio_button1);
-        RadioButton radioButton2 = (RadioButton)findViewById(R.id.radio_button2);
-        RadioButton radioButton3 = (RadioButton)findViewById(R.id.radio_button3);
+        RatingBar ratingBar=(RatingBar) findViewById(R.id.ratingBar);
+        Button feedBackButton = (Button) findViewById(R.id.submit_feedback);
 
-        Button button = (Button) findViewById(R.id.submit_feedback);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        feedBackButton .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GiveFeedback.this, FeedbackThanks.class);
@@ -32,6 +34,40 @@ public class GiveFeedback extends AppCompatActivity {
         });
 
 
+
+
+
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                clientSender();
+            }
+        };
+        thread.start();
+
+
+
+
+
+    }
+
+
+    public void clientSender() {
+
+        String ip = "10.0.2.2"; //server ip address or hostname
+
+        try {
+            Socket socket = new Socket(ip, 5005);
+            String msg = "I am sending data to server";
+            OutputStream connectedSocket = socket.getOutputStream();
+            connectedSocket.write(msg.getBytes());
+            connectedSocket.close();
+            socket.close();
+        }
+        catch (IOException i){
+
+        }
     }
 
 }

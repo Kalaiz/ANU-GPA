@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -68,7 +69,13 @@ public class PermutationCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutationcalc);
-        clientSender();
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                clientSender();
+            }
+        };
+        thread.start();
 
         /*View Objects*/
         final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
@@ -173,16 +180,15 @@ public class PermutationCalc extends AppCompatActivity {
 
 
 public void clientSender() {
+
+    String ip = "10.0.2.2"; //server ip address or hostname
+
     try {
-        String ip = "10.0.2.2"; //server ip address or hostname
-        Socket socket = new Socket(ip, 9999);
+        Socket socket = new Socket(ip, 5005);
         String msg = "I am sending data to server";
-        //Converting data & Mentioning where to send the data;use connected part of socket,
-        OutputStreamWriter os = new OutputStreamWriter(socket.getOutputStream());
-        //Prints formatted representations of objects to a text-output stream depending on the OutputStreamWriter object
-        PrintWriter output = new PrintWriter(os);
-        output.println(msg);
-        os.close();
+        OutputStream connectedSocket = socket.getOutputStream();
+        connectedSocket.write(msg.getBytes());
+        connectedSocket.close();
         socket.close();
     }
     catch (IOException i){

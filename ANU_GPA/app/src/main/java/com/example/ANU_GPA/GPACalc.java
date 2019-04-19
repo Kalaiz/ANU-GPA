@@ -18,7 +18,7 @@ public class GPACalc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpacalc);
         final TextView result = (TextView) findViewById(R.id.resultTextView);
-        Button done = (Button) findViewById(R.id.doneButton);
+        Button doneButton = (Button) findViewById(R.id.doneButton);
         final EditText hd = (EditText) findViewById(R.id.hdEditText);
         final EditText d = (EditText) findViewById(R.id.dEditText);
         final EditText c = (EditText) findViewById(R.id.cEditText);
@@ -26,7 +26,7 @@ public class GPACalc extends AppCompatActivity {
         final EditText f = (EditText) findViewById(R.id.fEditText);
         final ScrollView scrollView =(ScrollView) findViewById(R.id.scrollView);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        done.setOnClickListener(new View.OnClickListener() {
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();

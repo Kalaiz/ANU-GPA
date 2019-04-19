@@ -11,7 +11,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-// Authorship Prateek Arora , u6742441
+/*Authorship:
+Base:Prateek Arora (u6742441)
+Client-Server: Kalai (u6555407)*/
+
 
 public class GiveFeedback extends AppCompatActivity {
 

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.Map;
 
-
+/*Authorship:Kalai(u6555407)*/
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
     boolean knownButtonClicked = false;
@@ -167,7 +167,6 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
-
 
 }
 

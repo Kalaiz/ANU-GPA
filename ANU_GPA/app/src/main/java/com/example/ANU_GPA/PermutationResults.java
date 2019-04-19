@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import java.util.Arrays;
 
-// Authorship Kalai , u6555407
+/*Authorship: Kalai (u6555407)*/
 
 public class PermutationResults extends AppCompatActivity {
 

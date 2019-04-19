@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-// Authorship Prateek Arora , u6742441
+/*Authorship: Prateek Arora (u6742441)*/
 
 public class Settings extends AppCompatActivity {
 
@@ -27,10 +27,10 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.linearlayout1);
-        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearlayout2);
-        LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.linearlayout3);
-        LinearLayout linearLayout4 = (LinearLayout) findViewById(R.id.linearlayout4);
+        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.linearLayout1);
+        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearLayout2);
+        LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.linearLayout3);
+        LinearLayout linearLayout4 = (LinearLayout) findViewById(R.id.linearLayout4);
 
         linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override

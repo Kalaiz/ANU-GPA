@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-// Authorship Prateek Arora , u6742441
+/*Authorship Prateek Arora (u6742441)*/
 
 public class FeedbackThanks extends AppCompatActivity {
     private static int Time_Out = 3300;

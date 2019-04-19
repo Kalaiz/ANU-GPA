@@ -29,7 +29,7 @@
             android:background="@drawable/back_button"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/linearlayout1"
+            android:id="@+id/linearLayout1"
             android:layout_marginRight="10dp"
             android:layout_height="100dp">
 
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/linearlayout2"
+            android:id="@+id/linearLayout2"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -96,7 +96,7 @@
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/linearlayout3"
+            android:id="@+id/linearLayout3"
             android:layout_height="100dp">
 
             <ImageButton
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/linearlayout4"
+            android:id="@+id/linearLayout4"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -158,10 +158,7 @@
             </LinearLayout>
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 
 </RelativeLayout>
 

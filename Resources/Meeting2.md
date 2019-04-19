@@ -12,6 +12,3 @@
 - Jared & Kalai will further work on the underlying logic of the app.
 - Prateek will work on the User Interface of the app & will create the base/template for the app.
 
-#### Miscellaneous
-- Prateek found a drawback in calculating the possible permutation.Example if pointsNeeded is 20 & the number of courses yet to be taken is
-  3.There is'nt any possible permutation which satisfy this.

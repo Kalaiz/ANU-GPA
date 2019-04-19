@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+// Authorship Prateek Arora , u6742441
+
 public class Settings extends AppCompatActivity {
 
      private ViewPager viewPager;

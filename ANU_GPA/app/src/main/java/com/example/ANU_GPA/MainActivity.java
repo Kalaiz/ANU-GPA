@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+// Authorship Prateek Arora , u6742441 and Kalai , u6555407
+
 public class MainActivity extends AppCompatActivity {
     private static int Time_Out = 4000;
     @Override

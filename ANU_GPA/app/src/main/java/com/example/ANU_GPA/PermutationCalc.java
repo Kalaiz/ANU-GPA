@@ -13,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Map;
 
+
+// Authorship Prateek Arora , u6742441 and Kalai , u6555407
+// Base was done by Prateek Arora and rest was done by Kalai
+
+
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
     boolean knownButtonClicked = false;

@@ -7,6 +7,9 @@
     android:scrollbarStyle="outsideInset"
     tools:context=".GPA">
 
+    <!--Authorship Kalai , u6555407 and Prateek Arora, u6742441-->
+    <!--Prateek did the base of this xml and rest is done by kalai-->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="650dp">
@@ -43,12 +46,7 @@
                 android:text="Possible permutation based on a target GPA."
                 android:textColor="#000"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                 />
 
             <Button
                 android:id="@+id/knownButton"
@@ -57,7 +55,6 @@
                 android:layout_below="@+id/titleTextView"
                 android:layout_marginTop="110dp"
                 android:text="Known"
-                android:layout_marginLeft="5dp"
                 android:background="@drawable/buttons"
                 android:textColor="#EE82FF"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +67,30 @@
                 android:layout_below="@+id/titleTextView"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="110dp"
-                android:layout_marginRight="5dp"
                 android:textColor="#EE82FF"
                 android:text="Re-Calculate GPA"
                 android:background="@drawable/buttons"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+           <!-- <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>-->
+
+            <!--Weight is for dividing the button equally among every screen-->
 
             <TextView
                 android:id="@+id/numOfCourseDoneTextView"
@@ -171,21 +186,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_below="@+id/gpaWantedEditText"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:text="Submit"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
                 android:textColor="#EE82FF"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
                 android:background="@drawable/buttons"
-                app:layout_constraintTop_toBottomOf="@+id/numOfCourseDoneEditText"
-                app:layout_constraintVertical_bias="0.021" />
+                 />
 
             <TextView
                 android:id="@+id/doYouKnowYourGPATextView"

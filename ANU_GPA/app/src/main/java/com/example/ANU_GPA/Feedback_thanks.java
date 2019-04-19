@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+// Authorship Prateek Arora , u6742441
+
 public class Feedback_thanks extends AppCompatActivity {
     private static int Time_Out = 3300;
 

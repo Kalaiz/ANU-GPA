@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".GPACalc">
 
+    <!--Authorship Prateek Arora, u6742441-->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

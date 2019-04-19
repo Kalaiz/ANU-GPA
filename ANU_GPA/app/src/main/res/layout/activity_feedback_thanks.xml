@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Feedback_thanks">
 
+    <!--Authorship Prateek Arora, u6742441-->
 
 
     <com.airbnb.lottie.LottieAnimationView
@@ -16,6 +17,9 @@
         app:lottie_fileName="Check_Mark_Success_Data.json"
         app:lottie_loop="false"
         app:lottie_autoPlay="true" />
+
+    <!--Animation from https://lottiefiles.com/4964-check-mark-success-animation-->
+    <!--Code for animation (lottie) https://airbnb.io/lottie/#/android-->
 
     <TextView
         android:layout_width="wrap_content"

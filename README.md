@@ -17,10 +17,10 @@ _Add a paragraph the gives a summary of the app you implemented. Include a small
 ## Minuted Meetings
 + [Meeting 1 - 8/4/19 - Deciding on the topic of app & Dividing tasks](../Resources/Meeting1.md)
 + [Meeting 2 - 12/4/19 - Planning & Dividing tasks](../Resources/Meeting2.md)
-+ [Meeting 3 - date - consider and plan extension aspects](../Resources/Meeting3.md)
-+ [Meeting 4 - date - Network client server problem and UI design](../Resources/Meeting4.md)
-+ [Meeting 5 - date - Making app extensible](../Resources/Meeting5.md)
-+ [Meeting 6 - date - Client Server Problem Solved and Implemeting UI designs](../Resources/Meeting6.md)
++ [Meeting 3 - 14/4/19 - consider and plan extension aspects](../Resources/Meeting3.md)
++ [Meeting 4 - 15/4/19 - Network client server problem and UI design](../Resources/Meeting4.md)
++ [Meeting 5 - 17/4/19 - Making app extensible](../Resources/Meeting5.md)
++ [Meeting 6 - 18/4/19 - Client Server Problem Solved and Implemeting UI designs](../Resources/Meeting6.md)
 
 ## Statement of Originality
 

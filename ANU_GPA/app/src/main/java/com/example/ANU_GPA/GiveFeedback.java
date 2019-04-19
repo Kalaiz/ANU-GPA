@@ -33,8 +33,8 @@ public class GiveFeedback extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String ratings =(ratingBar.getRating()) +"\n";
-                String feedback=feedbackEditText.getText().toString();
-                ratings.concat(feedback);
+                String feedback=feedbackEditText.getText().toString()+"\n";
+                ratings=ratings.concat(feedback);
                 final String overallFeedback=ratings;
                 Thread thread = new Thread() {
                     @Override
@@ -48,17 +48,11 @@ public class GiveFeedback extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
     }
 
 
     public void clientSender(byte[] feedbackData) {
-        String ip = "10.0.2.2"; //server ip address or hostname
+        String ip = "10.0.2.2"; // reference to development machine
 
         try {
             Socket socket = new Socket(ip, 5005);

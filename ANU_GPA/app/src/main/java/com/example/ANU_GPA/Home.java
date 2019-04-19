@@ -29,11 +29,17 @@ public class Home extends AppCompatActivity {
         final LinearLayout permutationLinearLayout=(LinearLayout) findViewById(R.id.linearLayout2);
         final LinearLayout settingsLinearLayout=(LinearLayout) findViewById(R.id.linearLayout3);
         //For extensibility
+        LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
 
-
-        Thread t = new Thread(){
-
-        };
+        for(int i=0;i<3;i++ ){
+            final LinearLayout val =arr[i];
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    effect(val);
+                }
+            }, (i+1)*1000);
+        }
 
 
         effect(gpaCalcLinearLayout);

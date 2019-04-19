@@ -27,14 +27,17 @@ public class Server {
                     if (temp != null) {
                         listeningSocketData += temp + " ";
                     } else {
+
                         break;
                     }
                 }
             } catch (IOException i) {
-                listeningSocketData += "\n";
+
 
             }
 
+            //When feedback is nothing  add a newline to differentiate different users.
+            listeningSocketData += "\n";
             System.out.println("Server has received : " + listeningSocketData);
             Writer fileWriter = new FileWriter("Feedbacks.txt", true);
             try {

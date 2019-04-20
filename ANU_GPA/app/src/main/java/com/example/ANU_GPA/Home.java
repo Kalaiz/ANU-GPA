@@ -1,12 +1,6 @@
 package com.example.ANU_GPA;
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.os.Handler;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,21 +23,8 @@ public class Home extends AppCompatActivity {
         final LinearLayout permutationLinearLayout=(LinearLayout) findViewById(R.id.linearLayout2);
         final LinearLayout settingsLinearLayout=(LinearLayout) findViewById(R.id.linearLayout3);
         //For extensibility
-        LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
-
-        for(int i=0;i<3;i++ ){
-            final LinearLayout val =arr[i];
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    effect(val);
-                }
-            }, (i+1)*1000);
-        }
-
-
-        effect(gpaCalcLinearLayout);
-
+        final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
+        new ScaleEffect(arr);
         gpaCalcLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,29 +56,4 @@ public class Home extends AppCompatActivity {
 
 
 
-
-    public void effect(View view){
-        final AnimatorSet scaleIn =new AnimatorSet();
-        final AnimatorSet scaleOut=new AnimatorSet();
-        final AnimatorSet effect=new AnimatorSet();
-        final  ObjectAnimator scaleX= ObjectAnimator.ofFloat(view, "scaleX", 0.95f);
-        final  ObjectAnimator scaleY= ObjectAnimator.ofFloat(view, "scaleY", 0.95f);
-        final  ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(view, "scaleX", 1);
-        final  ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(view, "scaleY", 1);
-
-        scaleIn.setDuration(2000);
-        scaleOut.setDuration(2000);
-        scaleIn.playTogether(scaleX,scaleY);
-        scaleOut.playTogether(originalScaleX,originalScaleY);
-        effect.playSequentially(scaleIn,scaleOut);
-        effect.start();
-
-        effect.addListener(new AnimatorListenerAdapter() {
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                effect.start();
-            }
-        });
-    }
 }

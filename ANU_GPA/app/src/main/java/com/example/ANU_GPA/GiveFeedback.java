@@ -29,7 +29,7 @@ public class GiveFeedback extends AppCompatActivity {
         Button submitButton = (Button) findViewById(R.id.submitButton);
 
 
-        submitButton .setOnClickListener(new View.OnClickListener() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String ratings =(ratingBar.getRating()) +"\n";

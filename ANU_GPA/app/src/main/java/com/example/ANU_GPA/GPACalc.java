@@ -46,7 +46,7 @@ public class GPACalc extends AppCompatActivity {
 
                 if(error)
                 {Toast.makeText(GPACalc.this, "Note:Your are neglecting some attributes;" +
-                        "It's values will be considered as 0.", Toast.LENGTH_LONG).show();}
+                        "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();}
 
                 GPA gpa = new GPA(nGrades);
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);

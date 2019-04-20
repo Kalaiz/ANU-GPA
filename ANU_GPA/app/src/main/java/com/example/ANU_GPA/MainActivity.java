@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putFloat("cgpa",0);
         editor.putInt("numOfTCourses",0);
         editor.apply();
-        new ScaleEffect(new TextView[]{anuTextView,gpaTextView});
+        new ScaleEffect(new TextView[]{anuTextView,gpaTextView}).setDuration(1000);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -20,6 +20,15 @@ public class Home extends AppCompatActivity {
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
         new ScaleEffect(arr);
+
+       /* Thread thread=new Thread(){
+            @Override
+            public void run() {
+                new ScaleEffect(arr);
+            }
+        };
+        thread.start();*/
+
         gpaCalcLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

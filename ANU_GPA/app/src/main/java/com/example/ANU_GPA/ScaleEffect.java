@@ -14,6 +14,8 @@ import android.view.View;
 
 public  class ScaleEffect  <T extends View>{
 
+    private int duration=2000;
+
     ScaleEffect(T [] array){
         for(int i=0;i<array.length;i++ ){
             final T val =array[i];
@@ -40,8 +42,8 @@ public  class ScaleEffect  <T extends View>{
         final  ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 1);
         final  ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 1);
 
-        scaleIn.setDuration(2000);
-        scaleOut.setDuration(2000);
+        scaleIn.setDuration(duration);
+        scaleOut.setDuration(duration);
         scaleIn.playTogether(scaleX,scaleY);
         scaleOut.playTogether(originalScaleX,originalScaleY);
         effect.playSequentially(scaleIn,scaleOut);
@@ -54,6 +56,10 @@ public  class ScaleEffect  <T extends View>{
                 effect.start();
             }
         });
+    }
+
+    void setDuration(int duration){
+        this.duration=duration;
     }
 
 

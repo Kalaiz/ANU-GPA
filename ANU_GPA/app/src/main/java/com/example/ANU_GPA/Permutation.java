@@ -30,7 +30,6 @@ import java.util.Stack;
  * */
 public class Permutation extends GPA {
 
-
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
       each permutation is ordered as ordered as [HDs,Ds,CRs,Ps,Fs]*/

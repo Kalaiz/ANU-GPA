@@ -50,7 +50,6 @@ public class GiveFeedback extends AppCompatActivity {
 
     }
 
-
     public void clientSender(byte[] feedbackData) {
         String ip = "10.0.2.2"; // reference to development machine
 

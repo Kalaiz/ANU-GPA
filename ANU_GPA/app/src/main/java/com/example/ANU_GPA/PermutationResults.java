@@ -13,7 +13,6 @@ import java.util.Arrays;
 
 public class PermutationResults extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +27,9 @@ public class PermutationResults extends AppCompatActivity {
         ListView possibleOutputs=findViewById(R.id.PossiblePermutationListView);
         ArrayAdapter itemsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item);
         for(Integer[] s :p.getPermutation()){
-                 itemsAdapter.add(Arrays.toString(s));
-        }        possibleOutputs.setAdapter(itemsAdapter);
-
+            itemsAdapter.add(Arrays.toString(s));
         }
-
+        possibleOutputs.setAdapter(itemsAdapter);
     }
+}
 

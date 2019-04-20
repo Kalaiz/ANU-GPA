@@ -22,7 +22,6 @@ public class PermutationCalc extends AppCompatActivity {
     boolean knownButtonClicked = false;
     int visibility = View.VISIBLE;
 
-
     /**
      * Based on given key of SharedPreference with the respective sharedPreference.
      * the value stored can be retrieved.
@@ -167,7 +166,4 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
-
 }
-
-

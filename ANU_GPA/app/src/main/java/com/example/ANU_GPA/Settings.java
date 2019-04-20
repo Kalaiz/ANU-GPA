@@ -12,9 +12,6 @@ import android.widget.LinearLayout;
 
 public class Settings extends AppCompatActivity {
 
-     private ViewPager viewPager;
-     private Button feedback_button;
-     private int mcuurentpage;
 
     @Override
     public void onBackPressed(){
@@ -27,10 +24,12 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.linearLayout1);
-        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.linearLayout2);
-        LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.linearLayout3);
-        LinearLayout linearLayout4 = (LinearLayout) findViewById(R.id.linearLayout4);
+        LinearLayout linearLayout1 = findViewById(R.id.linearLayout1);
+        LinearLayout linearLayout2 = findViewById(R.id.linearLayout2);
+        LinearLayout linearLayout3 = findViewById(R.id.linearLayout3);
+        LinearLayout linearLayout4 = findViewById(R.id.linearLayout4);
+        LinearLayout[] layouts=new LinearLayout[]{linearLayout1,linearLayout2,linearLayout3,linearLayout4};
+        new ScaleEffect(layouts);
 
         linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override

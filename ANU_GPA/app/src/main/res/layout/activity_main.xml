@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Authorship Prateek Arora, u6742441-->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,10 +10,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--Authorship Prateek Arora, u6742441-->
-
     <TextView
-        android:id="@+id/gp"
+        android:id="@+id/anuTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -22,10 +23,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gp"
+        android:layout_below="@+id/anuTextView"
         android:layout_centerInParent="true"
         android:text="GPA"
-        android:id="@+id/gpa"
+        android:id="@+id/gpaTextView"
         android:textColor="#000000"
         android:textSize="40dp" />
 
@@ -33,7 +34,7 @@
         android:id="@+id/animation_view1"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_below="@+id/gpa"
+        android:layout_below="@+id/gpaTextView"
         android:layout_marginTop="70dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="cycle_animation.json"

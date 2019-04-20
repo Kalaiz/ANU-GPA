@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Authorship-->
+<!--Base:Prateek (u6742441) -->
+<!--Implementation: Kalai (u6555407)-->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,9 +11,6 @@
     android:layout_height="wrap_content"
     android:scrollbarStyle="outsideInset"
     tools:context=".GPA">
-
-    <!--Authorship Kalai , u6555407 and Prateek Arora, u6742441-->
-    <!--Prateek did the base of this xml and rest is done by kalai-->
 
         <RelativeLayout
             android:layout_width="match_parent"

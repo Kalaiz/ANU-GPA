@@ -10,11 +10,6 @@ import android.widget.LinearLayout;
 
 public class Home extends AppCompatActivity {
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +29,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
         permutationLinearLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -44,7 +38,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
         settingsLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +46,4 @@ public class Home extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

@@ -10,8 +10,9 @@ import android.os.Handler;
 import android.view.View;
 
 
-/*Authorship Kalai*/
-public   class ScaleEffect  <T extends View>{
+/*Authorship: Kalai(u6555407)*/
+
+public  class ScaleEffect  <T extends View>{
 
     ScaleEffect(T [] array){
         for(int i=0;i<array.length;i++ ){
@@ -21,9 +22,12 @@ public   class ScaleEffect  <T extends View>{
                 public void run() {
                     effect(val);
                 }
-            }, (i+1)*1000);
+            }, (i)*1000);
         }
+    }
 
+    ScaleEffect(T element){
+        effect(element);
     }
 
 

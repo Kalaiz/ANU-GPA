@@ -13,14 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.Socket;
+
 import java.util.Map;
 
-
+/*Authorship:Kalai(u6555407)*/
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
     boolean knownButtonClicked = false;
@@ -68,14 +64,7 @@ public class PermutationCalc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_permutationcalc);
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                clientSender();
-            }
-        };
-        thread.start();
+        setContentView(R.layout.activity_permutation_calc);
 
         /*View Objects*/
         final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
@@ -103,7 +92,7 @@ public class PermutationCalc extends AppCompatActivity {
                 knownButtonClicked=!knownButtonClicked;
                 //Default:KnownButton not clicked
                 float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
-                                               -(screenWidth/(float)4): -(screenWidth/(float)2.75);
+                        -(screenWidth/(float)4): -(screenWidth/(float)2.75);
                 float submitButtonTranslation=-400;
                 float scaleFactor=0.15f;
                 visibility=View.INVISIBLE;//For toggling effect.
@@ -116,11 +105,12 @@ public class PermutationCalc extends AppCompatActivity {
                     alpha=-alpha;
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
-                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(750);
-                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(750);
-                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(750);
+                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);
+                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(600);
                 //reCalculateButton will disappear when the user knows his/her cgpa.
-                reCalculateButton.animate().alpha(alpha).setDuration(1000);
+                reCalculateButton.animate().alpha(alpha).setDuration(750);
                 reCalculateButton.setEnabled(!knownButtonClicked);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
@@ -145,19 +135,19 @@ public class PermutationCalc extends AppCompatActivity {
             public void onClick(View v) {
                 int numOfTBTCourses=-1;
                 float gpaWanted=-1;
-                    try{
-                        if(knownButtonClicked) {//If Known button has been clicked.
-                            editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
-                                    .getText().toString()));
-                            editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
-                                    .getText().toString()));
-                            editor.apply();
-                        }
-                        numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
-                        gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
-                    }catch(NumberFormatException n){
-                        Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                try{
+                    if(knownButtonClicked) {//If Known button has been clicked.
+                        editor.putInt("numOfTCourses", Integer.parseInt(((EditText) findViewById(R.id.numOfCourseDoneEditText))
+                                .getText().toString()));
+                        editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
+                                .getText().toString()));
+                        editor.apply();
                     }
+                    numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
+                    gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
+                }catch(NumberFormatException n){
+                    Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                }
                 boolean errorFree=numOfTBTCourses!=-1 && gpaWanted!=-1;
                 if(errorFree){
                     Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
@@ -177,24 +167,6 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         localDataTextView.setText(localDataStatus(new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
-
-
-public void clientSender() {
-
-    String ip = "10.0.2.2"; //server ip address or hostname
-
-    try {
-        Socket socket = new Socket(ip, 5005);
-        String msg = "I am sending data to server";
-        OutputStream connectedSocket = socket.getOutputStream();
-        connectedSocket.write(msg.getBytes());
-        connectedSocket.close();
-        socket.close();
-    }
-    catch (IOException i){
-
-    }
-}
 
 }
 

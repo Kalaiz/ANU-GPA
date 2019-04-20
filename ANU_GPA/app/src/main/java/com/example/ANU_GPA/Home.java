@@ -1,29 +1,31 @@
 package com.example.ANU_GPA;
-
 import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+
+/*Authorship:Prateek Arora (u6742441)*/
 
 public class Home extends AppCompatActivity {
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final Button gpaCalc = (Button) findViewById(R.id.gpaCalcButton);
-        Button permutation=(Button) findViewById(R.id.permutationButton);
-        final Button settings=(Button) findViewById(R.id.settingsButton);
-        gpaCalc.animate().scaleXBy(0.15f).scaleYBy(0.15f).setDuration(2000);
-        gpaCalc.animate().scaleXBy(-0.15f).scaleYBy(-0.15f).setDuration(2000);
-       // gpaCalc.animate().scaleXBy()
-        gpaCalc.setOnClickListener(new View.OnClickListener() {
+        final LinearLayout gpaCalcLinearLayout = (LinearLayout) findViewById(R.id.linearLayout1);
+        final LinearLayout permutationLinearLayout=(LinearLayout) findViewById(R.id.linearLayout2);
+        final LinearLayout settingsLinearLayout=(LinearLayout) findViewById(R.id.linearLayout3);
+        //For extensibility
+        final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
+        new ScaleEffect(arr);
+        gpaCalcLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, GPACalc.class);
@@ -33,7 +35,7 @@ public class Home extends AppCompatActivity {
         });
 
 
-        permutation.setOnClickListener(new View.OnClickListener(){
+        permutationLinearLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, PermutationCalc.class);
@@ -43,12 +45,15 @@ public class Home extends AppCompatActivity {
         });
 
 
-        settings.setOnClickListener(new View.OnClickListener() {
+        settingsLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this,Settings.class);
                 startActivity(intent);
             }
-    });
+        });
     }
+
+
+
 }

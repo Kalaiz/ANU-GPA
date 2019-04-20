@@ -11,12 +11,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*Authorship:Kalai(u6555407)*/
 public class GPACalc extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gpacalc);
+        setContentView(R.layout.activity_gpa_calc);
         final TextView result = (TextView) findViewById(R.id.resultTextView);
         Button doneButton = (Button) findViewById(R.id.doneButton);
         final EditText hd = (EditText) findViewById(R.id.hdEditText);

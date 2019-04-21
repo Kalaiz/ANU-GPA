@@ -40,11 +40,11 @@ _add references from where you obtained the idea form the app and ideas about as
 ### Code
 _reference all the code or ideas for code from other sources_ 
 
-  Server - Client problem solved by the suggestion given by Danny Feng(u6611178);
++ Server - Client problem solved by the suggestion given by Danny Feng(u6611178);
   Suggestion:
-  + Use threads for  performing long operations such as network access
+  1. Use threads for  performing long operations such as network access
     to prevent blocking UI thread 
-  + Give permission for Network access
+  2. Give permission for Network access
  
 + [PermutationCalc_Knowing_Screen_Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 

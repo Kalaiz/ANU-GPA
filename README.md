@@ -30,8 +30,10 @@ assignment is entirely my own work, with exceptions given below.
 I _insert name 2_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
 
-I _insert name 3_ declare that everything I have submitted in this
+I _Kalaiarasan Somasundaram_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
++ [PermutationCalc_Knowing_Screen_Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
++ The suggestion given by Danny Feng (u6611178) to solve Client-Server Issue.
 
 ### Inspiration
 
@@ -42,9 +44,9 @@ _reference all the code or ideas for code from other sources_
 
 + Server - Client problem solved by the suggestion given by Danny Feng(u6611178);
   Suggestion:
-  1. Use threads for  performing long operations such as network access
-    to prevent blocking UI thread 
-  2. Give permission for Network access
+  1. Use  a seprate thread for performing long operations such as network access
+    to prevent blocking UI thread.
+  2. Give permission for Network access.
  
 + [PermutationCalc_Knowing_Screen_Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 

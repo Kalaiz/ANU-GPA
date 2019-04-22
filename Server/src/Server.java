@@ -9,23 +9,23 @@ public class Server {
     public static void main(String[] args) throws Exception {
 
         System.out.println("Server has initiated");
-        ServerSocket serverSocket = new ServerSocket(5005);
+        ServerSocket listeningSocket = new ServerSocket(5005);
         //making sure server runs until developer stops it.
         while (true) {
             System.out.println("Server is waiting for client request");
-            Socket listeningSocket = serverSocket.accept();
+            Socket connectedSocket = listeningSocket.accept();
             System.out.println("Server has connected with a client");
-            InputStreamReader streamReader = new InputStreamReader(listeningSocket.getInputStream());
+            InputStreamReader streamReader = new InputStreamReader(connectedSocket.getInputStream());
             BufferedReader br = new BufferedReader(streamReader);
             String time = LocalTime.now().toString().substring(0, 5);
-            String listeningSocketData = "Feedback received on " + LocalDate.now() + " at " + time + "\n";
+            String connectedSocketData = "Feedback received on " + LocalDate.now() + " at " + time + "\n";
             String temp = "";
             try {
-                listeningSocketData += "Ratings is " + br.readLine() + "\n" + "Feedback is " + "\n";
+                connectedSocketData+= "Ratings is " + br.readLine() + "\n" + "Feedback is " + "\n";
                 while (true) {
                     temp = br.readLine();
                     if (temp != null) {
-                        listeningSocketData += temp + " ";
+                        connectedSocketData += temp + " ";
                     } else {
 
                         break;
@@ -37,11 +37,11 @@ public class Server {
             }
 
             //When done reading feedback add a newline to differentiate different users.
-            listeningSocketData += "\n";
-            System.out.println("Server has received : " + listeningSocketData);
+            connectedSocketData += "\n";
+            System.out.println("Server has received : " + connectedSocketData);
             Writer fileWriter = new FileWriter("Feedbacks.txt", true);
             try {
-                fileWriter.write(listeningSocketData);
+                fileWriter.write(connectedSocketData);
             } catch (IOException e) {
 
             }

@@ -25,7 +25,7 @@ public class GPACalc extends AppCompatActivity {
         final EditText c =  findViewById(R.id.cEditText);
         final EditText p =  findViewById(R.id.pEditText);
         final EditText f =  findViewById(R.id.fEditText);
-        final ScrollView scrollView =(ScrollView) findViewById(R.id.scrollView);
+        final ScrollView scrollView = findViewById(R.id.scrollView);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 
         doneButton.setOnClickListener(new View.OnClickListener() {

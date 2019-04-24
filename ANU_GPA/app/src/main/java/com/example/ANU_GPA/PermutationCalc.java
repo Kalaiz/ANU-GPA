@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -67,13 +68,14 @@ public class PermutationCalc extends AppCompatActivity {
         setContentView(R.layout.activity_permutation_calc);
 
         /*View Objects*/
-        final TextView cgpaTextView =(TextView) findViewById(R.id.cgpaTextView);
-        final EditText cgpaEditText=(EditText) findViewById(R.id.cgpaEditText);
-        final TextView numOfCourseDoneTextView = (TextView) findViewById(R.id.numOfCourseDoneTextView);
-        final EditText numOfCourseDoneEditText=(EditText) findViewById(R.id.numOfCourseDoneEditText);
-        final Button knownButton = (Button) findViewById(R.id.knownButton);
-        final Button reCalculateButton = (Button) findViewById(R.id.reCalculateButton);
-        final Button submitButton = (Button) findViewById(R.id.submitButton);
+        final TextView cgpaTextView =findViewById(R.id.cgpaTextView);
+        final EditText cgpaEditText= findViewById(R.id.cgpaEditText);
+        final EditText gpaWantedEditText= findViewById(R.id.gpaWantedEditText);
+        final TextView numOfCourseDoneTextView =  findViewById(R.id.numOfCourseDoneTextView);
+        final EditText numOfCourseDoneEditText= findViewById(R.id.numOfCourseDoneEditText);
+        final Button knownButton = findViewById(R.id.knownButton);
+        final Button reCalculateButton = findViewById(R.id.reCalculateButton);
+        final Button submitButton =  findViewById(R.id.submitButton);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
@@ -97,9 +99,11 @@ public class PermutationCalc extends AppCompatActivity {
                         -(screenWidth/(float)3.5): -(screenWidth/(float)2.65);
                 float submitButtonTranslation=-400;
                 float scaleFactor=0.15f;
+                int imegpaWanted=EditorInfo.IME_ACTION_DONE;
                 visibility=View.INVISIBLE;//For toggling effect.
                 int alpha=1;
                 if(knownButtonClicked){
+                    imegpaWanted=EditorInfo.IME_ACTION_NEXT;
                     knownButtonTranslation=-knownButtonTranslation;
                     submitButtonTranslation=-submitButtonTranslation;
                     visibility=View.VISIBLE;
@@ -108,7 +112,7 @@ public class PermutationCalc extends AppCompatActivity {
                     Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
                 }
 
-
+                gpaWantedEditText.setImeOptions(imegpaWanted);
                 knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
                 submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
                 submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);

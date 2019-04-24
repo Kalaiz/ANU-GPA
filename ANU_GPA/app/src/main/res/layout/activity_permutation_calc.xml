@@ -115,7 +115,7 @@
                 android:layout_below="@+id/numOfCourseDoneTextView"
                 android:layout_marginTop="5dp"
                 android:hint="Number of Courses Done"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:visibility="invisible"
                 tools:layout_editor_absoluteX="72dp" />
@@ -165,7 +165,7 @@
                 android:layout_below="@+id/gpaWantedTextView"
                 android:layout_marginTop="5dp"
                 android:hint="GPA you want to achieve"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionDone"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gpaWantedTextView" />

@@ -3,7 +3,9 @@ package com.example.ANU_GPA;
 import java.util.ArrayList;
 import java.util.Stack;
 
-/*Authorship Kalai(u6555407)*/
+/*Authorship
+ CalculateTotalPoints - Jared
+ Rest of the class - Kalai(u6555407)*/
 
 /**
  * A class which helps one to find the possible permutations provided the basic information.
@@ -29,12 +31,20 @@ import java.util.Stack;
  *        calculatePermutations() finds for the possible permutation such that:
  *        nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54 && sum[nHDs,nDs,nCRs,nPs,nFs] == numOfTBTCourses
  * */
-public class Permutation extends GPA {
+public class Permutation {
 
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
       each permutation is ordered as ordered as [HDs,Ds,CRs,Ps,Fs]*/
     private ArrayList<Integer[]> permutations =new ArrayList<>();
+     int pointsNeeded;
+
+
+    /*Calculates PointsNeeded based on numOfTCourses & cgpa
+     * Authorship: Jared  */
+    public void calculatePointsNeeded(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
+        pointsNeeded = (int)(gpaWanted*(totalCourses)+0.5)-(int)(cgpa*coursesDone+0.5);
+    }
 
 
     /**
@@ -48,25 +58,8 @@ public class Permutation extends GPA {
      * @param gpaWanted - The gpa which the user is trying to achieve.
      * */
     Permutation(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
-        super(cgpa, coursesDone,totalCourses);
         numOfTBTCourses= totalCourses-coursesDone;
-        calculatePointsNeeded(gpaWanted);
-        calculatePermutation();
-    }
-
-
-    /**
-     * Creates a Permutation object which calculate the possible permutation by
-     * calculating GPA before invoking this constructor.Based on results
-     * from GPA class pointsNeeded and numOfTBTCourses can be obtained and eventually be used here.
-     * (one would use this when the cgpa is unknown)
-     * @param pointsNeeded - Points needed in order to attain the gpaWanted.
-     * @param numOfTBTCourses- The number of courses to be taken.
-     * */
-    Permutation(int pointsNeeded,int numOfTBTCourses){
-        super(); //using default constructor
-        this.numOfTBTCourses= numOfTBTCourses;
-        this.pointsNeeded=pointsNeeded;
+        calculatePointsNeeded(cgpa,coursesDone,totalCourses,gpaWanted);
         calculatePermutation();
     }
 
@@ -75,6 +68,7 @@ public class Permutation extends GPA {
      * Obtains all valid permutation and then updates the ArrayList permutations.
      * */
     public void calculatePermutation(){
+        Grades[] grades=Grades.values();
         int points=0;
         int sumOfStack=0;
         /*trackers will act like a storage which tracks the number of grades whose
@@ -102,7 +96,7 @@ public class Permutation extends GPA {
                   The resultant must'nt be higher than the numOfTBTCourses*/
                 if(val+sumOfStack<=numOfTBTCourses && points<=pointsNeeded) {
                     sumOfStack+=val;
-                    points+=val*GRADEVALUES[size];
+                    points+=val*grades[size].getGradePoints();
                     ++trackers[size];
                     stack.push(val);
                 }
@@ -110,7 +104,7 @@ public class Permutation extends GPA {
                     //If tracker's value has reached it's max
                     trackers[size]=0;
                     val=stack.pop();
-                    points-=val*GRADEVALUES[size-1];//size - 1 due to popping of values from stack
+                    points-=val*grades[size-1].getGradePoints();//size - 1 due to popping of values from stack
                     sumOfStack-=val;
                 }
             }

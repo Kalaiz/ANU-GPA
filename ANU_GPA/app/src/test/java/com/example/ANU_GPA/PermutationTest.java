@@ -35,7 +35,7 @@ public class PermutationTest {
 
     @Test
     public void baseCase() {
-        Permutation p=new Permutation(0,0);
+        Permutation p=new Permutation(0,0,0,0);
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(0,0).toArray();
         assertTrue("Wrong result for pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,Arrays.deepEquals(original,test));
@@ -44,7 +44,7 @@ public class PermutationTest {
 
     @Test
     public void test2() {
-        Permutation p=new Permutation(102,16);
+        Permutation p=new Permutation(4.125f,8,24,5);
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.pointsNeeded,p.numOfTBTCourses).toArray();
         assertTrue("Wrong result for pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,Arrays.deepEquals(original,test));
@@ -53,7 +53,8 @@ public class PermutationTest {
 
     @Test
     public void test3() {
-        Permutation p=new Permutation(129,20);
+        //  Permutation(float cgpa, int coursesDone, int totalCourses,float gpaWanted)
+        Permutation p=new Permutation(6.28f,7,24,6);
         Object[] original=p.getPermutation().toArray();
         Object[] test=testPermutation(p.pointsNeeded,p.numOfTBTCourses).toArray();
         assertTrue("Wrong result for pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,Arrays.deepEquals(original,test));

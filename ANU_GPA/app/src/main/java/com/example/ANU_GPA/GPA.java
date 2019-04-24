@@ -30,11 +30,7 @@ public class GPA {
         currentPoints = (int)(cgpa*numOfTCourses+0.5);
     }
 
-    public void calculatePointsNeeded(float wantedGPA){
-        /*Calculates PointsNeeded based on numOfTCourses & cgpa */
-        pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
-        gpaWanted = wantedGPA;
-    }
+
 
     public void gpaCalc(int[] data) {
         //calculates the gpa and number of courses taken from your grades
@@ -61,8 +57,14 @@ public class GPA {
         numOfTCourses = numOfTCourses + extraClasses;
         currentPoints = currentPoints + extraPoints;
         if(gpaWanted != 0.0f) {
-            calculatePointsNeeded(gpaWanted);
+           // calculatePointsNeeded(gpaWanted);
         }
+    }
+    /*Calculates PointsNeeded based on numOfTCourses & cgpa
+     * Authorship: Jared  */
+    public void calculatePointsNeeded(float wantedGPA){
+        pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;
+        gpaWanted = wantedGPA;
     }
 
     public void updateCGPA(float newCGPA, int extraCourses) {
@@ -70,7 +72,7 @@ public class GPA {
         numOfTCourses = numOfTCourses +extraCourses;
         currentPoints = currentPoints + (int)(cgpa*numOfTCourses + 0.5);
         if(gpaWanted != 0.0f) {
-            calculatePointsNeeded(gpaWanted);
+           // calculatePointsNeeded(gpaWanted);
         }
     }
 

@@ -19,12 +19,10 @@ public class PermutationTest {
             for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
                 for(int ncr=0;ncr<numOfTBTCourses-(nd-1);ncr++){
                     for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
-                        for(int nf=0;nf<numOfTBTCourses-(np-1);nf++) {
-                            if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np + nf){
-                               permutations.add(new Integer[]{nhd,nd,ncr,np,nf});
-                            }
-                        }
+                        if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np){
+                            permutations.add(new Integer[]{nhd,nd,ncr,np});
 
+                        }
                     }
                 }
             }

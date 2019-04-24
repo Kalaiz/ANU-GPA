@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView anuTextView=findViewById(R.id.anuTextView);
         final TextView  gpaTextView=findViewById(R.id.gpaTextView);
-        final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("cgpa",0);
         editor.putInt("numOfTCourses",0);

@@ -45,22 +45,21 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Possible permutation based on a target GPA."
+                android:text="Possible permutations based on a target GPA."
                 android:textColor="#000"
-                android:textStyle="bold"
-                 />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/knownButton"
                 android:layout_width="150dp"
                 android:layout_height="80dp"
                 android:layout_below="@+id/doYouKnowYourGPATextView"
-                android:layout_marginTop="35dp"
                 android:layout_marginLeft="7dp"
-                android:text="Known"
+                android:layout_marginTop="35dp"
                 android:background="@drawable/buttons"
-                android:textColor="#0A0A0A"
-               />
+                android:text="CGPA:Manual Entry"
+                android:textColor="#0A0A0A" />
 
             <Button
                 android:id="@+id/reCalculateButton"
@@ -199,7 +198,7 @@
 
             <TextView
                 android:id="@+id/doYouKnowYourGPATextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/localDataTextView"
                 android:layout_centerInParent="true"
@@ -209,7 +208,9 @@
                 android:layout_toStartOf="@+id/reCalculateButton"
                 android:layout_toLeftOf="@+id/reCalculateButton"
                 android:gravity="center"
-                android:text=" If GPA's known but not locally stored,Press Known." />
+                android:text=" If CGPA's known but not locally stored,Press:                                  CGPA:Manual Entry."
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
 
         </RelativeLayout>
 

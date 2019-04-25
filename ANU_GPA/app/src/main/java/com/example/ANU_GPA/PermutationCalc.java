@@ -120,13 +120,13 @@ public class PermutationCalc extends AppCompatActivity {
                     alpha=-alpha;
                     scroll=screenHeight;
                     // to make sure users has an overview of everything
-
+                    gpaWantedEditText.setEnabled(false);
+                    numOfCourseTBTEditText.setEnabled(false);
                     Toast.makeText(PermutationCalc.this, "Click Manual Entry Again to Undo", Toast.LENGTH_LONG).show();
 
                 }
                 gpaWantedEditText.setEnabled(true);
                 numOfCourseTBTEditText.setEnabled(true);
-
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

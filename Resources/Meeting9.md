@@ -14,7 +14,7 @@
 
 #### Tasks completed since the previous meeting
 ##### Kalai
-- Implemented his own version of the client-server such that the emulator is the client & the developing machine is the server and incorporated in the feedback aspect of the app.
+- Implemented his own version of the client-server such that the emulator is the client & the developing machine is the server and incorporated it in the feedback aspect of the app.
 - Made the app to utilise full screen.
 - Merge master branch & Prateek's updated branch.
 - Fixed the Settings activity bug.

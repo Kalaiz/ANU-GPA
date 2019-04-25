@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /*Authorship
- CalculateTotalPoints - Jared
+ CalculateTotalPoints function - Jared
  Rest of the class - Kalai(u6555407)*/
 
 /**

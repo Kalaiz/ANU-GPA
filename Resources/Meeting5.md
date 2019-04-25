@@ -17,7 +17,7 @@
 ##### Jared
 - Made the test for GPA class.
 ##### Prateek
-- came up with a client - server implementation.
+- Came up with a client - server implementation (Although some part of the code needs to be referenced).
 ##### Kalai
 - Found a bug in GPA class & fixed it.
 - Made major UI design changes;(Added a home screen and linked activities appropriately)

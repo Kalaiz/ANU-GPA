@@ -6,11 +6,11 @@
 
 #### Tasks
 - Inform Jared the List of things to do.
-- - CI Tool.
-- - Password protector.(Prateek's Idea)
-- - Font size changer.(Prateek's Idea)
-- - An extension.
-- - Documentations.
+    - CI Tool.
+    - Password protector.(Prateek's Idea)
+    - Font size changer.(Prateek's Idea)
+    - An extension.
+    - Documentations.
 
 #### Tasks completed since the previous meeting
 ##### Kalai

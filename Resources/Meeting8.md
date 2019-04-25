@@ -16,11 +16,11 @@
 #### Tasks completed since the previous meeting
 ##### Prateek
 - Considering the extensibility of the app he made changes to Settings.
-- - (Settings)Changed from a Slider based activity to button based one.So to make the app UI consistent.
+    - (Settings)Changed from a Slider based activity to button based one.So to make the app UI consistent.
 - Made major revamps to app aesthetics.
-- - Changed animation on loading Screen.
-- - Made buttons aesthetically nicer.
-- - Added an app theme.
+    - Changed animation on loading Screen.
+    - Made buttons aesthetically nicer.
+    - Added an app theme.
 ##### Kalai
 - With the suggestions given by Danny Feng(u6611178) made client-Server Interaction work(some parts of the code were from a tutorial)
 

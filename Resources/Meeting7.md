@@ -13,8 +13,8 @@
 #### Tasks completed since the previous meeting
 ##### Kalai
 - Considered the extensibilty of the app.
-- - Added Generic function to extract data from SharedPreferences.
-- - Added a function which displays n numbered of locally stored data in Shared preference.
+    - Added Generic function to extract data from SharedPreferences.
+    - Added a function which displays n numbered of locally stored data in Shared preference.
 - Made a basic working Client-Server implementation in which both client & server was the localhost via the help of a tutorial.
 
 #### Future Goals

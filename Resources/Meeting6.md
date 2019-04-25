@@ -16,16 +16,16 @@
 #### Tasks completed since the previous meeting
 ##### Prateek
 - got the Settings part of the app done.It includes:
-- - Feedback 
-- - Font Size Changer (template)
-- - Credits 
-- - Password (template)
+    - Feedback 
+    - Font Size Changer (template)
+    - Credits 
+    - Password (template)
 - Added Lottie API animations to activities Feedback,Password,Credits.
 ##### Kalai
 - Made the app more user friendly.
-- - Added feature which allows user to see the locally stored data.
-- - Changed Names of some resources.
-- - Changed some visuals(Text size,styles).
+    - Added feature which allows user to see the locally stored data.
+    - Changed Names of some resources.
+    - Changed some visuals(Text size,styles).
 - Unlinked some attributes from SharedPreferences.
 - Added Minor animation to activity_permutationCalc.
 

@@ -20,11 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView anuTextView=findViewById(R.id.anuTextView);
         final TextView  gpaTextView=findViewById(R.id.gpaTextView);
-        SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("cgpa",0);
-        editor.putInt("numOfTCourses",0);
-        editor.apply();
+
         new ScaleEffect(new TextView[]{anuTextView,gpaTextView}).setDuration(1000);
         new Handler().postDelayed(new Runnable() {
             @Override

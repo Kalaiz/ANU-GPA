@@ -14,9 +14,9 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        final LinearLayout gpaCalcLinearLayout = (LinearLayout) findViewById(R.id.linearLayout1);
-        final LinearLayout permutationLinearLayout=(LinearLayout) findViewById(R.id.linearLayout2);
-        final LinearLayout settingsLinearLayout=(LinearLayout) findViewById(R.id.linearLayout3);
+        final LinearLayout gpaCalcLinearLayout = findViewById(R.id.linearLayout1);
+        final LinearLayout permutationLinearLayout=findViewById(R.id.linearLayout2);
+        final LinearLayout settingsLinearLayout=findViewById(R.id.linearLayout3);
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout,permutationLinearLayout,settingsLinearLayout};
         new ScaleEffect(arr);

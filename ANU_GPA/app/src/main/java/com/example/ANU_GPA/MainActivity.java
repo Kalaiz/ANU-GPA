@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(pass.contains("password")){
-                    if(pass.getString("password", null)==null){
+                    if(pass.getString("password", "").equals("")){
                         Intent intent = new Intent(MainActivity.this, Home.class);
                         startActivity(intent);
                     }else{
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }else{
                     SharedPreferences.Editor edit = pass.edit();
-                    edit.putString("password", null);
+                    edit.putString("password", "");
                     edit.commit();
                     Intent intent = new Intent(MainActivity.this, Home.class);
                     startActivity(intent);

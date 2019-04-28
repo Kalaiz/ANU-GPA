@@ -36,7 +36,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
-                if(pass.getString("password", null)==null){
+                if(pass.getString("password", "")==""){
                     Intent intent = new Intent(Settings.this,PasswordSet.class);
                     startActivity(intent);
                 }else{

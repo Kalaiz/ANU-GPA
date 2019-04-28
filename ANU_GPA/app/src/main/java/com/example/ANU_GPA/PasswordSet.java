@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class PasswordSet extends AppCompatActivity {
-    SharedPreferences pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

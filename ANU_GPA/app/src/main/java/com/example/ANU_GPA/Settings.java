@@ -1,6 +1,7 @@
 package com.example.ANU_GPA;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,9 +35,14 @@ public class Settings extends AppCompatActivity {
         linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Settings.this,Password.class);
-                startActivity(intent);
+                final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
+                if(pass.getString("password", null)==null){
+                    Intent intent = new Intent(Settings.this,PasswordSet.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(Settings.this,Password.class);
+                    startActivity(intent);
+                }
 
             }
         });

@@ -26,11 +26,13 @@ public class PasswordEntry extends AppCompatActivity {
                 if(passwordGiven.getText().toString().equals(actualPassword)){
                     Intent intent = new Intent(PasswordEntry.this, Home.class);
                     startActivity(intent);
+                    finish();
                 }else{
                     Toast failMessage = Toast.makeText(getApplicationContext(), "wrong password", Toast.LENGTH_SHORT);
                     failMessage.show();
                     Intent intent = new Intent(PasswordEntry.this, PasswordEntry.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }

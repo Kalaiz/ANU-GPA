@@ -46,8 +46,10 @@ public class Password extends AppCompatActivity {
                     Intent intent = new Intent(Password.this, Password.class);
                     startActivity(intent);
                 }
+                finish();
 
             }
         });
+
     }
 }

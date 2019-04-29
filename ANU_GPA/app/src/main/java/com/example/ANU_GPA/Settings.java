@@ -15,9 +15,9 @@ public class Settings extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        super.finish();
         Intent intent = new Intent(this,Home.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -79,6 +79,4 @@ public class Settings extends AppCompatActivity {
 
 
     }
-
-
 }

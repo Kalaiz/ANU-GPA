@@ -26,9 +26,8 @@ public class PasswordSet extends AppCompatActivity {
                 edit.commit();
                 Intent intent = new Intent(PasswordSet.this, Settings.class);
                 startActivity(intent);
+                finish();
             }
         });
-    }
-
-
+        }
 }

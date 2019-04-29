@@ -213,4 +213,11 @@ public class PermutationCalc extends AppCompatActivity {
         localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
                 new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(PermutationCalc.this,Home.class);
+        startActivity(intent);
+        finish();
+    }
 }

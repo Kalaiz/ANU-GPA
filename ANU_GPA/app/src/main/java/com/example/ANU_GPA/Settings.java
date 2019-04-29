@@ -14,13 +14,6 @@ import android.widget.LinearLayout;
 public class Settings extends AppCompatActivity {
 
     @Override
-    public void onBackPressed(){
-        Intent intent = new Intent(this,Home.class);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);

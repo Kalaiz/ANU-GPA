@@ -61,10 +61,4 @@ public class GPACalc extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public void onBackPressed(){
-        Intent intent = new Intent(GPACalc.this,Home.class);
-        startActivity(intent);
-        finish();
-    }
 }

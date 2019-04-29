@@ -18,8 +18,6 @@ public class FeedbackThanks extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(FeedbackThanks.this, Settings.class);
-                startActivity(intent);
                 finish();
             }
         }, Time_Out);

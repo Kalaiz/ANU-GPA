@@ -214,10 +214,4 @@ public class PermutationCalc extends AppCompatActivity {
                 new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
 
-    @Override
-    public void onBackPressed(){
-        Intent intent = new Intent(PermutationCalc.this,Home.class);
-        startActivity(intent);
-        finish();
-    }
 }

@@ -34,7 +34,6 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, GPACalc.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -43,7 +42,6 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, PermutationCalc.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -52,7 +50,6 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this,Settings.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

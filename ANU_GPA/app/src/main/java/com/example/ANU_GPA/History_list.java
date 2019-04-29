@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/*Authorship Prateek Arora (u6742441)*/
+
 public class History_list extends AppCompatActivity {
 
     RecyclerView recyclerView;

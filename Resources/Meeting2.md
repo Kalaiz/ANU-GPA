@@ -1,14 +1,23 @@
-### Meeting2:12/4/19
+### Meeting2 (12/4/19): Logic & Base/Template of the App.
 
-#### Future Plans
-- Update current issues
-- To get a score system for the minimum effort permutation
-- To get the base/template of UI done
-- Do Tests for GPA class
-- Search about Automated Integration tool
-- Address a problem mentioned in the miscellaneous below
+#### Summary 
+- Jared told Prateek of what the user Interface might look like.
+- Kalai & Jared decided what to include & exclude from GPA class.
+- Jared completed his update functions during the meeting.
 
 #### Tasks
-- Jared & Kalai will further work on the underlying logic of the app.
-- Prateek will work on the User Interface of the app & will create the base/template for the app.
+##### Kalai
+ - Merge his branch with the Master & considered only the decided inclusions.
+##### Prateek
+ - Create the base/template for the app.
 
+#### Tasks completed since the previous meeting.
+##### Jared
+- Finished some functionalities of GPA class.
+##### Kalai
+- Completed the permutation class.
+
+#### Future Plans
+- To get a score system for the minimum effort permutation
+- Do Tests for GPA class
+- Search about Automated Integration tool

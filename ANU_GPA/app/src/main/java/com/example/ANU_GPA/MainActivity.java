@@ -13,6 +13,9 @@ import org.w3c.dom.Text;
 /*Authorship Prateek Arora (u6742441) and Kalai (u6555407)*/
 
 public class MainActivity extends AppCompatActivity {
+
+    /*Authorship of password sharedpreference, jared graf*/
+    SharedPreferences pass;
     private static int Time_Out = 4000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +23,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView anuTextView=findViewById(R.id.anuTextView);
         final TextView  gpaTextView=findViewById(R.id.gpaTextView);
-        SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("cgpa",0);
-        editor.putInt("numOfTCourses",0);
-        editor.apply();
         new ScaleEffect(new TextView[]{anuTextView,gpaTextView}).setDuration(1000);
+        final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, Home.class);
-                startActivity(intent);
+                if(pass.contains("password")){
+                    if(pass.getString("password", "").equals("")){
+                        Intent intent = new Intent(MainActivity.this, Home.class);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(MainActivity.this, PasswordEntry.class);
+                        startActivity(intent);
+                    }
+                }else{
+                    SharedPreferences.Editor edit = pass.edit();
+                    edit.putString("password", "");
+                    edit.commit();
+                    Intent intent = new Intent(MainActivity.this, Home.class);
+                    startActivity(intent);
+                }
                 finish();
             }
         }, Time_Out);

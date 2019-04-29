@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import java.util.Map;
 /*Authorship:Kalai(u6555407)*/
 public class PermutationCalc extends AppCompatActivity {
     // Below two variables are for knowButton.
-    boolean knownButtonClicked = false;
+    boolean mEntryButtonClicked = false;
     int visibility = View.VISIBLE;
 
     /**
@@ -70,17 +71,19 @@ public class PermutationCalc extends AppCompatActivity {
         /*View Objects*/
         final TextView cgpaTextView =findViewById(R.id.cgpaTextView);
         final EditText cgpaEditText= findViewById(R.id.cgpaEditText);
+        final EditText numOfCourseTBTEditText=findViewById(R.id.numOfTBTCourseEditText);
         final EditText gpaWantedEditText= findViewById(R.id.gpaWantedEditText);
         final TextView numOfCourseDoneTextView =  findViewById(R.id.numOfCourseDoneTextView);
         final EditText numOfCourseDoneEditText= findViewById(R.id.numOfCourseDoneEditText);
-        final Button knownButton = findViewById(R.id.knownButton);
+        final Button manualEntryButton = findViewById(R.id.manualEntryButton);
         final Button reCalculateButton = findViewById(R.id.reCalculateButton);
-        final Button submitButton =  findViewById(R.id.submitButton);
+        final Button submitButton = findViewById(R.id.submitButton);
+        final ScrollView scrollView = findViewById(R.id.scrollView);
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
-        localDataTextView.setText(localDataStatus(new String[]{"CGPA","Total number of courses in your degree"},
-                                                  new String[]{"cgpa","numOfTCourses"},sharedPreferences));
+        localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
+                new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
         /*Getting information about screen*/
         WindowManager mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
@@ -88,13 +91,17 @@ public class PermutationCalc extends AppCompatActivity {
         mWindowManager.getDefaultDisplay().getMetrics(displayMetrics);
         final int screenOrientation = mWindowManager.getDefaultDisplay().getRotation();
         final int screenWidth=displayMetrics.widthPixels;
+        final int screenHeight=displayMetrics.heightPixels;
 
-        knownButton.setOnClickListener(new View.OnClickListener() {
+
+        manualEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                knownButton.setEnabled(false);
-                knownButtonClicked=!knownButtonClicked;
-                //Default:KnownButton not clicked
+                //To prevent user interaction when animating
+                manualEntryButton.setEnabled(false);
+                mEntryButtonClicked=!mEntryButtonClicked;
+
+                //Default:mEntryButton not clicked
                 float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
                         -(screenWidth/(float)3.5): -(screenWidth/(float)2.65);
                 float submitButtonTranslation=-400;
@@ -102,34 +109,57 @@ public class PermutationCalc extends AppCompatActivity {
                 int imegpaWanted=EditorInfo.IME_ACTION_DONE;
                 visibility=View.INVISIBLE;//For toggling effect.
                 int alpha=1;
-                if(knownButtonClicked){
+                int scroll=0;
+
+                if(mEntryButtonClicked){
                     imegpaWanted=EditorInfo.IME_ACTION_NEXT;
                     knownButtonTranslation=-knownButtonTranslation;
                     submitButtonTranslation=-submitButtonTranslation;
                     visibility=View.VISIBLE;
                     scaleFactor=-scaleFactor;
                     alpha=-alpha;
-                    Toast.makeText(PermutationCalc.this, "Click Known Again to Undo", Toast.LENGTH_LONG).show();
-                }
+                    scroll=screenHeight;
+                    // to make sure users has an overview of everything
+                    gpaWantedEditText.setEnabled(false);
+                    numOfCourseTBTEditText.setEnabled(false);
+                    Toast.makeText(PermutationCalc.this, "Click Manual Entry Again to Undo", Toast.LENGTH_LONG).show();
 
-                gpaWantedEditText.setImeOptions(imegpaWanted);
-                knownButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
-                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
-                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);
-                knownButton.animate().translationXBy(knownButtonTranslation).setDuration(600);
-                //reCalculateButton will disappear when the user knows his/her cgpa.
-                reCalculateButton.animate().alpha(alpha).setDuration(750);
+                }
+                gpaWantedEditText.setEnabled(true);
+                numOfCourseTBTEditText.setEnabled(true);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        knownButton.setEnabled(true);
+                        numOfCourseTBTEditText.requestFocus();
                     }
-                }, 750);
-                reCalculateButton.setEnabled(!knownButtonClicked);
+                }, 100);
+
+
+                gpaWantedEditText.setImeOptions(imegpaWanted);
+                manualEntryButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
+                submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);
+                manualEntryButton.animate().translationXBy(knownButtonTranslation).setDuration(600);
+
+                //reCalculateButton will disappear when the user knows his/her cgpa.
+                reCalculateButton.animate().alpha(alpha).setDuration(750);
+
+                //enable user interacting when animation is done.
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        manualEntryButton.setEnabled(true);
+                    }
+                }, 650);
+
+                reCalculateButton.setEnabled(!mEntryButtonClicked);
                 numOfCourseDoneTextView.setVisibility(visibility);
                 numOfCourseDoneEditText.setVisibility(visibility);
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
+                scrollView.smoothScrollTo(0,scroll);
+
+
             }
         });
 
@@ -149,7 +179,7 @@ public class PermutationCalc extends AppCompatActivity {
                 int numOfTBTCourses=-1;
                 float gpaWanted=-1;
                 try{
-                    if(knownButtonClicked) {//If Known button has been clicked.
+                    if(mEntryButtonClicked) {//If Known button has been clicked.
                         editor.putInt("numOfTCourses", Integer.parseInt(((EditText)findViewById(R.id.numOfCourseDoneEditText))
                                 .getText().toString()));
                         editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
@@ -163,7 +193,6 @@ public class PermutationCalc extends AppCompatActivity {
                 }
                 boolean errorFree=numOfTBTCourses!=-1 && gpaWanted!=-1;
                 if(errorFree){
-
                     Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                     intent.putExtra("numOfTBTCourses",numOfTBTCourses);
@@ -171,6 +200,8 @@ public class PermutationCalc extends AppCompatActivity {
                     startActivity(intent);}
             }
         });
+
+
     }
 
     /*Once An Inner activity is closed & given that this is the parent activity of the inner activity
@@ -179,7 +210,8 @@ public class PermutationCalc extends AppCompatActivity {
         super.onResume();
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
-        localDataTextView.setText(localDataStatus(new String[]{"CGPA","Total Courses in your Degree"},
-                                                  new String[]{"cgpa","numOfTCourses"},sharedPreferences));
+        localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
+                new String[]{"cgpa","numOfTCourses"},sharedPreferences));
     }
+
 }

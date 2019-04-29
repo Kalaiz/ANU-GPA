@@ -1,8 +1,17 @@
-### Meeting1:8/4/19
+### Meeting1 (8/4/19): Deciding on the topic of app & Dividing tasks.
+
+#### Summary 
+- Jared & Kalai accepted the app idea.
+- They decided on the future meeting timings.
 
 #### App Idea
--The app be based on calculating GPA & the possible permutations of grades based on the user's wanted gpa.
+-The app is based on calculating GPA & the possible permutations of grades based on the user's wanted gpa.
 
-#### Tasks of building up the base of the underlying Logic
-- Jared will be dealing with the GPA calculator & it's afflicted methods.
-- Kalai will be working with the  possible permutations.
+#### Tasks 
+##### Jared
+- dealing with the GPA calculator & it's afflicted methods.
+- pull up new issues & milestones on gitlab.
+- creating test for his functions before his implementations of the functions.
+##### Kalai
+- working with the possible permutations.
+- creating test for his functions before his implementations of the functions.

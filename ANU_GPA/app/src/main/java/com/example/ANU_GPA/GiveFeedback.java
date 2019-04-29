@@ -45,6 +45,7 @@ public class GiveFeedback extends AppCompatActivity {
                 thread.start();
                 Intent intent = new Intent(GiveFeedback.this, FeedbackThanks.class);
                 startActivity(intent);
+                finish();
             }
         });
 

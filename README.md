@@ -28,7 +28,7 @@ _Add a paragraph the gives a summary of the app you implemented. Include a small
 
 ## Statement of Originality
 
-I _insert name 1_ declare that everything I have submitted in this
+I _Jared Graf_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
 
 I _Prateek Arora_ declare that everything I have submitted in this

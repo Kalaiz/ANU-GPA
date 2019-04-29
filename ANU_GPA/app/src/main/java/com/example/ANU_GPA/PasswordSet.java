@@ -24,8 +24,6 @@ public class PasswordSet extends AppCompatActivity {
                 SharedPreferences.Editor edit = pass.edit();
                 edit.putString("password", temp);
                 edit.commit();
-                Intent intent = new Intent(PasswordSet.this, Settings.class);
-                startActivity(intent);
                 finish();
             }
         });

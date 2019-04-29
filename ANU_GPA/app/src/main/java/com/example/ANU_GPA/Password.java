@@ -32,8 +32,7 @@ public class Password extends AppCompatActivity {
                         SharedPreferences.Editor edit = pass.edit();
                         edit.putString("password", newPass.getText().toString());
                         edit.commit();
-                        Intent intent = new Intent(Password.this, Settings.class);
-                        startActivity(intent);
+                        finish();
                     }else{
                         Toast failMessage = Toast.makeText(getApplicationContext(), "new passwords do not match", Toast.LENGTH_SHORT);
                         failMessage.show();

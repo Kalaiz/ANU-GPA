@@ -1,4 +1,4 @@
-### Meeting 10 (24/4/19) : Bugs regarding the apps completed and  new idea for update.
+### Meeting 11 (29/4/19) : Bugs regarding the apps completed and  new idea for update.
 
 ##### Summary 
 - Prateek came up with implementing the history to the app using the SQL database

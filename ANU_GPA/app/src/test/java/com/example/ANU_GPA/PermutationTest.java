@@ -16,17 +16,18 @@ public class PermutationTest {
     public static ArrayList<Integer[]> testPermutation(float cgpa,int coursesDone,int totalCourses,float gpaWanted){
         Permutation p = new Permutation(cgpa,coursesDone,totalCourses,gpaWanted);
         int numOfTBTCourses=p.numOfTBTCourses;
-        int pointsNeeded;
         ArrayList permutations=new ArrayList();
+        for(int nf=0;nf<p.numOfTBTCourses/2;nf++){
+            numOfTBTCourses+=nf;
+            cgpa=(cgpa*coursesDone)/(float)coursesDone+nf;
         for(int nhd=0;nhd<numOfTBTCourses;nhd++){
             for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
                 for(int ncr=0;ncr<numOfTBTCourses-(nd-1);ncr++){
                     for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
-                        for(int nf=0;nf<numOfTBTCourses/2;nf++){
                           p.calculatePointsNeeded(cgpa,coursesDone,totalCourses+nf,gpaWanted);
-                          pointsNeeded=p.pointsNeeded;
-                        if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np) {
+                        if (p.pointsNeeded- (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && (numOfTBTCourses)== nhd + nd + ncr + np+nf) {
                             permutations.add(new Integer[]{nhd, nd, ncr, np,nf});
+
                         }
                         }
                     }

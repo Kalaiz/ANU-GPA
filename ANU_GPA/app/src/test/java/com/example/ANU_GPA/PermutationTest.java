@@ -16,19 +16,19 @@ public class PermutationTest {
     public static ArrayList<Integer[]> testPermutation(float cgpa,int coursesDone,int totalCourses,float gpaWanted){
         Permutation p = new Permutation(cgpa,coursesDone,totalCourses,gpaWanted);
         int numOfTBTCourses=p.numOfTBTCourses;
+        int totalPoints;
         ArrayList permutations=new ArrayList();
-        for(int nf=0;nf<p.numOfTBTCourses/2;nf++){
-            numOfTBTCourses+=nf;
-            cgpa=(cgpa*coursesDone)/(float)coursesDone+nf;
-        for(int nhd=0;nhd<numOfTBTCourses;nhd++){
-            for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
-                for(int ncr=0;ncr<numOfTBTCourses-(nd-1);ncr++){
-                    for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
-                          p.calculatePointsNeeded(cgpa,coursesDone,totalCourses+nf,gpaWanted);
-                        if (p.pointsNeeded- (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && (numOfTBTCourses)== nhd + nd + ncr + np+nf) {
-                            permutations.add(new Integer[]{nhd, nd, ncr, np,nf});
+        for(int nf=0;nf<numOfTBTCourses/2;nf++){
+            for(int nhd=0;nhd<numOfTBTCourses;nhd++){
+                for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
+                    for(int ncr=0;ncr<numOfTBTCourses-(nd-1);ncr++){
+                        for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
+                            totalPoints=nhd * 7 + nd * 6 + ncr * 5 + np * 4;
+                           if (((totalPoints/(float)(nhd + nd + ncr + np+nf))*100)/100==gpaWanted
+                                    && (numOfTBTCourses+nf)==nhd + nd + ncr + np){
+                                permutations.add(new Integer[]{nhd, nd, ncr, np,nf});
 
-                        }
+                            }
                         }
                     }
                 }
@@ -38,12 +38,12 @@ public class PermutationTest {
     }
 
     public static void main(String[] args) {
-        for(Integer[] obj :testPermutation(6.28f,7,24,6)){
-           for(Integer val:obj){
-               System.out.print(val + " ");
-           }
+        for(Integer[] obj :testPermutation(4.125f,8,24,5)){
+            for(Integer val:obj){
+                System.out.print(val + " ");
+            }
             System.out.println(" ");
-        };
+        }
     }
     @Test
     public void baseCase() {

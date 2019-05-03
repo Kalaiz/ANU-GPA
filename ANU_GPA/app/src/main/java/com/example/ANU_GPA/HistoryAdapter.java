@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/*Authorship Prateek Arora (u6742441)*/
+
 public class HistoryAdapter extends RecyclerView.Adapter {
 
     private Activity mActivity;

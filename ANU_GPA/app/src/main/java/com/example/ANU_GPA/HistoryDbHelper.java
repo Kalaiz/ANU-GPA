@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+/*Authorship Prateek Arora (u6742441)*/
+
+
 public class HistoryDbHelper extends SQLiteOpenHelper {
 
     private static int DATABASEVERSION = 1;

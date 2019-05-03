@@ -25,6 +25,7 @@ _Add a paragraph the gives a summary of the app you implemented. Include a small
 + [Meeting 8 - 19/4/19 - Major Revamps ,Client-server issue & Authorships](../Resources/Meeting8.md)
 + [Meeting 9 - 20/4/19 - Stablised Working App](../Resources/Meeting9.md)
 + [Meeting 10 - 24/4/19 - Bugs Found & Further Implementation](../Resources/Meeting10.md)
++ [Meeting 11 - 29/4/19 - Bugs regarding the apps completed and  new idea for update](../Resources/Meeting11.md)
 
 ## Statement of Originality
 

@@ -18,20 +18,27 @@ import java.util.Arrays;
 
 public class PermutationResults extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutation_results);
         //Retrieving values from sharedPreference
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
-        float cgpa=sharedPreferences.getFloat("cgpa",0);
-        int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
-        float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
-        Permutation p = new Permutation(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
+        final int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
+        final float cgpa=sharedPreferences.getFloat("cgpa",0);
+        final int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
+        final float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
+        final Permutation p=new Permutation(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
+        p.calculatePermutation();
+
+
+
         TableLayout possibleOutputs=findViewById(R.id.tableLayout);
         TableRow headingRow=new TableRow(this);
-        String[] colNames={"HDs","Ds","CRs","Ps"};
+        String[] colNames={"HDs","Ds","CRs","Ps","Fs"};
 
         /*Setting the headings*/
         for(String colName:colNames){

@@ -36,6 +36,8 @@ import static org.junit.Assert.assertTrue;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
+    int[] resources=new int[]
+                   {R.id.hdEditText,R.id.dEditText,R.id.cEditText,R.id.pEditText,R.id.fEditText};
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
@@ -91,6 +93,18 @@ public class MainActivityTest {
         assertTrue("courses incorrect, courses equals : " + dataTest.getInt("numOfTCourses", -1) + ", should equal " + classNumber, dataTest.getInt("numOfTCourses", -1) == classNumber);
     }
 
+    public void enterData(String input,int position,int id){
+       onView(
+                allOf(withId(id),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.scrollView),
+                                        0),
+                                position))).perform(scrollTo(), replaceText(input), closeSoftKeyboard());
+
+
+    }
+
     //method of each test
     public void mainActivityTestCode(String[] stringList) {
         // Added a sleep statement to match the app's execution delay.
@@ -112,51 +126,10 @@ public class MainActivityTest {
                         isDisplayed()));
         linearLayout.perform(click());
 
-        ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.hdEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                1)));
-        appCompatEditText.perform(scrollTo(), replaceText(stringList[0]), closeSoftKeyboard());
 
-        ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.dEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                3)));
-        appCompatEditText2.perform(scrollTo(), replaceText(stringList[1]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.cEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                5)));
-        appCompatEditText3.perform(scrollTo(), replaceText(stringList[2]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.pEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                7)));
-        appCompatEditText4.perform(scrollTo(), replaceText(stringList[3]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText10 = onView(
-                allOf(withId(R.id.fEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                9)));
-        appCompatEditText10.perform(scrollTo(), replaceText(stringList[4]), closeSoftKeyboard());
-
+        for(int i=0;i<5;i++){
+            enterData(stringList[i],2*i+1,resources[i]);
+        }
 
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.doneButton), withText("Done"),
@@ -198,50 +171,9 @@ public class MainActivityTest {
                         isDisplayed()));
         linearLayout3.perform(click());
 
-        ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.hdEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                1)));
-        appCompatEditText5.perform(scrollTo(), replaceText(stringList[5]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText6 = onView(
-                allOf(withId(R.id.dEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                3)));
-        appCompatEditText6.perform(scrollTo(), replaceText(stringList[6]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText7 = onView(
-                allOf(withId(R.id.cEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                5)));
-        appCompatEditText7.perform(scrollTo(), replaceText(stringList[7]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText8 = onView(
-                allOf(withId(R.id.pEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                7)));
-        appCompatEditText8.perform(scrollTo(), replaceText(stringList[8]), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText9 = onView(
-                allOf(withId(R.id.fEditText),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                9)));
-        appCompatEditText9.perform(scrollTo(), replaceText(stringList[9]), closeSoftKeyboard());
+        for(int i=0;i<5;i++){
+            enterData(stringList[i+5],2*i+1,resources[i]);
+        }
 
         ViewInteraction appCompatButton2 = onView(
                 allOf(withId(R.id.doneButton), withText("Done"),

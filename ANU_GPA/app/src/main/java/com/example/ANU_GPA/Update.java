@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Update extends AppCompatActivity {
@@ -24,8 +25,10 @@ public class Update extends AppCompatActivity {
         final EditText c = findViewById(R.id.cEditText);
         final EditText p = findViewById(R.id.pEditText);
         final EditText f = findViewById(R.id.fEditText);
+        final TextView result = findViewById(R.id.resultTextView);
         final int[] GradeValues = {7, 6, 5, 4, 0};
         final EditText[] numbersOfGrades = new EditText[]{hd, d, c, p, f};
+        result.setText(data.getFloat("cgpa", 0) +"");
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +53,7 @@ public class Update extends AppCompatActivity {
                 edit.putInt("currentPoints", totalPoints);
                 edit.putFloat("cgpa", ((float)totalPoints / totalClasses));
                 edit.commit();
-                finish();
+                result.setText(data.getFloat("cgpa", 0) +"");
             }
         });
     }

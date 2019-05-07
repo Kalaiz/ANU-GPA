@@ -131,8 +131,7 @@
             android:layout_marginBottom="406dp"
             android:gravity="center"
             android:text="RESULT"
-            android:textStyle="bold|italic"
-            android:visibility="invisible" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/yourGPAisTextView"
@@ -142,8 +141,7 @@
             android:layout_marginTop="47dp"
             android:gravity="center"
             android:text="Your GPA is :"
-            android:textStyle="bold|italic"
-            android:visibility="invisible" />
+            android:textStyle="bold|italic"/>
 
         <TextView
             android:id="@+id/gpaCalculatorTextView"

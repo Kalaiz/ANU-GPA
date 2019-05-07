@@ -11,7 +11,10 @@ import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /*Authorship: Kalai (u6555407)*/
@@ -32,14 +35,22 @@ public class PermutationResults extends AppCompatActivity {
         final int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
         final float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
         final Permutation p=new Permutation(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
-        p.calculatePermutation();
-
+        boolean numOfFailsNeeded= getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
+        String[] colNames;
+        if (numOfFailsNeeded){
+            p.calculatePermutationNumOfFails();
+            colNames=new String[]{"HDs","Ds","CRs","Ps","Fs"};
+        }
+        else{
+            p.calculatePermutation();
+            colNames=new String[]{"HDs","Ds","CRs","Ps"};
+        }
 
 
         TableLayout possibleOutputs=findViewById(R.id.tableLayout);
         TableRow headingRow=new TableRow(this);
-        String[] colNames={"HDs","Ds","CRs","Ps","Fs"};
-
+        ArrayList<Integer[]> permutations=p.getPermutation();
+        if(permutations.size()>0) {
         /*Setting the headings*/
         for(String colName:colNames){
             TextView colTextView=new TextView(this);
@@ -50,16 +61,22 @@ public class PermutationResults extends AppCompatActivity {
         }
         possibleOutputs.addView(headingRow);
         possibleOutputs.setStretchAllColumns(true);
-        /*Adding values to the table*/
-        for(Integer[] s :p.getPermutation()){
-            TableRow valueRow=new TableRow(this);
-            for(int val :s){
-                TextView valueTextView=new TextView(this);
-                valueTextView.setText(val+"\n");
-                valueTextView.setTextSize(20);
-               valueRow.addView(valueTextView);
+
+            /*Adding values to the table*/
+            for (Integer[] s : permutations) {
+                TableRow valueRow = new TableRow(this);
+                for (int val : s) {
+                    TextView valueTextView = new TextView(this);
+                    valueTextView.setText(val + "\n");
+                    valueTextView.setTextSize(20);
+                    valueRow.addView(valueTextView);
+                }
+                possibleOutputs.addView(valueRow);
             }
-            possibleOutputs.addView(valueRow);
+        }
+        else{
+            Toast noResults=Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG);
+            noResults.show();
         }
 
     }

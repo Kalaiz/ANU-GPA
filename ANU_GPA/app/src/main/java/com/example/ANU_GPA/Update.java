@@ -51,7 +51,11 @@ public class Update extends AppCompatActivity {
                 SharedPreferences.Editor edit = data.edit();
                 edit.putInt("numOfTCourses", totalClasses);
                 edit.putInt("currentPoints", totalPoints);
-                edit.putFloat("cgpa", ((float)totalPoints / totalClasses));
+                if(totalClasses == 0){
+                    edit.putFloat("cgpa", (float)0.0);
+                }else{
+                    edit.putFloat("cgpa", ((float)totalPoints / totalClasses));
+                }
                 edit.commit();
                 result.setText(data.getFloat("cgpa", 0) +"");
             }

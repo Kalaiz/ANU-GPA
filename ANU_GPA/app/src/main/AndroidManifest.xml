@@ -23,6 +23,7 @@
         <activity android:name=".GiveFeedback"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".Home" />
+        <activity android:name=".Update" />
         <activity android:name=".PermutationResults" />
         <activity android:name=".GPACalc"
             android:windowSoftInputMode="stateHidden"/>

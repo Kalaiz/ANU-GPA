@@ -115,11 +115,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Font Size "
-                    android:textSize="20dp"
                     android:layout_marginLeft="15dp"
-                    android:textColor="#000000"
                     android:layout_marginTop="15dp"
+                    android:text="Update GPA"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
 
                     />
             </LinearLayout>

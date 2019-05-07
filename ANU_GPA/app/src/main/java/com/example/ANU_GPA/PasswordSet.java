@@ -1,6 +1,5 @@
 package com.example.ANU_GPA;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +14,8 @@ public class PasswordSet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         setContentView(R.layout.activity_password_set);
-        final Button set = findViewById(R.id.button);
-        final EditText passwordChosen = findViewById(R.id.editText);
+        final Button set = findViewById(R.id.doneButton);
+        final EditText passwordChosen = findViewById(R.id.passwordEntry);
         set.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View l){

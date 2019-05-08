@@ -2,26 +2,29 @@
 
 <!--Authorship Prateek Arora , u6742441-->
 
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarStyle="outsideInset"
     tools:context=".Settings">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/optionsTextView"
+            android:id="@+id/settingsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Options "
+            android:text="Settings"
             android:textColor="#000000"
             android:textSize="30dp" />
 
@@ -31,7 +34,7 @@
             android:background="@drawable/back_button"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/linearLayout1"
+            android:id="@+id/PasswordLinearLayout"
             android:layout_marginRight="10dp"
             android:layout_height="100dp">
 
@@ -62,7 +65,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/linearLayout2"
+            android:id="@+id/FeedbackLinearLayout"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -98,7 +101,7 @@
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout3"
+            android:id="@+id/UpdateLinearLayout"
             android:layout_height="100dp">
 
             <ImageButton
@@ -131,7 +134,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/linearLayout4"
+            android:id="@+id/AboutLinearLayout"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -163,4 +166,4 @@
     </LinearLayout>
 
 </RelativeLayout>
-
+</ScrollView>

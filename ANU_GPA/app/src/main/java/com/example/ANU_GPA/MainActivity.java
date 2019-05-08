@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                /**short code segment to look for password
+                 * @author jared*/
                 if(pass.contains("password")){
                     if(pass.getString("password", "").equals("")){
                         Intent intent = new Intent(MainActivity.this, Home.class);

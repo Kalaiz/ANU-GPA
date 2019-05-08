@@ -6,16 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+/**this activity serves as a way to set your password, if you have no password
+ * @author jared */
 public class PasswordSet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         setContentView(R.layout.activity_password_set);
         final Button set = findViewById(R.id.doneButton);
         final EditText passwordChosen = findViewById(R.id.passwordEntry);
+
+
+
         set.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View l){

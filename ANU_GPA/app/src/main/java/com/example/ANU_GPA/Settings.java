@@ -30,6 +30,7 @@ public class Settings extends AppCompatActivity {
         linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //depending on if you have a password, either sends you to set or change password
                 final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
                 if(pass.getString("password", "")==""){
                     Intent intent = new Intent(Settings.this,PasswordSet.class);
@@ -55,6 +56,7 @@ public class Settings extends AppCompatActivity {
         linearLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //blocks access to update if it will be useless(no data to update)
                 final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
                 if(data.getBoolean("HasValues", false)){
                     Intent intent = new Intent(Settings.this, Update.class);

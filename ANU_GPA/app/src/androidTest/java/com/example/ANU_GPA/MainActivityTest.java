@@ -3,6 +3,7 @@ package com.example.ANU_GPA;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -21,7 +22,6 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.pressBack;
-import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
@@ -35,6 +35,8 @@ import static org.junit.Assert.assertTrue;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
+/**a class used to perform integration testing on the app
+ * @author jared*/
 public class MainActivityTest {
     int[] resources=new int[]
                    {R.id.hdEditText,R.id.dEditText,R.id.cEditText,R.id.pEditText,R.id.fEditText};
@@ -42,6 +44,7 @@ public class MainActivityTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Test
+    /**the first test, testing if it works when values are 0*/
     public void baseCase(){
         String[] testArray = {"0","0","0","0","0","0","0","0","0","0"};
         mainActivityTestCode(testArray);
@@ -53,11 +56,9 @@ public class MainActivityTest {
         assertTrue("courses incorrect, courses equals : " + dataTest.getInt("numOfTCourses", -1) + ", should equal 0", dataTest.getInt("numOfTCourses", -1) == 0);
     }
     @Test
+    /**the second test, doing a basic check*/
     public void test1(){
-        String[] testArray = new String[10];
-        for(int i=0;i<10;i++){
-            testArray[i] = "1";
-        }
+        String[] testArray = {"1","1","1","1","1","1","1","1","1","1"};
         mainActivityTestCode(testArray);
         Context context = getInstrumentation().getTargetContext();
         SharedPreferences dataTest = context.getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
@@ -67,6 +68,7 @@ public class MainActivityTest {
         assertTrue("courses incorrect, courses equals : " + dataTest.getInt("numOfTCourses", -1) + ", should equal 10", dataTest.getInt("numOfTCourses", -1) == 10);
     }
     @Test
+    /**the third test, where each input is a random number between 1 and 3*/
     public void randTest(){
         String[] testArray = new String[10];
         int[] intArray = new int[10];
@@ -93,8 +95,14 @@ public class MainActivityTest {
         assertTrue("courses incorrect, courses equals : " + dataTest.getInt("numOfTCourses", -1) + ", should equal " + classNumber, dataTest.getInt("numOfTCourses", -1) == classNumber);
     }
 
+    //code below this line is reformatted, but automatically generated using espresso
+
+    /** method to cut down of repetition in mainActivityTestCode, inner code from espresso
+     * @param input - the string being entered into the editText
+     * @param position - the position of the editText being filled
+     * @param id - the id of the editText being filled*/
     public void enterData(String input,int position,int id){
-       onView(
+        onView(
                 allOf(withId(id),
                         childAtPosition(
                                 childAtPosition(
@@ -104,99 +112,63 @@ public class MainActivityTest {
 
 
     }
+    /** method to cut down of repetition in mainActivityTestCode, inner code mostly from espresso
+     * @param position - the position of the object being clicked within the activity
+     * @param id - the id of the object being clicked
+     * @param layout - a bool to swap the code used to click, if it is a button or layout*/
+    public void click(int position, int id, boolean layout) {
+        if (layout) {
+            ViewInteraction linearLayout = onView(
+                    allOf(withId(id),
+                            childAtPosition(
+                                    childAtPosition(
+                                            withClassName(is("android.widget.RelativeLayout")),
+                                            0),
+                                    position),
+                            isDisplayed()));
+            linearLayout.perform(ViewActions.click());
+        }else{
+            ViewInteraction appCompatButton = onView(
+                    allOf(withId(id), withText("Done"),
+                            childAtPosition(
+                                    childAtPosition(
+                                            withId(R.id.scrollView),
+                                            0),
+                                    position)));
+            appCompatButton.perform(scrollTo(), ViewActions.click());
+        }
+    }
 
-    //method of each test
+    /**runs through the app, entering gpa and update, typing in values and generating results.
+     * autogenerated using espresso, then formatted
+     * @param stringList - an array of strings, which are the values input into each editText*/
     public void mainActivityTestCode(String[] stringList) {
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        ViewInteraction linearLayout = onView(
-                allOf(withId(R.id.linearLayout1),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.RelativeLayout")),
-                                        0),
-                                1),
-                        isDisplayed()));
-        linearLayout.perform(click());
-
-
+        click(1, R.id.linearLayout1, true);
         for(int i=0;i<5;i++){
             enterData(stringList[i],2*i+1,resources[i]);
         }
-
-        ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.doneButton), withText("Done"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                10)));
-        appCompatButton.perform(scrollTo(), click());
-
+        click(10,R.id.doneButton, false );
         pressBack();
-
-        ViewInteraction linearLayout2 = onView(
-                allOf(withId(R.id.linearLayout3),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.RelativeLayout")),
-                                        0),
-                                3),
-                        isDisplayed()));
-        linearLayout2.perform(click());
-
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
+        click(3, R.id.linearLayout3, true);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        ViewInteraction linearLayout3 = onView(
-                allOf(withId(R.id.linearLayout3),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.RelativeLayout")),
-                                        0),
-                                3),
-                        isDisplayed()));
-        linearLayout3.perform(click());
-
+        click(3, R.id.linearLayout3, true);
         for(int i=0;i<5;i++){
             enterData(stringList[i+5],2*i+1,resources[i]);
         }
-
-        ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.doneButton), withText("Done"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.scrollView),
-                                        0),
-                                10)));
-        appCompatButton2.perform(scrollTo(), click());
-
+        click(10, R.id.doneButton, false);
         pressBack();
-
-        ViewInteraction linearLayout4 = onView(
-                allOf(withId(R.id.linearLayout1),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.RelativeLayout")),
-                                        0),
-                                1),
-                        isDisplayed()));
-        linearLayout4.perform(click());
+        click(1, R.id.linearLayout1, true);
     }
-
+    /**autogenerated using espresso*/
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 

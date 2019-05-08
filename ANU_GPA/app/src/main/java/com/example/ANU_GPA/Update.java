@@ -1,8 +1,6 @@
 package com.example.ANU_GPA;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**this class allows you to update the stored data of the GPA calculator.
+ * rather than supplying all your grades, the user may supply only the new grades since they last calculated their gpa
+ * @author jared */
 public class Update extends AppCompatActivity {
 
     @Override
@@ -18,7 +18,7 @@ public class Update extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
-        //taken from GPACalc, then made to work with my code
+        /**below code is borrowed from GPACalc, but reworked to work with my code*/
         Button doneButton = findViewById(R.id.doneButton);
         final EditText hd = findViewById(R.id.hdEditText);
         final EditText d = findViewById(R.id.dEditText);
@@ -47,7 +47,7 @@ public class Update extends AppCompatActivity {
                     Toast.makeText(Update.this, "Note:Your are neglecting some attributes;" +
                             "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();
                 }
-                //the following code is my own
+                /**the following is completely my own code*/
                 SharedPreferences.Editor edit = data.edit();
                 edit.putInt("numOfTCourses", totalClasses);
                 edit.putInt("currentPoints", totalPoints);

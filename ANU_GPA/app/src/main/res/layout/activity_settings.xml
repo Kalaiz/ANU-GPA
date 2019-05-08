@@ -12,7 +12,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="700dp">
+        android:layout_height="900dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,18 +24,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
             android:text="Settings"
             android:textColor="#000000"
             android:textSize="30dp" />
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:background="@drawable/back_button"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/PasswordLinearLayout"
+            android:id="@+id/passwordLinearLayout"
             android:layout_marginRight="10dp"
             android:layout_height="100dp">
 
@@ -65,7 +68,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/FeedbackLinearLayout"
+            android:id="@+id/feedbackLinearLayout"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -101,7 +104,7 @@
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/UpdateLinearLayout"
+            android:id="@+id/updateLinearLayout"
             android:layout_height="100dp">
 
             <ImageButton
@@ -130,11 +133,46 @@
 
         </LinearLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:id="@+id/AboutLinearLayout"
+            android:id="@+id/animationLinearLayout"
+            android:background="@drawable/back_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="100dp">
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ic_wb_iridescent_black_24dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_height="100dp">
+
+                <Switch
+                    android:id="@+id/animationSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:checked="false"
+                    android:text="Animation"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:id="@+id/aboutLinearLayout"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

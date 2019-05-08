@@ -1,6 +1,5 @@
 package com.example.ANU_GPA;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -8,14 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 /*Authorship Prateek Arora (u6742441) and Kalai (u6555407)*/
 
 public class MainActivity extends AppCompatActivity {
 
     /*Authorship of password sharedpreference, jared graf*/
-    SharedPreferences pass;
+
     private static int Time_Out = 4000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(pass.contains("password")){
-                    if(pass.getString("password", "").equals("")){
+                    if(pass.getString("password", "")==("")){
                         Intent intent = new Intent(MainActivity.this, Home.class);
                         startActivity(intent);
                     }else{

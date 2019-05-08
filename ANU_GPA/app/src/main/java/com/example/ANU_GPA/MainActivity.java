@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView anuTextView=findViewById(R.id.anuTextView);
         final TextView  gpaTextView=findViewById(R.id.gpaTextView);
-        new ScaleEffect(new TextView[]{anuTextView,gpaTextView}).setDuration(1000);
+        ScaleEffect scaleEffect=new ScaleEffect(new TextView[]{anuTextView,gpaTextView});
+        scaleEffect.startAnimation();
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         new Handler().postDelayed(new Runnable() {
             @Override

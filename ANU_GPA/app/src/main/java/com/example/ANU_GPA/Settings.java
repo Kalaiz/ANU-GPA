@@ -13,7 +13,7 @@ import android.widget.Switch;
 /*Authorship: Prateek Arora (u6742441)*/
 
 public class Settings extends AppCompatActivity {
-    ScaleEffect effect;
+    ScaleEffect scaleEffect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +21,21 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         final Switch animationSwitch=findViewById(R.id.animationSwitch);
         final SharedPreferences dataSharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        LinearLayout passwordLinearLayout = findViewById(R.id.passwordLinearLayout);
-        LinearLayout feedbackLinearLayout = findViewById(R.id.feedbackLinearLayout);
-        LinearLayout updateLinearLayout = findViewById(R.id.updateLinearLayout);
+        LinearLayout passwordLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
+        LinearLayout feedbackLinearLayout = findViewById(R.id.permutationLinearLayout);
+        LinearLayout updateLinearLayout = findViewById(R.id.settingsLinearLayout);
         LinearLayout aboutLinearLayout = findViewById(R.id.aboutLinearLayout);
-        final LinearLayout[] layouts=new LinearLayout[]{passwordLinearLayout,feedbackLinearLayout,updateLinearLayout,aboutLinearLayout};
-        effect=new ScaleEffect(layouts);
+        LinearLayout animationLinearLayout=findViewById(R.id.animationLinearLayout);
+        final LinearLayout[] layouts=new LinearLayout[]
+                                   {passwordLinearLayout,feedbackLinearLayout
+                                   ,animationLinearLayout,updateLinearLayout,aboutLinearLayout};
+        scaleEffect =new ScaleEffect(layouts);
         if(dataSharedPreferences.getBoolean("animation",true)){
             animationSwitch.setChecked(true);
+            scaleEffect.startAnimation();
             }
-        else{effect.setAnimationEnd(true);
+        else{
+            scaleEffect.setAnimationEnd(true);
             animationSwitch.setChecked(false);}
 
         passwordLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -84,11 +89,12 @@ public class Settings extends AppCompatActivity {
                     SharedPreferences.Editor editor = dataSharedPreferences.edit();
                     if(isChecked){
                         editor.putBoolean("animation",true);
-                        effect=new ScaleEffect(layouts);
+                        scaleEffect.setAnimationEnd(false);
+                        scaleEffect.startAnimation();
                     }
                     else{
                         editor.putBoolean("animation",false);
-                        effect.setAnimationEnd(true);
+                        scaleEffect.setAnimationEnd(true);
 
                     }
                     editor.apply();

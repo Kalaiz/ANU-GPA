@@ -33,7 +33,7 @@
             android:background="@drawable/back_button"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/passwordLinearLayout"
+            android:id="@+id/gpaCalcLinearLayout"
             android:layout_marginRight="10dp"
             android:layout_height="100dp">
 
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="50dp"
-            android:id="@+id/feedbackLinearLayout"
+            android:id="@+id/permutationLinearLayout"
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -100,7 +100,7 @@
             android:background="@drawable/back_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/updateLinearLayout"
+            android:id="@+id/settingsLinearLayout"
             android:layout_height="100dp">
 
             <ImageButton

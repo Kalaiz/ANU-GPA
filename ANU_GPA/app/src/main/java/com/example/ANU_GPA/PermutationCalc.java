@@ -109,7 +109,7 @@ public class PermutationCalc extends AppCompatActivity {
                 float submitButtonTranslation=-400;
                 float scaleFactor=0.15f;
                 int imegpaWanted=EditorInfo.IME_ACTION_DONE;
-                visibility=View.INVISIBLE;//For toggling effect.
+                visibility=View.INVISIBLE;//For toggling scaleEffect.
                 int alpha=1;
                 int scroll=0;
 

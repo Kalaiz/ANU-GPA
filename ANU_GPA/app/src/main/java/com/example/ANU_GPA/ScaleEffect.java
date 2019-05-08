@@ -21,17 +21,22 @@ public  class ScaleEffect  <T extends View>{
     boolean animationEnd=false;
 
 
+
     ScaleEffect(T [] viewObjects){
         this.viewObjects =viewObjects;
-        for(int i=0;i<viewObjects.length;i++ ){
-            final T val =viewObjects[i];
+    }
+
+    void startAnimation(){
+        for(int i=0;i<viewObjects.length;i++ ) {
+            final T val = viewObjects[i];
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     runEffect(val);
                 }
-            }, (i)*1000);
-        }
+            }, (i) * 1000);
+
+    }
     }
 
     public void setAnimationEnd(boolean animationEnd) {

@@ -3,6 +3,7 @@ package com.example.ANU_GPA;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,7 +57,6 @@ public class Settings extends AppCompatActivity {
         feedbackLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(Settings.this, GiveFeedback.class);
                 startActivity(intent);
 
@@ -86,6 +86,7 @@ public class Settings extends AppCompatActivity {
         animationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                animationSwitch.setEnabled(false);
                     SharedPreferences.Editor editor = dataSharedPreferences.edit();
                     if(isChecked){
                         editor.putBoolean("animation",true);
@@ -98,6 +99,12 @@ public class Settings extends AppCompatActivity {
 
                     }
                     editor.apply();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        animationSwitch.setEnabled(true);
+                    }
+                },  3000);
             }
         });
 

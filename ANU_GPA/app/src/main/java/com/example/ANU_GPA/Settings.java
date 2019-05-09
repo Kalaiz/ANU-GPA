@@ -10,8 +10,15 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
+import android.widget.Toast;
 
-/*Authorship: Prateek Arora (u6742441)*/
+
+import java.util.Set;
+
+/*Authorship:
+ Everything else: Prateek Arora (u6742441)
+ animationSwitch: Kalai(u6555407)
+ */
 
 public class Settings extends AppCompatActivity {
     ScaleEffect scaleEffect;
@@ -87,6 +94,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 animationSwitch.setEnabled(false);
+                Toast.makeText(Settings.this, "Please wait.", Toast.LENGTH_LONG).show();
                     SharedPreferences.Editor editor = dataSharedPreferences.edit();
                     if(isChecked){
                         editor.putBoolean("animation",true);
@@ -104,7 +112,7 @@ public class Settings extends AppCompatActivity {
                     public void run() {
                         animationSwitch.setEnabled(true);
                     }
-                },  3000);
+                },  3500);
             }
         });
 

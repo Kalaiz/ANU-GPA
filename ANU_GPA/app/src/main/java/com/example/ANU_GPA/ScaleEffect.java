@@ -21,7 +21,6 @@ public  class ScaleEffect  <T extends View>{
     boolean animationEnd=false;
 
 
-
     ScaleEffect(T [] viewObjects){
         this.viewObjects =viewObjects;
     }

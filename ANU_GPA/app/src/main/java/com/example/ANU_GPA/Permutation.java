@@ -1,9 +1,8 @@
 package com.example.ANU_GPA;
 
-import android.os.AsyncTask;
-
 import java.util.ArrayList;
 import java.util.Stack;
+
 
 /*Authorship
  CalculateTotalPoints function - Jared
@@ -169,6 +168,7 @@ public class Permutation  {
                     }
                 }
             }
+
         }
     }
 

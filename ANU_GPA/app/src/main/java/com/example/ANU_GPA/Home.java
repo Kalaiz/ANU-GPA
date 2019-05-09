@@ -67,8 +67,6 @@ Update the Animation*/
             if(scaleEffect.animationEnd) {
                 scaleEffect.setAnimationEnd(false);
                 scaleEffect.startAnimation();
-            }else{
-                scaleEffect.startAnimation();
             }
         }
         else{

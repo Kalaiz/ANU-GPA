@@ -63,7 +63,7 @@ public class PermutationResults extends AppCompatActivity {
         }
         headingTableLayout.addView(headingRow);
         headingTableLayout.setStretchAllColumns(true);
-      
+
 
 
             /*Adding values to the table*/

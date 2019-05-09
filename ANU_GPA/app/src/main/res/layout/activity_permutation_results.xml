@@ -2,7 +2,7 @@
 
 <!--Authorship Kalai, u6555407-->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
@@ -10,9 +10,22 @@
     tools:context=".PermutationResults">
 
     <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </TableLayout>
+        android:id="@+id/headingTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headingTableLayout"
+        ></TableLayout>
 
-</ScrollView>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingTableLayout">
+    <TableLayout
+        android:id="@+id/possibleResultsTableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        >
+    </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>

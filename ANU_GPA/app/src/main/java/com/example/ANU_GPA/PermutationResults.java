@@ -46,8 +46,9 @@ public class PermutationResults extends AppCompatActivity {
             colNames=new String[]{"HDs","Ds","CRs","Ps"};
         }
 
-
-        TableLayout possibleOutputs=findViewById(R.id.tableLayout);
+        TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
+        headingTableLayout.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        TableLayout possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
         TableRow headingRow=new TableRow(this);
         ArrayList<Integer[]> permutations=p.getPermutation();
         if(permutations.size()>0) {
@@ -58,20 +59,24 @@ public class PermutationResults extends AppCompatActivity {
             colTextView.setTextSize(25);
             colTextView.setTextColor(Color.BLACK);
             headingRow.addView(colTextView);
+
         }
-        possibleOutputs.addView(headingRow);
-        possibleOutputs.setStretchAllColumns(true);
+        headingTableLayout.addView(headingRow);
+        headingTableLayout.setStretchAllColumns(true);
+      
+
 
             /*Adding values to the table*/
             for (Integer[] s : permutations) {
                 TableRow valueRow = new TableRow(this);
                 for (int val : s) {
                     TextView valueTextView = new TextView(this);
-                    valueTextView.setText(val + "\n");
+                    valueTextView.setText(val+"\n");
                     valueTextView.setTextSize(20);
                     valueRow.addView(valueTextView);
                 }
-                possibleOutputs.addView(valueRow);
+                possibleOutputsTableLayout.addView(valueRow);
+                possibleOutputsTableLayout.setStretchAllColumns(true);
             }
         }
         else{

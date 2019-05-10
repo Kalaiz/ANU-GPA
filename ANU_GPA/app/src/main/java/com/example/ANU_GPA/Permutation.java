@@ -3,6 +3,7 @@ package com.example.ANU_GPA;
 import java.util.ArrayList;
 import java.util.Stack;
 
+
 /*Authorship
  CalculateTotalPoints function - Jared
  Rest of the class - Kalai(u6555407)*/
@@ -31,7 +32,7 @@ import java.util.Stack;
  *        calculatePermutations() finds for the possible permutation such that:
  *        nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54 && sum[nHDs,nDs,nCRs,nPs,nFs] == numOfTBTCourses
  * */
-public class Permutation {
+public class Permutation  {
 
     int numOfTBTCourses; //The number of courses to be taken.
     /*List of possible permutation based on the above 2 attributes in which
@@ -39,6 +40,7 @@ public class Permutation {
     private ArrayList<Integer[]> permutations =new ArrayList<>();
     int pointsNeeded;
     float gpaWanted;
+    boolean validData;
 
 
     /*Calculates PointsNeeded based on numOfTCourses & cgpa
@@ -60,63 +62,113 @@ public class Permutation {
      * @param gpaWanted - The gpa which the user is trying to achieve.
      * */
     Permutation(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
+        validData=(cgpa<7 && totalCourses<80 && gpaWanted<7 && coursesDone<80);
         numOfTBTCourses= totalCourses-coursesDone;
         calculatePointsNeeded(cgpa,coursesDone,totalCourses,gpaWanted);
-
     }
-
 
 
     /**
      * Obtains all valid permutation and then updates the ArrayList permutations.
      * */
     public void calculatePermutation(){
-        Grades[] grades=Grades.values();
-        int points=0;
-        int sumOfStack=0;
+        if(validData) {
+            Grades[] grades = Grades.values();
+            int points = 0;
+            int sumOfStack = 0;
         /*trackers will act like a storage which tracks the number of grades whose
           value will be used accordance to the sequence of calculating a permutation*/
-        int[] trackers={0,0,0,0};
-        //For temporary storage of stack values,numOfPasses,numOfCredits,size of stack.
-        int val,numOfPasses,numOfCredits,size;
-        Stack<Integer> stack=new Stack();
-        while(trackers[0]!=numOfTBTCourses+(numOfTBTCourses/2)+1){ //While number of hds does'nt exceed the total number of courses.
-            if(stack.size()==4){
-                for(int i=0;i<=numOfTBTCourses/2;i++) {
-                    val=i;
+            int[] trackers = {0, 0, 0};
+            //For temporary storage of stack values,numOfPasses,numOfCredits,size of stack.
+            int val, numOfPasses, numOfCredits, size;
+            Stack<Integer> stack = new Stack();
+            while (trackers[0] != numOfTBTCourses + 1) { //While number of hds does'nt exceed the total number of courses.
+                if (stack.size() == 3) {
+                    val = numOfTBTCourses - sumOfStack;
                     stack.push(val);
-                    sumOfStack += val;
-                    if (sumOfStack-val == numOfTBTCourses + val
-                            && (((points / (float) sumOfStack) * 100) / 100 == gpaWanted)) {
-                        permutations.add(stack.toArray(new Integer[5])); //converting it to an array for these sake of the test
+                    points += val * 4;
+                    if (points == pointsNeeded) {
+                        //Converting it to a new array in order to avoid referencing issues
+                        permutations.add(stack.toArray(new Integer[4]));
                     }
-                    sumOfStack -= val;
-                    stack.pop();//removing the  5th element(fails)
-
-                }
-                numOfPasses = stack.pop();
-                points -= numOfPasses * 4;//updating the points such that  4th element is removed
-                sumOfStack -= (numOfPasses);// updating the sumOfStack
-            }
-            else {
-                size=stack.size();
-                val=trackers[size];
+                    numOfPasses = stack.pop();
+                    numOfCredits = stack.pop();
+                    points -= ((numOfPasses * 4) + (numOfCredits * 5)); //Updating the points
+                    sumOfStack -= (numOfCredits);
+                } else {
+                    size = stack.size();
+                    val = trackers[size];
                 /*When it reaches the line below ,val when added to sumOfStack;
                   The resultant must'nt be higher than the numOfTBTCourses*/
-                if(val+sumOfStack<=numOfTBTCourses+(numOfTBTCourses/2)) {
-                    sumOfStack+=val;
-                    points+=val*grades[size].gradePoints;
-                    ++trackers[size];
-                    stack.push(val);
-                }
-                else {
-                    //If tracker's value has reached it's max
-                    trackers[size]=0;
-                    val=stack.pop();
-                    points-=val*grades[size-1].gradePoints;//size - 1 due to popping of values from stack
-                    sumOfStack-=val;
+                    if (val + sumOfStack <= numOfTBTCourses && points <= pointsNeeded) {
+                        sumOfStack += val;
+                        points += val * grades[size].gradePoints;
+                        ++trackers[size];
+                        stack.push(val);
+                    } else {
+                        //If tracker's value has reached it's max
+                        trackers[size] = 0;
+                        val = stack.pop();
+                        points -= val * grades[size - 1].gradePoints;//size - 1 due to popping of values from stack
+                        sumOfStack -= val;
+                    }
                 }
             }
+        }
+    }
+
+
+    /**
+     * Obtains all valid permutation and then updates the ArrayList permutations.
+     * */
+    public void calculatePermutationNumOfFails() {
+        if (validData) {
+            Grades[] grades = Grades.values();
+            int points = 0;
+            int sumOfStack = 0;
+        /*trackers will act like a storage which tracks the number of grades whose
+          value will be used accordance to the sequence of calculating a permutation*/
+            int[] trackers = {0, 0, 0, 0};
+            //For temporary storage of stack values,numOfPasses,numOfCredits,size of stack.
+            int val, numOfPasses, numOfCredits, size;
+            Stack<Integer> stack = new Stack();
+            while (trackers[0] != numOfTBTCourses + (numOfTBTCourses / 2) + 1) { //While number of hds does'nt exceed the total number of courses.
+                if (stack.size() == 4) {
+                    for (int i = 0; i <= numOfTBTCourses / 2; i++) {
+                        val = i;
+                        stack.push(val);
+                        sumOfStack += val;
+                        if (sumOfStack - val == numOfTBTCourses + val
+                                && (((points / (float) sumOfStack) * 100) / 100 == gpaWanted)) {
+                            permutations.add(stack.toArray(new Integer[5])); //converting it to an array for these sake of the test
+                        }
+                        sumOfStack -= val;
+                        stack.pop();//removing the  5th element(fails)
+
+                    }
+                    numOfPasses = stack.pop();
+                    points -= numOfPasses * 4;//updating the points such that  4th element is removed
+                    sumOfStack -= (numOfPasses);// updating the sumOfStack
+                } else {
+                    size = stack.size();
+                    val = trackers[size];
+                /*When it reaches the line below ,val when added to sumOfStack;
+                  The resultant must'nt be higher than the numOfTBTCourses*/
+                    if (val + sumOfStack <= numOfTBTCourses + (numOfTBTCourses / 2)) {
+                        sumOfStack += val;
+                        points += val * grades[size].gradePoints;
+                        ++trackers[size];
+                        stack.push(val);
+                    } else {
+                        //If tracker's value has reached it's max
+                        trackers[size] = 0;
+                        val = stack.pop();
+                        points -= val * grades[size - 1].gradePoints;//size - 1 due to popping of values from stack
+                        sumOfStack -= val;
+                    }
+                }
+            }
+
         }
     }
 
@@ -127,5 +179,6 @@ public class Permutation {
     public ArrayList<Integer[]> getPermutation(){
         return permutations;
     }
+
 
 }

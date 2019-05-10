@@ -14,6 +14,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +83,7 @@ public class PermutationCalc extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
+        final Switch numOfFailsNeededSwitch=findViewById(R.id.numOfFailsNeededSwitch);
         localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
                 new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
@@ -107,7 +109,7 @@ public class PermutationCalc extends AppCompatActivity {
                 float submitButtonTranslation=-400;
                 float scaleFactor=0.15f;
                 int imegpaWanted=EditorInfo.IME_ACTION_DONE;
-                visibility=View.INVISIBLE;//For toggling effect.
+                visibility=View.INVISIBLE;//For toggling scaleEffect.
                 int alpha=1;
                 int scroll=0;
 
@@ -176,27 +178,38 @@ public class PermutationCalc extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int numOfTBTCourses=-1;
-                float gpaWanted=-1;
+              int numOfTCourses=0;
+              float cgpa=0;
+              int numOfTBTCourses=0;
+              float gpaWanted=0;
+                boolean errorFree=true;
                 try{
                     if(mEntryButtonClicked) {//If Known button has been clicked.
-                        editor.putInt("numOfTCourses", Integer.parseInt(((EditText)findViewById(R.id.numOfCourseDoneEditText))
-                                .getText().toString()));
-                        editor.putFloat("cgpa", Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
-                                .getText().toString()));
+                       numOfTCourses=Integer.parseInt(((EditText)findViewById(R.id.numOfCourseDoneEditText))
+                                .getText().toString());
+                         cgpa=Float.parseFloat(((EditText) findViewById(R.id.cgpaEditText))
+                                .getText().toString());
+                        editor.putInt("numOfTCourses", numOfTCourses);
+                        editor.putFloat("cgpa",cgpa );
                         editor.apply();
                     }
-                    numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText)).getText().toString());
-                    gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText)).getText().toString());
+                     numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText))
+                                            .getText().toString());
+                     gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText))
+                                     .getText().toString());
+                    if(numOfTBTCourses>80|gpaWanted>7|cgpa>7|numOfTCourses>80){
+                        throw new NumberFormatException();
+                    }
                 }catch(NumberFormatException n){
-                    Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_LONG).show();
+                    errorFree=false;
+                    Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_SHORT).show();
                 }
-                boolean errorFree=numOfTBTCourses!=-1 && gpaWanted!=-1;
                 if(errorFree){
                     Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                     intent.putExtra("numOfTBTCourses",numOfTBTCourses);
                     intent.putExtra("gpaWanted",gpaWanted);
+                    intent.putExtra("numOfFailsNeeded",numOfFailsNeededSwitch.isChecked());
                     startActivity(intent);}
             }
         });

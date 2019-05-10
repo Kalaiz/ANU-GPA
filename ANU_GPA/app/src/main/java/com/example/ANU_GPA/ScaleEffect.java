@@ -9,53 +9,76 @@ import android.animation.ObjectAnimator;
 import android.os.Handler;
 import android.view.View;
 
+import java.util.HashMap;
+
 
 /*Authorship: Kalai(u6555407)*/
 
 public  class ScaleEffect  <T extends View>{
 
     private int duration=2000;
+    T[] viewObjects;
+    boolean animationEnd=false;
 
-    ScaleEffect(T [] array){
-        for(int i=0;i<array.length;i++ ){
-            final T val =array[i];
+
+    ScaleEffect(T [] viewObjects){
+        this.viewObjects =viewObjects;
+    }
+
+    void startAnimation(){
+        for(int i=0;i<viewObjects.length;i++ ) {
+            final T val = viewObjects[i];
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    effect(val);
+                    runEffect(val);
                 }
-            }, (i)*1000);
-        }
+            }, (i) * 1000);
+
     }
+    }
+
+    public void setAnimationEnd(boolean animationEnd) {
+        this.animationEnd = animationEnd;
+    }
+
+    void runEffect(T val){
+        final AnimatorSet effect =scaleEffect(val);
+        effect.start();
+        AnimatorListenerAdapter adapter = new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if(!animationEnd) {
+                    effect.start();
+                }
+            }
+        };
+        effect.addListener(adapter);
+    }
+
 
     ScaleEffect(T element){
-        effect(element);
+        AnimatorSet effect=scaleEffect(element);
+        runEffect(element);
     }
 
 
-    public void effect(T viewElement){
-        final AnimatorSet scaleIn =new AnimatorSet();
-        final AnimatorSet scaleOut=new AnimatorSet();
+
+    public AnimatorSet scaleEffect(T viewElement){
+        AnimatorSet scaleIn =new AnimatorSet();
+        AnimatorSet scaleOut=new AnimatorSet();
         final AnimatorSet effect=new AnimatorSet();
-        final ObjectAnimator scaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 0.95f);
-        final  ObjectAnimator scaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 0.95f);
-        final  ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 1);
-        final  ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 1);
+        ObjectAnimator scaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 0.95f);
+        ObjectAnimator scaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 0.95f);
+        ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 1);
+        ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 1);
 
         scaleIn.setDuration(duration);
         scaleOut.setDuration(duration);
         scaleIn.playTogether(scaleX,scaleY);
         scaleOut.playTogether(originalScaleX,originalScaleY);
         effect.playSequentially(scaleIn,scaleOut);
-        effect.start();
-
-        effect.addListener(new AnimatorListenerAdapter() {
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                effect.start();
-            }
-        });
+     return effect;
     }
 
     void setDuration(int duration){

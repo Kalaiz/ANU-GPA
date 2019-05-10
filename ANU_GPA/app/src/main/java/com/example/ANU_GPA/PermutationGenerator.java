@@ -1,55 +1,81 @@
 package com.example.ANU_GPA;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Stack;
 
 public class PermutationGenerator extends Permutation {
-    //                           Fs,HDs,Ds,CRs,Ps
-    Integer[] currentPermutation={0,0,0,0,0};
-    int pointer=0;//will point to the current position.
-    int totalCourses=0;
+
+      /*trackers will act like a storage which tracks the number of grades whose
+          value will be used accordance to the sequence of calculating a permutation*/
+                   //Fs,HDs,Ds,CRs
+    Integer[] trackers={1,0,0,0};
+    Stack<Integer> stack = new Stack();
     Grades[] grades=Grades.values();
-    float gpaWanted;
-    int truthTablePointer;
-    int[][][] truthTables;
+    int sumOfStack=0;
 
 
     PermutationGenerator(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
         super(cgpa,  coursesDone, totalCourses, gpaWanted);
-        calculateGPA();
-
     }
 
-    ArrayList<Integer[]> integerPartitioning(){
-        return super.getPermutation();
-    }
 
     Integer[] next(){
-        float gpa=0;
+        int size;
+        int val;
+        boolean condition;
+        int numOfFails;
         while(hasNext()){
-            if(calculateGPA()==gpaWanted) {
-                break;
-            }
+                if (stack.size() == 4){
+                    numOfFails=stack.get(0);
+                    val = numOfTBTCourses+(2*numOfFails) - sumOfStack;
+                    stack.push(val);
+                    int calcTCourses=numOfFails+stack.get(1)+stack.get(2)
+                                     +stack.get(3)+stack.get(4);
+                        if (val>=0&&calcTCourses-numOfFails==numOfTBTCourses+numOfFails
+                                &&calculateGPA(calcTCourses)==gpaWanted) {
+                           Integer[] output= (stack.toArray(new Integer[5])); //converting it to an array for these sake of the test
+                        stack.pop();
+                        sumOfStack-=stack.pop();
+                        return output; }
+                        stack.pop();//removing the  5th element(pass)
+                    sumOfStack -= stack.pop();// updating the sumOfStack
+                } else {
+                    size = stack.size();
+                    val = trackers[size];
+                   condition= (size==0)?trackers[0]<numOfTBTCourses+3:sumOfStack + val < numOfTBTCourses+(trackers[0]-1)*2+1;
+                    if (condition) {
+                        sumOfStack += val;
+                        ++trackers[size];
+                        stack.push(val);
+                    } else {
+                        //If tracker's value has reached it's max
+                        trackers[size] = 0;
+                        val = stack.pop();
+                        sumOfStack -= val;
+                    }
+                }
         }
-        return currentPermutation;
+    return null;
     }
 
-
-    float calculateGPA(){
-        int calcTCourses=currentPermutation[1]+currentPermutation[2]
-                +currentPermutation[3]+currentPermutation[4];
+    float calculateGPA(int calcTCourses){
         float gpa=0;
         //Calculating Points
         for(int i=0;i<4;i++){
-            gpa+=currentPermutation[i+1]*grades[i].gradePoints;
+            gpa+=stack.get(i+1)*grades[i].gradePoints;
         }
         return ((gpa/calcTCourses)*100)/100;
     }
 
-
     boolean hasNext(){
         /*Max number; of Fails can be totalCourses + 2.
          totalCourses in context the number of actual of courses they are supposed to do.*/
-        return super.validData && currentPermutation[0]<totalCourses+3;
+        return super.validData && trackers[0]<numOfTBTCourses+3;
+    }
+
+    ArrayList<Integer[]> integerPartitioning(){
+        return super.getPermutation();
     }
 
 

@@ -18,36 +18,59 @@ public class PermutationTest {
     private int coursesDone;
     private int totalCourses;
     private float gpaWanted;
+    private Permutation p;
+    private PermutationGenerator pg;
 
     @Test
     public void baseCase() {
-        assertion(new Permutation(cgpa=0, coursesDone=0, totalCourses=20, gpaWanted=0));
+        cgpa=0;
+        coursesDone=0;
+        totalCourses=0;
+        gpaWanted=0;
+        assertion();
     }
 
     @Test
     public void normalTest() {
-        assertion(new Permutation(cgpa=4.125f, coursesDone=8, totalCourses=24, gpaWanted=5));
+        cgpa=4.125f;
+        coursesDone=8;
+        totalCourses=24;
+        gpaWanted=5;
+        assertion();
     }
 
     @Test
     public void extremeTest() {
-        assertion(new Permutation(cgpa=9f,coursesDone=7,totalCourses=80,gpaWanted=6));
+        //TODO: Make test more vigorous.
+        cgpa=9f;
+        coursesDone=7;
+        totalCourses=80;
+        gpaWanted=6;
+        assertion();
     }
 
-    public void assertion(Permutation p){
-        assertTrue("Wrong result for case which consider Num Of Fails;" +
+    public void assertion(){
+        p = new Permutation(cgpa, coursesDone, totalCourses, gpaWanted);
+        assertTrue("Wrong result for case which does not  consider Num Of Fails;" +
                         "pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,
-                check(p,true));
-        assertTrue("Wrong result for case which does not consider Num of Fails;" +
+                check(false));
+        pg=new PermutationGenerator(cgpa, coursesDone, totalCourses, gpaWanted);
+        assertTrue("Wrong result for case which  consider Num of Fails;" +
                         "\n cgpa: "+ cgpa +"\n coursesDone: "+coursesDone+ "\n totalCourses: "+
                         totalCourses + "\n gpaWanted: "+ gpaWanted,
-                check(p,false));
+                check(true));
     }
 
-    public boolean check(Permutation p,boolean numOfFailsNeeded){
+    public boolean check(boolean numOfFailsNeeded){
         if(numOfFailsNeeded){
-            p.calculatePermutationNumOfFails();
-            ArrayList<Integer[]> original=p.getPermutation();
+            ArrayList<Integer[]> original=new ArrayList<>();
+            while(pg.hasNext()){
+                Integer[] output =pg.next();
+                if(output!=null){
+                    original.add(output);
+
+                }
+            }
             ArrayList<Integer[]> test=testPermutationNumOfFails(cgpa,coursesDone,totalCourses,gpaWanted);
             return deepUnorderedArrayChecker(original,test);
         }
@@ -96,21 +119,21 @@ public class PermutationTest {
      */
     public static ArrayList<Integer[]> testPermutationNumOfFails(float cgpa,int coursesDone,int totalCourses,float gpaWanted){
         Permutation p = new Permutation(cgpa,coursesDone,totalCourses,gpaWanted);
-        int numOfTBTCourses=p.numOfTBTCourses+p.numOfTBTCourses/2;
+        int numOfTBTCourses=p.numOfTBTCourses;
         int totalPoints;
         ArrayList<Integer[]> permutations=new ArrayList();
         if(cgpa>7|totalCourses>80|gpaWanted>7|coursesDone>80){
             return permutations;
         }
-        for(int nf=0;nf<=p.numOfTBTCourses/2;nf++){
-            for(int nhd=0;nhd<=numOfTBTCourses;nhd++){
-                for(int nd=0;nd<=numOfTBTCourses;nd++){
-                    for(int ncr=0;ncr<=numOfTBTCourses;ncr++){
-                        for(int np=0;np<=numOfTBTCourses;np++){
+        for(int nf=1;nf<p.numOfTBTCourses+3;nf++){
+            for(int nhd=0;nhd<=numOfTBTCourses+nf;nhd++){
+                for(int nd=0;nd<=numOfTBTCourses+nf;nd++){
+                    for(int ncr=0;ncr<=numOfTBTCourses+nf;ncr++){
+                        for(int np=0;np<=numOfTBTCourses+nf;np++){
                             totalPoints=nhd * 7 + nd * 6 + ncr * 5 + np * 4;
                             if (((totalPoints/(float)(nhd + nd + ncr + np+nf))*100)/100==gpaWanted
                                     && (p.numOfTBTCourses+nf)==nhd + nd + ncr + np){
-                                permutations.add(new Integer[]{nhd, nd, ncr, np,nf});
+                                permutations.add(new Integer[]{nf,nhd, nd, ncr, np});
 
                             }
                         }
@@ -141,3 +164,4 @@ public class PermutationTest {
     }
 
 }
+

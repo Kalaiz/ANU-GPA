@@ -38,7 +38,7 @@ public class PermutationResults extends AppCompatActivity {
         boolean numOfFailsNeeded= getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
         String[] colNames;
         if (numOfFailsNeeded){
-            p.calculatePermutationNumOfFails();
+            p.calculatePermutation();
             colNames=new String[]{"HDs","Ds","CRs","Ps","Fs"};
         }
         else{
@@ -65,19 +65,51 @@ public class PermutationResults extends AppCompatActivity {
         headingTableLayout.setStretchAllColumns(true);
 
 
-
+            TextView valueTextView ;
+            TableRow valueRow;
             /*Adding values to the table*/
             for (Integer[] s : permutations) {
-                TableRow valueRow = new TableRow(this);
+                valueRow = new TableRow(this);
                 for (int val : s) {
-                    TextView valueTextView = new TextView(this);
+                    valueTextView = new TextView(this);
                     valueTextView.setText(val+"\n");
                     valueTextView.setTextSize(20);
                     valueRow.addView(valueTextView);
                 }
+                if(numOfFailsNeeded) {
+                    valueTextView = new TextView(this);
+                    valueTextView.setText(0+" ");
+                    valueTextView.setTextSize(20);
+                    valueRow.addView(valueTextView);
+                }
                 possibleOutputsTableLayout.addView(valueRow);
-                possibleOutputsTableLayout.setStretchAllColumns(true);
+
+
             }
+            if(numOfFailsNeeded){
+                PermutationGenerator pg =new PermutationGenerator(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
+               int n=0;
+                while(n<50 && pg.hasNext()){
+                   Integer[] output= pg.next();
+                   if(output!=null){
+                       n++;
+                       valueRow = new TableRow(this);
+                       for (int i=1;i<5;i++) {
+                           valueTextView = new TextView(this);
+                           valueTextView.setText(output[i]+"\n");
+                           valueTextView.setTextSize(20);
+                           valueRow.addView(valueTextView);
+                       }
+                       valueTextView = new TextView(this);
+                       valueTextView.setText(output[0]+"\n");
+                       valueTextView.setTextSize(20);
+                       valueRow.addView(valueTextView);
+                       possibleOutputsTableLayout.addView(valueRow);
+                   }
+                }
+            }
+
+            possibleOutputsTableLayout.setStretchAllColumns(true);
         }
         else{
             Toast noResults=Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG);

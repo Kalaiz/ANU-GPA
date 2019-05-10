@@ -27,7 +27,12 @@ public class GPACalc extends AppCompatActivity {
         final EditText p =  findViewById(R.id.pEditText);
         final EditText f =  findViewById(R.id.fEditText);
         final ScrollView scrollView = findViewById(R.id.scrollView);
-        final SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
+        if(sharedPreferences.getBoolean("HasValues", false)){
+            findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
+            result.setText(sharedPreferences.getFloat("cgpa", 0) +"");
+            result.setVisibility(View.VISIBLE);
+        }
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,8 @@ public class GPACalc extends AppCompatActivity {
                 result.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
+                editor.putInt("currentPoints", gpa.currentPoints);
+                editor.putBoolean("HasValues", true);
                 editor.apply();
                 result.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();

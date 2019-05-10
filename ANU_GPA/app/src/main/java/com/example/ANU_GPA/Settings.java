@@ -49,6 +49,7 @@ public class Settings extends AppCompatActivity {
         passwordLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //depending on if you have a password, either sends you to set or change password
                 final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
                 if(pass.getString("password", "").equals("")){
                     Intent intent = new Intent(Settings.this,PasswordSet.class);
@@ -73,10 +74,14 @@ public class Settings extends AppCompatActivity {
         updateLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Settings.this, FontSize.class);
-                startActivity(intent);
-
+                //blocks access to update if it will be useless(no data to update)
+                final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
+                if(data.getBoolean("HasValues", false)){
+                    Intent intent = new Intent(Settings.this, Update.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(Settings.this, "There is no data to update", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

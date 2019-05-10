@@ -10,11 +10,16 @@
 ##### Jared
 - improve UI on several activities
 - implement fingerprint scanning
+- fix a bug concerning his UI and screen rotations
+
 ##### Pratreek
 - finalise app icon
+- make a manual
+
 ##### Kalai
 - complete permutation function
 - Link the database of history to the google spreadsheets.
+- animation settings button
 
 #### Tasks completed since the previous meeting
 - update function

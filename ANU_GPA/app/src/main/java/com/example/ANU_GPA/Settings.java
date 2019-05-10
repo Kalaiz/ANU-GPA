@@ -28,7 +28,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         final Switch animationSwitch=findViewById(R.id.animationSwitch);
-        final SharedPreferences dataSharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        final SharedPreferences dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         LinearLayout passwordLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
         LinearLayout feedbackLinearLayout = findViewById(R.id.permutationLinearLayout);
         LinearLayout updateLinearLayout = findViewById(R.id.settingsLinearLayout);

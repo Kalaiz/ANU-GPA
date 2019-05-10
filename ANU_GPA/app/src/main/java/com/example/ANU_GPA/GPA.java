@@ -44,8 +44,7 @@ public class GPA {
         cgpa = (numOfTCourses!=0)?(float)currentPoints/numOfTCourses:0;//for not producing a NaN
 
     }
-    /**Calculates PointsNeeded based on numOfTCourses & cgpa
-     * Authorship: Jared
+    /**Calculates PointsNeeded based on numOfTCourses & cgpaJared
      * @param wantedGPA - the gpa you wish to reach from your current gpa*/
     public void calculatePointsNeeded(float wantedGPA){
         pointsNeeded = (int)(wantedGPA*(numOfCourses)+0.5)-currentPoints;

@@ -49,8 +49,8 @@
     <option name="DEEP_LINK" value="" />
     <option name="ACTIVITY_CLASS" value="" />
     <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="MainActivityTest" run_configuration_type="AndroidTestRunConfigurationType" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="GPATest" run_configuration_type="AndroidJUnit" />
+      <option name="RunConfigurationTask" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="PermutationTest" run_configuration_type="AndroidJUnit" />
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
     </method>

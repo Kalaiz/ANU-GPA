@@ -62,7 +62,7 @@ public class Home extends AppCompatActivity {
 Update the Animation*/
     public void onResume() {
         super.onResume();
-        dataSharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         if(dataSharedPreferences.getBoolean("animation",true)) {
             if(scaleEffect.animationEnd) {
                 scaleEffect.setAnimationEnd(false);

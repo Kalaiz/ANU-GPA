@@ -51,7 +51,7 @@
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" />
       <option name="RunConfigurationTask" enabled="true" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="PermutationTest" run_configuration_type="AndroidJUnit" />
+      <option name="RunConfigurationTask" enabled="true" />
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
     </method>
   </configuration>

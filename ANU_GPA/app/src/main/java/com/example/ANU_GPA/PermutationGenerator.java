@@ -9,11 +9,16 @@ public class PermutationGenerator extends Permutation {
       /*trackers will act like a storage which tracks the number of grades whose
           value will be used accordance to the sequence of calculating a permutation*/
                    //Fs,HDs,Ds,CRs
-    Integer[] trackers={1,0,0,0};
-    Stack<Integer> stack = new Stack();
+    static int[] trackers;
+    static Stack<Integer> stack ;
     Grades[] grades=Grades.values();
-    int sumOfStack=0;
+    static int sumOfStack;
 
+    void initialise(){
+        trackers=new int[]{1,0,0,0};
+        sumOfStack=0;
+        stack=new Stack<>();
+    }
 
     PermutationGenerator(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
         super(cgpa,  coursesDone, totalCourses, gpaWanted);

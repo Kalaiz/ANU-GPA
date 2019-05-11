@@ -55,6 +55,7 @@ public class PermutationTest {
                         "pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,
                 check(false));
         pg=new PermutationGenerator(cgpa, coursesDone, totalCourses, gpaWanted);
+        pg.initialise();
         assertTrue("Wrong result for case which  consider Num of Fails;" +
                         "\n cgpa: "+ cgpa +"\n coursesDone: "+coursesDone+ "\n totalCourses: "+
                         totalCourses + "\n gpaWanted: "+ gpaWanted,

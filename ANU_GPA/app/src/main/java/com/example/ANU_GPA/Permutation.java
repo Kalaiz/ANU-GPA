@@ -65,7 +65,7 @@ public class Permutation  {
      * @param gpaWanted - The gpa which the user is trying to achieve.
      * */
     Permutation(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
-        validData=(cgpa<7 && totalCourses<80 && gpaWanted<7 && coursesDone<80);
+        validData=(cgpa<=7 && totalCourses<=80 && gpaWanted<=7 && coursesDone<=80);
         numOfTBTCourses= totalCourses-coursesDone;
         this.cgpa=cgpa;
         this.gpaWanted=gpaWanted;
@@ -87,12 +87,12 @@ public class Permutation  {
             //For temporary storage of stack values,numOfPasses,numOfCredits,size of stack.
             int val, numOfPasses, numOfCredits, size;
             Stack<Integer> stack = new Stack();
-            while (trackers[0] != numOfTBTCourses + 1) { //While number of hds does'nt exceed the total number of courses.
+            while (trackers[0] != numOfTBTCourses + 2 ) { //While number of hds does'nt exceed the total number of courses.
                 if (stack.size() == 3) {
                     val = numOfTBTCourses - sumOfStack;
                     stack.push(val);
                     points += val * 4;
-                    if (points == pointsNeeded) {
+                    if (val>=0 && points == pointsNeeded) {
                         //Converting it to a new array in order to avoid referencing issues
                         permutations.add(stack.toArray(new Integer[4]));
                     }
@@ -105,7 +105,7 @@ public class Permutation  {
                     val = trackers[size];
                 /*When it reaches the line below ,val when added to sumOfStack;
                   The resultant must'nt be higher than the numOfTBTCourses*/
-                    if (val + sumOfStack <= numOfTBTCourses && points <= pointsNeeded) {
+                    if (val + sumOfStack <= numOfTBTCourses +1  && points <= pointsNeeded) {
                         sumOfStack += val;
                         points += val * grades[size].gradePoints;
                         ++trackers[size];

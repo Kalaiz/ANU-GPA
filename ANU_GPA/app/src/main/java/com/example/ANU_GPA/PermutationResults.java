@@ -1,12 +1,10 @@
 package com.example.ANU_GPA;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,12 +16,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-/*Authorship: Kalai (u6555407)*/
+/*Author: Kalai (u6555407)*/
 
 public class PermutationResults extends AppCompatActivity {
     TableLayout possibleOutputsTableLayout;
     boolean done=true;
     boolean donePermutation=false;
+    int fetch=20;
+
 
 
     @Override
@@ -92,6 +92,7 @@ public class PermutationResults extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         final int nCoursesDone = sharedPreferences.getInt("numOfTCourses", 0);
         final float cgpa = sharedPreferences.getFloat("cgpa", 0);
@@ -104,16 +105,19 @@ public class PermutationResults extends AppCompatActivity {
         final PermutationGenerator pg = new PermutationGenerator(cgpa, nCoursesDone, numTBTCourses + nCoursesDone, gpaWanted);
         pg.initialise();
         if(numOfFailsNeeded) {
+            fetch=30;
             possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
             new InfoLoader().execute(pg);
         }
-      innerScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+
+
+        innerScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
           @Override
           public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
               if (!donePermutation && done && numOfFailsNeeded&&pg.hasNext()) {
-                          new InfoLoader().execute(pg);
+                     fetch=150;
+                      new InfoLoader().execute(pg);
                       }
-
           }
       });
     }
@@ -122,13 +126,19 @@ public class PermutationResults extends AppCompatActivity {
 
     public class InfoLoader extends  AsyncTask<PermutationGenerator,String,ArrayList<Integer[]>>{
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
         protected ArrayList<Integer[]> doInBackground(PermutationGenerator... permutationGenerators) {
             done=false;
             ArrayList<Integer[]> output=new ArrayList<>();
             PermutationGenerator pg=permutationGenerators[0];
             Integer[] permutation;
             int n=0;
-            while(n<101 && pg.hasNext()){
+            while(n<fetch&& pg.hasNext()){
                 n++;
                 if((permutation=pg.next())!=null){
                     output.add(permutation);
@@ -161,11 +171,6 @@ public class PermutationResults extends AppCompatActivity {
             done=true;
 
         }
-
-
-
-
-
 
     }
 

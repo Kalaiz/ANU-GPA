@@ -1,11 +1,9 @@
 package com.example.ANU_GPA;
 
 import org.junit.Test;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+
 
 import static org.junit.Assert.*;
 
@@ -20,46 +18,57 @@ public class PermutationTest {
     private float gpaWanted;
     private Permutation p;
     private PermutationGenerator pg;
+    private float[][] dataSet={{7,8,24,7},{4.125f,16,32,5},{6.324f,16,32,6}};
 
     @Test
     public void baseCase() {
-        cgpa=0;
-        coursesDone=0;
-        totalCourses=0;
-        gpaWanted=0;
+        valueAssigner(0,0,0,0);
         assertion();
     }
 
     @Test
     public void normalTest() {
-        cgpa=4.125f;
-        coursesDone=8;
-        totalCourses=24;
-        gpaWanted=5;
-        assertion();
+        for(float[] data:dataSet){
+            valueAssigner(data[0],(int)data[1],(int)data[2],data[3]);
+            assertion();
+        }
     }
+
 
     @Test
     public void extremeTest() {
-        //TODO: Make test more vigorous.
-        cgpa=9f;
-        coursesDone=7;
-        totalCourses=80;
-        gpaWanted=6;
-        assertion();
+        //Wrong Range Values
+        float[] wrongData={8f,81f,81f,8f};
+        float[] data={0,0,0,0};
+        //Changing position for different outputs
+        for(int i=0;i<4;i++){
+            data[i]=wrongData[i];
+            // cgpa ,coursesDone, totalCourses,gpaWanted
+            valueAssigner(data[0],(int)data[1],(int)data[2],data[3]);
+            assertion();
+            data[i]=0;
+        }
+
     }
 
+
+    void valueAssigner(float cgpa,int coursesDone,int totalCourses,float gpaWanted){
+        this.cgpa=cgpa;
+        this.coursesDone=coursesDone;
+        this.totalCourses=totalCourses;
+        this.gpaWanted=gpaWanted;
+    }
     public void assertion(){
         p = new Permutation(cgpa, coursesDone, totalCourses, gpaWanted);
         assertTrue("Wrong result for case which does not  consider Num Of Fails;" +
                         "pointsNeeded: "+p.pointsNeeded+" & numOfCourses: " + p.numOfTBTCourses,
-                check(false));
+                         check(false));
         pg=new PermutationGenerator(cgpa, coursesDone, totalCourses, gpaWanted);
         pg.initialise();
         assertTrue("Wrong result for case which  consider Num of Fails;" +
                         "\n cgpa: "+ cgpa +"\n coursesDone: "+coursesDone+ "\n totalCourses: "+
                         totalCourses + "\n gpaWanted: "+ gpaWanted,
-                check(true));
+                        check(true));
     }
 
     public boolean check(boolean numOfFailsNeeded){
@@ -91,15 +100,15 @@ public class PermutationTest {
      * @param: numOfTBTCourses - the number of courses yet to be taken
      * @Return: An ArrayList which contains all the "Required" permutation;permutation in accordance to estd GPA.
      */
-    public ArrayList testPermutation(int pointsNeeded, int numOfTBTCourses){
+    public ArrayList<Integer[]> testPermutation(int pointsNeeded, int numOfTBTCourses){
         ArrayList permutations=new ArrayList();
         if(cgpa>7|totalCourses>80|gpaWanted>7|coursesDone>80){
             return permutations;
         }
-        for(int nhd=0;nhd<numOfTBTCourses;nhd++){
-            for(int nd=0;nd<numOfTBTCourses-(nhd-1);nd++){
-                for(int ncr=0;ncr<numOfTBTCourses-(nd-1);ncr++){
-                    for(int np=0;np<numOfTBTCourses-(ncr-1);np++){
+        for(int nhd=0;nhd<=numOfTBTCourses;nhd++){
+            for(int nd=0;nd<=numOfTBTCourses-(nhd-1);nd++){
+                for(int ncr=0;ncr<=numOfTBTCourses-(nd-1);ncr++){
+                    for(int np=0;np<=numOfTBTCourses-(ncr-1);np++){
                         if (pointsNeeded - (nhd * 7 + nd * 6 + ncr * 5 + np * 4) == 0 && numOfTBTCourses == nhd + nd + ncr + np){
                             permutations.add(new Integer[]{nhd,nd,ncr,np});
 

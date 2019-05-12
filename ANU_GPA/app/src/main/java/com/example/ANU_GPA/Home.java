@@ -23,7 +23,7 @@ public class Home extends AppCompatActivity {
         final LinearLayout gpaCalcLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
         final LinearLayout permutationLinearLayout = findViewById(R.id.permutationLinearLayout);
         final LinearLayout settingsLinearLayout = findViewById(R.id.settingsLinearLayout);
-        dataSharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout, permutationLinearLayout, settingsLinearLayout};
 

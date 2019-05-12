@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class PermutationResults extends AppCompatActivity {
     TableLayout possibleOutputsTableLayout;
-    boolean done=true;
-    boolean donePermutation=false;
+    boolean done;
+    boolean donePermutation;
     int fetch=20;
 
 
@@ -104,6 +104,8 @@ public class PermutationResults extends AppCompatActivity {
         innerScrollView.setSmoothScrollingEnabled(true);
         final PermutationGenerator pg = new PermutationGenerator(cgpa, nCoursesDone, numTBTCourses + nCoursesDone, gpaWanted);
         pg.initialise();
+        done=true;
+        donePermutation=false;
         if(numOfFailsNeeded) {
             fetch=30;
             possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
@@ -125,11 +127,7 @@ public class PermutationResults extends AppCompatActivity {
 
 
     public class InfoLoader extends  AsyncTask<PermutationGenerator,String,ArrayList<Integer[]>>{
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
 
-        }
 
         @Override
         protected ArrayList<Integer[]> doInBackground(PermutationGenerator... permutationGenerators) {

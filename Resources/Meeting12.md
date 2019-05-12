@@ -1,4 +1,4 @@
-### Meeting1 (8/4/19): Deciding on the topic of app & Dividing tasks.
+### Meeting12 (8/5/19): Deciding on the topic of app & Dividing tasks.
 
 #### Summary 
 - Jared completed the updae function, and the instrumened testing

@@ -33,6 +33,9 @@ _Add a paragraph the gives a summary of the app you implemented. Include a small
 
 I _Jared Graf_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
++ [The Animations are taken from Lottie android animation](https://lottiefiles.com/)
++ [The code for animation is taken from Lottie airbnb](https://airbnb.io/lottie/#/android)
++ some of the integration test was created by esspresso. it is specified which parts are mine and which arent
 
 I _Prateek Arora_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.

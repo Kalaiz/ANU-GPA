@@ -26,11 +26,17 @@ _Add a paragraph the gives a summary of the app you implemented. Include a small
 + [Meeting 9 - 20/4/19 - Stablised Working App](../Resources/Meeting9.md)
 + [Meeting 10 - 24/4/19 - Bugs Found & Further Implementation](../Resources/Meeting10.md)
 + [Meeting 11 - 29/4/19 - Bugs regarding the apps completed and  new idea for update](../Resources/Meeting11.md)
++ [Meeting 12 - 8/5/19 - Bugs regarding the apps completed and  new idea for update](../Resources/Meeting12.md)
+
 
 ## Statement of Originality
 
 I _Jared Graf_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
++ [The Animations are taken from Lottie android animation](https://lottiefiles.com/)
++ [The code for animation is taken from Lottie airbnb](https://airbnb.io/lottie/#/android)
++ [learned how to implement dialogs from here](https://developer.android.com/guide/topics/ui/dialogs.html)
++ some of the integration test was created by esspresso. it is specified which parts are mine and which arent
 
 I _Prateek Arora_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.

@@ -16,22 +16,23 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-/*Author: Kalai (u6555407)*/
+/**
+ * Activity which displays all of the possible permutation based on the user's input.
+ * @author: Kalai (u6555407)*/
 
 public class PermutationResults extends AppCompatActivity {
     TableLayout possibleOutputsTableLayout;
     boolean done;
     boolean donePermutation;
-    int fetch=20;
-
+    int fetch=20; //Initial number of permutations being fetch for number of fails known
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutation_results);
-        //Retrieving values from sharedPreference
 
+        //Retrieving values from sharedPreference
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         final int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
         final float cgpa=sharedPreferences.getFloat("cgpa",0);
@@ -47,6 +48,7 @@ public class PermutationResults extends AppCompatActivity {
         TableRow headingRow=new TableRow(this);
         ArrayList<Integer[]> permutations=p.getPermutation();
         if(permutations.size()>0) {
+
         /*Setting the headings*/
         for(String colName:colNames){
             TextView colTextView=new TextView(this);
@@ -59,19 +61,21 @@ public class PermutationResults extends AppCompatActivity {
         headingTableLayout.addView(headingRow);
         headingTableLayout.setStretchAllColumns(true);
 
+
+            /*Adding values/rows to the table*/
             TextView valueTextView ;
             TableRow valueRow;
-            /*Adding values to the table*/
             for (Integer[] s : permutations) {
                 valueRow = new TableRow(this);
                 for (int val : s) {
-
                     valueTextView =new TextView(this);
                     valueTextView.setText(val+"\n");
                     valueTextView.setTextSize(20);
                     valueRow.addView(valueTextView);
                 }
                 if(numOfFailsNeeded) {
+                    /*if number of fails is needed,since for number of fails = 0 situation; permutation
+                    from permutation class can be used and a column of zero can be filled in the number of fail*/
                    valueTextView =new TextView(this);
                     valueTextView.setText(0+" ");
                     valueTextView.setTextSize(20);
@@ -92,7 +96,6 @@ public class PermutationResults extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         final int nCoursesDone = sharedPreferences.getInt("numOfTCourses", 0);
         final float cgpa = sharedPreferences.getFloat("cgpa", 0);

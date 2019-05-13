@@ -13,9 +13,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 
-import java.util.Set;
-
-/*Authorship:
+/**@authors:
  Everything else: Prateek Arora (u6742441)
  animationSwitch: Kalai(u6555407)
  */
@@ -94,7 +92,6 @@ public class Settings extends AppCompatActivity {
         });
 
 
-
         animationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -109,7 +106,6 @@ public class Settings extends AppCompatActivity {
                     else{
                         editor.putBoolean("animation",false);
                         scaleEffect.setAnimationEnd(true);
-
                     }
                     editor.apply();
                 new Handler().postDelayed(new Runnable() {

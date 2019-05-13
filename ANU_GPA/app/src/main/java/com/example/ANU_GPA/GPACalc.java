@@ -1,7 +1,5 @@
 package com.example.ANU_GPA;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +10,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*Authorship:Kalai(u6555407)*/
+/**
+ *An activity which calculates the GPA.
+ * @author: Kalai(u6555407)*/
 
 public class GPACalc extends AppCompatActivity {
     @Override
@@ -49,7 +49,6 @@ public class GPACalc extends AppCompatActivity {
                         nGrades[i]=0;
                     }
                 }
-
                 if(error)
                 {Toast.makeText(GPACalc.this, "Note:Your are neglecting some attributes;" +
                         "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();}

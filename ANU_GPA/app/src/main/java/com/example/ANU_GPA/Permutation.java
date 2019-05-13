@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 
-/*Authors
- CalculateTotalPoints function - Jared
- Rest of the class - Kalai(u6555407)*/
-
 /**
  * A class which helps one to find the possible permutations provided the basic information.
  * 1)pointsNeeded & 2)numOfTBTCourses
@@ -31,7 +27,11 @@ import java.util.Stack;
  *        numOfTBTCourses = 8
  *        calculatePermutations() finds for the possible permutation such that:
  *        nHDs*7 + nDs*6 + nCRs*5 + nFs*0 == 54 && sum[nHDs,nDs,nCRs,nPs,nFs] == numOfTBTCourses
- * */
+ *
+ *  @authors:
+ *  CalculateTotalPoints function - Jared
+ *  Rest of the class - Kalai
+ */
 public class Permutation  {
 
     int numOfTBTCourses; //The number of courses to be taken.
@@ -44,10 +44,8 @@ public class Permutation  {
     float cgpa;
 
 
-
-
-    /*Calculates PointsNeeded based on numOfTCourses & cgpa
-     * Author: Jared  */
+    /**Calculates PointsNeeded based on numOfTCourses & cgpa
+     * @author Jared  */
     public void calculatePointsNeeded(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
         pointsNeeded = (int)(gpaWanted*(totalCourses)+0.5)-(int)(cgpa*coursesDone+0.5);
         this.gpaWanted=gpaWanted;
@@ -74,7 +72,7 @@ public class Permutation  {
 
 
     /**
-     * Obtains all valid permutation and then updates the ArrayList permutations.
+     * Obtains all valid permutation (Does not includes number of fails) and then updates the ArrayList permutations.
      * */
     public void calculatePermutation(){
         if(validData) {
@@ -121,7 +119,6 @@ public class Permutation  {
             }
         }
     }
-
 
 
     /**

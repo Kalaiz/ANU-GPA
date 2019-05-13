@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
-/*Authorship Prateek Arora (u6742441) and Kalai (u6555407)*/
+/**@authors:
+ *  Prateek Arora - rest of the class (u6742441)
+ *  jared - password sharedpreference*/
 
 public class MainActivity extends AppCompatActivity {
-
-    /*Authorship of password sharedpreference, jared graf*/
 
     private static int Time_Out = 4000;
     @Override

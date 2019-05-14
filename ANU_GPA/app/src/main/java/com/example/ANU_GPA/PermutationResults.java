@@ -123,20 +123,20 @@ public class PermutationResults extends AppCompatActivity {
         innerScrollView.setSmoothScrollingEnabled(true);
         final PermutationGenerator pg = new PermutationGenerator(cgpa, nCoursesDone, numTBTCourses + nCoursesDone, gpaWanted);
         pg.initialise();
+        possibleOutputsTableLayout = findViewById(R.id.possibleResultsTableLayout);
         done = true;
         donePermutation = false;
         if (numOfFailsNeeded) {
             fetch = 30;
-            possibleOutputsTableLayout = findViewById(R.id.possibleResultsTableLayout);
             new InfoLoader().execute(pg);
         }
-
 
         possibleOutputsTableLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doubleTap = !doubleTap;
-                if (doubleTap) {
+                if (numOfFailsNeeded&&doubleTap) {
+                    Toast.makeText(PermutationResults.this,"Please Wait",Toast.LENGTH_LONG).show();
                     boolean running = false;
                     for (AsyncTask asyncTask : asyncTasks) {
                         if (asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
@@ -145,12 +145,16 @@ public class PermutationResults extends AppCompatActivity {
                         }
                     }
                     if (!running) {
-                        Toast.makeText(PermutationResults.this,"Please wait",Toast.LENGTH_LONG).show();
+
                         if (!donePermutation && done && numOfFailsNeeded && pg.hasNext()) {
                             fetch = 150;
                             asyncTasks.add(new InfoLoader().execute(pg));
                         }
                     }
+                }
+                else{
+
+                            Toast.makeText(PermutationResults.this,"No more possible Permutations.",Toast.LENGTH_SHORT).show();
                 }
             }
         });

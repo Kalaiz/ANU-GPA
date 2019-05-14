@@ -209,7 +209,7 @@ public class PermutationCalc extends AppCompatActivity {
                     Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_SHORT).show();
                 }
                 if(errorFree){
-                    Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                     intent.putExtra("numOfTBTCourses",numOfTBTCourses);
                     intent.putExtra("gpaWanted",gpaWanted);

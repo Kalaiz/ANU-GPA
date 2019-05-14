@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 
 /**@authors:
- Everything else: Prateek Arora (u6742441)
- animationSwitch: Kalai(u6555407)
+Everything else: Prateek Arora (u6742441)
+animationSwitch: Kalai(u6555407)
  */
 
 public class Settings extends AppCompatActivity {
@@ -33,13 +33,13 @@ public class Settings extends AppCompatActivity {
         LinearLayout aboutLinearLayout = findViewById(R.id.aboutLinearLayout);
         LinearLayout animationLinearLayout=findViewById(R.id.animationLinearLayout);
         final LinearLayout[] layouts=new LinearLayout[]
-                                   {passwordLinearLayout,feedbackLinearLayout
-                                   ,animationLinearLayout,updateLinearLayout,aboutLinearLayout};
+                {passwordLinearLayout,feedbackLinearLayout
+                        ,animationLinearLayout,updateLinearLayout,aboutLinearLayout};
         scaleEffect =new ScaleEffect(layouts);
         if(dataSharedPreferences.getBoolean("animation",true)){
             animationSwitch.setChecked(true);
             scaleEffect.startAnimation();
-            }
+        }
         else{
             scaleEffect.setAnimationEnd(true);
             animationSwitch.setChecked(false);}
@@ -97,23 +97,23 @@ public class Settings extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 animationSwitch.setEnabled(false);
                 Toast.makeText(Settings.this, "Please wait.", Toast.LENGTH_LONG).show();
-                    SharedPreferences.Editor editor = dataSharedPreferences.edit();
-                    if(isChecked){
-                        editor.putBoolean("animation",true);
-                        scaleEffect.setAnimationEnd(false);
-                        scaleEffect.startAnimation();
-                    }
-                    else{
-                        editor.putBoolean("animation",false);
-                        scaleEffect.setAnimationEnd(true);
-                    }
-                    editor.apply();
+                SharedPreferences.Editor editor = dataSharedPreferences.edit();
+                if(isChecked){
+                    editor.putBoolean("animation",true);
+                    scaleEffect.setAnimationEnd(false);
+                    scaleEffect.startAnimation();
+                }
+                else{
+                    editor.putBoolean("animation",false);
+                    scaleEffect.setAnimationEnd(true);
+                }
+                editor.apply();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         animationSwitch.setEnabled(true);
                     }
-                },  3500);
+                },  5000);
             }
         });
 

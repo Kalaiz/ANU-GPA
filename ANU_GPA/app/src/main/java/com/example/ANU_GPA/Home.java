@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 public class Home extends AppCompatActivity {
     SharedPreferences dataSharedPreferences;
     ScaleEffect scaleEffect;
+    boolean animationRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,9 @@ public class Home extends AppCompatActivity {
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout, permutationLinearLayout, settingsLinearLayout};
         scaleEffect= new ScaleEffect(arr);
-
+        if(animationRunning=dataSharedPreferences.getBoolean("animation",true)){
+            scaleEffect.startAnimation();
+        }
 
         gpaCalcLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,21 +62,21 @@ public class Home extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-        if(dataSharedPreferences.getBoolean("animation",true)) {
-            //want animation to be started
-            if(scaleEffect.animationEnd) {
-                scaleEffect.setAnimationEnd(false);
+        if(dataSharedPreferences.getBoolean("animation",true)){
+            if(!animationRunning){
                 scaleEffect.startAnimation();
-            }
-            else{
-                scaleEffect.startAnimation();
+                animationRunning=true;
             }
         }
-        else {
-            scaleEffect.setAnimationEnd(true);
+        else{
+            if(animationRunning){
+                scaleEffect.setAnimationEnd(true);
+                animationRunning=false;
+            }
         }
-        }
-
     }
+
+
+}
 
 

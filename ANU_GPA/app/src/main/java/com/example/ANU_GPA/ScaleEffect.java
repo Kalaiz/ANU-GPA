@@ -20,7 +20,11 @@ public  class ScaleEffect  <T extends View>{
 
     private int duration=2000;
     T[] viewObjects;
-    boolean animationEnd=false;
+    static boolean animationEnd;
+
+    void initialise(){
+        animationEnd=false;
+    }
 
     /*Constructor for multiple View objects*/
     ScaleEffect(T [] viewObjects){
@@ -51,7 +55,7 @@ public  class ScaleEffect  <T extends View>{
     }
 
     /**Initiates an animation for the input View object.
-    *@param val The view object  */
+     *@param val The view object  */
     void runEffect(T val){
         final AnimatorSet effect =scaleEffect(val);
         effect.start();
@@ -82,7 +86,7 @@ public  class ScaleEffect  <T extends View>{
         scaleIn.playTogether(scaleX,scaleY);
         scaleOut.playTogether(originalScaleX,originalScaleY);
         effect.playSequentially(scaleIn,scaleOut);
-     return effect;
+        return effect;
     }
 
     void setDuration(int duration){

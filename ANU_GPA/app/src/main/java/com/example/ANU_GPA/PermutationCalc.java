@@ -82,10 +82,13 @@ public class PermutationCalc extends AppCompatActivity {
         final Button reCalculateButton = findViewById(R.id.reCalculateButton);
         final Button submitButton = findViewById(R.id.submitButton);
         final ScrollView scrollView = findViewById(R.id.scrollView);
-        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         final Switch numOfFailsNeededSwitch=findViewById(R.id.numOfFailsNeededSwitch);
+
+        /*SharedPreference initialisation*/
+        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
         localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
                 new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 

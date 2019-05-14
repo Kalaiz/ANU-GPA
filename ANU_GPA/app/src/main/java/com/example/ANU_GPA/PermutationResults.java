@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
@@ -24,8 +26,9 @@ public class PermutationResults extends AppCompatActivity {
     TableLayout possibleOutputsTableLayout;
     boolean done;
     boolean donePermutation;
+    boolean doubleTap=false;
     int fetch=20; //Initial number of permutations being fetch for number of fails known
-
+    ArrayList<AsyncTask> asyncTasks=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +95,19 @@ public class PermutationResults extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        for(AsyncTask asyncTask:asyncTasks){
+            asyncTask.cancel(true);
+        }
+        boolean cancel=true;
+        for(AsyncTask asyncTask:asyncTasks){
+           cancel=cancel&& asyncTask.isCancelled();
+        }
+        if(cancel) {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     protected void onResume() {
@@ -103,37 +119,49 @@ public class PermutationResults extends AppCompatActivity {
         final float gpaWanted = getIntent().getExtras().getFloat("gpaWanted");
         final boolean numOfFailsNeeded = getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
         final ScrollView innerScrollView = findViewById(R.id.innerScrollView);
-        Toast.makeText(this,"Scroll For More", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Double Tap For More", Toast.LENGTH_SHORT).show();
         innerScrollView.setSmoothScrollingEnabled(true);
         final PermutationGenerator pg = new PermutationGenerator(cgpa, nCoursesDone, numTBTCourses + nCoursesDone, gpaWanted);
         pg.initialise();
-        done=true;
-        donePermutation=false;
-        if(numOfFailsNeeded) {
-            fetch=30;
-            possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
+        done = true;
+        donePermutation = false;
+        if (numOfFailsNeeded) {
+            fetch = 30;
+            possibleOutputsTableLayout = findViewById(R.id.possibleResultsTableLayout);
             new InfoLoader().execute(pg);
         }
 
 
-        innerScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-          @Override
-          public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-              if (!donePermutation && done && numOfFailsNeeded&&pg.hasNext()) {
-                     fetch=150;
-                      new InfoLoader().execute(pg);
-                      }
-          }
-      });
+        possibleOutputsTableLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doubleTap = !doubleTap;
+                if (doubleTap) {
+                    boolean running = false;
+                    for (AsyncTask asyncTask : asyncTasks) {
+                        if (asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
+                            running = true;
+                            break;
+                        }
+                    }
+                    if (!running) {
+                        Toast.makeText(PermutationResults.this,"Please wait",Toast.LENGTH_LONG).show();
+                        if (!donePermutation && done && numOfFailsNeeded && pg.hasNext()) {
+                            fetch = 150;
+                            asyncTasks.add(new InfoLoader().execute(pg));
+                        }
+                    }
+                }
+            }
+        });
     }
 
 
 
     public class InfoLoader extends  AsyncTask<PermutationGenerator,String,ArrayList<Integer[]>>{
-
-
         @Override
         protected ArrayList<Integer[]> doInBackground(PermutationGenerator... permutationGenerators) {
+            System.out.println("Doing in Background");
             done=false;
             ArrayList<Integer[]> output=new ArrayList<>();
             PermutationGenerator pg=permutationGenerators[0];
@@ -141,7 +169,8 @@ public class PermutationResults extends AppCompatActivity {
             int n=0;
             while(n<fetch&& pg.hasNext()){
                 n++;
-                if((permutation=pg.next())!=null){
+
+                if(!isCancelled()&&(permutation=pg.next())!=null){
                     output.add(permutation);
                 }else{
                     donePermutation=true;

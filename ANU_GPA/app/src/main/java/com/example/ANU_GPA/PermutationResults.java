@@ -7,9 +7,8 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -21,7 +20,6 @@ import java.util.ArrayList;
 /**
  * Activity which displays all of the possible permutation based on the user's input.
  * @author: Kalai (u6555407)*/
-
 public class PermutationResults extends AppCompatActivity {
     TableLayout possibleOutputsTableLayout;
     boolean done;
@@ -29,40 +27,61 @@ public class PermutationResults extends AppCompatActivity {
     boolean doubleTap=false;
     int fetch=20; //Initial number of permutations being fetch for number of fails known
     ArrayList<AsyncTask> asyncTasks=new ArrayList<>();
+    PermutationGenerator pg;
+    boolean numOfFailsNeeded;
+    RelativeLayout outerRelativeLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permutation_results);
 
-        //Retrieving values from sharedPreference
+        //Retrieving values from sharedPreference & Intents
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         final int nCoursesDone=sharedPreferences.getInt("numOfTCourses",0);
         final float cgpa=sharedPreferences.getFloat("cgpa",0);
         final int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
         final float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
-        final Permutation p=new Permutation(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
-        final boolean numOfFailsNeeded= getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
+        outerRelativeLayout=findViewById(R.id.outerRelativeLayout);
+        numOfFailsNeeded= getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
+
+        /*Creating respective Permutation Object in accordance to the requirement */
         String[] colNames;
-        colNames=(numOfFailsNeeded)?new String[]{"HDs","Ds","CRs","Ps","Fs"}:new String[]{"HDs","Ds","CRs","Ps"};
-        p.calculatePermutation();
-        TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
-        final TableLayout possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
-        TableRow headingRow=new TableRow(this);
-        ArrayList<Integer[]> permutations=p.getPermutation();
-        if(permutations.size()>0) {
-
-        /*Setting the headings*/
-        for(String colName:colNames){
-            TextView colTextView=new TextView(this);
-            colTextView.setText(colName);
-            colTextView.setTextSize(25);
-            colTextView.setTextColor(Color.BLACK);
-            headingRow.addView(colTextView);
-
+        ArrayList<Integer[]> permutations;
+        if(numOfFailsNeeded){
+            colNames=new String[]{"HDs","Ds","CRs","Ps","Fs"};
+            pg=new PermutationGenerator(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
+            pg.calculatePermutation();
+            pg.initialise();
+            permutations=pg.getPermutation();
         }
-        headingTableLayout.addView(headingRow);
-        headingTableLayout.setStretchAllColumns(true);
+        else{
+            colNames=new String[]{"HDs","Ds","CRs","Ps"};
+            Permutation p=new Permutation(cgpa,nCoursesDone,numTBTCourses+nCoursesDone,gpaWanted);
+            p.calculatePermutation();
+            permutations=p.getPermutation();
+        }
+
+        /*Obtaining Needed View Objects*/
+        TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
+        possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
+
+
+
+        if(permutations.size()>0) {
+            /*Setting the Heading Row And it's attributes*/
+            TableRow headingRow=new TableRow(this);
+            for(String colName:colNames){
+                TextView colTextView=new TextView(this);
+                colTextView.setText(colName);
+                colTextView.setTextSize(25);
+                colTextView.setTextColor(Color.BLACK);
+                headingRow.addView(colTextView);
+
+            }
+            headingTableLayout.addView(headingRow);
+            headingTableLayout.setStretchAllColumns(true);
 
 
             /*Adding values/rows to the table*/
@@ -79,7 +98,7 @@ public class PermutationResults extends AppCompatActivity {
                 if(numOfFailsNeeded) {
                     /*if number of fails is needed,since for number of fails = 0 situation; permutation
                     from permutation class can be used and a column of zero can be filled in the number of fail*/
-                   valueTextView =new TextView(this);
+                    valueTextView =new TextView(this);
                     valueTextView.setText(0+" ");
                     valueTextView.setTextSize(20);
                     valueRow.addView(valueTextView);
@@ -90,39 +109,16 @@ public class PermutationResults extends AppCompatActivity {
 
         }
         else{
-           Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG).show();
-        }
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        for(AsyncTask asyncTask:asyncTasks){
-            asyncTask.cancel(true);
-        }
-        boolean cancel=true;
-        for(AsyncTask asyncTask:asyncTasks){
-           cancel=cancel&& asyncTask.isCancelled();
-        }
-        if(cancel) {
-            super.onBackPressed();
+            Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG).show();
         }
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-        final int nCoursesDone = sharedPreferences.getInt("numOfTCourses", 0);
-        final float cgpa = sharedPreferences.getFloat("cgpa", 0);
-        final int numTBTCourses = getIntent().getExtras().getInt("numOfTBTCourses");
-        final float gpaWanted = getIntent().getExtras().getFloat("gpaWanted");
-        final boolean numOfFailsNeeded = getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
         final ScrollView innerScrollView = findViewById(R.id.innerScrollView);
         innerScrollView.setSmoothScrollingEnabled(true);
-        final PermutationGenerator pg = new PermutationGenerator(cgpa, nCoursesDone, numTBTCourses + nCoursesDone, gpaWanted);
-        pg.initialise();
-        possibleOutputsTableLayout = findViewById(R.id.possibleResultsTableLayout);
         done = true;
         donePermutation = false;
         if (numOfFailsNeeded) {
@@ -130,13 +126,19 @@ public class PermutationResults extends AppCompatActivity {
             new InfoLoader().execute(pg);
             Toast.makeText(this, "Double Tap For More", Toast.LENGTH_SHORT).show();
         }
+        /*If only few permutation are there and the user double taps*/
+        outerRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if( doubleTap = !doubleTap)
+                Toast.makeText(PermutationResults.this, "No more possible Permutations.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         possibleOutputsTableLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doubleTap = !doubleTap;
-                if (numOfFailsNeeded&&doubleTap) {
-
+                if (numOfFailsNeeded&&(doubleTap = !doubleTap)) {
                     boolean running = false;
                     for (AsyncTask asyncTask : asyncTasks) {
                         if (asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
@@ -156,18 +158,32 @@ public class PermutationResults extends AppCompatActivity {
                 else{
                     if(donePermutation||!numOfFailsNeeded) {
                         Toast.makeText(PermutationResults.this, "No more possible Permutations.", Toast.LENGTH_SHORT).show();
-
                     }}
             }
         });
     }
 
+    /**
+     * Making sure that there is'nt any asynctasks running when the user presses back */
+    @Override
+    public void onBackPressed() {
+        for(AsyncTask asyncTask:asyncTasks){
+            asyncTask.cancel(true);
+        }
+        boolean cancel=true;
+        for(AsyncTask asyncTask:asyncTasks){
+            cancel=cancel&& asyncTask.isCancelled();
+        }
+        if(cancel) {
 
+            super.onBackPressed();
+        }
+    }
 
+    /** A class which runs on a seperate thread in parallel to the UI thread*/
     public class InfoLoader extends  AsyncTask<PermutationGenerator,String,ArrayList<Integer[]>>{
         @Override
         protected ArrayList<Integer[]> doInBackground(PermutationGenerator... permutationGenerators) {
-            System.out.println("Doing in Background");
             done=false;
             ArrayList<Integer[]> output=new ArrayList<>();
             PermutationGenerator pg=permutationGenerators[0];
@@ -175,7 +191,6 @@ public class PermutationResults extends AppCompatActivity {
             int n=0;
             while(n<fetch&& pg.hasNext()){
                 n++;
-
                 if(!isCancelled()&&(permutation=pg.next())!=null){
                     output.add(permutation);
                 }else{
@@ -185,6 +200,8 @@ public class PermutationResults extends AppCompatActivity {
             }
             return output;
         }
+
+
         @Override
         protected void onPostExecute( ArrayList<Integer[]> result) {
 
@@ -208,10 +225,6 @@ public class PermutationResults extends AppCompatActivity {
             if(fetch>31) {
                 Toast.makeText(PermutationResults.this, "Permutations Fetched!", Toast.LENGTH_SHORT).show();
             }
-
         }
-
     }
-
 }
-

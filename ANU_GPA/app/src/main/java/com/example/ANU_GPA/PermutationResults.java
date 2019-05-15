@@ -43,7 +43,6 @@ public class PermutationResults extends AppCompatActivity {
         final float cgpa=sharedPreferences.getFloat("cgpa",0);
         final int numTBTCourses=getIntent().getExtras().getInt("numOfTBTCourses");
         final float gpaWanted=getIntent().getExtras().getFloat("gpaWanted");
-        outerRelativeLayout=findViewById(R.id.outerRelativeLayout);
         numOfFailsNeeded= getIntent().getExtras().getBoolean("numOfFailsNeeded", false);
 
         /*Creating respective Permutation Object in accordance to the requirement */
@@ -64,10 +63,11 @@ public class PermutationResults extends AppCompatActivity {
         }
 
         /*Obtaining Needed View Objects*/
-        TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
+        outerRelativeLayout=findViewById(R.id.outerRelativeLayout);
         possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
-
-
+        TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
+        ScrollView innerScrollView = findViewById(R.id.innerScrollView);
+        innerScrollView.setSmoothScrollingEnabled(true);
 
         if(permutations.size()>0) {
             /*Setting the Heading Row And it's attributes*/
@@ -78,11 +78,9 @@ public class PermutationResults extends AppCompatActivity {
                 colTextView.setTextSize(25);
                 colTextView.setTextColor(Color.BLACK);
                 headingRow.addView(colTextView);
-
             }
             headingTableLayout.addView(headingRow);
             headingTableLayout.setStretchAllColumns(true);
-
 
             /*Adding values/rows to the table*/
             TextView valueTextView ;
@@ -117,8 +115,6 @@ public class PermutationResults extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        final ScrollView innerScrollView = findViewById(R.id.innerScrollView);
-        innerScrollView.setSmoothScrollingEnabled(true);
         done = true;
         donePermutation = false;
         if (numOfFailsNeeded) {

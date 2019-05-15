@@ -45,6 +45,8 @@ assignment is entirely my own work, with exceptions given below.
 
 I _Kalaiarasan Somasundaram_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
++ [Ideology of converting recursive function to iterative one](https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration)
++ [Idea of using Integer Partitioning](https://stackoverflow.com/questions/4146632/algorithm-to-generate-all-unique-permutations-of-fixed-length-integer-partitions)
 + [PermutationCalc Knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 + The suggestion given by Danny Feng (u6611178) to solve Client-Server Issue.
 
@@ -54,14 +56,13 @@ _add references from where you obtained the idea form the app and ideas about as
 
 ### Code
 _reference all the code or ideas for code from other sources_ 
-
-+ (IDEA FOR CODE)Server - Client problem solved by the suggestion given by Danny Feng(u6611178);
-  Suggestion:
-  1. Use a seprate thread for performing long operations such as network access
-    to prevent blocking UI thread.
++ [Ideology of converting recursive function to iterative one](https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration) 
++ [Idea of using Integer Partitioning](https://stackoverflow.com/questions/7331093/getting-all-possible-sums-that-add-up-to-a-given-number)
++ (IDEA FOR CODE)Server - Client problem solved by the suggestion given by Danny Feng(u6611178);Suggestion: <br>
+  1. Use a seperate thread for performing long operations such as network access
+     to prevent it  blocking UI/Main thread.
   2. Give permission for Network access.
- 
-+ [PermutationCalc Knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
++ [Code in PermutationCalc for knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 
 
 ### Assets 

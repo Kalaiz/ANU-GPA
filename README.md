@@ -46,7 +46,7 @@ assignment is entirely my own work, with exceptions given below.
 I _Kalaiarasan Somasundaram_ declare that everything I have submitted in this
 assignment is entirely my own work, with exceptions given below.
 + [Ideology of converting recursive function to iterative one](https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration)
-+ [Idea of using Integer Partitioning](https://stackoverflow.com/questions/4146632/algorithm-to-generate-all-unique-permutations-of-fixed-length-integer-partitions)
++ [Idea of using Integer Partitioning](https://stackoverflow.com/questions/7331093/getting-all-possible-sums-that-add-up-to-a-given-number)
 + [PermutationCalc Knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 + The suggestion given by Danny Feng (u6611178) to solve Client-Server Issue.
 

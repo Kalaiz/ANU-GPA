@@ -39,8 +39,9 @@ public class HistoryAdapter extends RecyclerView.Adapter {
             notes notes = notesList.get(i);
             findViewHolder.textView.setText(notes.getNumber_of_courses_done_value());
             findViewHolder.textView.setText(notes.getCurrent_GPA_value());
-            findViewHolder.textView.setText(notes.getGPA_want_to_achieve_value());
-            findViewHolder.textView.setText(notes.getCourses_left_value());
+            findViewHolder.textView.setText(notes.getCurrentPoints());
+            findViewHolder.textView.setText(notes.getGrades());
+            findViewHolder.textView.setText(notes.getTitle());
 
         }
 

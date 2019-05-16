@@ -19,8 +19,9 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
     private static String ID = "id";
     private static String Number_Of_Courses_done_value = "course_done";
     private static String Current_GPA_value = "current_gpa";
-    private static String GPA_wanted_to_achieve_value = "gpa_wanted_to_achieve";
-    private static String Courses_left_value = "courses_left";
+    private static String Current_Points = "current_points";
+    private static String Grades = "grades";
+    private static String Title = "title";
 
 
     public HistoryDbHelper(Context context) {
@@ -36,8 +37,9 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
                 + ID + " INTEGER PRIMARY KEY,"
                 + Number_Of_Courses_done_value + " TEXT,"
                 + Current_GPA_value + " TEXT,"
-                + GPA_wanted_to_achieve_value + " TEXT,"
-                + Courses_left_value + " TEXT"
+                + Current_Points + " TEXT,"
+                + Grades + " TEXT,"
+                + Title + " TEXT"
                 //This line is correct
                 + ");";
 
@@ -63,8 +65,9 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Number_Of_Courses_done_value, note.getNumber_of_courses_done_value());
         values.put(Current_GPA_value, note.getCurrent_GPA_value());
-        values.put(GPA_wanted_to_achieve_value, note.getGPA_want_to_achieve_value());
-        values.put(Courses_left_value, note.getCourses_left_value());
+        values.put(Current_Points, note.getCurrentPoints());
+        values.put(Grades, note.getGrades());
+        values.put(Title, note.getTitle());
 
         System.out.println("------values added are------ " + values);
         // Inserting Row
@@ -79,8 +82,10 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Number_Of_Courses_done_value, note.getNumber_of_courses_done_value());
         values.put(Current_GPA_value, note.getCurrent_GPA_value());
-        values.put(GPA_wanted_to_achieve_value, note.getGPA_want_to_achieve_value());
-        values.put(Courses_left_value, note.getCourses_left_value());
+        values.put(Current_Points, note.getCurrentPoints());
+        values.put(Grades, note.getGrades());
+        values.put(Title, note.getTitle());
+
 
         System.out.println("------values added are------ " + values);
         // Inserting Row
@@ -105,8 +110,8 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
                 notes notes2 = new notes();
                 notes2.setNumber_of_courses_done_value(cursor.getString(1));
                 notes2.setCurrent_GPA_value(cursor.getString(2));
-                notes2.setGPA_want_to_achieve_value(cursor.getString(3));
-                notes2.setCourses_left_value(cursor.getString(4));
+                notes2.setCurrentPoints(cursor.getString(3));
+                notes2.setGrades(cursor.getString(4));
                 notes1.add(notes2);
             } while (cursor.moveToNext());
         }
@@ -127,8 +132,8 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
             do {
                 notes3.setNumber_of_courses_done_value(cursor.getString(1));
                 notes3.setCurrent_GPA_value(cursor.getString(2));
-                notes3.setGPA_want_to_achieve_value(cursor.getString(3));
-                notes3.setCourses_left_value(cursor.getString(4));
+                notes3.setCurrentPoints(cursor.getString(3));
+                notes3.setGrades(cursor.getString(4));
 
             } while (cursor.moveToNext());
         }
@@ -160,8 +165,8 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         for(int i=0; i< allNotes.size();i++){
             getallnotes.add(allNotes.get(i).getNumber_of_courses_done_value());
             getallnotes.add(allNotes.get(i).getCurrent_GPA_value());
-            getallnotes.add(allNotes.get(i).getGPA_want_to_achieve_value());
-            getallnotes.add(allNotes.get(i).getCourses_left_value());
+            getallnotes.add(allNotes.get(i).getCurrentPoints());
+            getallnotes.add(allNotes.get(i).getGrades());
         }
 
         return getallnotes;

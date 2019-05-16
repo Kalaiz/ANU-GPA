@@ -1,5 +1,8 @@
 package com.example.ANU_GPA;
 
+import android.content.Context;
+import android.content.Intent;
+import java.util.Arrays;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -57,6 +60,7 @@ public class GPACalc extends AppCompatActivity {
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
                 result.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
+                editor.putString("grades", Arrays.toString(nGrades));
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.putInt("currentPoints", gpa.currentPoints);
                 editor.putBoolean("HasValues", true);

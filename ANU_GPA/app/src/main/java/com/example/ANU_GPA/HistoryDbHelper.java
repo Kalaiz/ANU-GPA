@@ -16,7 +16,6 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
     private static int DATABASEVERSION = 1;
     private static String DATABASENAME = "notes.db";
     private static String TABLENAME = "notes";
-
     private static String ID = "id";
     private static String Number_Of_Courses_done_value = "course_done";
     private static String Current_GPA_value = "current_gpa";
@@ -56,6 +55,8 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
 
     // Adding new customer
     public void insertUser(notes note) {
+        //TODO Check whether there exist an database
+        //  if  there does not exist one create one else use the existing one
         SQLiteDatabase db = this.getWritableDatabase();
 
 
@@ -75,8 +76,6 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
 
     public void getUser(notes note){
         SQLiteDatabase db = this.getWritableDatabase();
-
-
         ContentValues values = new ContentValues();
         values.put(Number_Of_Courses_done_value, note.getNumber_of_courses_done_value());
         values.put(Current_GPA_value, note.getCurrent_GPA_value());

@@ -12,19 +12,32 @@ import android.view.View;
 import java.util.HashMap;
 
 
-/*Authorship: Kalai(u6555407)*/
+/**
+ * A class which does a zoom in zoom out effect on any View objects.
+ * @author: Kalai (u6555407)*/
 
 public  class ScaleEffect  <T extends View>{
 
     private int duration=2000;
     T[] viewObjects;
-    boolean animationEnd=false;
+    static boolean animationEnd;
 
+    void initialise(){
+        animationEnd=false;
+    }
 
+    /*Constructor for multiple View objects*/
     ScaleEffect(T [] viewObjects){
         this.viewObjects =viewObjects;
     }
 
+    /*Constructor for a single View object(For extensibility)*/
+    ScaleEffect(T element){
+        AnimatorSet effect=scaleEffect(element);
+        runEffect(element);
+    }
+
+    /*Starts the animation for a group of View objects with a given latency form each object*/
     void startAnimation(){
         for(int i=0;i<viewObjects.length;i++ ) {
             final T val = viewObjects[i];
@@ -33,15 +46,16 @@ public  class ScaleEffect  <T extends View>{
                 public void run() {
                     runEffect(val);
                 }
-            }, (i) * 1000);
-
-    }
+            }, (i) * 1000); }
     }
 
+    /*Setter method for ending the animation indirectly.*/
     public void setAnimationEnd(boolean animationEnd) {
         this.animationEnd = animationEnd;
     }
 
+    /**Initiates an animation for the input View object.
+     *@param val The view object  */
     void runEffect(T val){
         final AnimatorSet effect =scaleEffect(val);
         effect.start();
@@ -57,28 +71,22 @@ public  class ScaleEffect  <T extends View>{
     }
 
 
-    ScaleEffect(T element){
-        AnimatorSet effect=scaleEffect(element);
-        runEffect(element);
-    }
-
-
-
-    public AnimatorSet scaleEffect(T viewElement){
+    /**
+     * Combines property aniations into sets and apply it to the View object*/
+    public AnimatorSet scaleEffect(T viewObject){
         AnimatorSet scaleIn =new AnimatorSet();
         AnimatorSet scaleOut=new AnimatorSet();
         final AnimatorSet effect=new AnimatorSet();
-        ObjectAnimator scaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 0.95f);
-        ObjectAnimator scaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 0.95f);
-        ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(viewElement, "scaleX", 1);
-        ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(viewElement, "scaleY", 1);
-
+        ObjectAnimator scaleX= ObjectAnimator.ofFloat(viewObject, "scaleX", 0.95f);
+        ObjectAnimator scaleY= ObjectAnimator.ofFloat(viewObject, "scaleY", 0.95f);
+        ObjectAnimator originalScaleX= ObjectAnimator.ofFloat(viewObject, "scaleX", 1);
+        ObjectAnimator originalScaleY= ObjectAnimator.ofFloat(viewObject, "scaleY", 1);
         scaleIn.setDuration(duration);
         scaleOut.setDuration(duration);
         scaleIn.playTogether(scaleX,scaleY);
         scaleOut.playTogether(originalScaleX,originalScaleY);
         effect.playSequentially(scaleIn,scaleOut);
-     return effect;
+        return effect;
     }
 
     void setDuration(int duration){

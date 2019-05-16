@@ -1,30 +1,34 @@
 package com.example.ANU_GPA;
 
-import java.util.ArrayList;
-
 import java.util.Stack;
 
+/**A class which give permutations based on the input attributes of the user in a python-yield style.
+ * @author Kalai (u6555407) */
 public class PermutationGenerator extends Permutation {
 
-      /*trackers will act like a storage which tracks the number of grades whose
-          value will be used accordance to the sequence of calculating a permutation*/
-                   //Fs,HDs,Ds,CRs
+     /*trackers will act like a storage which tracks the number of grades whose
+     value will be used in accordance to the sequence of calculating a permutation
+     Fs,HDs,Ds,CRs*/
     static int[] trackers;
     static Stack<Integer> stack ;
     Grades[] grades=Grades.values();
     static int sumOfStack;
 
+    /*Initialise the value only once, to avoid initialising values unnecessarily*/
     void initialise(){
         trackers=new int[]{1,0,0,0};
         sumOfStack=0;
         stack=new Stack<>();
     }
 
+    /**Primary constructor*/
     PermutationGenerator(float cgpa, int coursesDone, int totalCourses,float gpaWanted){
         super(cgpa,  coursesDone, totalCourses, gpaWanted);
     }
 
-
+   /**
+    * When called it will produce the next possible permutation if it is available.
+    * @return a permutation based on  the class variables mentioned above*/
     Integer[] next(){
         int size;
         int val;
@@ -39,7 +43,7 @@ public class PermutationGenerator extends Permutation {
                                      +stack.get(3)+stack.get(4);
                         if (val>=0&&calcTCourses-numOfFails==numOfTBTCourses+numOfFails
                                 &&calculateGPA(calcTCourses)==gpaWanted) {
-                           Integer[] output= (stack.toArray(new Integer[5])); //converting it to an array for these sake of the test
+                           Integer[] output= (stack.toArray(new Integer[5]));
                         stack.pop();
                         sumOfStack-=stack.pop();
                         return output; }
@@ -64,6 +68,9 @@ public class PermutationGenerator extends Permutation {
     return null;
     }
 
+    /**
+     * Calculates the gpa based on the class variables and current number of totalCourses counted in next().
+     * @param calcTCourses the total number of courses being calculated at a certain point of execution in next()*/
     float calculateGPA(int calcTCourses){
         float gpa=0;
         //Calculating Points
@@ -73,16 +80,9 @@ public class PermutationGenerator extends Permutation {
         return ((gpa/calcTCourses)*100)/100;
     }
 
+    /**Identifies whether there exist another possible permutation */
     boolean hasNext(){
-        /*Max number; of Fails can be totalCourses + 2.
-         totalCourses in context the number of actual of courses they are supposed to do.*/
         return super.validData && trackers[0]<numOfTBTCourses+3;
     }
-
-    ArrayList<Integer[]> integerPartitioning(){
-        return super.getPermutation();
-    }
-
-
 
 }

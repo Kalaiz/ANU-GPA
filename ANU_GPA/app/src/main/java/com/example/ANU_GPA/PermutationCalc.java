@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import java.util.Map;
 
-/*Authorship:Kalai(u6555407)*/
+/**
+ * Activity for calculating possible permutation based on the user's inputs.
+ * @authors: Kalai(u6555407)*/
 public class PermutationCalc extends AppCompatActivity {
-    // Below two variables are for knowButton.
+
     boolean mEntryButtonClicked = false;
     int visibility = View.VISIBLE;
 
@@ -80,10 +82,13 @@ public class PermutationCalc extends AppCompatActivity {
         final Button reCalculateButton = findViewById(R.id.reCalculateButton);
         final Button submitButton = findViewById(R.id.submitButton);
         final ScrollView scrollView = findViewById(R.id.scrollView);
-        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         final Switch numOfFailsNeededSwitch=findViewById(R.id.numOfFailsNeededSwitch);
+
+        /*SharedPreference initialisation*/
+        final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
         localDataTextView.setText(localDataStatus(new String[]{"CGPA","Number of taken courses"},
                 new String[]{"cgpa","numOfTCourses"},sharedPreferences));
 
@@ -136,7 +141,6 @@ public class PermutationCalc extends AppCompatActivity {
                     }
                 }, 100);
 
-
                 gpaWantedEditText.setImeOptions(imegpaWanted);
                 manualEntryButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
                 submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
@@ -146,7 +150,7 @@ public class PermutationCalc extends AppCompatActivity {
                 //reCalculateButton will disappear when the user knows his/her cgpa.
                 reCalculateButton.animate().alpha(alpha).setDuration(750);
 
-                //enable user interacting when animation is done.
+                //enable user interacting when animation is most probably done.
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -160,8 +164,6 @@ public class PermutationCalc extends AppCompatActivity {
                 cgpaTextView.setVisibility(visibility);
                 cgpaEditText.setVisibility(visibility);
                 scrollView.smoothScrollTo(0,scroll);
-
-
             }
         });
 
@@ -197,6 +199,8 @@ public class PermutationCalc extends AppCompatActivity {
                                             .getText().toString());
                      gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText))
                                      .getText().toString());
+
+                     //Preventing user from giving unreasonable inputs
                     if(numOfTBTCourses>80|gpaWanted>7|cgpa>7|numOfTCourses>80){
                         throw new NumberFormatException();
                     }
@@ -205,7 +209,7 @@ public class PermutationCalc extends AppCompatActivity {
                     Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_SHORT).show();
                 }
                 if(errorFree){
-                    Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                     intent.putExtra("numOfTBTCourses",numOfTBTCourses);
                     intent.putExtra("gpaWanted",gpaWanted);
@@ -217,7 +221,7 @@ public class PermutationCalc extends AppCompatActivity {
 
     }
 
-    /*Once An Inner activity is closed & given that this is the parent activity of the inner activity
+    /*Once an Inner activity is closed & given that this is the parent activity of the inner activity
     Update the display for the LocalData*/
     protected void onResume() {
         super.onResume();

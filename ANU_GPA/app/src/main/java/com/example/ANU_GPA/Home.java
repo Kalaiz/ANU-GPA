@@ -8,16 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-/*Authorship:Prateek Arora (u6742441)*/
+/**@author: Prateek Arora (u6742441)*/
 
 public class Home extends AppCompatActivity {
     SharedPreferences dataSharedPreferences;
     ScaleEffect scaleEffect;
-
+    boolean animationRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         final LinearLayout gpaCalcLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
@@ -26,10 +25,10 @@ public class Home extends AppCompatActivity {
         dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout, permutationLinearLayout, settingsLinearLayout};
-
         scaleEffect= new ScaleEffect(arr);
-
-
+        if(animationRunning=dataSharedPreferences.getBoolean("animation",true)){
+            scaleEffect.startAnimation();
+        }
 
         gpaCalcLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,19 +58,25 @@ public class Home extends AppCompatActivity {
 
 
     /*Once An Inner activity is closed & given that this is the parent activity of the inner activity
-Update the Animation*/
+     update the Animation*/
     public void onResume() {
         super.onResume();
         dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-        if(dataSharedPreferences.getBoolean("animation",true)) {
-            if(scaleEffect.animationEnd) {
-                scaleEffect.setAnimationEnd(false);
+        if(dataSharedPreferences.getBoolean("animation",true)){
+            if(!animationRunning){
                 scaleEffect.startAnimation();
+                animationRunning=true;
             }
         }
         else{
-            scaleEffect.setAnimationEnd(true);
+            if(animationRunning){
+                scaleEffect.setAnimationEnd(true);
+                animationRunning=false;
+            }
         }
     }
 
+
 }
+
+

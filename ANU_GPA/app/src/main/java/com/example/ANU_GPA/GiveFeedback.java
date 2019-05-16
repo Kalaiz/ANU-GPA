@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-/*Authorship:
-Base:Prateek Arora (u6742441)
-Client-Server: Kalai (u6555407)*/
+/**@author (s)
+ *  Base:Prateek Arora (u6742441)
+ *  Client-Server: Kalai (u6555407)**/
 
 
 public class GiveFeedback extends AppCompatActivity {

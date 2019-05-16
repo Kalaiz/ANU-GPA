@@ -13,7 +13,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*Authorship:Kalai(u6555407)*/
+/**
+ *An activity which calculates the GPA.
+ * @author: Kalai(u6555407)*/
 
 public class GPACalc extends AppCompatActivity {
     @Override
@@ -50,7 +52,6 @@ public class GPACalc extends AppCompatActivity {
                         nGrades[i]=0;
                     }
                 }
-
                 if(error)
                 {Toast.makeText(GPACalc.this, "Note:Your are neglecting some attributes;" +
                         "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();}

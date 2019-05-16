@@ -10,11 +10,11 @@ import android.widget.TextView;
 import android.hardware.fingerprint.FingerprintManager;
 
 
-/*Authorship Prateek Arora (u6742441) and Kalai (u6555407)*/
+/**@authors:
+ *  Prateek Arora - rest of the class (u6742441)
+ *  jared - password sharedpreference*/
 
 public class MainActivity extends AppCompatActivity {
-
-    /*Authorship of password sharedpreference, jared graf*/
 
     private static int Time_Out = 4000;
     @Override
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView anuTextView=findViewById(R.id.anuTextView);
         final TextView  gpaTextView=findViewById(R.id.gpaTextView);
         ScaleEffect scaleEffect=new ScaleEffect(new TextView[]{anuTextView,gpaTextView});
+        scaleEffect.initialise();
         scaleEffect.startAnimation();
         scaleEffect.setDuration(750);
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);

@@ -2,10 +2,12 @@ package com.example.ANU_GPA;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.hardware.fingerprint.FingerprintManager;
 
 
 /*Authorship Prateek Arora (u6742441) and Kalai (u6555407)*/

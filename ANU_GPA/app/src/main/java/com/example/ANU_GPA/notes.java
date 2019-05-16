@@ -4,8 +4,9 @@ public class notes {
 
     private String Number_of_courses_done_value ;
     private String Current_GPA_value;
-    private String GPA_want_to_achieve_value;
-    private String Courses_left_value;
+    private String currentPoints;
+    private String grades;
+    private String title;
 
     public String getNumber_of_courses_done_value() {
         return Number_of_courses_done_value;
@@ -23,19 +24,27 @@ public class notes {
         Current_GPA_value = current_GPA_value;
     }
 
-    public String getGPA_want_to_achieve_value() {
-        return GPA_want_to_achieve_value;
+    public String getTitle() {
+        return title;
     }
 
-    public void setGPA_want_to_achieve_value(String GPA_want_to_achieve_value) {
-        this.GPA_want_to_achieve_value = GPA_want_to_achieve_value;
+    public void setTitle(String titleInput) {
+        title = titleInput;
     }
 
-    public String getCourses_left_value() {
-        return Courses_left_value;
+    public String getCurrentPoints() {
+        return currentPoints;
     }
 
-    public void setCourses_left_value(String courses_left_value) {
-        Courses_left_value = courses_left_value;
+    public void setCurrentPoints(String currentPoints) {
+        this.currentPoints = currentPoints;
+    }
+
+    public String getGrades() {
+        return grades;
+    }
+
+    public void setGrades(String grades) {
+        this.grades = grades;
     }
 }

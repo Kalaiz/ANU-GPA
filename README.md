@@ -11,7 +11,7 @@
 _Our user friendly app is for the ANU college going student who can not only calculate his/her GPA but can also write the desired_
 _GPA and can print the result of how much he or she has to get in the each subjects left to acquire the desired GPA. Our app motive is_
 _to make easier student life easier by calculating the GPA and can help him getting his desired GPA fulfilled. So, we also have_
-_settings in our app in which user can not only give the feedback fo the app but also can see his history and moreover, he or she_
+_settings in our app in which user can not only give the feedback for the app but also can see his history and moreover, he or she_
 _can update his or her GPA. For privacy purposes, he or she can lock his/her app using password button. This gives the overview_
 _of our app._
 

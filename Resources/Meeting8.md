@@ -1,6 +1,6 @@
 ### Meeting 7 (19/4/19) : Major Revamps ,Client-server issue & Authorships.
 
-####Summary 
+#### Summary 
 - Kalai found out that the Score system was unecessary as the function gives a sorted output.Hence, the idea will be dropped.
 - Prateek & Kalai decided to take authorship of which veer code they have typed and reference them if needed so.
 

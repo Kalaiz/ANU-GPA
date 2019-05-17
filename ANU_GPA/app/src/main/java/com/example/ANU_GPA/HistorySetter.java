@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 
@@ -19,9 +20,12 @@ public class HistorySetter extends AppCompatActivity {
         setContentView(R.layout.activity_history_setter);
         final EditText name = findViewById(R.id.name);
         final Button addButton = findViewById(R.id.addButton);
+        final ListView listView = findViewById(R.id.lister);
         final HistoryDbHelper help = new HistoryDbHelper(HistorySetter.this);
         ArrayList<notes> noteList = help.getAllNotes();
         //need to make a function to add all notes to the activity
+        HistoryAdapter adapter = new HistoryAdapter(this, noteList);
+        listView.setAdapter(adapter);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +46,7 @@ public class HistorySetter extends AppCompatActivity {
                     note.setNumber_of_courses_done_value(numOfTCourses+"");
                     help.insertUser(note);
                     //update the activity. maybe refresh/close and reopen activity, to update the arraylist
+
                 }
             }
         });

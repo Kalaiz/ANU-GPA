@@ -71,4 +71,5 @@ _add references from where you obtained the idea form the app and ideas about as
 
 ### Assets 
 
-_this includes images, sounds, etc._
+_Lottie animations provided by airbnb is being used this app which is implemented by Prateek(Refernce for lottie code and json is in the app code)._
+_Scale effect done by kalai is also being used for the text animation._

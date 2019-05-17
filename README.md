@@ -8,7 +8,7 @@
 
 ## App Overview 
 
-_Add a paragraph the gives a summary of the app you implemented. Include a small screen shot here._
+_Our user friendly app is for the ANU college going student who can not only calculate his/her GPA but can also write the desired GPA and can get the result of how ._
 
 ## Design Documentation 
 + [Design Summary](../Resources/DesignSummary.md)

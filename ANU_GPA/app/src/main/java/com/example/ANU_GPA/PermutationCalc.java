@@ -75,7 +75,7 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView cgpaTextView =findViewById(R.id.cgpaTextView);
         final EditText cgpaEditText= findViewById(R.id.cgpaEditText);
         final EditText numOfCourseTBTEditText=findViewById(R.id.numOfTBTCourseEditText);
-        final EditText gpaWantedEditText= findViewById(R.id.gpaWantedEditText);
+        final EditText gpaWantedEditText= findViewById(R.id.sNumberOfCoursesEditText);
         final TextView numOfCourseDoneTextView =  findViewById(R.id.numOfCourseDoneTextView);
         final EditText numOfCourseDoneEditText= findViewById(R.id.numOfCourseDoneEditText);
         final Button manualEntryButton = findViewById(R.id.manualEntryButton);
@@ -197,7 +197,7 @@ public class PermutationCalc extends AppCompatActivity {
                     }
                      numOfTBTCourses = Integer.parseInt(((EditText) findViewById(R.id.numOfTBTCourseEditText))
                                             .getText().toString());
-                     gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.gpaWantedEditText))
+                     gpaWanted = Float.parseFloat(((EditText) findViewById(R.id.sNumberOfCoursesEditText))
                                      .getText().toString());
 
                      //Preventing user from giving unreasonable inputs

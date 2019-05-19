@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".FontSize"/>
-        <activity android:name=".HistorySetter"/>
         <activity android:name=".Password"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".PasswordEntry" />
         <activity android:name=".PasswordSet" />
         <activity android:name=".About" />
+        <activity android:name=".Storage"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".FeedbackThanks" />
         <activity android:name=".Settings" />
         <activity android:name=".GiveFeedback"

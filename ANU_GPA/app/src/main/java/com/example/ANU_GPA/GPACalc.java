@@ -1,8 +1,5 @@
 package com.example.ANU_GPA;
 
-import android.content.Context;
-import android.content.Intent;
-import java.util.Arrays;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +28,7 @@ public class GPACalc extends AppCompatActivity {
         final EditText f =  findViewById(R.id.fEditText);
         final ScrollView scrollView = findViewById(R.id.scrollView);
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
-        if(sharedPreferences.getBoolean("HasValues", false)){
+        if(sharedPreferences.getBoolean("hasValues", false)){
             findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
             result.setText(sharedPreferences.getFloat("cgpa", 0) +"");
             result.setVisibility(View.VISIBLE);
@@ -60,10 +57,8 @@ public class GPACalc extends AppCompatActivity {
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
                 result.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
-                editor.putString("grades", Arrays.toString(nGrades));
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
-                editor.putInt("currentPoints", gpa.currentPoints);
-                editor.putBoolean("HasValues", true);
+                editor.putBoolean("hasValues", true);
                 editor.apply();
                 result.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();

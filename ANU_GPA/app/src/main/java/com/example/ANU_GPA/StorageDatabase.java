@@ -11,10 +11,10 @@ import java.util.ArrayList;
 /*Authorship Prateek Arora (u6742441)*/
 
 
-public class HistoryDbHelper extends SQLiteOpenHelper {
+public class StorageDatabase extends SQLiteOpenHelper {
 
     private static int DATABASEVERSION = 1;
-    private static String DATABASENAME = "notes.db";
+    private static String DATABASENAME = "StorageData.db";
     private static String TABLENAME = "notes";
     private static String ID = "id";
     private static String Number_Of_Courses_done_value = "course_done";
@@ -24,7 +24,7 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
     private static String Title = "title";
 
 
-    public HistoryDbHelper(Context context) {
+    public StorageDatabase(Context context) {
         super(context, DATABASENAME, null, DATABASEVERSION);
         // TODO Auto-generated constructor stub
     }
@@ -56,18 +56,18 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
     }
 
     // Adding new customer
-    public void insertUser(notes note) {
+    public void insertUser(StorageData note) {
         //TODO Check whether there exist an database
         //  if  there does not exist one create one else use the existing one
         SQLiteDatabase db = this.getWritableDatabase();
 
 
         ContentValues values = new ContentValues();
-        values.put(Number_Of_Courses_done_value, note.getNumber_of_courses_done_value());
-        values.put(Current_GPA_value, note.getCurrent_GPA_value());
-        values.put(Current_Points, note.getCurrentPoints());
-        values.put(Grades, note.getGrades());
-        values.put(Title, note.getTitle());
+        values.put(Number_Of_Courses_done_value, note.getNumOfCoursesDone());
+        values.put(Current_GPA_value, note.getCgpa());
+        values.put(Current_Points, note.getGpaWanted());
+        values.put(Grades, note.getNumOfCoursesTBT());
+
 
         System.out.println("------values added are------ " + values);
         // Inserting Row
@@ -77,14 +77,14 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    public void getUser(notes note){
+    public void getUser(StorageData note){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Number_Of_Courses_done_value, note.getNumber_of_courses_done_value());
-        values.put(Current_GPA_value, note.getCurrent_GPA_value());
-        values.put(Current_Points, note.getCurrentPoints());
-        values.put(Grades, note.getGrades());
-        values.put(Title, note.getTitle());
+        values.put(Number_Of_Courses_done_value, note.getNumOfCoursesDone());
+        values.put(Current_GPA_value, note.getCgpa());
+        values.put(Current_Points, note.getGpaWanted());
+        values.put(Grades, note.getNumOfCoursesTBT());
+
 
 
         System.out.println("------values added are------ " + values);
@@ -95,9 +95,9 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    public ArrayList<notes> getAllNotes() {
+    public ArrayList<StorageData> getAllNotes() {
 
-        ArrayList<notes> notes1 = new ArrayList<>();
+        ArrayList<StorageData> storageData1 = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLENAME;
 
@@ -107,37 +107,37 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                notes notes2 = new notes();
-                notes2.setNumber_of_courses_done_value(cursor.getString(1));
-                notes2.setCurrent_GPA_value(cursor.getString(2));
-                notes2.setCurrentPoints(cursor.getString(3));
-                notes2.setGrades(cursor.getString(4));
-                notes1.add(notes2);
+                StorageData storageData2 = new StorageData();
+                storageData2.setNumOfCoursesDone(cursor.getString(1));
+                storageData2.setCgpa(cursor.getString(2));
+                storageData2.setGpaWanted(cursor.getString(3));
+                storageData2.setNumOfCoursesTBT(cursor.getString(4));
+                storageData1.add(storageData2);
             } while (cursor.moveToNext());
         }
-        return notes1;
+        return storageData1;
     }
 
-    public notes getUsersByName(notes not) {
+    public StorageData getUsersByName(StorageData not) {
 
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLENAME + "  where username= " + not.getNumber_of_courses_done_value();
+        String selectQuery = "SELECT  * FROM " + TABLENAME + "  where username= " + not.getNumOfCoursesDone();
         // Should find a variable for username that is unique
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        notes notes3 = new notes();
+        StorageData storageData3 = new StorageData();
         if (cursor.moveToFirst()) {
             do {
-                notes3.setNumber_of_courses_done_value(cursor.getString(1));
-                notes3.setCurrent_GPA_value(cursor.getString(2));
-                notes3.setCurrentPoints(cursor.getString(3));
-                notes3.setGrades(cursor.getString(4));
+                storageData3.setNumOfCoursesDone(cursor.getString(1));
+                storageData3.setCgpa(cursor.getString(2));
+                storageData3.setGpaWanted(cursor.getString(3));
+                storageData3.setNumOfCoursesTBT(cursor.getString(4));
 
             } while (cursor.moveToNext());
         }
-        return notes3;
+        return storageData3;
     }
 
     public boolean Is_Avaliable(String username) {
@@ -160,13 +160,13 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
 
     public ArrayList<String> GetAllUsers(){
         ArrayList<String> getallnotes = new ArrayList<>();
-        ArrayList<notes> allNotes = this.getAllNotes();
+        ArrayList<StorageData> allNotes = this.getAllNotes();
 
         for(int i=0; i< allNotes.size();i++){
-            getallnotes.add(allNotes.get(i).getNumber_of_courses_done_value());
-            getallnotes.add(allNotes.get(i).getCurrent_GPA_value());
-            getallnotes.add(allNotes.get(i).getCurrentPoints());
-            getallnotes.add(allNotes.get(i).getGrades());
+            getallnotes.add(allNotes.get(i).getNumOfCoursesDone());
+            getallnotes.add(allNotes.get(i).getCgpa());
+            getallnotes.add(allNotes.get(i).getGpaWanted());
+            getallnotes.add(allNotes.get(i).getNumOfCoursesTBT());
         }
 
         return getallnotes;

@@ -18,6 +18,8 @@
         <activity android:name=".PasswordEntry" />
         <activity android:name=".PasswordSet" />
         <activity android:name=".About" />
+        <activity android:name=".Storage"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".FeedbackThanks" />
         <activity android:name=".Settings" />
         <activity android:name=".GiveFeedback"

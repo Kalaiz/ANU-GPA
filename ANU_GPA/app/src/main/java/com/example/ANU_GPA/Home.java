@@ -22,6 +22,7 @@ public class Home extends AppCompatActivity {
         final LinearLayout gpaCalcLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
         final LinearLayout permutationLinearLayout = findViewById(R.id.permutationLinearLayout);
         final LinearLayout settingsLinearLayout = findViewById(R.id.settingsLinearLayout);
+        final LinearLayout storageLinearLayout = findViewById(R.id.storageLinearLayout);
         dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         //For extensibility
         final LinearLayout[] arr = new LinearLayout[]{gpaCalcLinearLayout, permutationLinearLayout, settingsLinearLayout};
@@ -50,6 +51,14 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
+        storageLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Storage.class);
                 startActivity(intent);
             }
         });

@@ -23,7 +23,7 @@
         android:layout_toRightOf="@id/numberOfCoursesDoneDisplayTextView"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:id="@+id/history_number_of_courses_done_value"/>
+        android:id="@+id/numberOfCoursesDoneTextView"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         android:id="@+id/currentGPATextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/history_number_of_courses_done_value"
+        android:layout_below="@id/numberOfCoursesDoneTextView"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/currentGPADisplayTextView" />
@@ -69,14 +69,14 @@
         android:layout_marginLeft="10dp"
         android:layout_below="@id/gpaWantedDisplayTextView"
         android:layout_marginTop="5dp"
-        android:id="@+id/history_courses_left"/>
+        android:id="@+id/numberOfCourseLeftDisplayTextView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/history_courses_left"
+        android:layout_toRightOf="@id/numberOfCourseLeftDisplayTextView"
         android:layout_marginLeft="10dp"
-        android:id="@+id/history_courses_left_value"
+        android:id="@+id/numberOfCourseLeftTextView"
         android:layout_below="@id/gpaWantedTextView"
         android:layout_marginTop="5dp"/>
 

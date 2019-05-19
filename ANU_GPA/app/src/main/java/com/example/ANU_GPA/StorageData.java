@@ -1,6 +1,6 @@
 package com.example.ANU_GPA;
 
-public class notes {
+public class StorageData {
 
     private String Number_of_courses_done_value ;
     private String Current_GPA_value;

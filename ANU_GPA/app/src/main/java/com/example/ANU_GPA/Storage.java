@@ -2,20 +2,19 @@ package com.example.ANU_GPA;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 /*Authorship Prateek Arora (u6742441)*/
 
 
-public class History extends AppCompatActivity {
+public class Storage extends AppCompatActivity {
 
-    HistoryDbHelper historyDbHelper;
+    StorageDatabase storageDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_storage);
 
 
 
@@ -27,7 +26,7 @@ public class History extends AppCompatActivity {
         TextView textView6 = (TextView) findViewById(R.id.gpaWantedTextView);
         TextView textView7 = (TextView) findViewById(R.id.history_courses_left);
         TextView textView8 = (TextView) findViewById(R.id.history_courses_left_value);
-        historyDbHelper = new HistoryDbHelper(this);
+        storageDatabase = new StorageDatabase(this);
         //TableLayout tableLayout =  (TableLayout) findViewById(R.id.history_table);
     }
 

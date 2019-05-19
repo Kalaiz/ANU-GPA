@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".FontSize"/>
-        <activity android:name=".HistorySetter"/>
         <activity android:name=".Password"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".PasswordEntry" />

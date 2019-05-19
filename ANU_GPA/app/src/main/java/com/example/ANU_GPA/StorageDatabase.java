@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /*Authorship Prateek Arora (u6742441)*/
 
 
-public class HistoryDbHelper extends SQLiteOpenHelper {
+public class StorageDatabase extends SQLiteOpenHelper {
 
     private static int DATABASEVERSION = 1;
     private static String DATABASENAME = "notes.db";
@@ -24,7 +24,7 @@ public class HistoryDbHelper extends SQLiteOpenHelper {
     private static String Title = "title";
 
 
-    public HistoryDbHelper(Context context) {
+    public StorageDatabase(Context context) {
         super(context, DATABASENAME, null, DATABASEVERSION);
         // TODO Auto-generated constructor stub
     }

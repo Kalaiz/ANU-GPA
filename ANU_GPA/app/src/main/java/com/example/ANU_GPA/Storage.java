@@ -52,13 +52,14 @@ return valid;
         final EditText[] data={numberOfCoursesDoneEditText,currentGPAEditText,gpaWantedEditText,coursesLeftEditText};
         Button addButton=findViewById(R.id.addButton);
 
-
+        Toast.makeText(this,"Scroll for more.",Toast.LENGTH_SHORT).show();
 
         final int[] resources={R.id.sNumOfCoursesDoneEditText,R.id.sCurrentGPAEditText,R.id.sNumberOfCoursesEditText,R.id.sGPAWantedEditText};
         SharedPreferences sharedPreferences= getSharedPreferences("com.example.ANU_GPA.Data",MODE_PRIVATE);
         boolean hasValues=sharedPreferences.getBoolean("hasValues",false);
         float cgpa=sharedPreferences.getFloat("cgpa",0);
         int numOfTCourses=sharedPreferences.getInt("numOfTCourses",0);
+
         if(hasValues){
             currentGPAEditText.setText(Float.toString(cgpa));
             numberOfCoursesDoneEditText.setText(Integer.toString(numOfTCourses));

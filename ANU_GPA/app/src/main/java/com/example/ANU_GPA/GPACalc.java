@@ -10,6 +10,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 /**
  *An activity which calculates the GPA.
  * @author: Kalai(u6555407)*/
@@ -57,8 +59,10 @@ public class GPACalc extends AppCompatActivity {
                 findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
                 result.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
+                editor.putString("grades", Arrays.toString(nGrades));
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
-                editor.putBoolean("hasValues", true);
+                editor.putInt("currentPoints", gpa.currentPoints);
+                editor.putBoolean("HasValues", true);
                 editor.apply();
                 result.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();

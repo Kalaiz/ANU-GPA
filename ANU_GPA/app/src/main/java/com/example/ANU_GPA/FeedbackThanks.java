@@ -19,7 +19,7 @@ public class FeedbackThanks extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, Time_Out);
+        }, Time_Out); /** Halts for 3.3 seconds and then goes to the previous screen*/
 
     }
 }

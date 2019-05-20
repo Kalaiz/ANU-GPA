@@ -23,7 +23,6 @@ public class GiveFeedback extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_give_feedback);
-
         final EditText feedbackEditText=(EditText) findViewById(R.id.feedbackEditText);
         final RatingBar ratingBar=(RatingBar) findViewById(R.id.ratingBar);
         Button submitButton = (Button) findViewById(R.id.submitButton);

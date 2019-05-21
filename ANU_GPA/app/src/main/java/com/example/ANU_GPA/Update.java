@@ -10,25 +10,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 /**this class allows you to update the stored data of the GPA calculator.
  * rather than supplying all your grades, the user may supply only the new grades since they last calculated their gpa
- * @author jared */
+ * @authors:
+ * Jared:Logic behind Updating cgpa
+ * Kalai:Code structure & retrieval of data (from GPACalc) */
 public class Update extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-        final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
-        /**below code is borrowed from GPACalc, but reworked to work with my code*/
+
+        /*View Objects*/
+        TextView updateTextView = findViewById(R.id.updateTextView);
         Button doneButton = findViewById(R.id.doneButton);
-        final EditText hd = findViewById(R.id.hdEditText);
-        final EditText d = findViewById(R.id.dEditText);
-        final EditText c = findViewById(R.id.cEditText);
-        final EditText p = findViewById(R.id.pEditText);
-        final EditText f = findViewById(R.id.fEditText);
-        final TextView result = findViewById(R.id.resultTextView);
-        final int[] GradeValues = {7, 6, 5, 4, 0};
-        final EditText[] numbersOfGrades = new EditText[]{hd, d, c, p, f};
-        result.setText(data.getFloat("cgpa", 0) +"");
+        final EditText hdEditText = findViewById(R.id.hdEditText);
+        final EditText dEditText = findViewById(R.id.dEditText);
+        final EditText cEditText = findViewById(R.id.cEditText);
+        final EditText pEditText = findViewById(R.id.pEditText);
+        final EditText fEditText = findViewById(R.id.fEditText);
+        final TextView resultTextView = findViewById(R.id.uResultTextView);
+        final EditText[] numbersOfGrades = new EditText[]{hdEditText, dEditText, cEditText, pEditText, fEditText};
+
+        /*Initialisations*/
+        final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
+        final Grades[] GradeValues = Grades.values();
+        resultTextView.setText(data.getFloat("cgpa", 0) +"");
+        ScaleEffect scaleEffect= new ScaleEffect(resultTextView);
+        scaleEffect.startAnimation();
+        scaleEffect.setDuration(250);
+
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +47,7 @@ public class Update extends AppCompatActivity {
                 int totalClasses = data.getInt("numOfTCourses", 0);
                 for (int i = 0; i < 5; i++) {
                     try {
-                        totalPoints = GradeValues[i] * Integer.parseInt(numbersOfGrades[i].getText().toString()) + totalPoints;
+                        totalPoints = GradeValues[i].gradePoints * Integer.parseInt(numbersOfGrades[i].getText().toString()) + totalPoints;
                         totalClasses = totalClasses + Integer.parseInt(numbersOfGrades[i].getText().toString());
                     } catch (NumberFormatException n) {
                         error = true;
@@ -47,7 +57,7 @@ public class Update extends AppCompatActivity {
                     Toast.makeText(Update.this, "Note:Your are neglecting some attributes;" +
                             "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();
                 }
-                /**the following is completely my own code*/
+                /**@author: Jared*/
                 SharedPreferences.Editor edit = data.edit();
                 edit.putInt("numOfTCourses", totalClasses);
                 edit.putInt("currentPoints", totalPoints);
@@ -57,7 +67,8 @@ public class Update extends AppCompatActivity {
                     edit.putFloat("cgpa", ((float)totalPoints / totalClasses));
                 }
                 edit.commit();
-                result.setText(data.getFloat("cgpa", 0) +"");
+                resultTextView.setText(data.getFloat("cgpa", 0) +"");
+                Toast.makeText(Update.this,"CGPA updated locally.",Toast.LENGTH_LONG).show();
             }
         });
     }

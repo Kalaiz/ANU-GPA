@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 /**@author  Prateek Arora (u6742441)*/
 public class FeedbackThanks extends AppCompatActivity {
-    private static int Time_Out = 3300;
+    private static int timeOut = 3300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class FeedbackThanks extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, Time_Out); /** Halts for 3.3 seconds and then goes to the previous screen*/
+        }, timeOut); /** Halts for 3.3 seconds and then goes to the previous screen*/
 
     }
 }

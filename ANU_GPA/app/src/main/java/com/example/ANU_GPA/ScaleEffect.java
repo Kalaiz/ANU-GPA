@@ -20,7 +20,9 @@ public  class ScaleEffect  <T extends View>{
 
     private int duration=2000;
     T[] viewObjects;
+    T element;
     static boolean animationEnd;
+    boolean singleViewObject;
 
     void initialise(){
         animationEnd=false;
@@ -28,25 +30,33 @@ public  class ScaleEffect  <T extends View>{
 
     /*Constructor for multiple View objects*/
     ScaleEffect(T [] viewObjects){
+        singleViewObject=false;
         this.viewObjects =viewObjects;
     }
 
     /*Constructor for a single View object(For extensibility)*/
     ScaleEffect(T element){
-        AnimatorSet effect=scaleEffect(element);
-        runEffect(element);
+        singleViewObject=true;
+       this.element=element;
+
+
     }
 
     /*Starts the animation for a group of View objects with a given latency form each object*/
-    void startAnimation(){
-        for(int i=0;i<viewObjects.length;i++ ) {
-            final T val = viewObjects[i];
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    runEffect(val);
-                }
-            }, (i) * 1000); }
+    void startAnimation() {
+        if (singleViewObject) {
+            runEffect(element);
+        } else {
+            for (int i = 0; i < viewObjects.length; i++) {
+                final T val = viewObjects[i];
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        runEffect(val);
+                    }
+                }, (i) * 1000);
+            }
+        }
     }
 
     /*Setter method for ending the animation indirectly.*/

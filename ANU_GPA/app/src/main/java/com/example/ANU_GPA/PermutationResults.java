@@ -176,7 +176,7 @@ public class PermutationResults extends AppCompatActivity {
         }
     }
 
-    /** A class which runs on a seperate thread in parallel to the UI thread*/
+    /** A class which runs on a separate thread in parallel to the UI thread*/
     public class InfoLoader extends  AsyncTask<PermutationGenerator,String,ArrayList<Integer[]>>{
         @Override
         protected ArrayList<Integer[]> doInBackground(PermutationGenerator... permutationGenerators) {

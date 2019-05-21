@@ -34,7 +34,7 @@
             android:layout_below="@+id/animation_view"
             android:layout_marginTop="40dp"
             android:textSize="20dp"
-            android:id="@+id/prateek"
+            android:id="@+id/prateekTextView"
             android:layout_centerInParent="true"
             android:textColor="#000000"
             />
@@ -43,10 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kalai, u6555407"
-            android:layout_below="@+id/prateek"
+            android:layout_below="@+id/prateekTextView"
             android:layout_marginTop="40dp"
             android:textSize="20dp"
-            android:id="@+id/kalai"
+            android:id="@+id/kalaiTextView"
             android:layout_centerInParent="true"
             android:textColor="#000000"
             />
@@ -55,10 +55,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jared, u5953599"
-            android:layout_below="@+id/kalai"
+            android:layout_below="@+id/kalaiTextView"
             android:layout_marginTop="40dp"
             android:textSize="20dp"
-            android:id="@+id/jared"
+            android:id="@+id/jaredTextView"
             android:layout_centerInParent="true"
             android:textColor="#000000"
             />
@@ -66,24 +66,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/jared"
+            android:layout_below="@+id/jaredTextView"
             android:text="For the app manual, click on the link below"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15dp"
-            android:id="@+id/manual_link"
+            android:id="@+id/manualLinkTextView"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"/>
+
         <TextView
+            android:id="@+id/linkTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autoLink="all"
-            android:id="@+id/link"
-            android:clickable="true"
-            android:text="https://docs.google.com/document/d/14eVqFJnUlzYDd52aarwIfn5zRquLR6GiM4EPI-Jwg3s/edit?usp=sharing"
-            android:layout_below="@id/manual_link"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/manualLinkTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:autoLink="all"
+            android:clickable="true"
+            android:text="https://docs.google.com/document/d/14eVqFJnUlzYDd52aarwIfn5zRquLR6GiM4EPI-Jwg3s/edit?usp=sharingLink" />
 
     </RelativeLayout>
 

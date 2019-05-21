@@ -16,12 +16,12 @@ public class PasswordSet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         setContentView(R.layout.activity_password_set);
-        final Button set = findViewById(R.id.doneButton);
+        final Button setButton = findViewById(R.id.setButton);
         final EditText passwordChosen = findViewById(R.id.passwordEntry);
 
 
 
-        set.setOnClickListener(new View.OnClickListener(){
+        setButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View l){
                 String temp = passwordChosen.getText().toString();

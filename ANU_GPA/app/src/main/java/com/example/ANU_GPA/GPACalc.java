@@ -21,26 +21,34 @@ public class GPACalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpa_calc);
-        final TextView result = findViewById(R.id.resultTextView);
+
+        /*View Objects*/
+        final TextView resultTextView = findViewById(R.id.resultTextView);
         Button doneButton = findViewById(R.id.doneButton);
-        final EditText hd = findViewById(R.id.hdEditText);
-        final EditText d =  findViewById(R.id.dEditText);
-        final EditText c =  findViewById(R.id.cEditText);
-        final EditText p =  findViewById(R.id.pEditText);
-        final EditText f =  findViewById(R.id.fEditText);
+        final EditText hdEditText = findViewById(R.id.hdEditText);
+        final EditText dEditText =  findViewById(R.id.dEditText);
+        final EditText cEditText =  findViewById(R.id.cEditText);
+        final EditText pEditText =  findViewById(R.id.pEditText);
+        final EditText fEditText =  findViewById(R.id.fEditText);
         final ScrollView scrollView = findViewById(R.id.scrollView);
+
+        /*Initialisation*/
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", MODE_PRIVATE);
         if(sharedPreferences.getBoolean("hasValues", false)){
-            findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
-            result.setText(sharedPreferences.getFloat("cgpa", 0) +"");
-            result.setVisibility(View.VISIBLE);
+            findViewById(R.id.yourGpaIsTextView).setVisibility(View.VISIBLE);
+            resultTextView.setText(sharedPreferences.getFloat("cgpa", 0) +"");
+            resultTextView.setVisibility(View.VISIBLE);
+            ScaleEffect scaleEffect= new ScaleEffect(resultTextView);
+            scaleEffect.startAnimation();
+            scaleEffect.setDuration(250);
         }
+
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                EditText[] numbersOfGrades = new EditText[]{hd, d, c, p, f};
+                EditText[] numbersOfGrades = new EditText[]{hdEditText, dEditText, cEditText, pEditText, fEditText};
                 int[] nGrades = new int[5];
                 boolean error=false;
                 for (int i = 0; i < 5; i++) {
@@ -56,15 +64,15 @@ public class GPACalc extends AppCompatActivity {
                         "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();}
 
                 GPA gpa = new GPA(nGrades);
-                findViewById(R.id.yourGPAisTextView).setVisibility(View.VISIBLE);
-                result.setText(gpa.cgpa +"");
+                findViewById(R.id.yourGpaIsTextView).setVisibility(View.VISIBLE);
+                resultTextView.setText(gpa.cgpa +"");
                 editor.putFloat("cgpa", gpa.cgpa);
                 editor.putString("grades", Arrays.toString(nGrades));
                 editor.putInt("numOfTCourses", gpa.numOfTCourses);
                 editor.putInt("currentPoints", gpa.currentPoints);
-                editor.putBoolean("HasValues", true);
+                editor.putBoolean("hasValues", true);
                 editor.apply();
-                result.setVisibility(View.VISIBLE);
+                resultTextView.setVisibility(View.VISIBLE);
                 Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
                 scrollView.fullScroll(View.FOCUS_UP);
             }

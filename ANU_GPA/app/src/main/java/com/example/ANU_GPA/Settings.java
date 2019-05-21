@@ -74,7 +74,7 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v) {
                 //blocks access to update if it will be useless(no data to update)
                 final SharedPreferences data = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
-                if(data.getBoolean("HasValues", false)){
+                if(data.getBoolean("hasValues", false)){
                     Intent intent = new Intent(Settings.this, Update.class);
                     startActivity(intent);
                 }else {

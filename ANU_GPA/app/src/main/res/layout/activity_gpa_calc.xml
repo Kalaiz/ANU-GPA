@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:paddingLeft="10dp"
-            android:text="Enter the count of courses in which you got HD"
+            android:text="Enter the number of courses in which you got HD's"
             android:textColor="#000" />
 
         <EditText
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/hdTextView"
-            android:hint="Number Of High Distinctions."
+            android:hint="High Distinctions."
             android:imeOptions="actionNext"
             android:inputType="number"
             android:textSize="15dp" />
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/hdEditText"
             android:paddingLeft="10dp"
-            android:text="Enter the count of courses in which you got D"
+            android:text="Enter the number of courses in which you got D's"
             android:textColor="#000" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/dTextView"
-            android:hint="Number Of Distinctions."
+            android:hint="Distinctions."
             android:imeOptions="actionNext"
             android:inputType="number"
             android:textSize="15dp" />
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/dEditText"
             android:paddingLeft="10dp"
-            android:text="Enter the count of courses in which you got C"
+            android:text="Enter the number of courses in which you got CR's"
             android:textColor="#000" />
 
         <EditText
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/cTextView"
-            android:hint="Number Of Credits."
+            android:hint="Credits."
             android:imeOptions="actionNext"
             android:inputType="number"
             android:textSize="15dp" />
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cEditText"
             android:paddingLeft="10dp"
-            android:text="Enter the count of courses in which you got Pass"
+            android:text="Enter the number of courses in which you got P's"
             android:textColor="#000" />
 
         <EditText
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/pTextView"
-            android:hint="Number Of Passes."
+            android:hint="Passes."
             android:imeOptions="actionNext"
             android:inputType="number"
             android:textSize="15dp" />
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/pEditText"
             android:paddingLeft="10dp"
-            android:text="Enter the count of courses in which you got Fail"
+            android:text="Enter the number of courses in which you got F's"
             android:textColor="#000" />
 
         <EditText
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/fTextView"
-            android:hint="Number of Fails or equivalents."
+            android:hint="Fails or equivalents."
             android:imeOptions="actionDone"
             android:inputType="number"
             android:textSize="15dp" />
@@ -135,7 +135,7 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/yourGPAisTextView"
+            android:id="@+id/yourGpaIsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -146,7 +146,7 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/gpaCalculatorTextView"
+            android:id="@+id/updateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

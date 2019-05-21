@@ -17,14 +17,13 @@
         <activity android:name=".PasswordEntry" />
         <activity android:name=".PasswordSet" />
         <activity android:name=".About" />
-        <activity android:name=".Storage"
-            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".FeedbackThanks" />
         <activity android:name=".Settings" />
         <activity android:name=".GiveFeedback"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".Home" />
-        <activity android:name=".Update" />
+        <activity android:name=".Update"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".PermutationResults"
             android:screenOrientation="portrait"/>
         <activity android:name=".GPACalc"

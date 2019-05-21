@@ -2,12 +2,10 @@ package com.example.ANU_GPA;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.hardware.fingerprint.FingerprintManager;
 
 
 /**@authors:
@@ -16,7 +14,7 @@ import android.hardware.fingerprint.FingerprintManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int Time_Out = 4000;
+    private static int timeOut = 4000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 finish();
             }
-        }, Time_Out);
+        }, timeOut);
 
     }
 }

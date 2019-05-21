@@ -20,12 +20,12 @@ public class PasswordEntry extends AppCompatActivity {
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
         setContentView(R.layout.activity_password_entry);
         final String actualPassword = pass.getString("password", "");
-        final Button unlock = findViewById(R.id.doneButton);
+        final Button unlockButton = findViewById(R.id.unlockButton);
         final EditText passwordGiven = findViewById(R.id.passwordEntry);
 
 
 
-        unlock.setOnClickListener(new View.OnClickListener(){
+        unlockButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View l){
                 //check if the given password correct. if so, unlock app. else, reload activity

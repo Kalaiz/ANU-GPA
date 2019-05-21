@@ -19,10 +19,10 @@ public class Password extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
         final SharedPreferences pass = getSharedPreferences("com.example.ANU_GPA.Passwords", MODE_PRIVATE);
-        final Button set = findViewById(R.id.lock_button);
-        final EditText oldPass = findViewById(R.id.old_pass_edittext);
-        final EditText newPass = findViewById(R.id.pass_edittext);
-        final EditText newPass2 = findViewById(R.id.confirm_pass_edittext);
+        final Button set = findViewById(R.id.lockButton);
+        final EditText oldPassEditText = findViewById(R.id.oldPassEditText);
+        final EditText newPassEditText = findViewById(R.id.newPassEditText);
+        final EditText confirmPassEditText = findViewById(R.id.confirmPassEditText);
         final String actualPass = pass.getString("password", "");
 
 
@@ -31,12 +31,12 @@ public class Password extends AppCompatActivity {
             @Override
             public void onClick(View l){
                 //check if old password is correct. if not, reload activity
-                if(oldPass.getText().toString().equals(actualPass)){
+                if(oldPassEditText.getText().toString().equals(actualPass)){
 
                     //check if new passwords match. if not, reload activity
-                    if(newPass.getText().toString().equals(newPass2.getText().toString())){
+                    if(newPassEditText.getText().toString().equals(confirmPassEditText.getText().toString())){
                         SharedPreferences.Editor edit = pass.edit();
-                        edit.putString("password", newPass.getText().toString());
+                        edit.putString("password", newPassEditText.getText().toString());
                         edit.commit();
                     }else{
                         Toast failMessage = Toast.makeText(getApplicationContext(), "new passwords do not match", Toast.LENGTH_SHORT);

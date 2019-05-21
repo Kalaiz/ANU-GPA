@@ -50,6 +50,9 @@ public class GiveFeedback extends AppCompatActivity {
 
     }
 
+    /**
+     * Initiates a call to the Server and sends the the data to it.
+     * @param feedbackData The feedback data which contains the rating & the textual feedback.*/
     public void clientSender(byte[] feedbackData) {
         String ip = "10.0.2.2"; // reference to development machine
 

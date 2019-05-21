@@ -22,7 +22,9 @@ import java.util.Map;
 
 /**
  * Activity for calculating possible permutation based on the user's inputs.
- * @authors: Kalai(u6555407)*/
+ * @authors: Kalai(u6555407)
+ * The code for knowing the screen size is from:
+ * https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android*/
 public class PermutationCalc extends AppCompatActivity {
 
     boolean mEntryButtonClicked = false;
@@ -85,7 +87,7 @@ public class PermutationCalc extends AppCompatActivity {
         final TextView localDataTextView =findViewById(R.id.localDataTextView);
         final Switch numOfFailsNeededSwitch=findViewById(R.id.numOfFailsNeededSwitch);
 
-        /*SharedPreference initialisation*/
+        /*Initialisation*/
         final SharedPreferences sharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 

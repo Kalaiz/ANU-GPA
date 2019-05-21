@@ -14,12 +14,16 @@ public class GPA {
     //the below variables are related to the calculate total points function
     float gpaWanted;
     int pointsNeeded;
-    final int GRADEVALUES[] = {7,6,5,4,0};
+    final Grades[] grades=Grades.values();
+
+
     /**primary constructor
      * @param grades - a list of the users grades, in order: HD, D, C, P, F*/
     public GPA(int[] grades) {
         gpaCalc(grades);
     }
+
+
     /**a secondary constructor
      * @param gpa - the users current gpa
      * @param coursesDone - the number of uni coursed completed by the user
@@ -38,12 +42,13 @@ public class GPA {
         currentPoints = 0;
         numOfTCourses = 0;
         for (int x = 0; x < 5; x++) {
-            currentPoints += (data[x]*GRADEVALUES[x]);
+            currentPoints += (data[x]*grades[x].gradePoints);
             numOfTCourses += data[x];
         }
         cgpa = (numOfTCourses!=0)?(float)currentPoints/numOfTCourses:0;//for not producing a NaN
-
     }
+
+    
     /**Calculates PointsNeeded based on numOfTCourses & cgpaJared
      * @param wantedGPA - the gpa you wish to reach from your current gpa*/
     public void calculatePointsNeeded(float wantedGPA){

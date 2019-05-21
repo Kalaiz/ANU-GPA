@@ -63,6 +63,28 @@
             android:textColor="#000000"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jared"
+            android:text="For the app manual, click on the link below"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"
+            android:id="@+id/manual_link"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:id="@+id/link"
+            android:clickable="true"
+            android:text="https://docs.google.com/document/d/14eVqFJnUlzYDd52aarwIfn5zRquLR6GiM4EPI-Jwg3s/edit?usp=sharing"
+            android:layout_below="@id/manual_link"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"/>
+
     </RelativeLayout>
 
 

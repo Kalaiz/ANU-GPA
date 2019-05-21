@@ -36,6 +36,7 @@
 
 _Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations so to achieve a target GPA. The app's motive is_
 _to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.For privacy purposes, he or she can lock his/her app using password button._
+![](../Resources/AppGif.gif)
 
 ## Design Documentation 
 + [Design Summary](../Resources/DesignSummary.md)

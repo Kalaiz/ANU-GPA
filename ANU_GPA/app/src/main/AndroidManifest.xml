@@ -14,8 +14,10 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Password"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".PasswordEntry" />
-        <activity android:name=".PasswordSet" />
+        <activity android:name=".PasswordEntry"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".PasswordSet"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".About" />
         <activity android:name=".FeedbackThanks" />
         <activity android:name=".Settings" />

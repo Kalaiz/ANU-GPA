@@ -1,6 +1,7 @@
 package com.example.ANU_GPA;
 
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,7 +72,12 @@ public class GPACalc extends AppCompatActivity {
                 editor.putBoolean("hasValues", true);
                 editor.apply();
                 resultTextView.setVisibility(View.VISIBLE);
-                Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
+                    }
+                },2250);
                 scrollView.fullScroll(View.FOCUS_UP);
             }
         });

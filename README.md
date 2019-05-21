@@ -3,44 +3,39 @@
 
 ## Team structure and roles 
 + Jared u5953599 - Team member 
-   + Update functionality(codes based on Prateek and me from calculating GPA)
-   + Password functionality (UI had some problems, Password_set activity Ui done by Prateek)
+   + Update functionality(codes based on Prateek and Kalai from gpaCalc)
+   + Password functionality (UI had some problems, password_set activity UI done by Prateek)
    + Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
    + Logic: GPA class  
    + GPA test 
 + Prateek u6742441 - Team member
    + Skeleton/Base UI of the whole app and linking of the screens. 
-   + Database SQL part for storage facility. I have created a SQL database and linked with the array adapter and gave kalai the rest of the work to connect that with the app.
-   + Tried to implement halfway for the  Client Server.
+   + Database SQL part for storage functionality.
    + Searched for appropriate APIs for Animations and implemented it for most of the activities.
    + App Icon 
-   + Feedback & about Activity UI
+   + Feedback & about Activity UI.
    + Loading Screen 
-   + Setting Activity UI: Considering the extensibility of the app he made changes to Settings.
-     (Settings)Changed from a Slider based activity to button based one. So to make the app UI consistent.
+   + Setting Activity UI:
+     Changed from a Slider based activity to button based one. So to make the app UI consistent.
    + Manual
    + App Summary
    + Corrected Jared's UI for password
 + Kalai u6555407 - Team member
-   + Linked Prateek's code to logic part of the app
+   + Linked Prateek's base UI code to logic part of the app
    + Client-Server functionality completed with some help of his friend(referenced him on README)
    + Logic: Permutation class
    + PermutationGenerator class
    + Permutation Result  Activity 
    + ScaleEffect on View objects  & other minor animation
-   + feature to activate and deactivate scale effect animation 
+   + Feature to activate and deactivate scale effect animation 
+   + UI Changes to permutation activity and  changes to the naming convention of files and Resources
    + Permutation test
-   + UI Changes to permutation activity and minor changes to the naming convention of files and Resources
-   + Kalai was assigned the work for DBSQL to link with the app but wasn't able to complete because of personal reasons. He did the UI design for the storage though.
+   + Storage functionality UI,but failed to link it up due to time constraint & workloads. [Proof](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/1bc1c28b3b24e1f4bc9ca3b8ef15c3ddf1707ea3)
 
 ## App Overview 
 
-_Our user friendly app is for the ANU college going student who can not only calculate his/her GPA but can also write the desired_
-_GPA and can print the result of how much he or she has to get in the each subjects left to acquire the desired GPA. Our app motive is_
-_to make easier student life easier by calculating the GPA and can help him getting his desired GPA fulfilled. So, we also have_
-_settings in our app in which user can not only give the feedback for the app but also can see his history and moreover, he or she_
-_can update his or her GPA. For privacy purposes, he or she can lock his/her app using password button. This gives the overview_
-_of our app._
+_Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations so to achieve a target GPA. The app's motive is_
+_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.For privacy purposes, he or she can lock his/her app using password button._
 
 ## Design Documentation 
 + [Design Summary](../Resources/DesignSummary.md)
@@ -84,19 +79,19 @@ assignment is entirely my own work, with exceptions given below.
 
 ### Inspiration
 
-_add references from where you obtained the idea form the app and ideas about aspects of the app_
+__
 
 ### Referencing code or ideas for code from other sources
 + [Ideology of converting recursive function to iterative one](https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration) 
 + [Idea of using Integer Partitioning](https://stackoverflow.com/questions/7331093/getting-all-possible-sums-that-add-up-to-a-given-number)
 + (IDEA FOR CODE)Server - Client problem solved by the suggestion given by Danny Feng(u6611178);Suggestion: <br>
   1. Use a seperate thread for performing long operations such as network access
-     to prevent it  blocking UI/Main thread.
-  2. Give permission for Network access. <br>
+     to prevent it blocking UI/Main thread.
+  2. Give permission for Network access in the manifest. <br>
 + [Code in PermutationCalc for knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 
 
 ### Assets 
 
-_Lottie animations provided by airbnb is being used this app which is implemented by Prateek(Refernce for lottie code and json is in the app code)._
-_Scale effect done by kalai is also being used for the text animation._
+_Lottie animations provided by airbnb is being used this app which is implemented by Prateek(Reference for lottie code and json is in the app code)._
+

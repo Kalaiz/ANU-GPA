@@ -30,12 +30,13 @@
    + Feature to activate and deactivate scale effect animation 
    + UI Changes to permutation activity and  changes to the naming convention of files and Resources
    + Permutation test
-   + Storage functionality UI,but failed to link it up due to time constraint & workloads. [Proof](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/1bc1c28b3b24e1f4bc9ca3b8ef15c3ddf1707ea3)
+   + Storage functionality UI,but failed to link it up due to time constraint & workloads. [Proof;The adjacent commits can be loooked upon as well.](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/e47c4793dd80cba563410a92ff906df163b1908a)
 
 ## App Overview 
 
 _Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations so to achieve a target GPA. The app's motive is_
 _to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.For privacy purposes, he or she can lock his/her app using password button._ <br>
+
 <img src="../Resources/AppGif.gif" alt="app gif" align="middle"> 
 
 

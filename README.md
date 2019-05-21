@@ -3,11 +3,11 @@
 
 ## Team structure and roles 
 + Jared u5953599 - Team member 
-   Update functionality(codes based on Prateek and me from calculating GPA)
-   Password functionality (UI had few problems, Password_set activity Ui done by Prateek)
-   Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
-   Logic: GPA class  
-   GPA test 
+   + Update functionality(codes based on Prateek and me from calculating GPA)
+   + Password functionality (UI had few problems, Password_set activity Ui done by Prateek)
+   + Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
+   + Logic: GPA class  
+   + GPA test 
 + Prateek u6742441 - Team member
    Skeleton/Base UI of the whole app and linking of the screens. 
    Database SQL part for storage facility. I have created a SQL database and linked with the array adapter and gave kalai the rest of the work to connect that with the app.

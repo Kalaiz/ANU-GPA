@@ -111,9 +111,11 @@ public class PermutationCalc extends AppCompatActivity {
                 mEntryButtonClicked=!mEntryButtonClicked;
 
                 //Default:mEntryButton not clicked
-                float knownButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
-                        -(screenWidth/(float)3.5): -(screenWidth/(float)2.65);
-                float submitButtonTranslation=-400;
+                float mEntryButtonTranslation = (screenOrientation== Surface.ROTATION_0)?
+                        -(screenWidth/3.5f): -(screenWidth/2.65f);
+                System.out.println("Screen HEIGHT"+screenWidth);
+                float submitButtonTranslation=(screenOrientation== Surface.ROTATION_0)?
+                        -400- ((screenHeight-1800)/20f):-(screenWidth/4.5f);
                 float scaleFactor=0.15f;
                 int imegpaWanted=EditorInfo.IME_ACTION_DONE;
                 visibility=View.INVISIBLE;//For toggling scaleEffect.
@@ -122,7 +124,7 @@ public class PermutationCalc extends AppCompatActivity {
 
                 if(mEntryButtonClicked){
                     imegpaWanted=EditorInfo.IME_ACTION_NEXT;
-                    knownButtonTranslation=-knownButtonTranslation;
+                    mEntryButtonTranslation=-mEntryButtonTranslation;
                     submitButtonTranslation=-submitButtonTranslation;
                     visibility=View.VISIBLE;
                     scaleFactor=-scaleFactor;
@@ -147,7 +149,7 @@ public class PermutationCalc extends AppCompatActivity {
                 manualEntryButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
                 submitButton.animate().scaleXBy(scaleFactor).scaleYBy(scaleFactor).setDuration(600);
                 submitButton.animate().translationYBy(submitButtonTranslation).setDuration(600);
-                manualEntryButton.animate().translationXBy(knownButtonTranslation).setDuration(600);
+                manualEntryButton.animate().translationXBy(mEntryButtonTranslation).setDuration(600);
 
                 //reCalculateButton will disappear when the user knows his/her cgpa.
                 reCalculateButton.animate().alpha(alpha).setDuration(750);

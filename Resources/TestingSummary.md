@@ -1,6 +1,5 @@
 ### TestingSummary
 
-
 #### Permutation Class Test
 ##### Purpose:
 - To make sure permutation method of Permutation Class works as expected.
@@ -14,7 +13,7 @@
 - Just for the core method of Permutation class : calculatePermutation().
 
 ##### Items not tested:
-- The breaking point of the method,For the case in which input values are extremely unreasonable;which wont be possible.
+- The breaking point of the method,For the case in which input values are extremely unreasonable;which wont be possible.Negative values since the input of the user can be control via android layout configurations.
 
 
 #### GPA Class Test

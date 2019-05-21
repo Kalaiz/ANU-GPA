@@ -2,9 +2,35 @@
 # App - ANU GPA
 
 ## Team structure and roles 
-+ Prateek u6742441 - Team member 
 + Jared u5953599 - Team member 
-+ Kalai u6555407 - Team member;<br>did Backend(permutation Logic,Client-Server) & some Frontend(Button animations,some activity displays).   
+   Update functionality(codes based on Prateek and me from calculating GPA)
+   Password functionality (UI had few problems, Password_set activity Ui done by Prateek)
+   Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
+   Logic: GPA class  
+   GPA test 
++ Prateek u6742441 - Team member
+   Skeleton/Base UI of the whole app and linking of the screens. 
+   Database SQL part for storage facility. I have created a SQL database and linked with the array adapter and gave kalai the rest of the work to connect that with the app.
+   Tried to implement halfway for the  Client Server.
+   Searched for appropriate APIs for Animations and implemented it for most of the activities.
+   App Icon 
+   Feedback & about Activity UI
+   Loading Screen 
+   Setting Activity UI: Considering the extensibility of the app he made changes to Settings.
+   (Settings)Changed from a Slider based activity to button based one. So to make the app UI consistent.
+   Manual
+   App Summary
++ Kalai u6555407 - Team member
+   Linked Prateek's code to logic part of the app
+   Client-Server functionality completed with some help of his friend(referenced him on README)
+   Logic: Permutation class
+   PermutationGenerator class
+   Permutation Result  Activity 
+   ScaleEffect on View objects  & other minor animation
+   feature to activate and deactivate scale effect animation 
+   Permutation test
+   UI Changes to permutation activity and minor changes to the naming convention of files and Resources
+   Kalai was assigned the work for DBSQL to link with the app but wasn;t able to do because of personal reasons.
 
 ## App Overview 
 

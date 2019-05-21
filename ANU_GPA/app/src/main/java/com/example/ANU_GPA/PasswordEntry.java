@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 /**this activity serves as a lock screen for the app, if you have set a password
  * @author jared */
-
 public class PasswordEntry extends AppCompatActivity {
 
     @Override

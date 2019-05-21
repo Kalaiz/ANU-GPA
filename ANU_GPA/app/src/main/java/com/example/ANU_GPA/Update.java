@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 /**this class allows you to update the stored data of the GPA calculator.
  * rather than supplying all your grades, the user may supply only the new grades since they last calculated their gpa
  * @authors:

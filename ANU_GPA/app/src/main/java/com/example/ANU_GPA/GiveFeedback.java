@@ -12,11 +12,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-/**@author (s)
+/**@authors:
  *  Base:Prateek Arora (u6742441)
  *  Client-Server: Kalai (u6555407)**/
-
-
 public class GiveFeedback extends AppCompatActivity {
 
     @Override

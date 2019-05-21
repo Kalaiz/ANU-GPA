@@ -30,7 +30,7 @@ import java.util.Stack;
  *
  *  @authors:
  *  CalculateTotalPoints function - Jared
- *  Rest of the class - Kalai
+ *  Rest of the class - Kalai (u6555407)
  */
 public class Permutation  {
 

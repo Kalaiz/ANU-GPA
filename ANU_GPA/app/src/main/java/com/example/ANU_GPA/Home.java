@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-/**@author: Prateek Arora (u6742441)*/
-
+/**@authors:
+ * Prateek Arora (u6742441) - rest of the class
+ * Kalai(u6555407) - On resume animation config
+ * */
 public class Home extends AppCompatActivity {
     SharedPreferences dataSharedPreferences;
     ScaleEffect scaleEffect;
@@ -77,7 +79,4 @@ public class Home extends AppCompatActivity {
         }
     }
 
-
 }
-
-

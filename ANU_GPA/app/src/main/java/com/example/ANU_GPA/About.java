@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 
 /**@author Prateek Arora (u6742441)*/
-
 public class About extends AppCompatActivity {
 
     @Override

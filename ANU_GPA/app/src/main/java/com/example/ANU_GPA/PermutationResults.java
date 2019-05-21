@@ -219,7 +219,7 @@ public class PermutationResults extends AppCompatActivity {
             possibleOutputsTableLayout.setStretchAllColumns(true);
             done=true;
             if(fetch>31) {
-                Toast.makeText(PermutationResults.this, "Permutations Fetched!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PermutationResults.this, "Permutations Fetched! \n Double Tap For More.", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -25,6 +25,8 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        /*View Objects*/
         final Switch animationSwitch=findViewById(R.id.animationSwitch);
         final SharedPreferences dataSharedPreferences = getSharedPreferences("com.example.ANU_GPA.Data", Context.MODE_PRIVATE);
         LinearLayout passwordLinearLayout = findViewById(R.id.gpaCalcLinearLayout);
@@ -32,6 +34,8 @@ public class Settings extends AppCompatActivity {
         LinearLayout updateLinearLayout = findViewById(R.id.settingsLinearLayout);
         LinearLayout aboutLinearLayout = findViewById(R.id.aboutLinearLayout);
         LinearLayout animationLinearLayout=findViewById(R.id.animationLinearLayout);
+
+        /*Initialisation*/
         final LinearLayout[] layouts=new LinearLayout[]
                 {passwordLinearLayout,feedbackLinearLayout
                         ,animationLinearLayout,updateLinearLayout,aboutLinearLayout};
@@ -116,9 +120,6 @@ public class Settings extends AppCompatActivity {
                 },  5000);
             }
         });
-
-
-
 
     }
 }

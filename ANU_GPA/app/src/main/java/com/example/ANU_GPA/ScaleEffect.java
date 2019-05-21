@@ -38,8 +38,6 @@ public  class ScaleEffect  <T extends View>{
     ScaleEffect(T element){
         singleViewObject=true;
        this.element=element;
-
-
     }
 
     /*Starts the animation for a group of View objects with a given latency form each object*/

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 /**this activity serves as a way to set your password, if you have no password
  * @author jared */
 public class PasswordSet extends AppCompatActivity {
@@ -18,7 +19,6 @@ public class PasswordSet extends AppCompatActivity {
         setContentView(R.layout.activity_password_set);
         final Button setButton = findViewById(R.id.setButton);
         final EditText passwordChosen = findViewById(R.id.passwordEntry);
-
 
 
         setButton.setOnClickListener(new View.OnClickListener(){

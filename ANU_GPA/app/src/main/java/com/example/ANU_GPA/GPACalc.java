@@ -9,13 +9,11 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Arrays;
 
 /**
  *An activity which calculates the GPA.
  * @author: Kalai(u6555407)*/
-
 public class GPACalc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

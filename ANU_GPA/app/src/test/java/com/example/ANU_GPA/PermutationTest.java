@@ -7,9 +7,11 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
-/*Test does not cover negative number;Since by tweaking the
-     android app, negative numbers can't be made as an input.
-   */
+/**
+ * @author :Kalai(u6555407)
+    Test Case for permutation Class:calculatePermutation & permutationGenerator:next() until the last value.
+    Test does not cover negative number;Since by tweaking the
+    android app, negative numbers can't be made as an input.*/
 public class PermutationTest {
 
     private float cgpa;
@@ -52,12 +54,21 @@ public class PermutationTest {
     }
 
 
+    /**
+     * Assigns value to the instance variable of this class
+     * @param cgpa : Current Grade Points Average.
+     * @param coursesDone : The number of Courses taken.
+     * @param gpaWanted : The GPA desired.
+     * @param totalCourses : The number of total courses left for one to do.*/
     void valueAssigner(float cgpa,int coursesDone,int totalCourses,float gpaWanted){
         this.cgpa=cgpa;
         this.coursesDone=coursesDone;
         this.totalCourses=totalCourses;
         this.gpaWanted=gpaWanted;
     }
+
+    /**
+     * Creates permutation Objects and begins the test upon it */
     public void assertion(){
         p = new Permutation(cgpa, coursesDone, totalCourses, gpaWanted);
         assertTrue("Wrong result for case which does not  consider Num Of Fails;" +
@@ -71,6 +82,9 @@ public class PermutationTest {
                         check(true));
     }
 
+    /** Helper function for assertion,which does the core testing,in accordance to type of permutation to be tested
+     * @param numOfFailsNeeded : If true it means that numOfFailsneeded check permutationGenerator
+     *                           else check permutation Class:calculatePermutation.*/
     public boolean check(boolean numOfFailsNeeded){
         if(numOfFailsNeeded){
             ArrayList<Integer[]> original=new ArrayList<>();
@@ -155,6 +169,7 @@ public class PermutationTest {
     }
 
 
+    /** Checks whether given arraylist's content are same, ignoring the order in which they appear*/
     public static boolean  deepUnorderedArrayChecker(ArrayList<Integer[]>original,ArrayList<Integer[]>test){
         if(original.size()!=test.size()){
             return false;
@@ -172,6 +187,4 @@ public class PermutationTest {
         }
         return original.isEmpty();
     }
-
 }
-

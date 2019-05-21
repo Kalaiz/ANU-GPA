@@ -11,7 +11,6 @@ import android.widget.TextView;
 /**@authors:
  *  Prateek Arora - rest of the class (u6742441)
  *  jared - password sharedpreference*/
-
 public class MainActivity extends AppCompatActivity {
 
     private static int timeOut = 4000;

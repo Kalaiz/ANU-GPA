@@ -50,6 +50,8 @@
     <option name="ACTIVITY_CLASS" value="" />
     <method v="2">
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="GPATest" run_configuration_type="AndroidJUnit" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="PermutationTest" run_configuration_type="AndroidJUnit" />
     </method>
   </configuration>
 </component>

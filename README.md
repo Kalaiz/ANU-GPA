@@ -4,7 +4,7 @@
 ## Team structure and roles 
 + Jared u5953599 - Team member 
    + Update functionality(codes based on Prateek and me from calculating GPA)
-   + Password functionality (UI had few problems, Password_set activity Ui done by Prateek)
+   + Password functionality (UI had some problems, Password_set activity Ui done by Prateek)
    + Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
    + Logic: GPA class  
    + GPA test 
@@ -20,6 +20,7 @@
      (Settings)Changed from a Slider based activity to button based one. So to make the app UI consistent.
    + Manual
    + App Summary
+   + Corrected Jared's UI for password
 + Kalai u6555407 - Team member
    + Linked Prateek's code to logic part of the app
    + Client-Server functionality completed with some help of his friend(referenced him on README)

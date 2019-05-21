@@ -30,7 +30,7 @@
    + feature to activate and deactivate scale effect animation 
    + Permutation test
    + UI Changes to permutation activity and minor changes to the naming convention of files and Resources
-   + Kalai was assigned the work for DBSQL to link with the app but wasn;t able to do because of personal reasons.
+   + Kalai was assigned the work for DBSQL to link with the app but wasn't able to complete because of personal reasons. He did the UI design for the storage though.
 
 ## App Overview 
 

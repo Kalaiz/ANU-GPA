@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 /**a class to deal with the changing of an existing password
  * @authors: jared
- *        prateek - removePasswordButton functionalites*/
+ *        prateek - removePasswordButton functionality*/
 
 public class Password extends AppCompatActivity {
 

@@ -3,14 +3,14 @@
 
 ## Team structure and roles 
 + Jared u5953599 - Team member 
-   + Update functionality(codes based on Prateek and Kalai from gpaCalc)
+   + Update functionality(codes based Kalai from GPACalc)
    + Password functionality (UI had some problems, password_set activity UI done by Prateek)
    + Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
    + Logic: GPA class  
    + GPA test 
 + Prateek u6742441 - Team member
    + Skeleton/Base UI of the whole app and linking of the screens. 
-   + Database SQL part for storage functionality.
+   + [Database SQL part for storage functionality.](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/ae6c47c995d985f82725ac23f1bf40f2bba3540d)
    + Searched for appropriate APIs for Animations and implemented it for most of the activities.
    + App Icon 
    + Feedback & about Activity UI.
@@ -34,8 +34,8 @@
 
 ## App Overview 
 
-_Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations so to achieve a target GPA. The app's motive is_
-_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.For privacy purposes, he or she can lock his/her app using password button._ <br>
+_Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations of Grades so to achieve a target GPA. The app's motive is_
+_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.Furthermore,For privacy purposes, he or she can lock his/her app using password button._ <br>
 
 <img src="../Resources/AppGif.gif" alt="app gif" align="middle"> 
 
@@ -55,8 +55,8 @@ _to make student's life easier by calculating the GPA and can help him/her getti
 + [Meeting 8 - 19/4/19 - Major Revamps ,Client-server issue & Authorships](../Resources/Meeting8.md)
 + [Meeting 9 - 20/4/19 - Stablised Working App](../Resources/Meeting9.md)
 + [Meeting 10 - 24/4/19 - Bugs Found & Further Implementation](../Resources/Meeting10.md)
-+ [Meeting 11 - 29/4/19 - Bugs regarding the apps completed and  new idea for update](../Resources/Meeting11.md)
-+ [Meeting 12 - 8/5/19 - Bugs regarding the apps completed and  new idea for update](../Resources/Meeting12.md)
++ [Meeting 11 - 29/4/19 - Bugs regarding the apps fixed and new idea for update](../Resources/Meeting11.md)
++ [Meeting 12 - 8/5/19 - Bugs regarding the apps fixed and new idea for update (2)](../Resources/Meeting12.md)
 
 
 ## Statement of Originality
@@ -80,9 +80,6 @@ assignment is entirely my own work, with exceptions given below.
 + [PermutationCalc Knowing Screen Size](https://stackoverflow.com/questions/4743116/get-screen-width-and-height-in-android)
 + The suggestion given by Danny Feng (u6611178) to solve Client-Server Issue.
 
-### Inspiration
-
-__
 
 ### Referencing code or ideas for code from other sources
 + [Ideology of converting recursive function to iterative one](https://stackoverflow.com/questions/159590/way-to-go-from-recursion-to-iteration) 
@@ -95,6 +92,6 @@ __
 
 
 ### Assets 
-
+_[Converted the video to GIF(On the README)](https://ezgif.com/video-to-gif)
 _Lottie animations provided by airbnb is being used this app which is implemented by Prateek(Reference for lottie code and json is in the app code)._
 

@@ -62,11 +62,12 @@ public class PermutationResults extends AppCompatActivity {
             permutations=p.getPermutation();
         }
 
-        /*Obtaining Needed View Objects*/
+        /*View Objects*/
         outerRelativeLayout=findViewById(R.id.outerRelativeLayout);
         possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
         TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
         ScrollView innerScrollView = findViewById(R.id.innerScrollView);
+        TextView noResultsTextView= findViewById(R.id.noResultsTextView);
         innerScrollView.setSmoothScrollingEnabled(true);
 
         if(permutations.size()>0) {
@@ -107,7 +108,9 @@ public class PermutationResults extends AppCompatActivity {
 
         }
         else{
+
             Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG).show();
+            noResultsTextView.setVisibility(View.VISIBLE);
         }
     }
 

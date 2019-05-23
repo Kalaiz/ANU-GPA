@@ -29,4 +29,16 @@
     </TableLayout>
     </ScrollView>
 
+    <TextView
+        android:id="@+id/noResultsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="No Possible Results"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:visibility="invisible"
+        android:textStyle="bold" />
+
 </RelativeLayout>

@@ -42,7 +42,8 @@ public class Server {
 
 
             /*When done reading feedback add a newline to differentiate different feedbacks*/
-            connectedSocketData += "\n";
+            connectedSocketData += "\n ======================================================= \n";
+            System.out.println(connectedSocketData);
             System.out.println("Server has received : " + connectedSocketData);
             Writer fileWriter = new FileWriter("Feedbacks.txt", true);
             try {

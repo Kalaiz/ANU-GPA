@@ -1,6 +1,7 @@
 package com.example.ANU_GPA;
 
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -57,7 +58,9 @@ public class Update extends AppCompatActivity {
                 if (error) {
                     Toast.makeText(Update.this, "Note:Your are neglecting some attributes;" +
                             "It's values will be considered as 0.", Toast.LENGTH_SHORT).show();
-                }
+
+                    }
+
                 /**@author: Jared*/
                 SharedPreferences.Editor edit = data.edit();
                 edit.putInt("numOfTCourses", totalClasses);
@@ -69,7 +72,13 @@ public class Update extends AppCompatActivity {
                 }
                 edit.commit();
                 resultTextView.setText(data.getFloat("cgpa", 0) +"");
-                Toast.makeText(Update.this,"CGPA updated locally.",Toast.LENGTH_LONG).show();
+                new Handler().postDelayed(new Runnable() {
+                                              @Override
+                                              public void run() {
+                                                  Toast.makeText(Update.this,"CGPA updated locally.",Toast.LENGTH_LONG).show();
+                                              }
+                                          },2500);
+
             }
         });
     }

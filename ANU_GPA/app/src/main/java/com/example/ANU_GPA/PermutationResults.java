@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,11 +26,13 @@ public class PermutationResults extends AppCompatActivity {
     boolean done;
     boolean donePermutation;
     boolean doubleTap=false;
-    int fetch=20; //Initial number of permutations being fetch for number of fails known
+    int fetch=30; //Initial number of permutations being fetch for number of fails known
     ArrayList<AsyncTask> asyncTasks=new ArrayList<>();
     PermutationGenerator pg;
     boolean numOfFailsNeeded;
     RelativeLayout outerRelativeLayout;
+    TextView noResultsTextView;
+    boolean noPossiblePermutation=false;
 
 
     @Override
@@ -62,12 +65,13 @@ public class PermutationResults extends AppCompatActivity {
             permutations=p.getPermutation();
         }
 
+
         /*View Objects*/
         outerRelativeLayout=findViewById(R.id.outerRelativeLayout);
         possibleOutputsTableLayout=findViewById(R.id.possibleResultsTableLayout);
         TableLayout headingTableLayout=findViewById(R.id.headingTableLayout);
         ScrollView innerScrollView = findViewById(R.id.innerScrollView);
-        TextView noResultsTextView= findViewById(R.id.noResultsTextView);
+         noResultsTextView= findViewById(R.id.noResultsTextView);
         innerScrollView.setSmoothScrollingEnabled(true);
 
         if(permutations.size()>0) {
@@ -107,10 +111,18 @@ public class PermutationResults extends AppCompatActivity {
             possibleOutputsTableLayout.setStretchAllColumns(true);
 
         }
-        else{
-
-            Toast.makeText(this,"No Possible Permutation",Toast.LENGTH_LONG).show();
+        else if (!numOfFailsNeeded ){
+            /*to make sure if there is no result for a situation in which user doesnt want the number of fails to be showed;
+            * Notify the user that there isnt any results*/
             noResultsTextView.setVisibility(View.VISIBLE);
+            /*To make sure toasts dont overlap*/
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(PermutationResults.this,"No Possible Permutation",Toast.LENGTH_LONG).show();
+                }
+            },2250);
+
         }
     }
 
@@ -121,9 +133,14 @@ public class PermutationResults extends AppCompatActivity {
         done = true;
         donePermutation = false;
         if (numOfFailsNeeded) {
-            fetch = 30;
             new InfoLoader().execute(pg);
-            Toast.makeText(this, "Double Tap For More", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(PermutationResults.this, "Double Tap For More", Toast.LENGTH_SHORT).show();
+                }
+            },2250);
+
         }
         /*If only few permutation are there and the user double taps*/
         outerRelativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -156,6 +173,7 @@ public class PermutationResults extends AppCompatActivity {
                 }
                 else{
                     if(donePermutation||!numOfFailsNeeded) {
+                        noPossiblePermutation=true;
                         Toast.makeText(PermutationResults.this, "No more possible Permutations.", Toast.LENGTH_SHORT).show();
                     }}
             }
@@ -201,10 +219,13 @@ public class PermutationResults extends AppCompatActivity {
         }
 
 
+        /**
+         * Once background activity is done display the respective results*/
         @Override
         protected void onPostExecute( ArrayList<Integer[]> result) {
-
+            int countFetch=0;
             for (Integer[] permutation : result) {
+                countFetch++;
                 TableRow valueRow2 = new TableRow(PermutationResults.this);
                 for (int i = 1; i < 5; i++) {
                     TextView valueTextView = new TextView(PermutationResults.this);
@@ -221,6 +242,11 @@ public class PermutationResults extends AppCompatActivity {
             }
             possibleOutputsTableLayout.setStretchAllColumns(true);
             done=true;
+            if(noPossiblePermutation && countFetch==0 && fetch==30){
+                /*When users need the number of fails in the results and there are no results from
+                 both the permutations: permutation:getPermutation & PermutationGenerator:next()*/
+                noResultsTextView.setVisibility(View.VISIBLE);
+            }
             if(fetch>31) {
                 Toast.makeText(PermutationResults.this, "Permutations Fetched! \n Double Tap For More.", Toast.LENGTH_SHORT).show();
             }

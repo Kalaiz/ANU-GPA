@@ -35,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_below="@+id/gpaTextView"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="70dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="cycle_animation.json"

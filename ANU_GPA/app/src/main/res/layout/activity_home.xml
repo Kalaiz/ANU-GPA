@@ -3,35 +3,37 @@
 <!--author Prateek Arora, u6742441-->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:scrollbarStyle="outsideInset">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:id="@+id/anuGpaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="ANU GPA"
+            android:textColor="#000000"
+            android:layout_marginBottom="140dp"
+            android:textSize="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/anuGpaTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="ANU GPA"
-            android:textColor="#000000"
-            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:background="@drawable/back_button"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="120dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/gpaCalcLinearLayout"
             android:layout_marginRight="10dp"
@@ -125,12 +127,6 @@
                     />
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/emptyLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"></LinearLayout>
     </LinearLayout>
 </RelativeLayout>
 </ScrollView>

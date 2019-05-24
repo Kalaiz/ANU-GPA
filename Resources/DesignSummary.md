@@ -18,6 +18,6 @@
 - Fingerprint recognisation can be added easily, by making amendments to Password related classes.
 
 
-
-
+###### Disclamer: 
+The calculations done within the app doesn't guarantee the expected output in some cases due to precision issue.However,the app tries to provide the closest outputs.
 

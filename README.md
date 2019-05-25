@@ -3,9 +3,9 @@
 
 ## Team structure and roles 
 + Jared u5953599 - Team member 
-   + Update functionality(codes based Kalai from GPACalc)
+   + Update functionality(codes based on Kalai's code from GPACalc)
    + Password functionality (UI had some problems, password_set activity UI done by Prateek)
-   + Instrumented testing(the code were generated automatically, and then code repetition  was minimised   after that)
+   + Instrumented testing(the codes were generated automatically, and then code repetition  was minimised  after that)
    + Logic: GPA class  
    + GPA test 
 + Prateek u6742441 - Team member
@@ -35,7 +35,7 @@
 ## App Overview 
 
 _Our user-friendly app is for the ANU students who can not only calculate his/her GPA but can obtain all possible permutations of Grades so to achieve a target GPA. The app's motive is_
-_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.Furthermore,For privacy purposes, he or she can lock his/her app using password button._ <br>
+_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.Furthermore,for privacy purposes, he or she can lock his/her app using password button._ <br>
 
 <img src="../Resources/AppGif.gif" alt="app gif" align="middle"> 
 

@@ -75,7 +75,7 @@ public class GPACalc extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(GPACalc.this, "Extracted marks", Toast.LENGTH_LONG).show();
+                        Toast.makeText(GPACalc.this, "Extracted grades.", Toast.LENGTH_LONG).show();
                     }
                 },2250);
                 scrollView.fullScroll(View.FOCUS_UP);

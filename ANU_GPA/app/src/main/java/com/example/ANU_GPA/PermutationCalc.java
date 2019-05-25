@@ -29,6 +29,7 @@ public class PermutationCalc extends AppCompatActivity {
 
     boolean mEntryButtonClicked = false;
     int visibility = View.VISIBLE;
+    static Toast gotPermutationToast;
 
     /**
      * Based on given key of SharedPreference with the respective sharedPreference.
@@ -213,7 +214,8 @@ public class PermutationCalc extends AppCompatActivity {
                     Toast.makeText(PermutationCalc.this,"Wrong input ",Toast.LENGTH_SHORT).show();
                 }
                 if(errorFree){
-                    Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_SHORT).show();
+                    gotPermutationToast=Toast.makeText(PermutationCalc.this,"Got the Permutations",Toast.LENGTH_SHORT);
+                    gotPermutationToast.show();
                     Intent intent = new Intent(PermutationCalc.this,PermutationResults.class);
                     intent.putExtra("numOfTBTCourses",numOfTBTCourses);
                     intent.putExtra("gpaWanted",gpaWanted);

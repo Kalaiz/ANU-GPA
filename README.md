@@ -22,14 +22,14 @@
    + Corrected Jared's UI for password
 + Kalai u6555407 - Team member
    + Linked Prateek's base UI code to logic part of the app
-   + Client-Server functionality completed with some help of his friend(referenced him on README)
    + Logic: Permutation class
-   + PermutationGenerator class
-   + Permutation Result  Activity 
+   + Logic: PermutationGenerator class
    + ScaleEffect on View objects  & other minor animation
+   + Client-Server functionality completed with some help of his friend(referenced him on README)
+   + PermutationResult 
    + Feature to activate and deactivate scale effect animation 
-   + UI Changes to permutation activity and  changes to the naming convention of files and Resources
-   + Permutation test
+   + UI Changes to permutation activity and  changes to the naming convention of files and other Resources.
+   + Permutation test.
    + Storage functionality UI,but failed to link it up due to time constraint & workloads. [Proof;The adjacent commits can be loooked upon as well.](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/e47c4793dd80cba563410a92ff906df163b1908a)
 
 ## App Overview 

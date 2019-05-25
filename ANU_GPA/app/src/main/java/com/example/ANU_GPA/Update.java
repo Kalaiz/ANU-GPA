@@ -23,7 +23,6 @@ public class Update extends AppCompatActivity {
         setContentView(R.layout.activity_update);
 
         /*View Objects*/
-        TextView updateTextView = findViewById(R.id.updateTextView);
         Button doneButton = findViewById(R.id.doneButton);
         final EditText hdEditText = findViewById(R.id.hdEditText);
         final EditText dEditText = findViewById(R.id.dEditText);

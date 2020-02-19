@@ -1,5 +1,10 @@
-# AssignApp2019s1
-# App - ANU GPA
+# App - ANU GPA (An university Assignment)
+## App Overview 
+
+_This  user-friendly app is for the ANU students who can not only calculate his/her GPA but also can obtain all possible permutations of Grades so to achieve a target GPA. The app's motive is_
+_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.Furthermore,for privacy purposes, he or she can lock his/her app using password button._ <br>
+
+![app GIF](Resources/AppGif.gif)
 
 ## Team structure and roles 
 + Jared u5953599 - Team member 
@@ -31,15 +36,6 @@
    + UI Changes to permutation activity and  changes to the naming convention of files and other Resources.
    + Permutation test.
    + Storage functionality UI,but failed to link it up due to time constraint & uneven workloads. [Proof;The adjacent commits can be loooked upon as well.](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/e47c4793dd80cba563410a92ff906df163b1908a)
-
-## App Overview 
-
-_This  user-friendly app is for the ANU students who can not only calculate his/her GPA but also can obtain all possible permutations of Grades so to achieve a target GPA. The app's motive is_
-_to make student's life easier by calculating the GPA and can help him/her getting his/her desired GPA fulfilled.Furthermore,for privacy purposes, he or she can lock his/her app using password button._ <br>
-
-![app GIF](Resources/AppGif.gif)
-
-
 
 ## Design Documentation 
 + [Design Summary](../Resources/DesignSummary.md)

@@ -1,4 +1,4 @@
-# App - ANU GPA (An university Assignment)
+# App - ANU GPA 
 ## App Overview 
 
 _This  user-friendly app is for the ANU students who can not only calculate his/her GPA but also can obtain all possible permutations of Grades so to achieve a target GPA. The app's motive is_

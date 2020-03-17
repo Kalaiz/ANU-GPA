@@ -43,17 +43,17 @@ _to make student's life easier by calculating the GPA and can help him/her getti
 
 ## Minuted Meetings
 + [Meeting 1 - 8/4/19 - Deciding on the topic of app & Dividing tasks](Resources/Meeting1.md)
-+ [Meeting 2 - 12/4/19 - Logic & Base/Template of the App](../Resources/Meeting2.md)
-+ [Meeting 3 - 14/4/19 - Linking up Logic of the App](../Resources/Meeting3.md)
-+ [Meeting 4 - 15/4/19 - Graphical Display & client-server problem](../Resources/Meeting4.md)
-+ [Meeting 5 - 16/4/19 - Continous Integration tool and UI design](../Resources/Meeting5.md)
-+ [Meeting 6 - 17/4/19 - Considering the extensibility of the App](../Resources/Meeting6.md)
-+ [Meeting 7 - 18/4/19 - Client-server issue](../Resources/Meeting7.md)
-+ [Meeting 8 - 19/4/19 - Major Revamps ,Client-server issue & Authorships](../Resources/Meeting8.md)
++ [Meeting 2 - 12/4/19 - Logic & Base/Template of the App](Resources/Meeting2.md)
++ [Meeting 3 - 14/4/19 - Linking up Logic of the App](Resources/Meeting3.md)
++ [Meeting 4 - 15/4/19 - Graphical Display & client-server problem](Resources/Meeting4.md)
++ [Meeting 5 - 16/4/19 - Continous Integration tool and UI design](Resources/Meeting5.md)
++ [Meeting 6 - 17/4/19 - Considering the extensibility of the App](Resources/Meeting6.md)
++ [Meeting 7 - 18/4/19 - Client-server issue](Resources/Meeting7.md)
++ [Meeting 8 - 19/4/19 - Major Revamps ,Client-server issue & Authorships](Resources/Meeting8.md)
 + [Meeting 9 - 20/4/19 - Stablised Working App](../Resources/Meeting9.md)
-+ [Meeting 10 - 24/4/19 - Bugs Found & Further Implementation](../Resources/Meeting10.md)
-+ [Meeting 11 - 29/4/19 - Bugs regarding the apps fixed and new idea for update](../Resources/Meeting11.md)
-+ [Meeting 12 - 8/5/19 - Bugs regarding the apps fixed and new idea for update (2)](../Resources/Meeting12.md)
++ [Meeting 10 - 24/4/19 - Bugs Found & Further Implementation](Resources/Meeting10.md)
++ [Meeting 11 - 29/4/19 - Bugs regarding the apps fixed and new idea for update](Resources/Meeting11.md)
++ [Meeting 12 - 8/5/19 - Bugs regarding the apps fixed and new idea for update (2)](Resources/Meeting12.md)
 
 
 ## Statement of Originality

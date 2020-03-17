@@ -42,7 +42,7 @@ _to make student's life easier by calculating the GPA and can help him/her getti
 + [Testing Summary](../Resources/TestingSummary.md)
 
 ## Minuted Meetings
-+ [Meeting 1 - 8/4/19 - Deciding on the topic of app & Dividing tasks](../Resources/Meeting1.md)
++ [Meeting 1 - 8/4/19 - Deciding on the topic of app & Dividing tasks](Resources/Meeting1.md)
 + [Meeting 2 - 12/4/19 - Logic & Base/Template of the App](../Resources/Meeting2.md)
 + [Meeting 3 - 14/4/19 - Linking up Logic of the App](../Resources/Meeting3.md)
 + [Meeting 4 - 15/4/19 - Graphical Display & client-server problem](../Resources/Meeting4.md)

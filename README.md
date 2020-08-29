@@ -35,7 +35,6 @@ _to make student's life easier by calculating the GPA and can help him/her getti
    + Feature to activate and deactivate scale effect animation 
    + UI Changes to permutation activity and  changes to the naming convention of files and other Resources.
    + Permutation test.
-   + Storage functionality UI,but failed to link it up due to time constraint & uneven workloads. [Proof;The adjacent commits can be loooked upon as well.](https://gitlab.cecs.anu.edu.au/u6555407/assignapp2019s1/commit/e47c4793dd80cba563410a92ff906df163b1908a)
 
 ## Design Documentation 
 + [Design Summary](../Resources/DesignSummary.md)
